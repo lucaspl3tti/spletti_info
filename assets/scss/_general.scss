@@ -1,0 +1,81 @@
+body {
+    margin: -70px 0 3rem 0;
+    font-family: $body-font;
+    font-size: $normal-font-size;
+    background-color: $body-color;
+    color: $text-color;
+}
+
+h1,h2,h3,h4 {
+    color: $text-color;
+    font-weight: $font-weight-bold;
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nav-container,
+.content-container,
+.skills-qualifications-container {
+    padding: 0 15%;
+}
+
+.heading {
+    text-align: center;
+}
+
+.btn {
+    width: 180px;
+    height: 55px;
+    border: 2px solid $color-main;
+    padding: .5rem .75rem;
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.4);
+    font-size: $smaller-font-size;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn-primary {
+    background-color: $color-main;
+
+    &:hover {
+        background-color: $body-color;
+        color: $color-main;
+    }
+}

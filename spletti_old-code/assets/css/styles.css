@@ -1,0 +1,162 @@
+/* =========== Google Fonts =========== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* =========== css variables =========== */
+:root {
+    --header-height: 3rem;
+
+    /* -------- colors -------- */
+    --first-color: hsl(250, 57%, 53%);
+    --first-color-alt: hsl(250, 69%, 61%);
+    --text-color: #333;
+    --text-color-light: #fff;
+    --input-color-dark: hsl(250, 29%, 16%);
+    --body-color: hsl(250, 60%, 99%);
+    --body-color-dark: hsl(250, 28%, 12%);
+
+    /* -------- fonts and typography -------- */
+    --body-font: font-family: 'Poppins', sans-serif;
+
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: 0.75rem;
+
+    /* -------- font weight -------- */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* -------- margenes bottom -------- */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /* -------- z index -------- */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-model: 1000;
+}
+
+/* -------- font size for large devices -------- */
+@media screen and (min-width: 968px) {
+    :root {
+        --h1-font-size: 2.625rem;
+        --h2-font-size: 2.375rem;
+        --h3-font-size: 2.125rem;
+        --normal-font-size: 1.625rem;
+        --small-font-size: 1.5rem;
+        --smaller-font-size: 1.375rem;
+    }
+}
+
+
+/* =========== dark / light =========== */
+
+
+
+
+/* =========== base =========== */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 0 var(--header-height) 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,h2,h3,h4 {
+    color: var(--text-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========== reusable css classes =========== */
+.section  {
+    padding: 2rem 0 4rem;
+
+}
+
+.section_title {
+    font-size: var(--h1-font-size);
+}
+
+.section_subtitle {
+    display: block;
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-3);
+}
+
+
+.section_title,
+.section_subtitle {
+    text-align: center;
+}
+
+
+/* =========== container =========== */
+.container {
+    max-width: 768px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+}
+
+/* =========== navigation =========== */
+.nav {
+    max-width: 968px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo,
+nav__toggle {
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__logo,

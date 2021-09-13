@@ -1,0 +1,139 @@
+/** portfolio styles */
+.portfolio-container {
+    margin-top: 10rem;
+
+    .portfolio-content {
+        display: grid;
+        grid-gap: 5%;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 4rem;
+    }
+}
+
+.project-container {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 2.5fr 2fr;
+    grid-template-areas:
+    "project-heading project-heading"
+    "project-info project-image"
+    "project-link project-image";
+    background-color: $color-main;
+    color: $text-color-light;
+    border-radius: 25px;
+
+    h3 {
+        grid-area: project-heading;
+        padding-top: 30px;
+        justify-self: center;
+        color: $text-color-light;
+        font-size: $normal-font-size;
+    }
+
+    p {
+        grid-area: project-info;
+        padding-left: 40px;
+        font-size: $small-font-size;
+    }
+
+    a {
+        grid-area: project-link;
+        padding-left: 40px;
+        padding-bottom: 30px;
+        color: inherit;
+        font-size: $small-font-size;
+
+        .fa-arrow-right {
+            margin-left: 4px;
+        }
+    }
+
+    img {
+        grid-area: project-image;
+        align-self: flex-end;
+    }
+}
+
+/** skills and qualifications styles */
+.skills-qualifications,
+.contact-container {
+    margin-top: 10rem;
+    background-color: $color-main;
+    box-shadow:
+    inset 0 0 20px 16px rgba($color: #000000, $alpha: 0.2);
+}
+
+.skills-qualifications-container {
+    padding: 4% 15%;
+
+    h2 {
+        text-align: center;
+        color: $text-color-light;
+    }
+
+    .change-content {
+        .nav {
+            justify-content: center;
+            color: $text-color-light;
+
+            [class*="-is-active"] {
+                text-decoration: underline;
+            }
+        }
+
+        .nav-item {
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+.skills-content {
+    display: grid;
+    column-gap: 85px;
+    row-gap: 40px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+    "css html js ui-ux php databases"
+    "... adobe wordpress typo3 newsletter ...";
+    padding: 4% 0;
+
+    .css { grid-area: css; }
+    .html { grid-area: html; }
+    .js { grid-area: js; }
+    .ui { grid-area: ui-ux; }
+    .php { grid-area: php; }
+    .databases { grid-area: databases; }
+    .adobe { grid-area: adobe; }
+    .wordpress { grid-area: wordpress; }
+    .typo3 { grid-area: typo3; }
+    .newsletter { grid-area: newsletter; }
+}
+
+.skills-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    padding: 6% 0;
+    border-radius: 13px;
+    background-color: $body-color;
+    // box-shadow: 5px 5px 6px rgba($color: #000000, $alpha: 0.2);
+
+    img {
+        width: 60%;
+        height: auto;
+    }
+
+    p {
+        font-size: $smaller-font-size;
+        padding: .5rem 0 0;
+    }
+}
+
+.qualifications-content {
+    display: flex;
+    justify-content: center;
+    padding: 4% 0;
+}

@@ -1,0 +1,39 @@
+// Color Declaration
+$color-main: hsl(250, 57%, 53%);
+$color-main-alt: hsl(250, 69%, 61%);
+$text-color: #333;
+$text-color-light: #fff;
+$input-color-dark: hsl(250, 29%, 16%);
+$body-color: hsl(250, 60%, 99%);
+$body-color-dark: hsl(250, 28%, 12%);
+
+// Typography
+$body-font: 'Poppins', sans-serif;
+
+$h1-font-size: 2.625rem;
+$h1-font-size-mobile: 2rem;
+$h2-font-size: 2.375rem;
+$h2-font-size-mobile: 1.75rem;
+$h3-font-size: 2.125rem;
+$h3-font-size-mobile: 1.25rem;
+
+$normal-font-size: 1.625rem;
+$normal-font-size-mobile: 1rem;
+$small-font-size: 1.5rem;
+$small-font-size-mobile: .865rem;
+$smaller-font-size: 1.375rem;
+$smaller-font-size-mobile: .75rem;
+
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Z-Indexes
+$z-tooltip: 10;
+$z-fixed: 100;
+$z-model: 1000;
+
+// Media Queries
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

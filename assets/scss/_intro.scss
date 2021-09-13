@@ -1,0 +1,45 @@
+.intro-container {
+    display: grid;
+    grid-template-columns: 5fr 2.5fr .5fr;
+    grid-template-areas:
+    "intro-content intro-image intro-aside";
+    margin-top: 18rem;
+}
+
+.intro-main-content {
+    grid-area: intro-content;
+    align-self: center;
+    padding-right: 20px;
+
+    .btn {
+        margin-top: 3rem;
+    }
+}
+
+.intro-image {
+    grid-area: intro-image;
+    justify-self: center;
+
+    img {
+        height: 400px;
+        border-radius: 50%;
+    }
+}
+
+.intro-social-aside {
+    grid-area: intro-aside;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    [class*='social-'] {
+        width: 70%;
+        margin-bottom: 2rem;
+    }
+
+    .social-linkedin {
+        margin-bottom: 0;
+    }
+}

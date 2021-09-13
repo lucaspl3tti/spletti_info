@@ -1,0 +1,91 @@
+.about-container {
+    margin-top: 10rem;
+
+    h2 {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+}
+
+.about-section {
+    display: grid;
+    column-gap: 40px;
+    row-gap: 1rem;
+    grid-template-columns: 1fr .5fr 2fr 1fr;
+    grid-template-areas:
+    "about-image about-image introduction introduction"
+    "about-image about-image interests backend-image"
+    "first-project first-project first-project first-project"
+    "ui-image career career career";
+
+    .about-image { grid-area: about-image; }
+    .introduction { grid-area: introduction; }
+    .interests { grid-area: interests; margin-bottom: 0; }
+    .backend-image { grid-area: backend-image; max-width: 87%; }
+    .first-project { grid-area: first-project; margin-bottom: 0; }
+    .ui-image { grid-area: ui-image; }
+    .career { grid-area: career; }
+}
+
+.about-subheading {
+    margin-bottom: 0;
+}
+
+.about-me {
+    font-size: 2rem;
+}
+
+.about-intro {
+    margin-bottom: 0;
+}
+
+/** contact styles */
+.contact-container {
+    border-radius: 30px;
+}
+
+.contact-content {
+    padding: 50px 10rem;
+    color: $text-color-light;
+
+    h3 {
+        color: inherit;
+        text-align: center;
+    }
+
+    .contact-subheading {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+}
+
+.form-container {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "name email"
+    "subject subject"
+    "message message"
+    "checkbox checkbox";
+
+    .input-name { grid-area: name; }
+    .input-email { grid-area: email; }
+    .input-subject { grid-area: subject; }
+    .input-message { grid-area: message; height: 230px; }
+    .form-check { grid-area: checkbox; }
+}
+
+.form-control {
+    height: 100%;
+    border-radius: 0;
+}
+
+[class*="input-"] {
+    height: 55px;
+}
+
+.form-check-input:checked {
+    background-color: $body-color-dark;
+    border-color: $body-color-dark;
+}
