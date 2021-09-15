@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
         <!-- Custom CSS -->
-        <link href="assets/css/base.css" rel="stylesheet">
+        <link href="assets/scss/base.css" rel="stylesheet">
 
         <!-- JS files -->
         <script src="assets/js/change-content.js" defer></script>
@@ -23,21 +23,32 @@
 
             <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#portfolio">Portfolio</a>
+                  <a class="nav-link nav-portfolio" href="#portfolio">
+                      <i class="fas fa-code"></i>
+                      <br/>Portfolio
+                    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#skills">Skills</a>
+                  <a class="nav-link nav-skills" href="#skills">
+                    <i class="fas fa-code-branch"></i>
+                    <br/>Skills
+                </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#about">About Me</a>
+                  <a class="nav-link nav-about" href="#about">About Me</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#contact">Contact</a>
+                  <a class="nav-link nav-contact" href="#contact">
+                    <i class="fas fa-at"></i>
+                    <br/>Contact
+                </a>
                 </li>
             </ul>
+            <!--
             <a class="appearance" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
             </a>
+        -->
         </header>
         <main>
             <div class="content-container">
@@ -46,7 +57,9 @@
                         <h1>Hi, I'm Jan-Luca</h1>
                         <p class="h3">Frontend Developer and UI/UX Designer</p>
                         <p>Young Frontend Developer and Designer with a passion for good, clean code and awesome design.</p>
-                        <a class="btn btn-primary" href="#portfolio">See my Work</a>
+                        <div class="btn-portfolio">
+                            <a class="btn btn-primary" href="#portfolio">See my Work</a>
+                        </div>
                     </div>
 
                     <div class="intro-image">
@@ -62,7 +75,7 @@
 
                         <div class="social-github">
                             <a class="social-icon" href="https://www.github.com/lucaspl3tti" target="_blank">
-                                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 512 512" id="Layer_1" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle cx="256" cy="256" fill="#000" r="256"/><g><path d="M256,93.9c-89.5,0-162.1,72.6-162.1,162.1c0,70.5,45,130.4,107.8,152.8c0.3,0.1,1.4,0.5,1.7,0.6    c0.9,0.3,1.9,0.5,2.9,0.5c5.3,0,9.5-4.3,9.5-9.5c0-0.3,0-0.5,0-0.8l0,0c0-8.6,0-19.5,0-28.2c-10.3,2.1-25.9,4.1-34.4,0    c-11-5.3-16.6-12.1-21.9-25.5c-6.6-16.3-21.8-20.8-22.4-23.6c-0.6-2.9,16.1-7.2,24.7,2.7c8.6,9.9,17.3,29.7,35.8,27.8    c9.1-0.9,15-2.4,18.7-3.5c0.7-6.4,2.8-14.3,8.1-19.9c-43.5-7.2-72.5-30.6-72.5-76.5c0-20.9,6-37.1,16.6-49.2    c-1.8-10-4.8-33.2,3.2-41.3c0,0,11.3-7,43.7,15.8c12.1-2.8,25.5-4.2,39.8-4.2l0,0c0.3,0,0.5,0,0.8,0c0.3,0,0.5,0,0.8,0l0,0    c14.4,0.1,27.8,1.5,39.8,4.2c32.4-22.8,43.7-15.8,43.7-15.8c8,8.2,5,31.4,3.2,41.3c10.6,12.2,16.6,28.4,16.6,49.2    c0,45.9-28.9,69.3-72.5,76.5c8.3,8.7,8.6,22.8,8.6,28.6c0,5.5,0,42.3,0,42.5c0,5.3,4.3,9.5,9.5,9.5c0.8,0,1.5-0.1,2.3-0.3    c0.2,0,0.8-0.2,1-0.3c63.5-22,109.1-82.3,109.1-153.3C418.1,166.4,345.5,93.9,256,93.9z" fill="#fbfbfe"/></g></g></svg>
+                                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg height="100%" enable-background="new 0 0 512 512" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><circle cx="256" cy="256" fill="#000" r="256"/><g><path d="M256,93.9c-89.5,0-162.1,72.6-162.1,162.1c0,70.5,45,130.4,107.8,152.8c0.3,0.1,1.4,0.5,1.7,0.6    c0.9,0.3,1.9,0.5,2.9,0.5c5.3,0,9.5-4.3,9.5-9.5c0-0.3,0-0.5,0-0.8l0,0c0-8.6,0-19.5,0-28.2c-10.3,2.1-25.9,4.1-34.4,0    c-11-5.3-16.6-12.1-21.9-25.5c-6.6-16.3-21.8-20.8-22.4-23.6c-0.6-2.9,16.1-7.2,24.7,2.7c8.6,9.9,17.3,29.7,35.8,27.8    c9.1-0.9,15-2.4,18.7-3.5c0.7-6.4,2.8-14.3,8.1-19.9c-43.5-7.2-72.5-30.6-72.5-76.5c0-20.9,6-37.1,16.6-49.2    c-1.8-10-4.8-33.2,3.2-41.3c0,0,11.3-7,43.7,15.8c12.1-2.8,25.5-4.2,39.8-4.2l0,0c0.3,0,0.5,0,0.8,0c0.3,0,0.5,0,0.8,0l0,0    c14.4,0.1,27.8,1.5,39.8,4.2c32.4-22.8,43.7-15.8,43.7-15.8c8,8.2,5,31.4,3.2,41.3c10.6,12.2,16.6,28.4,16.6,49.2    c0,45.9-28.9,69.3-72.5,76.5c8.3,8.7,8.6,22.8,8.6,28.6c0,5.5,0,42.3,0,42.5c0,5.3,4.3,9.5,9.5,9.5c0.8,0,1.5-0.1,2.3-0.3    c0.2,0,0.8-0.2,1-0.3c63.5-22,109.1-82.3,109.1-153.3C418.1,166.4,345.5,93.9,256,93.9z" fill="#fbfbfe"/></g></g></svg>
                             </a>
                         </div>
 
@@ -108,7 +121,7 @@
                             <li class="nav-item change-qualifications"><p>Qualifications</p></li>
                         </ul>
                     </div>
-                    <div class="skills-content">
+                    <div class="skills-content" style="display: grid;">
                         <div class="skills-box css">
                             <img src="assets/img/icons/skills/css-3 Kopie.png">
                             <p>CSS / SCSS </p>
@@ -161,7 +174,7 @@
                     </div>
 
                     <div class="qualifications-content" style="display: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="802" height="539.5" viewBox="0 0 802 539.5"><defs><style>.a{fill:none;stroke:#fff;stroke-width:5px;}.b{fill:#fff;}.b,.d{font-size:26px;}.b,.c,.d,.e{font-family:ArialMT, Arial;}.c,.d,.e{fill:#eee;}.c{font-size:20px;}.e{font-size:22px;}</style></defs><g transform="translate(-623 -604.5)"><line class="a" y2="473.794" transform="translate(1021.745 604.5)"/><line class="a" x1="147.198" transform="translate(874.547 707.999)"/><text class="b" transform="translate(627 689)"><tspan x="0" y="24">Backend Developer</tspan></text><text class="c" transform="translate(627 720)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text><line class="a" x1="147.198" transform="translate(1020.595 889.696)"/><text class="b" transform="translate(1188 874)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="d" transform="translate(848 872)"><tspan x="0" y="24">2020 - 2021</tspan></text><line class="a" x1="147.198" transform="translate(874.547 1078.294)"/><text class="b" transform="translate(623 1061)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="e" transform="translate(623 1093)"><tspan x="0" y="20">@ twocream. </tspan><tspan x="0" y="46">creativemedia GmbH</tspan></text><text class="d" transform="translate(1052 690)"><tspan x="0" y="24">2018 - 2020</tspan></text><text class="d" transform="translate(1052 1061)"><tspan x="0" y="24">2021 - Today</tspan></text><text class="c" transform="translate(1188 905)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 802 539.5"><defs><style>.a{fill:none; stroke:currentColor; stroke-width:5px;} .b{fill:currentColor;} .b,.d{font-size:26px;} .b,.c,.d,.e{font-family:ArialMT, Arial;} .c,.d,.e{fill:currentColor;} .c{font-size:20px;} .e{font-size:22px;}</style></defs><g transform="translate(-623 -604.5)"><line class="a" y2="473.794" transform="translate(1021.745 604.5)"/><line class="a" x1="147.198" transform="translate(874.547 707.999)"/><text class="b" transform="translate(627 689)"><tspan x="0" y="24">Backend Developer</tspan></text><text class="c" transform="translate(627 720)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text><line class="a" x1="147.198" transform="translate(1020.595 889.696)"/><text class="b" transform="translate(1188 874)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="d" transform="translate(848 872)"><tspan x="0" y="24">2020 - 2021</tspan></text><line class="a" x1="147.198" transform="translate(874.547 1078.294)"/><text class="b" transform="translate(623 1061)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="e" transform="translate(623 1093)"><tspan x="0" y="20">@ twocream. </tspan><tspan x="0" y="46">creativemedia GmbH</tspan></text><text class="d" transform="translate(1052 690)"><tspan x="0" y="24">2018 - 2020</tspan></text><text class="d" transform="translate(1052 1061)"><tspan x="0" y="24">2021 - Today</tspan></text><text class="c" transform="translate(1188 905)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text></g></svg>
                     </div>
                 </div>
             </div>
@@ -215,7 +228,7 @@
                                         <input type="text" placeholder="Your Message" class="form-control">
                                     </div>
 
-                                    <div class="form-check form-switch">
+                                    <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">
                                           Privacy Policy

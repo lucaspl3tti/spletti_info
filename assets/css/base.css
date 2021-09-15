@@ -1,4 +1,12 @@
-/* line 1, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
+/**
+@import "_variables.scss";
+@import "_general.scss";
+@import "_header.scss";
+@import "_intro.scss";
+@import "_portfolio-skills.scss";
+@import "_about.scss";
+*/
+/** general styling */
 body {
   margin: -70px 0 3rem 0;
   font-family: "Poppins", sans-serif;
@@ -7,49 +15,40 @@ body {
   color: #333;
 }
 
-/* line 9, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 h1, h2, h3, h4 {
   color: #333;
   font-weight: 700;
 }
 
-/* line 14, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 h1 {
   font-size: 2.625rem;
 }
 
-/* line 18, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 h2 {
   font-size: 2.375rem;
 }
 
-/* line 22, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 h3 {
   font-size: 2.125rem;
 }
 
-/* line 26, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 ul {
   list-style: none;
 }
 
-/* line 30, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 a {
   text-decoration: none;
 }
 
-/* line 33, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 38, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* line 43, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 .unselectable {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -58,498 +57,12 @@ img {
   user-select: none;
 }
 
-/* line 51, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 .nav-container,
 .content-container,
 .skills-qualifications-container {
   padding: 0 15%;
 }
 
-/* line 57, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
 .heading {
   text-align: center;
 }
-
-/* line 61, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
-.btn {
-  width: 180px;
-  height: 55px;
-  border: 2px solid #5a43cb;
-  padding: .5rem .75rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-  font-size: 1.375rem;
-}
-
-/* line 69, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
-.btn:hover {
-  text-decoration: none;
-}
-
-/* line 74, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
-.btn-primary {
-  background-color: #5a43cb;
-}
-
-/* line 77, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_general.scss */
-.btn-primary:hover {
-  background-color: #fbfbfe;
-  color: #5a43cb;
-}
-
-/* line 2, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.header-background {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  margin: -10% -10% 0;
-  z-index: -1;
-}
-
-/* line 10, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background-color: #5a43cb;
-}
-
-/* line 18, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav {
-  justify-content: flex-end;
-}
-
-/* line 22, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container {
-  height: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 5fr) 0.75fr;
-  grid-template-rows: auto;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-}
-
-/* line 30, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container [class*='nav-'],
-.nav-container .appearance {
-  text-align: center;
-  color: #fff;
-  padding: 0 .75rem;
-}
-
-/* line 37, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container .nav-logo {
-  text-align: left;
-  padding: 0;
-}
-
-/* line 41, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container .nav-logo:hover {
-  text-decoration: none;
-  cursor: initial;
-}
-
-/* line 47, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container .appearance {
-  width: 50%;
-  padding: 0;
-  justify-self: flex-end;
-}
-
-/* line 52, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_header.scss */
-.nav-container .appearance svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* line 1, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-container {
-  display: grid;
-  grid-template-columns: 5fr 2.5fr .5fr;
-  grid-template-areas: "intro-content intro-image intro-aside";
-  margin-top: 18rem;
-}
-
-/* line 9, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-main-content {
-  grid-area: intro-content;
-  align-self: center;
-  padding-right: 20px;
-}
-
-/* line 14, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-main-content .btn {
-  margin-top: 3rem;
-}
-
-/* line 19, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-image {
-  grid-area: intro-image;
-  justify-self: center;
-}
-
-/* line 23, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-image img {
-  height: 400px;
-  border-radius: 50%;
-}
-
-/* line 29, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-social-aside {
-  grid-area: intro-aside;
-  justify-self: center;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-/* line 37, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-social-aside [class*='social-'] {
-  width: 70%;
-  margin-bottom: 2rem;
-}
-
-/* line 42, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_intro.scss */
-.intro-social-aside .social-linkedin {
-  margin-bottom: 0;
-}
-
-/** portfolio styles */
-/* line 2, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.portfolio-container {
-  margin-top: 10rem;
-}
-
-/* line 5, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.portfolio-container .portfolio-content {
-  display: grid;
-  grid-gap: 5%;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 4rem;
-}
-
-/* line 13, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container {
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: 2.5fr 2fr;
-  grid-template-areas: "project-heading project-heading" "project-info project-image" "project-link project-image";
-  background-color: #5a43cb;
-  color: #fff;
-  border-radius: 25px;
-}
-
-/* line 25, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container h3 {
-  grid-area: project-heading;
-  padding-top: 30px;
-  justify-self: center;
-  color: #fff;
-  font-size: 1.625rem;
-}
-
-/* line 33, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container p {
-  grid-area: project-info;
-  padding-left: 40px;
-  font-size: 1.5rem;
-}
-
-/* line 39, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container a {
-  grid-area: project-link;
-  padding-left: 40px;
-  padding-bottom: 30px;
-  color: inherit;
-  font-size: 1.5rem;
-}
-
-/* line 46, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container a .fa-arrow-right {
-  margin-left: 4px;
-}
-
-/* line 51, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.project-container img {
-  grid-area: project-image;
-  align-self: flex-end;
-}
-
-/** skills and qualifications styles */
-/* line 58, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications,
-.contact-container {
-  margin-top: 10rem;
-  background-color: #5a43cb;
-  box-shadow: inset 0 0 20px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* line 66, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications-container {
-  padding: 4% 15%;
-}
-
-/* line 69, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications-container h2 {
-  text-align: center;
-  color: #fff;
-}
-
-/* line 75, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications-container .change-content .nav {
-  justify-content: center;
-  color: #fff;
-}
-
-/* line 79, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications-container .change-content .nav [class*="-is-active"] {
-  text-decoration: underline;
-}
-
-/* line 84, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-qualifications-container .change-content .nav-item {
-  padding: 0 10px;
-  cursor: pointer;
-}
-
-/* line 91, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content {
-  display: grid;
-  column-gap: 85px;
-  row-gap: 40px;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas: "css html js ui-ux php databases" "... adobe wordpress typo3 newsletter ...";
-  padding: 4% 0;
-}
-
-/* line 101, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .css {
-  grid-area: css;
-}
-
-/* line 102, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .html {
-  grid-area: html;
-}
-
-/* line 103, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .js {
-  grid-area: js;
-}
-
-/* line 104, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .ui {
-  grid-area: ui-ux;
-}
-
-/* line 105, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .php {
-  grid-area: php;
-}
-
-/* line 106, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .databases {
-  grid-area: databases;
-}
-
-/* line 107, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .adobe {
-  grid-area: adobe;
-}
-
-/* line 108, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .wordpress {
-  grid-area: wordpress;
-}
-
-/* line 109, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .typo3 {
-  grid-area: typo3;
-}
-
-/* line 110, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-content .newsletter {
-  grid-area: newsletter;
-}
-
-/* line 113, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 150px;
-  width: 150px;
-  padding: 6% 0;
-  border-radius: 13px;
-  background-color: #fbfbfe;
-}
-
-/* line 124, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-box img {
-  width: 60%;
-  height: auto;
-}
-
-/* line 129, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.skills-box p {
-  font-size: 1.375rem;
-  padding: .5rem 0 0;
-}
-
-/* line 135, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_portfolio-skills.scss */
-.qualifications-content {
-  display: flex;
-  justify-content: center;
-  padding: 4% 0;
-}
-
-/* line 1, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-container {
-  margin-top: 10rem;
-}
-
-/* line 4, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-container h2 {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-/* line 10, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section {
-  display: grid;
-  column-gap: 40px;
-  row-gap: 1rem;
-  grid-template-columns: 1fr .5fr 2fr 1fr;
-  grid-template-areas: "about-image about-image introduction introduction" "about-image about-image interests backend-image" "first-project first-project first-project first-project" "ui-image career career career";
-}
-
-/* line 21, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .about-image {
-  grid-area: about-image;
-}
-
-/* line 22, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .introduction {
-  grid-area: introduction;
-}
-
-/* line 23, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .interests {
-  grid-area: interests;
-  margin-bottom: 0;
-}
-
-/* line 24, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .backend-image {
-  grid-area: backend-image;
-  max-width: 87%;
-}
-
-/* line 25, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .first-project {
-  grid-area: first-project;
-  margin-bottom: 0;
-}
-
-/* line 26, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .ui-image {
-  grid-area: ui-image;
-}
-
-/* line 27, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-section .career {
-  grid-area: career;
-}
-
-/* line 30, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-subheading {
-  margin-bottom: 0;
-}
-
-/* line 34, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-me {
-  font-size: 2rem;
-}
-
-/* line 38, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.about-intro {
-  margin-bottom: 0;
-}
-
-/** contact styles */
-/* line 43, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.contact-container {
-  border-radius: 30px;
-}
-
-/* line 47, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.contact-content {
-  padding: 50px 10rem;
-  color: #fff;
-}
-
-/* line 51, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.contact-content h3 {
-  color: inherit;
-  text-align: center;
-}
-
-/* line 56, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.contact-content .contact-subheading {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-/* line 62, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container {
-  display: grid;
-  grid-gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "name email" "subject subject" "message message" "checkbox checkbox";
-}
-
-/* line 72, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container .input-name {
-  grid-area: name;
-}
-
-/* line 73, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container .input-email {
-  grid-area: email;
-}
-
-/* line 74, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container .input-subject {
-  grid-area: subject;
-}
-
-/* line 75, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container .input-message {
-  grid-area: message;
-  height: 230px;
-}
-
-/* line 76, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-container .form-check {
-  grid-area: checkbox;
-}
-
-/* line 79, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-control {
-  height: 100%;
-  border-radius: 0;
-}
-
-/* line 84, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-[class*="input-"] {
-  height: 55px;
-}
-
-/* line 88, ../../OneDrive/Dokumente/work/Portfolio Webseite/spletti.info/assets/scss/_about.scss */
-.form-check-input:checked {
-  background-color: #191627;
-  border-color: #191627;
-}
-
-/*# sourceMappingURL=base.css.map */
