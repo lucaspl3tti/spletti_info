@@ -5,6 +5,10 @@ body {
     font-size: $normal-font-size-mobile;
     background-color: $body-color;
     color: $text-color;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $smaller-font-size;
+    }
 }
 
 h1,
@@ -17,14 +21,26 @@ h4 {
 
 h1 {
     font-size: $h1-font-size-mobile;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h2-font-size;
+    }
 }
 
 h2 {
-    font-size: $h2-font-size-mobile;
+    font-size: $h3-font-size-mobile;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h3-font-size;
+    }
 }
 
 h3 {
     font-size: $h3-font-size-mobile;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $normal-font-size;
+    }
 }
 
 ul {
@@ -96,6 +112,18 @@ img {
     grid-template-columns: 1fr 4fr;
     box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
 
+    // Tablet styling
+    @media (min-width: $breakpoint-md) {
+        top: 0;
+        height: 80px;
+        font-size: $smaller-font-size;
+        grid-template-columns: 1fr 3fr;
+
+        [class*="fa-"] {
+            display: none;
+        }
+    }
+
     .nav-logo {
         color: $text-color-light;
         font-size: inherit;
@@ -126,6 +154,10 @@ img {
 
     .nav-about {
         display: none;
+
+        @media (min-width: $breakpoint-md) {
+            display: block;
+        }
     }
 }
 
@@ -138,6 +170,14 @@ img {
         "intro-social-aside intro-image"
         "main-content main-content";
     margin: 60px 0 0;
+
+    @media (min-width: $breakpoint-md) {
+        margin: 120px 0 0;
+        grid-template-columns: 4fr 2fr;
+        grid-template-areas:
+            "main-content intro-image"
+            "main-content intro-social-aside";
+    }
 
     .intro-main-content {
         grid-area: main-content;
@@ -162,15 +202,41 @@ img {
     justify-content: center;
     align-items: flex-start;
 
+    @media (min-width: $breakpoint-md) {
+        flex-direction: row;
+
+        .social-instagram,
+        .social-github,
+        .social-linkedin {
+            height: 70%;
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+
+        .social-linkedin {
+            margin-right: 0;
+        }
+    }
+
     .social-instagram,
     .social-github,
     .social-linkedin {
         height: 20%;
         margin-bottom: 10px;
+
+        @media (min-width: $breakpoint-md) {
+            height: 70%;
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
     }
 
     .social-linkedin {
         margin-bottom: 0;
+
+        @media (min-width: $breakpoint-md) {
+            margin-right: 0;
+        }
     }
 }
 
@@ -182,6 +248,14 @@ img {
 .portfolio {
     margin-top: 50px;
     padding-top: 50px;
+}
+
+.portfolio-content {
+    @media (min-width: $breakpoint-md) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
 }
 
 .project-container {
@@ -247,6 +321,12 @@ img {
 .skills-content {
     grid-gap: 15px;
     grid-template-columns: 1fr 1fr;
+
+    @media (min-width: $breakpoint-md) {
+        grid-gap: 50px;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
 }
 
 .skills-box {
@@ -259,6 +339,10 @@ img {
     width: 160px;
     height: 155px;
     border-radius: 13px;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $h3-font-size-mobile;
+    }
 
     img {
         width: 80%;
@@ -285,26 +369,17 @@ img {
     display: flex;
     flex-direction: column;
 
-    .about-image {
-        grid-area: image;
-    }
-
     .introduction {
         margin-top: 50px;
-        grid-area: intro;
 
         .about-subheading {
             margin: 0;
             font-size: $h3-font-size-mobile;
         }
 
-        .about-me {
+        .me-intro {
             font-size: $small-font-size;
         }
-    }
-
-    .interests {
-        grid-area: interests;
     }
 
     .backend-image,
@@ -313,17 +388,51 @@ img {
         align-self: center;
         margin-bottom: 1rem;
     }
+}
 
-    .first-project {
-        grid-area: first-project;
-    }
+@media (min-width: $breakpoint-md) {
+    .about-section {
+        .about-intro {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: 2fr 3fr;
+            grid-template-areas: "image intro";
 
-    .ui-image {
-        grid-area: frontend;
-    }
+            .about-image {
+                grid-area: image;
+            }
 
-    .career {
-        grid-area: career;
+            .introduction { grid-area: intro; margin-top: 0; }
+        }
+
+        .my-start {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: 3fr 2fr;
+            grid-template-areas: "first-project backend-image";
+
+            .backend-image { grid-area: backend-image; }
+            .first-project { grid-area: first-project; }
+
+        }
+
+        .frontend {
+            display: grid;
+            grid-gap: 15px;
+            grid-template-columns: 2fr 3fr;
+            grid-template-areas: "ui-image backend"
+            "frontend frontend";
+
+            .ui-image { grid-area: ui-image; }
+            .backend-career { grid-area: backend; }
+            .frontend-career { grid-area: frontend; }
+        }
+
+        .backend-image,
+        .ui-image {
+            width: 90%;
+            justify-self: center;
+        }
     }
 }
 
@@ -337,6 +446,7 @@ img {
     background-color: $color-main;
     border-radius: 30px;
     margin-bottom: 120px;
+    box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
 }
 
 .contact-content {
