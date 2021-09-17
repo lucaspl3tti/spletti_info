@@ -21,6 +21,12 @@ body {
   }
 }
 
+@media (min-width: 992px) {
+  body {
+    font-size: 1.625rem;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -39,6 +45,12 @@ h1 {
   }
 }
 
+@media (min-width: 992px) {
+  h1 {
+    font-size: 2.625rem;
+  }
+}
+
 h2 {
   font-size: 1.25rem;
 }
@@ -49,6 +61,12 @@ h2 {
   }
 }
 
+@media (min-width: 992px) {
+  h2 {
+    font-size: 2.375rem;
+  }
+}
+
 h3 {
   font-size: 1.25rem;
 }
@@ -56,6 +74,12 @@ h3 {
 @media (min-width: 768px) {
   h3 {
     font-size: 1.625rem;
+  }
+}
+
+@media (min-width: 992px) {
+  h3 {
+    font-size: 2.125rem;
   }
 }
 
@@ -94,11 +118,19 @@ img {
   padding: 0.75rem;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  border: 2px solid #191627;
+  font-weight: 500;
 }
 
 .btn-primary {
   background-color: #5a43cb;
   border-color: #5a43cb;
+}
+
+.btn-primary:hover {
+  background-color: #fbfbfe;
+  text-decoration: none;
+  color: #5a43cb;
 }
 
 .form-control {
@@ -110,6 +142,13 @@ img {
 .nav-container,
 .content-container {
   padding: 0 5%;
+}
+
+@media (min-width: 992px) {
+  .nav-container,
+  .content-container {
+    padding: 0 10%;
+  }
 }
 
 .heading {
@@ -207,12 +246,36 @@ img {
   }
 }
 
+@media (min-width: 992px) {
+  .intro-container {
+    margin: 180px 0 0;
+    -ms-grid-columns: 4fr 2fr .5fr;
+        grid-template-columns: 4fr 2fr .5fr;
+        grid-template-areas: "main-content intro-image intro-social-aside";
+  }
+}
+
 .intro-container .intro-main-content {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: main-content;
   margin-top: 1rem;
+}
+
+@media (min-width: 992px) {
+  .intro-container .intro-main-content {
+    padding-right: 20%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .intro-container .intro-main-content .btn-portfolio {
+    margin-top: 30px;
+  }
+  .intro-container .intro-main-content .myself {
+    margin-top: 1.5rem;
+  }
 }
 
 .intro-container .intro-image {
@@ -232,6 +295,12 @@ img {
   border-radius: 50%;
 }
 
+@media (min-width: 992px) {
+  .intro-image img {
+    height: 100%;
+  }
+}
+
 .intro-social-aside {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -248,22 +317,12 @@ img {
           align-items: flex-start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 992px) {
   .intro-social-aside {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-  }
-  .intro-social-aside .social-instagram,
-  .intro-social-aside .social-github,
-  .intro-social-aside .social-linkedin {
-    height: 70%;
-    margin-bottom: 0;
-    margin-right: 10px;
-  }
-  .intro-social-aside .social-linkedin {
-    margin-right: 0;
   }
 }
 
@@ -274,7 +333,7 @@ img {
   margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 992px) {
   .intro-social-aside .social-instagram,
   .intro-social-aside .social-github,
   .intro-social-aside .social-linkedin {
@@ -336,13 +395,80 @@ img {
   color: inherit;
 }
 
+.project-container .project-link:hover {
+  text-decoration: none;
+}
+
+.project-container .project-link:hover .fa-arrow-right {
+  -webkit-transform: translateX(7px);
+          transform: translateX(7px);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
 .project-container .project-image {
   margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .project-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 3fr 2fr;
+        grid-template-columns: 3fr 2fr;
+        grid-template-areas: "heading heading" "info image" "link image";
+    width: 90%;
+    height: 100%;
+    font-size: 1.5rem;
+  }
+  .project-container h3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: heading;
+    font-size: 1.625rem;
+  }
+  .project-container .project-info {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: info;
+  }
+  .project-container .project-link {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: link;
+  }
+  .project-container .project-image {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    grid-area: image;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-left {
+    justify-self: flex-start;
+  }
+  .container-right {
+    justify-self: flex-end;
+  }
 }
 
 /** skills and qualifications syling */
 .skills {
   padding-top: 40px;
+}
+
+@media (min-width: 992px) {
+  .skills {
+    padding-top: 70px;
+    margin-top: 70px;
+  }
 }
 
 .skills-qualifications {
@@ -354,6 +480,12 @@ img {
 .skills-qualifications-container {
   padding: 10% 5%;
   color: #fbfbfe;
+}
+
+@media (min-width: 992px) {
+  .skills-qualifications-container {
+    padding: 5%;
+  }
 }
 
 .skills-qualifications-container h2 {
@@ -369,13 +501,21 @@ img {
 }
 
 .skills-qualifications-container .change-skills {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 15%;
-          flex: 0 0 15%;
+  margin-right: 3%;
 }
 
 .skills-qualifications-container .skills-is-active,
 .skills-qualifications-container .qualifications-is-active {
+  text-decoration: underline;
+}
+
+.change-skills p,
+.change-qualifications p {
+  cursor: pointer;
+}
+
+.change-skills p:hover,
+.change-qualifications p:hover {
   text-decoration: underline;
 }
 
@@ -392,6 +532,59 @@ img {
         grid-template-columns: repeat(3, 1fr);
     justify-items: center;
   }
+}
+
+@media (min-width: 768px) {
+  .skills-content {
+    grid-gap: 0;
+    row-gap: 60px;
+    -webkit-column-gap: 150px;
+            column-gap: 150px;
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: "css html js ui php databases" "... adobe wordpress typo3 newsletter ...";
+    margin-top: 40px;
+  }
+}
+
+.skills-content .css {
+  grid-area: css;
+}
+
+.skills-content .html {
+  grid-area: html;
+}
+
+.skills-content .js {
+  grid-area: js;
+}
+
+.skills-content .ui {
+  grid-area: ui;
+}
+
+.skills-content .php {
+  grid-area: php;
+}
+
+.skills-content .databases {
+  grid-area: databases;
+}
+
+.skills-content .adobe {
+  grid-area: adobe;
+}
+
+.skills-content .wordpress {
+  grid-area: wordpress;
+}
+
+.skills-content .typo3 {
+  grid-area: typo3;
+}
+
+.skills-content .newsletter {
+  grid-area: newsletter;
 }
 
 .skills-box {
@@ -419,12 +612,25 @@ img {
   }
 }
 
+@media (min-width: 992px) {
+  .skills-box {
+    font-size: 1.375rem;
+  }
+}
+
 .skills-box img {
   width: 80%;
 }
 
 .skills-box p {
   margin: 5px 0 0;
+}
+
+@media (min-width: 992px) {
+  .qualifications-content {
+    height: 600px;
+    margin-top: 40px;
+  }
 }
 
 /** about styling */
@@ -476,7 +682,7 @@ img {
     grid-gap: 15px;
     -ms-grid-columns: 2fr 3fr;
         grid-template-columns: 2fr 3fr;
-        grid-template-areas: "image intro";
+        grid-template-areas: "image intro" "interests interests";
   }
   .about-section .about-intro .about-image {
     -ms-grid-row: 1;
@@ -488,6 +694,12 @@ img {
     -ms-grid-column: 2;
     grid-area: intro;
     margin-top: 0;
+  }
+  .about-section .about-intro .interests {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: interests;
   }
   .about-section .my-start {
     display: -ms-grid;
@@ -539,6 +751,32 @@ img {
   }
 }
 
+@media (min-width: 992px) {
+  .about-image {
+    max-width: 60%;
+  }
+  .about-section .about-intro {
+    -webkit-column-gap: 15px;
+            column-gap: 15px;
+    row-gap: 40px;
+  }
+  .about-section .backend-image,
+  .about-section .ui-image {
+    width: 40%;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .about-section .backend-image {
+    justify-self: flex-end;
+  }
+  .about-section .ui-image {
+    justify-self: flex-start;
+  }
+  .about-section .frontend {
+        grid-template-areas: "ui-image backend" "ui-image frontend";
+  }
+}
+
 /** contact styling */
 .contact {
   margin-top: 50px;
@@ -574,5 +812,51 @@ img {
 
 .contact-content .form-check {
   margin-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+  .contact-content p {
+    text-align: center;
+  }
+  .contact-form {
+    margin-top: 50px;
+  }
+  .form-container {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 40px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "name email" "subject subject" "message message" "checkbox checkbox";
+  }
+  .form-container .input-name {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: name;
+  }
+  .form-container .input-email {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: email;
+  }
+  .form-container .input-subject {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: subject;
+  }
+  .form-container .input-message {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: message;
+    height: 230px;
+  }
+  .form-container .form-check {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: checkbox;
+  }
 }
 /*# sourceMappingURL=base.css.map */
