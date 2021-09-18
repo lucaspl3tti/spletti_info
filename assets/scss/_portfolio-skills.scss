@@ -1,139 +1,179 @@
-/** portfolio styles */
-.portfolio-container {
-    margin-top: 10rem;
-
-    .portfolio-content {
-        display: grid;
-        grid-gap: 5%;
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 4rem;
-    }
+/** portfolio styling */
+.portfolio {
+    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .project-container {
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: 2.5fr 2fr;
-    grid-template-areas:
-    "project-heading project-heading"
-    "project-info project-image"
-    "project-link project-image";
     background-color: $color-main;
-    color: $text-color-light;
     border-radius: 25px;
+    margin-bottom: 50px;
+    color: $text-color-light;
 
     h3 {
-        grid-area: project-heading;
-        padding-top: 30px;
-        justify-self: center;
-        color: $text-color-light;
-        font-size: $normal-font-size;
-    }
-
-    p {
-        grid-area: project-info;
-        padding-left: 40px;
-        font-size: $small-font-size;
-    }
-
-    a {
-        grid-area: project-link;
-        padding-left: 40px;
-        padding-bottom: 30px;
+        padding-top: 20px;
+        text-align: center;
         color: inherit;
-        font-size: $small-font-size;
+    }
 
-        .fa-arrow-right {
-            margin-left: 4px;
+    .project-info {
+        padding: 0 20px;
+    }
+
+    .project-link {
+        padding: 0 20px;
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+
+            .fa-arrow-right {
+                transform: translateX(7px);
+                transition: transform .25s;
+            }
         }
     }
 
-    img {
-        grid-area: project-image;
-        align-self: flex-end;
+    .project-image {
+        margin-top: 20px;
     }
 }
 
-/** skills and qualifications styles */
-.skills-qualifications,
-.contact-container {
-    margin-top: 10rem;
+@media (min-width: $breakpoint-md) {
+    .portfolio-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media (min-width: $breakpoint-lg) {
+    .project-container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-areas:
+        "heading heading"
+        "info image"
+        "link image";
+        width: 95%;
+        height: 100%;
+        padding: 0 1%;
+        font-size: $small-font-size;
+
+        h3  { grid-area: heading; font-size: $normal-font-size; }
+        .project-info { grid-area: info; }
+        .project-link { grid-area: link; }
+        .project-image { grid-area: image; align-self: flex-end; }
+    }
+
+    .container-left { justify-self: flex-start; }
+    .container-right { justify-self: flex-end; }
+}
+
+/** skills and qualifications syling */
+.skills {
+    padding-top: 40px;
+
+    @media (min-width: $breakpoint-lg) {
+        padding-top: 70px;
+        margin-top: 70px;
+    }
+}
+
+.skills-qualifications {
     background-color: $color-main;
-    box-shadow:
-    inset 0 0 20px 16px rgba($color: #000000, $alpha: 0.2);
+    box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
 }
 
 .skills-qualifications-container {
-    padding: 4% 15%;
+    padding: 10% 5%;
+    color: $text-color-light;
 
-    h2 {
-        text-align: center;
-        color: $text-color-light;
+    @media (min-width: $breakpoint-lg) {
+        padding: 5%;
     }
 
-    .change-content {
-        .nav {
-            justify-content: center;
-            color: $text-color-light;
+    h2 {
+        color: inherit;
+        text-align: center;
+    }
 
-            [class*="-is-active"] {
-                text-decoration: underline;
-            }
-        }
+    .nav {
+        justify-content: center;
+        color: inherit;
+    }
 
-        .nav-item {
-            padding: 0 10px;
-            cursor: pointer;
+    .change-skills {
+        margin-right: 3%;
+    }
+
+    .skills-is-active,
+    .qualifications-is-active {
+        // text-decoration: underline;
+
+        .hover-underline::after {
+            transform: scaleX(1);
         }
+    }
+}
+
+.change-content {
+    margin-bottom: 40px;
+}
+
+.change-skills,
+.change-qualifications {
+    p {
+        cursor: pointer;
     }
 }
 
 .skills-content {
-    display: grid;
-    column-gap: 85px;
-    row-gap: 40px;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-areas:
-    "css html js ui-ux php databases"
-    "... adobe wordpress typo3 newsletter ...";
-    padding: 4% 0;
+    flex-flow: row wrap;
+    justify-content: space-between;
 
-    .css { grid-area: css; }
-    .html { grid-area: html; }
-    .js { grid-area: js; }
-    .ui { grid-area: ui-ux; }
-    .php { grid-area: php; }
-    .databases { grid-area: databases; }
-    .adobe { grid-area: adobe; }
-    .wordpress { grid-area: wordpress; }
-    .typo3 { grid-area: typo3; }
-    .newsletter { grid-area: newsletter; }
+    @media (min-width: $breakpoint-md) {
+
+    }
+
+    @media (min-width: $breakpoint-lg) {
+
+    }
 }
 
 .skills-box {
+    background-color: $body-color;
+    color: $text-color;
+    padding: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150px;
-    width: 150px;
-    padding: 6% 0;
     border-radius: 13px;
-    background-color: $body-color;
-    // box-shadow: 5px 5px 6px rgba($color: #000000, $alpha: 0.2);
+    margin-bottom: 2rem;
+    flex: 0 0 30%;
+
+    @media (min-width: $breakpoint-md) {
+        font-size: $smaller-font-size;
+        flex: 0 0 22%;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        font-size: $normal-font-size;
+        flex: 0 0 15%;
+    }
 
     img {
-        width: 60%;
-        height: auto;
+        width: 80%;
     }
 
     p {
-        font-size: $smaller-font-size;
-        padding: .5rem 0 0;
+        margin: 5px 0 0;
     }
 }
 
 .qualifications-content {
-    display: flex;
-    justify-content: center;
-    padding: 4% 0;
+    @media (min-width: $breakpoint-lg) {
+        height: 800px;
+        margin-top: 40px;
+    }
 }

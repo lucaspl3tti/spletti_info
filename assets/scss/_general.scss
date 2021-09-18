@@ -1,26 +1,32 @@
+/** general styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body {
-    margin: -70px 0 3rem 0;
+    margin: 0 0 3rem 0;
     font-family: $body-font;
-    font-size: $normal-font-size;
+    font-size: $normal-font-size-mobile;
     background-color: $body-color;
     color: $text-color;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
     color: $text-color;
     font-weight: $font-weight-bold;
 }
 
 h1 {
-    font-size: $h1-font-size;
+    font-size: $h1-font-size-mobile;
 }
 
 h2 {
-    font-size: $h2-font-size;
+    font-size: $h3-font-size-mobile;
 }
 
 h3 {
-    font-size: $h3-font-size;
+    font-size: $h3-font-size-mobile;
 }
 
 ul {
@@ -31,7 +37,7 @@ a {
     text-decoration: none;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -46,36 +52,136 @@ img {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.nav-container,
-.content-container,
-.skills-qualifications-container {
-    padding: 0 15%;
-}
-
-.heading {
-    text-align: center;
-}
-
-.btn {
-    width: 180px;
-    height: 55px;
-    border: 2px solid $color-main;
-    padding: .5rem .75rem;
-    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.4);
-    font-size: $smaller-font-size;
 
     &:hover {
         text-decoration: none;
     }
 }
 
+.hover-underline {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $text-color-light;
+        transform-origin: bottom right;
+        transition: transform .25s ease-out;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    padding: 0.75rem;
+    box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.4);
+    border: 2px solid $body-color-dark;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+        .fa-arrow-right {
+            transform: translateX(7px);
+            transition: transform .25s;
+        }
+    }
+}
+
 .btn-primary {
     background-color: $color-main;
+    border-color: $color-main;
 
     &:hover {
         background-color: $body-color;
+        text-decoration: none;
         color: $color-main;
     }
+}
+
+.btn-light {
+    border-color: $body-color;
+
+    &:hover {
+        background-color: rgba($color: $color-main, $alpha: 0);
+        color: $text-color-light;
+    }
+}
+
+.form-control {
+    height: 100%;
+    border-radius: 0;
+    border: none;
+
+    &::-webkit-input-placeholder { /* Edge */
+        color: $text-color;
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $text-color;
+    }
+
+    &::placeholder {
+        color: $text-color;
+    }
+}
+
+@media (min-width: $breakpoint-md) {
+    body {
+        font-size: $smaller-font-size;
+    }
+
+    h1 {
+        font-size: $h2-font-size;
+    }
+
+    h2 {
+        font-size: $h3-font-size;
+    }
+
+    h3 {
+        font-size: $normal-font-size;
+    }
+}
+
+@media (min-width: $breakpoint-lg) {
+    body {
+        font-size: $normal-font-size;
+    }
+
+    h1 {
+        font-size: $h1-font-size;
+    }
+
+    h2 {
+        font-size: $h2-font-size;
+    }
+
+    h3 {
+        font-size: $h3-font-size;
+    }
+}
+
+// Container Padding
+.nav-container,
+.content-container {
+    padding: 0 5%;
+
+    @media (min-width: $breakpoint-lg) {
+        padding: 0 10%;
+    }
+}
+
+.heading {
+    text-align: center;
 }

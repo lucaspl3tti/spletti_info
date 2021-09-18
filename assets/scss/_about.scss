@@ -1,51 +1,164 @@
-.about-container {
-    margin-top: 10rem;
 
+
+/** about styling */
+.about {
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.about-container {
     h2 {
-        margin-bottom: 3rem;
         text-align: center;
+        margin-bottom: 40px;
     }
 }
 
 .about-section {
-    display: grid;
-    column-gap: 40px;
-    row-gap: 1rem;
-    grid-template-columns: 1fr .5fr 2fr 1fr;
-    grid-template-areas:
-    "about-image about-image introduction introduction"
-    "about-image about-image interests backend-image"
-    "first-project first-project first-project first-project"
-    "ui-image career career career";
+    display: flex;
+    flex-direction: column;
 
-    .about-image { grid-area: about-image; }
-    .introduction { grid-area: introduction; }
-    .interests { grid-area: interests; margin-bottom: 0; }
-    .backend-image { grid-area: backend-image; max-width: 87%; }
-    .first-project { grid-area: first-project; margin-bottom: 0; }
-    .ui-image { grid-area: ui-image; }
-    .career { grid-area: career; }
+    .introduction {
+        margin-top: 50px;
+
+        .about-subheading {
+            margin: 0;
+            font-size: $h3-font-size-mobile;
+        }
+
+        .me-intro {
+            font-size: $small-font-size;
+        }
+    }
+
+    .my-start,
+    .frontend {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .backend-image,
+    .ui-image {
+        width: 60%;
+        align-self: center;
+        margin-bottom: 1rem;
+    }
 }
 
-.about-subheading {
-    margin-bottom: 0;
+@media (min-width: $breakpoint-md) {
+    .about-section {
+        .about-intro {
+            display: grid;
+            column-gap: 30px;
+            row-gap: 1rem;
+            grid-template-columns: 2fr 3fr;
+            grid-template-areas: "image intro"
+            "interests interests";
+
+            .about-image { grid-area: image; }
+
+            .introduction {
+                grid-area: intro;
+                margin-top: 0;
+            }
+
+            .interests { grid-area: interests; }
+        }
+
+        .my-start {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 3fr 2fr;
+            grid-template-areas: "first-project backend-image";
+
+            .backend-image {
+                grid-area: backend-image;
+            }
+            .first-project {
+                grid-area: first-project;
+            }
+        }
+
+        .frontend {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 2fr 3fr;
+            grid-template-areas:
+                "ui-image backend"
+                "frontend frontend";
+
+            .ui-image {
+                grid-area: ui-image;
+            }
+            .backend-career {
+                grid-area: backend;
+            }
+            .frontend-career {
+                grid-area: frontend;
+            }
+        }
+
+        .backend-image,
+        .ui-image {
+            width: 90%;
+            justify-self: center;
+        }
+    }
 }
 
-.about-me {
-    font-size: 2rem;
+@media (min-width: $breakpoint-lg) {
+    .about-image {
+        max-width: 95%;
+    }
+
+    .about-section {
+        .about-intro {
+            grid-template-columns: .7fr 3fr;
+            grid-template-areas:
+            "image intro"
+            "image interests";
+            column-gap: 2rem;
+            row-gap: 0;
+        }
+
+        .my-start {
+            grid-template-columns: 3fr .5fr;
+            grid-gap: 0;
+        }
+
+        .backend-image,
+        .ui-image {
+            width: 73%;
+            align-self: flex-start;
+        }
+
+        .backend-image { justify-self: flex-end; }
+        .ui-image { justify-self: flex-start; }
+
+        .frontend {
+            grid-template-columns: .5fr 3fr;
+            row-gap: 0;
+            column-gap: 0;
+            grid-template-areas:
+            "ui-image backend"
+            "ui-image frontend";
+        }
+    }
 }
 
-.about-intro {
-    margin-bottom: 0;
+/** contact styling */
+.contact {
+    margin-top: 50px;
 }
 
-/** contact styles */
 .contact-container {
+    background-color: $color-main;
     border-radius: 30px;
+    margin-bottom: 120px;
+    box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
 }
 
 .contact-content {
-    padding: 50px 10rem;
+    padding: 8%;
     color: $text-color-light;
 
     h3 {
@@ -54,38 +167,100 @@
     }
 
     .contact-subheading {
-        margin-bottom: 3rem;
-        text-align: center;
+        font-size: $smaller-font-size;
+    }
+
+    [class*="input-"] {
+        height: 55px;
+        margin-bottom: 20px;
+    }
+
+    .input-message {
+        width: 100%;
+        height: 200px;
+        padding: .75rem .75rem;
+        font-size: $normal-font-size-mobile;
+        border: none;
+
+        &::-webkit-input-placeholder { /* Edge */
+            color: $text-color;
+            font-size: $normal-font-size-mobile;
+        }
+
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $text-color;
+            font-size: $normal-font-size-mobile;
+        }
+
+        &::placeholder {
+            color: $text-color;
+            font-size: $normal-font-size-mobile;
+        }
+
+        &:focus-visible {
+            outline: 0;
+        }
+    }
+
+    .form-check {
+        margin-bottom: 20px;
+
+        .form-check-input {
+            &:checked {
+                background-color: $body-color-dark;
+                border-color: $body-color-dark;
+            }
+        }
+
+        .form-check-label {
+            font-size: $small-font-size;
+        }
     }
 }
 
-.form-container {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-    "name email"
-    "subject subject"
-    "message message"
-    "checkbox checkbox";
+@media (min-width: $breakpoint-md) {
+    .contact {
+        padding-top: 50px;
+    }
 
-    .input-name { grid-area: name; }
-    .input-email { grid-area: email; }
-    .input-subject { grid-area: subject; }
-    .input-message { grid-area: message; height: 230px; }
-    .form-check { grid-area: checkbox; }
+    .form-container {
+        .input-submit {
+            width: 50%;
+        }
+    }
 }
 
-.form-control {
-    height: 100%;
-    border-radius: 0;
-}
+@media (min-width: $breakpoint-lg) {
+    .contact-content {
+        padding: 4% 5%;
+        p {
+            text-align: center;
+        }
+    }
 
-[class*="input-"] {
-    height: 55px;
-}
+    .contact-form {
+        margin-top: 50px;
+    }
 
-.form-check-input:checked {
-    background-color: $body-color-dark;
-    border-color: $body-color-dark;
+    .form-container {
+        display: grid;
+        column-gap: 40px;
+        row-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        "name email"
+        "subject subject"
+        "message message"
+        "checkbox checkbox"
+        "submit ...";
+
+        .input-name { grid-area: name; }
+        .input-email { grid-area: email; }
+        .input-subject { grid-area: subject; }
+        .input-message { grid-area: message; height: 230px; }
+        .form-check { grid-area: checkbox; }
+        .input-submit {
+            grid-area: submit;
+        }
+    }
 }

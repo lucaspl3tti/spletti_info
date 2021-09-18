@@ -26,7 +26,7 @@ function onQualificationsClickAction() {
 }
 
 function showSkills() {
-    skillsContent.style.display = 'grid';
+    skillsContent.style.display = 'flex';
     skills.classList.add('skills-is-active')
 }
 
