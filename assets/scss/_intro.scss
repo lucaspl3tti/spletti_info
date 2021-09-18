@@ -1,0 +1,102 @@
+/** introduction styling */
+.intro-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 0.5fr 3fr;
+    grid-template-areas:
+        "intro-social-aside intro-image"
+        "main-content main-content";
+    margin: 60px 0 0;
+
+    .intro-main-content {
+        grid-area: main-content;
+        margin-top: 1rem;
+    }
+
+    .intro-image {
+        grid-area: intro-image;
+        justify-self: flex-end;
+    }
+
+    .intro-social-aside {
+        grid-area: intro-social-aside;
+    }
+}
+
+.intro-image img {
+    border-radius: 50%;
+}
+
+.intro-social-aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        flex-direction: row;
+    }
+
+    .social-instagram,
+    .social-github,
+    .social-linkedin {
+        height: 20%;
+        margin-bottom: 10px;
+
+        @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+            height: 70%;
+            margin-bottom: 0;
+            margin-right: 10px;
+        }
+    }
+
+    .social-linkedin {
+        margin-bottom: 0;
+
+        @media (min-width: $breakpoint-md) {
+            margin-right: 0;
+        }
+    }
+}
+
+.btn-portfolio {
+    width: 180px;
+}
+
+/* tablet styling */
+@media (min-width: $breakpoint-md) {
+    .intro-container {
+        margin: 150px 0 0;
+        grid-template-columns: 4fr 2fr;
+        grid-template-areas:
+            "main-content intro-image"
+            "main-content intro-social-aside";
+    }
+}
+
+/* desktop styling */
+@media (min-width: $breakpoint-lg) {
+    .intro-container {
+        margin: 180px 0 0;
+        grid-template-columns: 4fr 2fr .5fr;
+        grid-template-areas:
+            "main-content intro-image intro-social-aside";
+
+        .intro-main-content {
+            padding-right: 20%;
+            align-self: center;
+
+            .btn-portfolio {
+                margin-top: 30px;
+            }
+
+            .myself {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+
+    .intro-image img {
+        height: 100%;
+    }
+}
