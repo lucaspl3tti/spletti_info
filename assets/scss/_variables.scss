@@ -1,11 +1,13 @@
 // Color Declaration
-$color-main: rgb(90, 67, 203);
-$color-main-alt: rgb(110, 87, 224);
+$color-main: rgb(61, 44, 141); // rgb(90, 67, 203);
+$color-main-alt: rgb(28, 12, 91); // rgb(110, 87, 224);
 $text-color: #333333;
 $text-color-light: rgb(251, 251, 254);
 $input-color-dark: rgb(33, 29, 53);
 $body-color: rgb(251, 251, 254);
 $body-color-dark: rgb(25, 22, 39);
+$accent-color: rgb(145, 107, 191);
+$accent-color-light: rgb(201, 150, 204);
 
 // Typography
 $body-font: 'Poppins', sans-serif;
