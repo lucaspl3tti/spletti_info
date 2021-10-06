@@ -38,7 +38,7 @@ a {
     text-decoration: none;
 
     &:hover {
-        color: $color-main-alt;
+        color: $accent-color-dark1;
         text-decoration: none;
     }
 }
@@ -50,6 +50,13 @@ img {
 
 main {
     margin-bottom: 100px;
+}
+
+#particles-js {
+    width: 100%;
+    height: 2200px;
+    position: absolute;
+    z-index: -1;
 }
 
 .unselectable {
@@ -89,7 +96,7 @@ main {
 }
 
 .heading-dot {
-    color: $accent-color;
+    color: $color-main-alt;
 }
 
 .social-icon svg {
@@ -126,14 +133,17 @@ main {
 }
 
 .btn-primary {
-    background-color: $color-main;
-    border-color: $color-main;
+    background-color: $accent-color-light1;
+    border-color: $accent-color-light1;
     color: $text-color-light;
+    transition: border-radius .4s ease-out,
+        background-color .15s,
+        border-color .15s;
 
     &:hover {
-        background-color: $color-main;
+        background-color: $accent-color-dark1;
+        border-color: $accent-color-dark1;
         text-decoration: none;
-        border-color: $color-main;
     }
 }
 
@@ -176,6 +186,10 @@ main {
     h3 {
         font-size: $normal-font-size;
     }
+
+    #particles-js {
+        height: 2000px;
+    }
 }
 
 @media (min-width: $breakpoint-lg) {
@@ -194,6 +208,10 @@ main {
     h3 {
         font-size: $h3-font-size;
     }
+
+    #particles-js {
+        height: 1400px;
+    }
 }
 
 // Container Padding
@@ -206,11 +224,29 @@ main {
     }
 }
 
+.section {
+    padding-bottom: 140px;
+}
+
 .heading {
     text-align: center;
 }
 
 /** Impressum */
+.legal {
+    .nav-container {
+        .nav-skills {
+            display: none;
+        }
+
+        @media (min-width: $breakpoint-md) {
+            .nav-skills {
+                display: block;
+            }
+        }
+    }
+}
+
 .legal-disclosure {
     margin-bottom: 80px;
 

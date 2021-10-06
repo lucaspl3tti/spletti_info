@@ -44,6 +44,11 @@
     }
 }
 
+.contact-button {
+    width: 100%;
+    margin-top: 40px;
+}
+
 @media (min-width: $breakpoint-md) {
     .about-section {
         .about-intro {
@@ -103,6 +108,10 @@
             justify-self: center;
         }
     }
+
+    .contact-button {
+        width: 50%;
+    }
 }
 
 @media (min-width: $breakpoint-lg) {
@@ -147,11 +156,9 @@
             "ui-image frontend";
         }
     }
-}
-
-.contact-button {
-    width: 20%;
-    margin-top: 40px;
+    .contact-button {
+        width: 20%;
+    }
 }
 
 /** contact styling */
