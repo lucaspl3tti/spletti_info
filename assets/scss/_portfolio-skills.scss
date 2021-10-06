@@ -4,82 +4,130 @@
     padding-top: 50px;
 }
 
+.portfolio-container {
+    .heading {
+        margin-bottom: 50px;
+    }
+}
+
+
+.portfolio-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
 .project-container {
     background-color: $color-main;
     border-radius: 25px;
-    margin-bottom: 50px;
+    padding: 2.5rem 2rem 0 2rem;
+    width: 100%;
+    max-height: 580px;
     color: $text-color-light;
 
     h3 {
-        padding-top: 20px;
         text-align: center;
         color: inherit;
+        margin-bottom: 1.5rem;
     }
 
     .project-info {
-        padding: 0 20px;
+        padding-right: 20px;
+
+        .github-repo {
+            margin-top: 40px;
+        }
     }
 
     .project-link {
-        padding: 0 20px;
         color: inherit;
+
+        .fa-arrow-right {
+            transition: transform .25s;
+        }
 
         &:hover {
             text-decoration: none;
 
             .fa-arrow-right {
-                transform: translateX(7px);
-                transition: transform .25s;
+                transform: translateX(.5rem);
             }
         }
     }
+}
 
+.custom-linktree {
     .project-image {
-        margin-top: 20px;
+        height: 80%;
+        justify-self: flex-end;
+
+        @media (max-width: $breakpoint-md) {
+            height: auto;
+            width: 60%;
+            margin-top: 20px;
+        }
+
+        @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg){
+            height: auto;
+            width: 30%;
+            margin-top: 20px;
+        }
+    }
+
+    @media (max-width: $breakpoint-md) {
+        margin-bottom: 40px;
+    }
+}
+
+.structured-data {
+    .project-image {
+        height: 192px;
+        justify-self: flex-end;
+
+        @media (max-width: $breakpoint-md) {
+            height: 160px;
+            margin-top: 20px;
+        }
     }
 }
 
 @media (min-width: $breakpoint-md) {
-    .portfolio-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
+    .project-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .structured-data {
+        padding-bottom: 40px;
     }
 }
 
 @media (min-width: $breakpoint-lg) {
     .project-container {
-        display: grid;
-        grid-template-columns: 3fr 2fr;
-        grid-template-areas:
-        "heading heading"
-        "info image"
-        "link image";
-        width: 95%;
-        height: 100%;
-        padding: 0 1%;
+        width: 45%;
+        height: auto;
+        max-height: 415px;
         font-size: $small-font-size;
 
-        h3  { grid-area: heading; font-size: $normal-font-size; }
-        .project-info { grid-area: info; }
-        .project-link { grid-area: link; }
-        .project-image { grid-area: image; align-self: flex-end; }
+        h3  { font-size: $normal-font-size; }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            grid-template-areas:
+            "info image";
+
+            .project-info { grid-area: info; }
+            .project-link { grid-area: link; }
+        }
     }
 
     .container-left { justify-self: flex-start; }
     .container-right { justify-self: flex-end; }
 }
 
-/** skills and qualifications syling */
-.skills {
-    padding-top: 40px;
-
-    @media (min-width: $breakpoint-lg) {
-        padding-top: 70px;
-        margin-top: 70px;
-    }
-}
-
+/* skills and qualifications syling */
 .skills-qualifications {
     background-color: $color-main;
     box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
@@ -90,7 +138,7 @@
     color: $text-color-light;
 
     @media (min-width: $breakpoint-lg) {
-        padding: 5%;
+        padding: 5% 10%;
     }
 
     h2 {
@@ -109,8 +157,6 @@
 
     .skills-is-active,
     .qualifications-is-active {
-        // text-decoration: underline;
-
         .hover-underline::after {
             transform: scaleX(1);
         }
@@ -128,42 +174,59 @@
     }
 }
 
+.skills-is-active,
+.qualifications-is-active {
+    p {
+        cursor: default;
+    }
+}
+
 .skills-content {
     flex-flow: row wrap;
     justify-content: space-between;
 
-    @media (min-width: $breakpoint-md) {
+    .typo3,
+    .databases,
+    .newsletter {
+        margin-bottom: 0;
+    }
 
+    @media (min-width: $breakpoint-md) {
+        .wordpress {
+            margin-bottom: 0;
+        }
     }
 
     @media (min-width: $breakpoint-lg) {
-
+        gap: 40px
     }
 }
 
 .skills-box {
-    background-color: $body-color;
-    color: $text-color;
-    padding: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1%;
     border-radius: 13px;
     margin-bottom: 2rem;
     flex: 0 0 30%;
+    background-color: $body-color;
+    color: $text-color;
+    font-size: $smaller-font-size-mobile;
 
     @media (min-width: $breakpoint-md) {
-        font-size: $smaller-font-size;
+        font-size: $normal-font-size-mobile;
         flex: 0 0 22%;
     }
 
     @media (min-width: $breakpoint-lg) {
-        font-size: $normal-font-size;
-        flex: 0 0 15%;
+        font-size: $smaller-font-size;
+        margin-bottom: 0;
+        flex: 0 0 12%;
     }
 
     img {
-        width: 80%;
+        width: 70%;
     }
 
     p {

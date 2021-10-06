@@ -44,6 +44,11 @@
     }
 }
 
+.contact-button {
+    width: 100%;
+    margin-top: 40px;
+}
+
 @media (min-width: $breakpoint-md) {
     .about-section {
         .about-intro {
@@ -103,6 +108,10 @@
             justify-self: center;
         }
     }
+
+    .contact-button {
+        width: 50%;
+    }
 }
 
 @media (min-width: $breakpoint-lg) {
@@ -112,12 +121,16 @@
 
     .about-section {
         .about-intro {
-            grid-template-columns: .7fr 3fr;
+            grid-template-columns: 1fr 2.5fr;
             grid-template-areas:
             "image intro"
             "image interests";
-            column-gap: 2rem;
-            row-gap: 0;
+            gap: 0;
+
+            .introduction,
+            .interests {
+                margin-left: -1rem;
+            }
         }
 
         .my-start {
@@ -135,13 +148,16 @@
         .ui-image { justify-self: flex-start; }
 
         .frontend {
-            grid-template-columns: .5fr 3fr;
+            grid-template-columns: .7fr 3fr;
             row-gap: 0;
             column-gap: 0;
             grid-template-areas:
             "ui-image backend"
             "ui-image frontend";
         }
+    }
+    .contact-button {
+        width: 20%;
     }
 }
 
@@ -215,6 +231,11 @@
         .form-check-label {
             font-size: $small-font-size;
         }
+    }
+
+    .contact-link {
+        color: $text-color-light;
+        font-weight: 600;
     }
 }
 
