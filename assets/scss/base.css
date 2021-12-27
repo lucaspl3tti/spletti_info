@@ -192,6 +192,37 @@ main {
   color: #100c27;
 }
 
+.scroll-to-top {
+  position: fixed;
+  display: none;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #3d2c8d;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(1) translateY(100px);
+          transform: scale(1) translateY(100px);
+  will-change: transform;
+  -webkit-transition: -webkit-transform .33s;
+  transition: -webkit-transform .33s;
+  transition: transform .33s;
+  transition: transform .33s, -webkit-transform .33s;
+}
+
+.scroll-to-top.show {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.scroll-to-top.show:hover {
+  -webkit-transform: scale(1.3) translateY(0);
+          transform: scale(1.3) translateY(0);
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 1.375rem;
@@ -303,11 +334,24 @@ main {
 }
 
 /** Navigation */
+.privacy .nav-container .nav-skills,
+.legal .nav-container .nav-skills {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .privacy .nav-container .nav-skills,
+  .legal .nav-container .nav-skills {
+    display: block;
+  }
+}
+
 .nav-container {
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: 5px;
+  width: 98%;
   height: 70px;
+  margin: 0 1%;
   background-color: #3d2c8d;
   font-size: 0.865rem;
   display: -ms-grid;
@@ -316,13 +360,13 @@ main {
       grid-template-columns: 1fr 4fr;
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
           box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-  border-radius: 15px 15px 0 0;
+  border-radius: 15px;
   z-index: 100;
 }
 
 .nav-container .nav-logo {
   color: #f8f7fd;
-  font-size: inherit;
+  font-size: 1.625rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -345,8 +389,41 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
 }
 
+.nav-container .nav-active {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.nav-container .nav-active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f8f7fd;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+  -webkit-transition: -webkit-transform .25s ease-out;
+  transition: -webkit-transform .25s ease-out;
+  transition: transform .25s ease-out;
+  transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+}
+
+.nav-container .nav-active:hover::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.nav-container .fa-home,
 .nav-container .fa-code,
 .nav-container .fa-code-branch,
 .nav-container .fa-at {
@@ -419,12 +496,12 @@ main {
 /* tablet styling */
 @media (min-width: 768px) {
   .nav-container {
-    top: 0;
+    top: 10px;
     height: 90px;
     font-size: 1.375rem;
     -ms-grid-columns: 1fr 3fr;
         grid-template-columns: 1fr 3fr;
-    border-radius: 0 0 25px 25px;
+    border-radius: 25px;
   }
   .nav-container [class*="fa-"] {
     display: none;
@@ -487,12 +564,17 @@ main {
 
 .intro-container .intro-main-content {
   grid-area: main-content;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .intro-container .intro-image {
   grid-area: intro-image;
-  justify-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
@@ -577,6 +659,9 @@ main {
         grid-template-columns: 4fr 2fr;
         grid-template-areas: "main-content intro-image" "main-content intro-social-aside";
   }
+  .intro-container .intro-main-content {
+    margin-top: 1rem;
+  }
 }
 
 /* desktop styling */
@@ -632,8 +717,9 @@ main {
   border-radius: 25px;
   padding: 2.5rem 2rem 0 2rem;
   width: 100%;
-  max-height: 580px;
   color: #f8f7fd;
+  max-height: 580px;
+  overflow: hidden;
 }
 
 .project-container h3 {
@@ -671,7 +757,6 @@ main {
 }
 
 .custom-linktree .project-image {
-  height: 80%;
   justify-self: flex-end;
 }
 
@@ -728,7 +813,7 @@ main {
   .project-container {
     width: 45%;
     height: auto;
-    max-height: 415px;
+    max-height: 480px;
     font-size: 1.5rem;
   }
   .project-container h3 {
@@ -819,6 +904,16 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.skills-content.show {
+  opacity: 1;
+  height: auto;
 }
 
 .skills-content .typo3,
@@ -835,6 +930,9 @@ main {
 
 @media (min-width: 992px) {
   .skills-content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     gap: 40px;
   }
 }
@@ -843,6 +941,9 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  aspect-ratio: 1/1;
+  min-width: 140px;
+  min-height: 140px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -888,11 +989,126 @@ main {
   margin: 5px 0 0;
 }
 
+.qualifications-content {
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.qualifications-content.show {
+  opacity: 1;
+  height: auto;
+}
+
 @media (min-width: 992px) {
   .qualifications-content {
-    height: 800px;
     margin-top: 40px;
   }
+}
+
+/*--- New CV ---*/
+.cv-content {
+  width: 100%;
+}
+
+.my-work-experience {
+  width: 100%;
+}
+
+.my-work-experience .experience-heading {
+  margin-bottom: 30px;
+  color: #f8f7fd;
+}
+
+.my-school-experience {
+  margin-top: 80px;
+}
+
+.work-experience {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.work-experience .timeline {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 3%;
+          flex: 0 0 3%;
+  margin-top: 6px;
+}
+
+.work-experience .timeline--point {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #f8f7fd;
+  border-radius: 50%;
+}
+
+.work-experience .timeline--line {
+  width: .2rem;
+  height: 100%;
+  background-color: #f8f7fd;
+  -webkit-transform: translateX(0.5rem);
+          transform: translateX(0.5rem);
+}
+
+.work-experience .job-container {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 97%;
+          flex: 0 0 97%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding-left: 20px;
+}
+
+.work-experience .job-information {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .work-experience .job-information {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+  }
+}
+
+.work-experience .job-information .information-company {
+  font-size: 1.2rem;
+}
+
+.work-experience .job-description {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+  .work-experience .job-description {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+  }
+}
+
+.work-experience .job-description .job-title {
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /** about styling */
@@ -1043,7 +1259,7 @@ main {
     -ms-grid-columns: 1fr 2.5fr;
         grid-template-columns: 1fr 2.5fr;
         grid-template-areas: "image intro" "image interests";
-    gap: 0;
+    row-gap: 0;
   }
   .about-section .about-intro .introduction,
   .about-section .about-intro .interests {
@@ -1076,6 +1292,13 @@ main {
   }
   .contact-button {
     width: 20%;
+  }
+}
+
+@media (min-width: 2400px) {
+  .about-section .about-intro {
+    -ms-grid-columns: .5fr 3.5fr;
+        grid-template-columns: .5fr 3.5fr;
   }
 }
 

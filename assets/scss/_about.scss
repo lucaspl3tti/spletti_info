@@ -125,7 +125,7 @@
             grid-template-areas:
             "image intro"
             "image interests";
-            gap: 0;
+            row-gap: 0;
 
             .introduction,
             .interests {
@@ -158,6 +158,14 @@
     }
     .contact-button {
         width: 20%;
+    }
+}
+
+@media (min-width: $breakpoint-xxl) {
+    .about-section {
+        .about-intro {
+            grid-template-columns: .5fr 3.5fr;
+        }
     }
 }
 

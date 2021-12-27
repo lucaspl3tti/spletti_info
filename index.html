@@ -8,7 +8,7 @@
         <!-- favicon for the website -->
         <link
             rel="icon"
-            href="#"
+            href="assets/img/coding.png"
         />
 
         <!-- Bootstrap CSS and Font Awesome-->
@@ -19,37 +19,37 @@
         <link href="assets/scss/base.css" rel="stylesheet">
 
         <!-- JS files -->
-        <script src="assets/js/change-content.js" defer></script>
+        <script type="module" src="assets/js/main.js" defer></script>
 
         <title>spletti.info</title>
     </head>
-    <body>
+    <body class="main-page">
         <header class="nav-container">
             <a class="nav-logo unselectable">Jan-Luca Splettstößer<span class="heading-dot">.</span></a>
 
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link nav-portfolio" href="#portfolio">
+                    <div class="nav-link nav-portfolio">
                       <i class="fas fa-code"><br/></i>
-                        <p class="hover-underline">Portfolio</p>
-                    </a>
+                        <p class="nav-hover hover-underline portfolio-el">Portfolio</p>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-skills" href="#skills">
+                    <div class="nav-link nav-skills">
                         <i class="fas fa-code-branch"><br/></i>
-                        <p class="hover-underline">Skills</p>
-                    </a>
+                        <p class="nav-hover hover-underline skills-el">Skills</p>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-about" href="#about">
-                      <p class="hover-underline">About Me</p>
-                    </a>
+                    <div class="nav-link nav-about">
+                      <p class="nav-hover hover-underline about-el">About Me</p>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-contact" href="#contact">
+                    <div class="nav-link nav-contact">
                         <i class="fas fa-at"><br/></i>
-                        <p class="hover-underline">Contact</p>
-                    </a>
+                        <p class="nav-hover hover-underline contact-el">Contact</p>
+                    </div>
                 </li>
             </ul>
             <!--
@@ -63,7 +63,7 @@
                 <div id="particles-js"></div>
 
                 <div class="content-container section">
-                    <div class="intro-container">
+                    <section class="intro-container start" id="start-el">
                         <div class="intro-image">
                             <img src="assets/img/jls_profilepic.jpg">
                         </div>
@@ -99,10 +99,10 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <div class="portfolio" id="portfolio"></div>
-                    <div class="portfolio-container">
+                    <section class="portfolio-container" id="portfolio-el">
                         <div class="heading">
                             <h2>Portfolio und Projekte<span class="heading-dot">.</span></h2>
                             <p class="subheading">Einige Beispiele meiner Arbeit</p>
@@ -140,12 +140,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
 
             <div class="skills" id="skills"></div>
-            <div class="skills-qualifications">
+            <section class="skills-qualifications" id="skills-el">
                 <div class="skills-qualifications-container">
                     <h2>Skills und Qualifikationen<span class="heading-dot">.</span></h2>
                     <div class="change-content">
@@ -154,7 +154,7 @@
                             <li class="nav-item change-qualifications"><p class="hover-underline">Qualifikationen</p></li>
                         </ul>
                     </div>
-                    <div class="skills-content" style="display: flex;">
+                    <div class="skills-content show" style="display: flex;">
                         <div class="skills-box css">
                             <img src="assets/img/icons/skills/css-3 Kopie.png">
                             <p>CSS/SCSS</p>
@@ -216,15 +216,150 @@
                         </div>
                     </div>
 
-                    <div class="qualifications-content" style="display: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 802 539.5"><defs><style>.a{fill:none; stroke:currentColor; stroke-width:5px;} .b{fill:currentColor;} .b,.d{font-size:22px;} .b,.c,.d,.e{font-family:'Poppins', sans-serif;} .c,.d,.e{fill:currentColor;} .c{font-size:18px;} .e{font-size:20px;}</style></defs><g transform="translate(-623 -604.5)"><line class="a" y2="473.794" transform="translate(1021.745 604.5)"/><line class="a" x1="147.198" transform="translate(874.547 707.999)"/><text class="b" transform="translate(627 689)"><tspan x="0" y="24">Backend Developer</tspan></text><text class="c" transform="translate(627 720)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text><line class="a" x1="147.198" transform="translate(1020.595 889.696)"/><text class="b" transform="translate(1188 874)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="d" transform="translate(848 872)"><tspan x="0" y="24">2020 - 2021</tspan></text><line class="a" x1="147.198" transform="translate(874.547 1078.294)"/><text class="b" transform="translate(623 1061)"><tspan x="0" y="24">Frontend Developer</tspan></text><text class="e" transform="translate(623 1093)"><tspan x="0" y="20">@ twocream. </tspan><tspan x="0" y="46">creativemedia GmbH</tspan></text><text class="d" transform="translate(1052 690)"><tspan x="0" y="24">2018 - 2020</tspan></text><text class="d" transform="translate(1052 1061)"><tspan x="0" y="24">2021 - Today</tspan></text><text class="c" transform="translate(1188 905)"><tspan x="0" y="18">@ move elevator </tspan><tspan x="0" y="41">GmbH</tspan></text></g></svg>
+                    <div class="qualifications-content" style="display: flex;">
+                        <div class="cv-content">
+                            <div class="my-work-experience">
+                                <h3 class="experience-heading">Berufliche Qualifikationen:</h3>
+
+                                <div class="work-experience">
+                                    <div class="timeline">
+                                        <div class="timeline--point"></div>
+                                        <div class="timeline--line"></div>
+                                    </div>
+
+                                    <div class="job-container">
+                                        <div class="job-information">
+                                            <div class="information-period">2021 - Today</div>
+                                            <div class="information-company">twocream. creativemedia GmbH</div>
+                                        </div>
+
+                                        <div class="job-description">
+                                            <div class="job-title">Junior Frontend Developer</div>
+                                            <div class="job-tasks">
+                                                <p class="task-list">
+                                                    <span class="task-item">Implementierung von User Interfaces innerhalb von Webanwendungen<br/></span>
+                                                    <span class="task-item">Shopware Plugin Programmierung auf Basis von JavaScript<br/></span>
+                                                    <span class="task-item">Umsetzung PDF-Renderings auf Basis von PDFlib in PHP<br/></span>
+                                                    <span class="task-item">Unterstützung bei der Umsetzung von Desings in Adobe XD</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="work-experience">
+                                    <div class="timeline">
+                                        <div class="timeline--point"></div>
+                                        <div class="timeline--line"></div>
+                                    </div>
+
+                                    <div class="job-container">
+                                        <div class="job-information">
+                                            <div class="information-period">2020-2021</div>
+                                            <div class="information-company">move elevator GmbH</div>
+                                        </div>
+
+                                        <div class="job-description">
+                                            <div class="job-title">Frontend Developer Trainee</div>
+                                            <div class="job-tasks">
+                                                <p class="task-list">
+                                                    <span class="task-item">Implementierung von User Interfaces innerhalb von Webanwendungen<br/></span>
+                                                    <span class="task-item">Gestaltung von HTML Newsletterlayouts<br/></span>
+                                                    <span class="task-item">Unterstützung bei der Umsetzung von Designs in Skecth</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="work-experience">
+                                    <div class="timeline">
+                                        <div class="timeline--point"></div>
+                                        <div class="timeline--line"></div>
+                                    </div>
+
+                                    <div class="job-container">
+                                        <div class="job-information">
+                                            <div class="information-period">2018-2020</div>
+                                            <div class="information-company">move elevator GmbH</div>
+                                        </div>
+
+                                        <div class="job-description">
+                                            <div class="job-title">Backend Developer Trainee</div>
+                                            <div class="job-tasks">
+                                                <p class="task-list">
+                                                    <span class="task-item">Implementierung und Weiterentwicklung von Anwendungen auf Basis von Typo3, PHP und MySQL<br/></span>
+                                                    <span class="task-item">Pflege und Weiterentwicklung bestehender Skripte<br/></span>
+                                                    <span class="task-item">Migration von bestehenden Softwarelösungen auf neue Systeme<br/></span>
+                                                    <span class="task-item">Pflege von Datenbanken mit Hilfe von Datenbank-Tools</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-work-experience my-school-experience">
+                                <h3 class="experience-heading">Schulische Qualifikationen:</h3>
+
+                                <div class="work-experience">
+                                    <div class="timeline">
+                                        <div class="timeline--point"></div>
+                                        <div class="timeline--line"></div>
+                                    </div>
+
+                                    <div class="job-container">
+                                        <div class="job-information">
+                                            <div class="information-period">2018 - 2021</div>
+                                            <div class="information-company">Berufskolleg Stadtmitte Mülheim</div>
+                                        </div>
+
+                                        <div class="job-description">
+                                            <div class="job-title">Ausbildung Fachinformatiker Anwendungsentwicklung</div>
+                                            <div class="job-tasks">
+                                                <p class="task-list">
+                                                    Schulischer Teil der dualen Ausbildung zum Fachinformatiker Anwendungsentwicklung<br/>
+                                                    Schwerpunkt: PHP, JavaScirpt, C++
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="work-experience">
+                                    <div class="timeline">
+                                        <div class="timeline--point"></div>
+                                        <div class="timeline--line"></div>
+                                    </div>
+
+                                    <div class="job-container">
+                                        <div class="job-information">
+                                            <div class="information-period">2009-2018</div>
+                                            <div class="information-company">Ernst-Barlach-Gesamtschule</div>
+                                        </div>
+
+                                        <div class="job-description">
+                                            <div class="job-title">Allgemeine Hochschulreife</div>
+                                            <div class="job-tasks">
+                                                <p class="task-list">
+                                                    Abitur mit sprachlichem Schwerpunkt<br/>
+                                                    LKs: Englisch und Deutsch<br/>
+                                                    3. Abifach: Technik<br/>
+                                                    4. Abifach: Erziehungswissenschaft
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div class="about" id="about"></div>
             <div class="content-container">
-                <div class="about-container">
+                <section class="about-container" id="about-el">
                     <h2>Über mich<span class="heading-dot">.</span></h2>
                     <div class="about-section">
                         <div class="about-intro">
@@ -250,14 +385,14 @@
                             <p class="frontend-career">In den letzten paar Monaten dieser ersten zwei Jahre merkte Ich dann, dass ich mich in der Frontend-Entwicklung viel wohler fühle, also richtete ich meinen Fokus neu aus.</p>
                         </div>
                     </div>
+                </section>
 
-                    <div class="contact-button" id="contact">
-                        <a class="btn btn-primary" href="mailto:jan-luca@spletti.info">
-                            Kontaktiere mich!
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+                <section class="contact-button" id="contact" id="contact-el">
+                    <a class="btn btn-primary" href="mailto:jan-luca@spletti.info">
+                        Kontaktiere mich!
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </section>
 
                 <!--
                 <div class="contact" id="contact"></div>
@@ -301,6 +436,10 @@
                     </div>
                 </div>
                 -->
+            </div>
+
+            <div class="scroll-to-top">
+                <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="rgb(248, 247, 253)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
             </div>
         </main>
         <footer>

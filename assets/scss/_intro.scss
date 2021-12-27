@@ -7,12 +7,13 @@
 
     .intro-main-content {
         grid-area: main-content;
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
 
     .intro-image {
         grid-area: intro-image;
-        justify-self: flex-end;
+        display: flex;
+        justify-content: flex-end;
 
         @media (max-width: $breakpoint-md) {
             align-self: center;
@@ -73,6 +74,10 @@
         grid-template-areas:
             "main-content intro-image"
             "main-content intro-social-aside";
+
+        .intro-main-content {
+            margin-top: 1rem;
+        }
     }
 }
 
