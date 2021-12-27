@@ -196,7 +196,7 @@ main {
   position: fixed;
   display: none;
   right: 20px;
-  bottom: 20px;
+  bottom: 100px;
   width: 60px;
   height: 60px;
   background-color: #3d2c8d;
@@ -204,8 +204,8 @@ main {
   border-radius: 50%;
   -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
           box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-  -webkit-transform: scale(1) translateY(100px);
-          transform: scale(1) translateY(100px);
+  -webkit-transform: scale(1) translateY(200px);
+          transform: scale(1) translateY(200px);
   will-change: transform;
   -webkit-transition: -webkit-transform .33s;
   transition: -webkit-transform .33s;
@@ -221,6 +221,12 @@ main {
 .scroll-to-top.show:hover {
   -webkit-transform: scale(1.3) translateY(0);
           transform: scale(1.3) translateY(0);
+}
+
+@media (min-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -348,7 +354,7 @@ main {
 
 .nav-container {
   position: fixed;
-  bottom: 5px;
+  bottom: 20px;
   width: 98%;
   height: 70px;
   margin: 0 1%;

@@ -16,6 +16,8 @@ export default class NavClickEventsPlugin {
 
             // get section els
             this.mainSection = document.querySelector('main');
+            this.portfolioEl = this.mainSection.querySelector('#portfolio-el');
+            this.skillsEl = this.mainSection.querySelector('#skills-el');
             this.aboutEl = this.mainSection.querySelector('#about-el');
             this.contactEl = this.mainSection.querySelector('#contact');
 
@@ -31,18 +33,14 @@ export default class NavClickEventsPlugin {
     }
 
     scrollToPortfolio() {
-        let pos = 480;
-
         this.portfolioLink.addEventListener('click', () => {
-            this.scrollToPosition(pos);
-        });
+            this.portfolioEl.scrollIntoView({behavior: 'smooth'})
+        })
     }
 
     scrollToSkills() {
-        let pos = 1300;
-
         this.skillsLink.addEventListener('click', () => {
-            this.scrollToPosition(pos);
+            this.skillsEl.scrollIntoView({behavior: 'smooth'})
         })
     }
 
