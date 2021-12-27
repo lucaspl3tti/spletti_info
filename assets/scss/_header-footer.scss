@@ -1,20 +1,32 @@
 /** Navigation */
+.privacy .nav-container,
+.legal .nav-container {
+    .nav-skills {
+        display: none;
+
+        @media (min-width: $breakpoint-lg) {
+            display: block;
+        }
+    }
+}
+
 .nav-container {
     position: fixed;
-    bottom: 0;
-    width: 100%;
+    bottom: 5px;
+    width: 98%;
     height: 70px;
+    margin: 0 1%;
     background-color: $color-main;
     font-size: $small-font-size-mobile;
     display: grid;
     grid-template-columns: 1fr 4fr;
     box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px;
     z-index: $z-fixed;
 
     .nav-logo {
         color: $text-color-light;
-        font-size: inherit;
+        font-size: $normal-font-size;
         align-self: center;
     }
 
@@ -28,8 +40,34 @@
         font-size: inherit;
         display: flex;
         flex-direction: column;
+        cursor: pointer;
     }
 
+    .nav-active {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(1);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: $text-color-light;
+            transform-origin: bottom left;
+            transition: transform .25s ease-out;
+        }
+
+        &:hover::after {
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+    }
+
+    .fa-home,
     .fa-code,
     .fa-code-branch,
     .fa-at {
@@ -92,11 +130,11 @@
 /* tablet styling */
 @media (min-width: $breakpoint-md) {
     .nav-container {
-        top: 0;
+        top: 10px;
         height: 90px;
         font-size: $smaller-font-size;
         grid-template-columns: 1fr 3fr;
-        border-radius: 0 0 25px 25px;
+        border-radius: 25px;
 
         [class*="fa-"] {
             display: none;

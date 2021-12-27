@@ -23,8 +23,9 @@
     border-radius: 25px;
     padding: 2.5rem 2rem 0 2rem;
     width: 100%;
-    max-height: 580px;
     color: $text-color-light;
+    max-height: 580px;
+    overflow: hidden;
 
     h3 {
         text-align: center;
@@ -59,7 +60,6 @@
 
 .custom-linktree {
     .project-image {
-        height: 80%;
         justify-self: flex-end;
 
         @media (max-width: $breakpoint-md) {
@@ -107,7 +107,7 @@
     .project-container {
         width: 45%;
         height: auto;
-        max-height: 415px;
+        max-height: 480px;
         font-size: $small-font-size;
 
         h3  { font-size: $normal-font-size; }
@@ -184,6 +184,15 @@
 .skills-content {
     flex-flow: row wrap;
     justify-content: space-between;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    &.show {
+        opacity: 1;
+        height: auto;
+    }
 
     .typo3,
     .databases,
@@ -198,12 +207,16 @@
     }
 
     @media (min-width: $breakpoint-lg) {
+        justify-content: center;
         gap: 40px
     }
 }
 
 .skills-box {
     display: flex;
+    aspect-ratio: 1/1;
+    min-width: 140px;
+    min-height: 140px;
     flex-direction: column;
     align-items: center;
     padding: 1%;
@@ -235,8 +248,93 @@
 }
 
 .qualifications-content {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    &.show {
+        opacity: 1;
+        height: auto;
+    }
+
     @media (min-width: $breakpoint-lg) {
-        height: 800px;
         margin-top: 40px;
+    }
+}
+
+/*--- New CV ---*/
+.cv-content {
+    width: 100%;
+}
+
+.my-work-experience {
+    width: 100%;
+
+    .experience-heading {
+        margin-bottom: 30px;
+        color: $text-color-light;
+    }
+}
+
+.my-school-experience {
+    margin-top: 80px;
+}
+
+.work-experience {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .timeline {
+        flex: 0 0 3%;
+        margin-top: 6px;
+
+        &--point {
+            width: 1.2rem;
+            height: 1.2rem;
+            background-color: $body-color;
+            border-radius: 50%;
+        }
+
+        &--line {
+            width: .2rem;
+            height: 100%;
+            background-color: $body-color;
+            transform: translateX(.5rem);
+        }
+    }
+
+    .job-container {
+        flex: 0 0 97%;
+        display: flex;
+        flex-flow: row wrap;
+        padding-left: 20px;
+    }
+
+    .job-information {
+        flex: 0 0 100%;
+        margin-bottom: 1.5rem;
+
+        @media (min-width: $breakpoint-lg) {
+            flex: 0 0 25%;
+        }
+
+        .information-company {
+            font-size: 1.2rem;
+        }
+    }
+
+    .job-description {
+        flex: 0 0 100%;
+        margin-bottom: 3rem;
+
+        @media (min-width: $breakpoint-lg) {
+            flex: 0 0 75%;
+        }
+
+        .job-title {
+            font-weight: $font-weight-bold;
+            letter-spacing: 1px;
+        }
     }
 }
