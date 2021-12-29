@@ -25,7 +25,10 @@
     </head>
     <body class="main-page">
         <header class="nav-container">
-            <?php include ('assets/ressources/includes/nav.html'); ?>
+            <?php
+                $page = 'home';
+                include ('assets/ressources/includes/nav.html');
+            ?>
         </header>
         <main>
             <div class="section-one particles">
@@ -124,6 +127,11 @@
                         </ul>
                     </div>
                     <div class="skills-content show" style="display: flex;">
+                        <div class="skills-box js">
+                            <img src="assets/img/icons/skills/javascript Kopie.png">
+                            <p>JavaScript</p>
+                        </div>
+
                         <div class="skills-box css">
                             <img src="assets/img/icons/skills/css-3 Kopie.png">
                             <p>CSS/SCSS</p>
@@ -132,11 +140,6 @@
                         <div class="skills-box html">
                             <img src="assets/img/icons/skills/html-5.png">
                             <p>HTML</p>
-                        </div>
-
-                        <div class="skills-box js">
-                            <img src="assets/img/icons/skills/javascript Kopie.png">
-                            <p>JavaScript</p>
                         </div>
 
                         <div class="skills-box ui">
@@ -188,7 +191,7 @@
                     <div class="qualifications-content" style="display: flex;">
                         <div class="cv-content">
                             <div class="my-work-experience">
-                                <h3 class="experience-heading">Berufliche Qualifikationen:</h3>
+                                <h3 class="experience-heading">Berufliche Laufbahn:</h3>
 
                                 <div class="work-experience">
                                     <div class="timeline">
@@ -269,7 +272,7 @@
                             </div>
 
                             <div class="my-work-experience my-school-experience">
-                                <h3 class="experience-heading">Schulische Qualifikationen:</h3>
+                                <h3 class="experience-heading">Schulische Laufbahn:</h3>
 
                                 <div class="work-experience">
                                     <div class="timeline">
