@@ -13,11 +13,7 @@ export default class ChangeLogoContentPlugin {
     }
 
     checkScreenSize() {
-        if (this.screenSize.matches) {
-            this.changeTextDeskop();
-        } else {
-            this.changeTextMobile();
-        }
+        this.screenSize.matches ? this.changeTextDeskop() : this.changeTextMobile();
     }
 
     changeTextMobile() {

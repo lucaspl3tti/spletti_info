@@ -25,13 +25,7 @@ export default class ScrollToTopPlugin {
 
     showButton() {
         window.addEventListener('scroll', () => {
-            let current = '';
-
-            if (scrollY > 500) {
-                this.el.classList.add('show');
-            } else {
-                this.el.classList.remove('show');
-            }
+            scrollY > 500 ? this.el.classList.add('show') : this.el.classList.remove('show');
         });
     }
 }

@@ -396,6 +396,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   cursor: pointer;
+  padding: 1rem 0 1rem 1.5rem;
 }
 
 .nav-container .nav-active {
@@ -528,6 +529,9 @@ main {
   }
   .nav-container .nav {
     margin-right: -15px;
+  }
+  .nav-container .nav-logo {
+    margin-left: -20px;
   }
   .footer-container .footer-social-icons {
     gap: 40px;
@@ -948,8 +952,6 @@ main {
   display: -ms-flexbox;
   display: flex;
   aspect-ratio: 1/1;
-  min-width: 140px;
-  min-height: 140px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -979,11 +981,13 @@ main {
 
 @media (min-width: 992px) {
   .skills-box {
-    font-size: 1.375rem;
+    font-size: 1.2rem;
     margin-bottom: 0;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 12%;
             flex: 0 0 12%;
+    min-width: 140px;
+    min-height: 140px;
   }
 }
 
