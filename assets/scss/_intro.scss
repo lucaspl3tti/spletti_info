@@ -8,6 +8,10 @@
     .intro-main-content {
         grid-area: main-content;
         margin-top: 2rem;
+
+        .myself {
+            margin: 1.5rem 0;
+        }
     }
 
     .intro-image {
@@ -77,6 +81,10 @@
 
         .intro-main-content {
             margin-top: 1rem;
+
+            .myself {
+                margin: 1rem 0;
+            }
         }
     }
 }
