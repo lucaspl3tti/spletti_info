@@ -1,19 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap CSS and Font Awesome-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
-        <!-- Custom CSS -->
-        <link href="assets/scss/base.css" rel="stylesheet">
-
-        <!-- JS files -->
-        <script type="module" src="assets/js/main.js" defer></script>
+        <?php
+            include ('assets/ressources/includes/head.php');
+        ?>
 
         <title>spletti.info</title>
     </head>
@@ -21,7 +11,7 @@
         <header class="nav-container">
             <?php
                 $page = 'privacy';
-                include ('assets/ressources/includes/nav.html');
+                include ('assets/ressources/includes/layouts/nav.php');
             ?>
         </header>
         <main>
@@ -187,12 +177,10 @@
                 </div>
             </div>
 
-            <div class="scroll-to-top">
-                <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="rgb(248, 247, 253)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-            </div>
+            <?php include ('assets/ressources/includes/scroll-to-top.php'); ?>
         </main>
         <footer>
-            <?php include ('assets/ressources/includes/footer.html'); ?>
+            <?php include ('assets/ressources/includes/layouts/footer.php'); ?>
         </footer>
 
         <!-- Optional JavaScript; choose one of the two! -->

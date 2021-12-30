@@ -62,9 +62,11 @@
             transition: transform .25s ease-out;
         }
 
-        &:hover::after {
-            transform: scaleX(0);
-            transform-origin: bottom right;
+        @media (min-width: $breakpoint-lg) {
+            &:hover::after {
+                transform: scaleX(0);
+                transform-origin: bottom right;
+            }
         }
     }
 
