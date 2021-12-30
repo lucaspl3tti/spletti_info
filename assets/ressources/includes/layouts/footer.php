@@ -24,8 +24,8 @@
             <p>© Jan-Luca Splettstößer 2021</p>
         </div>
         <div class="footer-legal">
-            <p><a class="footer-link hover-underline" href="/impressum.html">Impressum – Legal Disclosure</a></p>
-            <p><a class="footer-link hover-underline" href="/datenschutz.html">Datenschutzerklärung – Privacy Policy</a></p>
+            <p><a class="footer-link hover-underline" href="/impressum">Impressum – Legal Disclosure</a></p>
+            <p><a class="footer-link hover-underline" href="/datenschutz">Datenschutzerklärung – Privacy Policy</a></p>
         </div>
     </div>
 </div>
