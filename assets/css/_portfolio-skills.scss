@@ -17,15 +17,34 @@
     justify-content: space-between;
 }
 
+.swiper {
+    width: 100%;
+    height: 400px;
+
+    .swiper-wrapper {
+        width: 45%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: $body-color;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: $color-main;
+    }
+}
+
 
 .project-container {
     background-color: $color-main;
     border-radius: 25px;
-    padding: 2.5rem 2rem 0 2rem;
+    padding: 2.5rem 3rem;
     width: 100%;
     color: $text-color-light;
     max-height: 580px;
     overflow: hidden;
+    margin-bottom: 40px;
 
     h3 {
         text-align: center;
@@ -58,52 +77,26 @@
     }
 }
 
-.custom-linktree {
-    .project-image {
-        justify-self: flex-end;
-
-        @media (max-width: $breakpoint-md) {
-            height: auto;
-            width: 60%;
-            margin-top: 20px;
-        }
-
-        @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg){
-            height: auto;
-            width: 30%;
-            margin-top: 20px;
-        }
-    }
-
-    @media (max-width: $breakpoint-md) {
-        margin-bottom: 40px;
-    }
-}
-
 .structured-data {
     .project-image {
         height: 192px;
         justify-self: flex-end;
 
-        @media (max-width: $breakpoint-md) {
+        @include media-breakpoint-up(md) {
             height: 160px;
             margin-top: 20px;
         }
     }
 }
 
-@media (min-width: $breakpoint-md) {
+@include media-breakpoint-up(md) {
     .project-content {
         display: flex;
         flex-direction: row;
     }
-
-    .structured-data {
-        padding-bottom: 40px;
-    }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include media-breakpoint-up(lg) {
     .project-container {
         width: 45%;
         height: auto;
@@ -111,21 +104,15 @@
         font-size: $small-font-size;
 
         h3  { font-size: $normal-font-size; }
-
-        .project-content {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            grid-template-areas:
-            "info image";
-
-            .project-info { grid-area: info; }
-            .project-link { grid-area: link; }
-        }
     }
 
     .container-left { justify-self: flex-start; }
     .container-right { justify-self: flex-end; }
 }
+
+
+/* ----- ----- --- ---- -- -- -- */
+
 
 /* skills and qualifications syling */
 .skills-qualifications {
@@ -137,7 +124,7 @@
     padding: 10% 5%;
     color: $text-color-light;
 
-    @media (min-width: $breakpoint-lg) {
+    @include media-breakpoint-up(lg) {
         padding: 5% 10%;
     }
 
@@ -200,13 +187,13 @@
         margin-bottom: 0;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @include media-breakpoint-up(md) {
         .wordpress {
             margin-bottom: 0;
         }
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @include media-breakpoint-up(lg) {
         justify-content: center;
         gap: 40px
     }
@@ -225,12 +212,12 @@
     color: $text-color;
     font-size: $smaller-font-size-mobile;
 
-    @media (min-width: $breakpoint-md) {
+    @include media-breakpoint-up(md) {
         font-size: $normal-font-size-mobile;
         flex: 0 0 22%;
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @include media-breakpoint-up(lg) {
         font-size: 1.2rem;
         margin-bottom: 0;
         flex: 0 0 12%;
@@ -258,7 +245,7 @@
         height: auto;
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @include media-breakpoint-up(lg) {
         margin-top: 40px;
     }
 }
@@ -315,7 +302,7 @@
         flex: 0 0 100%;
         margin-bottom: 1.5rem;
 
-        @media (min-width: $breakpoint-lg) {
+        @include media-breakpoint-up(lg) {
             flex: 0 0 25%;
         }
 
@@ -328,7 +315,7 @@
         flex: 0 0 100%;
         margin-bottom: 3rem;
 
-        @media (min-width: $breakpoint-lg) {
+        @include media-breakpoint-up(lg) {
             flex: 0 0 75%;
         }
 

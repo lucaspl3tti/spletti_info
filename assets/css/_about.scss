@@ -49,7 +49,7 @@
     margin-top: 40px;
 }
 
-@media (min-width: $breakpoint-md) {
+@include media-breakpoint-up(md) {
     .about-section {
         .about-intro {
             display: grid;
@@ -114,7 +114,7 @@
     }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include media-breakpoint-up(lg) {
     .about-image {
         max-width: 95%;
     }
@@ -161,7 +161,7 @@
     }
 }
 
-@media (min-width: $breakpoint-xxl) {
+@include media-breakpoint-up(xxl) {
     .about-section {
         .about-intro {
             grid-template-columns: .5fr 3.5fr;
@@ -247,7 +247,7 @@
     }
 }
 
-@media (min-width: $breakpoint-md) {
+@include media-breakpoint-up(md) {
     .contact {
         padding-top: 50px;
     }
@@ -259,7 +259,7 @@
     }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include media-breakpoint-up(lg) {
     .contact-content {
         padding: 4% 5%;
         p {
