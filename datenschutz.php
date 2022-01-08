@@ -1,19 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
     <head>
         <?php
+            $page = 'privacy';
             include ('assets/ressources/includes/head.php');
         ?>
 
-        <title>spletti.info</title>
+        <title>Datenschutz - spletti.info</title>
     </head>
     <body class="privacy">
-        <header class="nav-container">
-            <?php
-                $page = 'privacy';
-                include ('assets/ressources/includes/layouts/nav.php');
-            ?>
-        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark nav-container">
+            <?php include ('assets/ressources/includes/layouts/nav.php'); ?>
+        </nav>
         <main>
             <div class="content-container">
                 <div class="intro-container">

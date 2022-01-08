@@ -1,6 +1,8 @@
 <?php
 include('assets/ressources/content/data.php');
 
+$page = 'home';
+
 $introContainer = $data['introContainer'];
 $portfolio = $data['portfolio'];
 $skillsAndQualifications = $data['skills-qualifications'];
@@ -12,22 +14,17 @@ $contact = $data['contact'];
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
     <head>
-        <?php
-            include ('assets/ressources/includes/head.php');
-        ?>
+        <?php include ('assets/ressources/includes/head.php'); ?>
 
-        <title>spletti.info</title>
+        <title>JLS - spletti.info</title>
     </head>
     <body class="main-page">
-        <header class="nav-container">
-            <?php
-                $page = 'home';
-                include ('assets/ressources/includes/layouts/nav.php');
-            ?>
-        </header>
-        <main>
+        <nav class="navbar navbar-expand-lg navbar-dark nav-container">
+            <?php include ('assets/ressources/includes/layouts/nav.php'); ?>
+        </nav>
+        <main id="home">
             <div class="section-one particles">
                 <div id="particles-js"></div>
 
@@ -61,11 +58,19 @@ $contact = $data['contact'];
                             <h1><?=$introContainer['h1']?></h1>
                             <p class="h3"><?=$introContainer['subtitle']?></p>
                             <p class="myself"><?=$introContainer['description']?></p>
-                            <div class="btn-portfolio">
-                                <a class="btn btn-primary" href="<?=$introContainer['button']['link']?>">
-                                    <?=$introContainer['button']['text']?>
-                                    <i class="fas fa-arrow-right"></i>
-                                </a>
+                            <div class="button-container">
+                                <div class="btn-portfolio">
+                                    <a class="btn btn-primary" href="<?=$introContainer['portfolioButton']['link']?>">
+                                        <?=$introContainer['portfolioButton']['text']?>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="btn-contact">
+                                    <a class="btn btn-primary" href="<?=$introContainer['contactButton']['link']?>">
+                                        <?=$introContainer['contactButton']['text']?>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -76,24 +81,29 @@ $contact = $data['contact'];
                             <h2><?=$portfolio['heading']?><span class="heading-dot">.</span></h2>
                             <p class="subheading"><?=$portfolio['subtitle']?></p>
                         </div>
-                        <div class="portfolio-content">
-                            <?php foreach ($portfolio['projects'] as $key => $project) : ?>
-                            <div class="project-container container-left <?=$key?>">
-                                <h3><?=$project['title']?></h3>
-                                <div class="project-content">
-                                    <div class="project-info">
-                                        <p><?=$project['description']?></p>
-                                        <div class="github-repo">
-                                            <a class="project-link" href="<?=$project['link']?>" target="_blank">
-                                                <span class="hover-underline"><?=$project['linkText']?></span>
-                                                <i class="fas fa-arrow-right"></i>
-                                            </a>
+
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($portfolio['projects'] as $key => $project) : ?>
+                                    <div class="swiper-slide project-container <?=$key?>">
+                                        <h3><?=$project['title']?></h3>
+                                        <div class="project-content">
+                                            <div class="project-info">
+                                                <p><?=$project['description']?></p>
+                                                <div class="github-repo">
+                                                    <a class="project-link" href="<?=$project['link']?>" target="_blank">
+                                                        <span class="hover-underline"><?=$project['linkText']?></span>
+                                                        <i class="fas fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <img class="project-image" src="<?=$project['imageSrc']?>">
-                                </div>
+                                <?php endforeach; ?>
                             </div>
-                            <?php endforeach; ?>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
                     </section>
                 </div>
@@ -186,6 +196,9 @@ $contact = $data['contact'];
                             <img src="assets/img/ux.png" class="ui-image">
                             <p class="backend-career"><?=$about['backend']?></p>
                             <p class="frontend-career"><?=$about['frontend']?></p>
+                        </div>
+                        <div class="today">
+                            <p><?=$about['today']?></p>
                         </div>
                     </div>
                 </section>

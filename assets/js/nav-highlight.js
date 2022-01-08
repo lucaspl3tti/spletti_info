@@ -5,7 +5,7 @@ export default class NavHighlightPlugin {
     constructor(el) {
         this.el = document.querySelector(el);
         this.sections = document.querySelectorAll('section');
-        this.navEls = this.el.querySelectorAll('.nav-hover');
+        this.navEls = this.el.querySelectorAll('.hover-underline');
 
         this.registerEvent();
     }
