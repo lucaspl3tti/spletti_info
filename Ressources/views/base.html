@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- favicon for the website -->
+        <link rel="icon" href="Ressources/app/assets/images/coding.png" />
+
+        <!-- Bootstrap CSS and Font Awesome-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+        <!-- Custom CSS -->
+        <link href="Ressources/app/base.css" rel="stylesheet">
+
+        <!-- JS files -->
+        <script type="module" src="Ressources/app/main.js" defer></script>
+
+        <!-- SwiperJS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+        />
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+        <title>
+            {% yield title %} - spletti.info
+        </title>
+	</head>
+	<body class="is-page-{{ $page }}">
+        {% include Ressources/views/layout/nav/nav.html %}
+        <main id="{{ $page }}">
+            {% yield content %}
+        </main>
+
+        {% include Ressources/views/layout/footer/footer.html %}
+
+        {% include Ressources/views/components/scrollToTop.html %}
+
+        {% yield body_scripts %}
+
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
+</html>

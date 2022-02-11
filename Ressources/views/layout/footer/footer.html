@@ -1,0 +1,31 @@
+<footer class="footer">
+    <div class="container container--footer">
+        <div class="social-list social-list--footer">
+            <div class="social-list__item social-list__item--instagram">
+                <a class="social-icon" href="https://www.instagram.com/luca.spl3tti/" target="_blank" rel="noopener noreferrer">
+                    {% readfile ('Ressources/app/assets/icons/instagram-white.svg'); %}
+                </a>
+            </div>
+
+            <div class="social-list__item social-list__item--github">
+                <a class="social-icon" href="https://www.github.com/lucaspl3tti" target="_blank" rel="noopener noreferrer">
+                    {% readfile ('Ressources/app/assets/icons/github-white.svg'); %}
+                </a>
+            </div>
+
+            <div class="social-list__item social-list__item--linkedin">
+                <a class="social-icon" href="https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/" target="_blank" rel="noopener noreferrer">
+                    {% readfile ('Ressources/app/assets/icons/linkedin-white.svg'); %}
+                </a>
+            </div>
+        </div>
+
+        <div class="footer__copyright">
+            <p>© Jan-Luca Splettstößer 2021-2022</p>
+        </div>
+        <div class="footer__links">
+            <p><a class="footer__link-item hover-underline{% if($page === 'legal'): %} nav-active{% endif; %}" href="/legal">Impressum – Legal Disclosure</a></p>
+            <p><a class="footer__link-item hover-underline{% if($page === 'privacy'): %} nav-active{% endif; %}" href="/privacy">Datenschutzerklärung – Privacy Policy</a></p>
+        </div>
+    </div>
+</footer>

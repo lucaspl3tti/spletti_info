@@ -1,0 +1,10 @@
+.contact-button {
+    width: 100%;
+    margin-top: 40px;
+}
+
+@include media-breakpoint-up(md) {
+    .contact-button {
+        width: 300px;
+    }
+}

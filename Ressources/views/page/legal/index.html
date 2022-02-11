@@ -1,0 +1,55 @@
+{% extends Ressources/views/base.html %}
+
+{% block title %}Impressum{% endblock %}
+
+{% block content %}
+<div class="container container--content">
+    <div class="legal-disclosure">
+        <h1>Impressum</h1>
+
+        <div class="legal-disclosure__content">
+            <div class="personal-info">
+                <p>
+                    {{ $personalInfo }}
+                </p>
+            </div>
+
+            <div class="contact-info">
+                <h2>{{ $contactInfo['heading'] }}</h2>
+                <p>
+                    E-Mail: <a class="hover-underline" href="mailto:{{ $contactInfo['email'] }}">
+                        {{ $contactInfo['email'] }}
+                    </a>
+                </p>
+            </div>
+
+            <div class="in-charge">
+                <h2>{{ $inCharge['heading'] }}</h2>
+                {% foreach($inCharge['contacts'] as $contact): %}
+                    <p>
+                        {{ $contact }}
+                    </p>
+                {% endforeach; %}
+            </div>
+            <div class="liability-content">
+                <h2>{{ $liability['content']['heading'] }}</h2>
+                <p>{{ $liability['content']['copy'] }}</p>
+            </div>
+
+            <div class="liability-links">
+                <h2>{{ $liability['links']['heading'] }}</h2>
+                <p>{{ $liability['links']['copy'] }}</p>
+            </div>
+
+            <div class="copyright">
+                <h2>{{ $copyright['heading'] }}</h2>
+                <p>{{ $copyright['copy'] }}</p>
+            </div>
+
+            <p class="legal-disclosure__source">
+                {{ $source }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

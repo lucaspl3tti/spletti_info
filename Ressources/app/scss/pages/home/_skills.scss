@@ -1,0 +1,112 @@
+.skills-qualifications {
+    margin-top: 100px;
+    background-color: $color-main;
+    box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
+}
+
+.skills-qualifications-container {
+    padding: 10% 5%;
+    color: $color-text-light;
+
+    .heading {
+        color: inherit;
+        text-align: center;
+    }
+
+    .nav {
+        justify-content: center;
+        color: inherit;
+    }
+
+    .change-content {
+        margin-bottom: 40px;
+    }
+}
+
+.change-skills {
+    margin-right: 3%;
+}
+
+.change-skills,
+.change-qualifications {
+    p {
+        cursor: pointer;
+    }
+}
+
+.skills-is-active,
+.qualifications-is-active {
+    p {
+        cursor: default;
+    }
+}
+
+.skills-is-active,
+.qualifications-is-active {
+    .hover-underline::after {
+        transform: scaleX(1);
+    }
+}
+
+.skills {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    &.show {
+        opacity: 1;
+        height: auto;
+    }
+}
+
+.skills__box {
+    display: flex;
+    aspect-ratio: 1/1;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+    border-radius: 13px;
+    margin-bottom: 2rem;
+    flex: 0 0 30%;
+    background-color: $color-body;
+    color: $color-text;
+    font-size: $font-size-small-mobile;
+
+    img {
+        width: 70%;
+    }
+
+    p {
+        margin: 5px 0 0;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .skills__box {
+        font-size: $font-size-normal-mobile;
+        flex: 0 0 22%;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .skills-qualifications-container {
+        padding: 5% 10%;
+    }
+
+    .skills {
+        justify-content: center;
+        gap: 40px
+    }
+
+    .skills__box {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        flex: 0 0 12%;
+        min-width: 140px;
+        min-height: 140px;
+    }
+}
