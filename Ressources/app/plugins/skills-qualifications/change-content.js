@@ -1,7 +1,7 @@
 /**
  * This Plugin handles the custom change content functionality for the skills and qualifications container
  */
- export default class ChangeSkillsContentPlugin {
+export default class ChangeSkillsContentPlugin {
     constructor(el) {
         if (document.querySelector('body').classList.contains('is-page-home')) {
             this.el = document.querySelector(el);

@@ -1,7 +1,7 @@
 /**
  * This Plugin handles the custom scroll to top functionality
  */
- export default class ScrollToTopPlugin {
+export default class ScrollToTopPlugin {
     constructor(el) {
         this.el = document.querySelector(el);
 

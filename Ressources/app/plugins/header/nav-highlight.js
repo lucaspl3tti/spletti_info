@@ -1,7 +1,7 @@
 /**
  * This Plugin handles the custom highlighting fuction for the navigation container
  */
- export default class NavHighlightPlugin {
+export default class NavHighlightPlugin {
     constructor(el) {
         this.el = document.querySelector(el);
         this.sections = document.querySelectorAll('section');

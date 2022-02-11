@@ -1,7 +1,7 @@
 /**
  * This Plugin handles the swiper functionality for the swiperJS Plugin from swiperjs.com
  */
- export default class SwiperPlugin {
+export default class SwiperPlugin {
     constructor(el) {
         const swiper = new Swiper(el, {
             // Optional parameters
