@@ -29,6 +29,7 @@ export const websiteData = {
                 liveLink: 'https://random-activity-spa.netlify.app/',
                 liveLinkText: 'Live Site',
                 image: 'img/images/random-activity-spa_iphone13-mockup2.png',
+                imageRatio: '72/115',
                 paddingBottom: false,
             },
             'portfolio-website': {
@@ -37,6 +38,7 @@ export const websiteData = {
                 description: 'My personal portfolio website! I developed it so I can showcase my work and represent myself in the web. It\'s build with Vue.js and Bootstrap 5.',
                 repoLink: 'https://github.com/lucaspl3tti/spletti_info',
                 image: 'img/images/portfolio-website_macbook-air-mockup.png',
+                imageRatio: '40/27',
                 paddingBottom: false,
             },
             'planets-facts-website': {
@@ -47,6 +49,7 @@ export const websiteData = {
                 liveLink: 'https://planet-facts-jls.netlify.app/',
                 liveLinkText: 'Live Site',
                 image: 'img/images/planets-facts-website_mockups.png',
+                imageRatio: '16/9',
                 paddingBottom: false,
             },
             'tip-calculator-app': {
@@ -57,6 +60,7 @@ export const websiteData = {
                 liveLink: 'https://tap-calculator-jls.netlify.app/',
                 liveLinkText: 'Live Site',
                 image: 'img/images/tip-calculator-app_macbook-air-mockup.png',
+                imageRatio: '7/5',
                 paddingBottom: false,
             },
             'pdflib-demo-script': {
@@ -67,6 +71,7 @@ export const websiteData = {
                 liveLink: '/files/ExamplePDF_jls_pdf-rendering.pdf',
                 liveLinkText: 'Example PDF',
                 image: 'img/images/pdflib-example_macbook-air-mockup.png',
+                imageRatio: '40/27',
                 paddingBottom: false,
             }
         },

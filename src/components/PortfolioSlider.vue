@@ -37,7 +37,7 @@ export default {
                             project.paddingBottom ? 'pb-0' : ''
                         ]"
                     >
-                        <img :src="project.image" :alt="project.imageAltText">
+                        <img :src="project.image" :alt="project.imageAltText" :style="['aspect-ratio: ' + project.imageRatio]">
                     </div>
 
                     <div
