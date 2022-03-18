@@ -1,0 +1,127 @@
+.heading--portfolio {
+    margin-bottom: 50px;
+}
+
+.portfolio {
+    margin-top: 50px;
+    padding-top: 50px;
+
+    .slider {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        gap: 50px;
+        box-sizing: content-box;
+
+        &__wrapper {
+            background-color: $color-body;
+        }
+
+        &__image {
+            display: flex;
+            justify-content: center;
+            border-radius: 25px;
+            background-color: $color-main;
+            padding: 20px;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        &__text {
+            max-height: 350px;
+            overflow: hidden;
+
+            &-wrapper {
+                padding: 25px;
+            }
+        }
+
+        &__links {
+            &.link-wrapper--flex {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .project__link {
+                color: $color-main;
+                transition:
+                    color $animation-speed,
+                    transform $animation-speed;
+
+                .fa-arrow-right {
+                    transition: transform .25s;
+                }
+
+                &:hover {
+                    color: $color-main-alt;
+
+                    .fa-arrow-right {
+                        transform: translateX(8px);
+                    }
+                }
+            }
+        }
+
+        &__control {
+            position: absolute;
+            max-width: 55px;
+            background-color: transparent;
+            padding: 0 5px;
+            opacity: 1;
+            color: $color-main-alt;
+            cursor: pointer;
+            transition: color $animation-speed;
+
+            &--previous {
+                left: 5px;
+            }
+
+            &--next {
+                right: 5px;
+            }
+
+            i::before {
+                transform: scale(2.5);
+                transition: transform .33s;
+            }
+
+            &:hover {
+                color: $color-orange-500;
+
+                i::before {
+                    transform: scale(3);
+                }
+            }
+        }
+
+        &--hidden {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .portfolio {
+        .slider {
+            &__wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 500px;
+            }
+
+            &__text {
+                max-height: 275px;
+
+                &-wrapper {
+                    padding: 75px;
+                }
+            }
+
+            &--hidden {
+                display: none;
+            }
+        }
+    }
+}

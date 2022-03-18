@@ -1,0 +1,225 @@
+/** Navigation */
+.nav-container {
+    position: fixed;
+    top: 10px;
+    width: 98%;
+    height: 70px;
+    margin: 0 1%;
+    background-color: transparent;
+    font-size: $font-size-small-mobile;
+    box-shadow: none;
+    border-radius: 15px;
+    z-index: $z-fixed;
+
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar-mobile {
+        .navbar-nav {
+            flex-flow: row nowrap;
+        }
+    }
+
+    .navbar-toggler {
+        height: 55px;
+        width: 55px;
+        background-color: $color-main;
+        box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
+        border-radius: 50%;
+        transform: scale(1);
+        transition: transform $animation-speed;
+
+        &.collapsed {
+            .bi {
+                &-list {
+                    display: block;
+                }
+
+                &-x {
+                    display: none;
+                }
+            }
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        .bi {
+            color: $color-body;
+            font-size: 30px;
+            transition: font-size $animation-speed,
+                opacity $animation-speed;
+
+            &-list {
+                display: none;
+            }
+
+            &-x {
+                display: block;
+            }
+        }
+    }
+
+    .nav-logo {
+        display: flex;
+        place-items: center;
+        height: 55px;
+        max-width: 25%;
+        box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
+        background-color: $color-main;
+        border-radius: 25px;
+        padding: 5px 20px;
+        color: $color-text-light;
+        font-size: $font-size-h3;
+        align-self: center;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 70px;
+        height: calc(100vh - 100px);
+        width: 95vw;
+        left: 2vw;
+        margin-top: 10px;
+        box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
+        border-radius: 25px;
+        background-color: $color-body;
+    }
+
+    .nav {
+        justify-self: flex-end;
+        align-items: center;
+    }
+
+    .nav-link {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        cursor: pointer;
+        padding: 1rem 0 1rem 1.5rem;
+        font-size: inherit;
+
+        &__dash {
+            width: 50px;
+            height: 2px;
+            background-color: $color-body-dark;
+            margin: 0 10px;
+        }
+
+        .bi {
+            font-size: 55px;
+            color: $color-main-alt;
+
+            &-house,
+            &-boxes,
+            &-chat-dots {
+                color: $color-main;
+            }
+        }
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 28px;
+        color: $color-text;
+
+        &.active {
+            color: $color-text;
+        }
+    }
+
+    .hover-underline {
+        &::after {
+            background-color: $color-body;
+        }
+    }
+
+    .nav-active {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(1);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: $color-body;
+            transform-origin: bottom left;
+            transition: transform .25s ease-out;
+        }
+    }
+}
+
+/* tablet styling */
+@include media-breakpoint-up(md) {
+    .nav-container {
+        height: 90px;
+        border-radius: 25px;
+        font-size: $font-size-small;
+        color: $color-text-light;
+    }
+}
+
+/* desktop styling */
+@include media-breakpoint-up(lg) {
+    .nav-container {
+        height: 100px;
+        background-color: $color-main;
+        padding: 0 8%;
+        font-size: $font-size-normal;
+
+        .nav-logo {
+            box-shadow: none;
+        }
+
+        .navbar-nav {
+            .nav-item {
+                &:not(:last-of-type) {
+                    padding-right: 1.5rem;
+                }
+            }
+
+            .nav-link {
+                padding-right: 0;
+            }
+        }
+
+        .nav {
+            margin-right: -15px;
+        }
+
+        .navbar-nav .nav-link {
+            color: $color-text-light;
+            font-size: 22px;
+
+            &.active {
+                color: $color-text-light;
+            }
+        }
+
+        .nav-active {
+            &:hover::after {
+                transform: scaleX(0);
+                transform-origin: bottom right;
+            }
+        }
+
+        .navbar-collapse {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: auto;
+            margin-top: 0;
+            box-shadow: none;
+            border-radius: 0;
+            background-color: transparent;
+            padding: 25px;
+        }
+    }
+}
