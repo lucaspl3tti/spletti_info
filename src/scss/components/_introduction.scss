@@ -1,0 +1,117 @@
+.introduction {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.introduction__content {
+    margin-top: 0;
+}
+
+.introduction__description {
+    margin: 1.5rem 0;
+}
+
+.introduction__image {
+    order: -2;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+    margin-left: auto;
+
+    img {
+        width: 85%;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+    }
+}
+
+.introduction__buttons {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+
+    .btn--contact {
+        .btn-primary {
+            border-radius: 1.5625rem 0;
+
+            &:hover {
+                border-radius: 0 1.5625rem;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .introduction {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 4fr 2fr;
+        grid-template-areas:
+            "intro-content intro-image"
+            "intro-content intro-social";
+    }
+
+    .introduction__content {
+        grid-area: intro-content;
+    }
+
+    .introduction__buttons {
+        flex-flow: row nowrap;
+
+        .btn {
+            width: 180px;
+        }
+    }
+
+    .introduction__image {
+        grid-area: intro-image;
+        align-self: center;
+        margin-top: 10px;
+
+        img {
+            width: auto;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .introduction {
+        grid-template-columns: 5fr 2fr;
+        grid-template-areas:
+            "intro-content intro-image intro-social";
+    }
+
+    .introduction__content {
+        padding-right: 20%;
+        align-self: center;
+    }
+
+    .introduction__description {
+        margin-top: 1.5rem;
+    }
+
+    .introduction__buttons {
+        flex-flow: row nowrap;
+
+        .btn--portfolio,
+        .btn--contact {
+            margin-top: 30px;
+        }
+    }
+
+    .introduction__image {
+        justify-self: flex-end;
+        transform: translateX(30px);
+
+        img {
+            height: 350px;
+        }
+    }
+
+    .social-list--aside {
+        flex-direction: column;
+        transform: translateY(0);
+        align-items: flex-end;
+    }
+}

@@ -1,0 +1,30 @@
+// Import bootstrap scss and own custom variables
+@import 'abstracts/variables/colors';
+@import "vendor/bootstrap/custom";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "abstracts/variables/typography";
+@import "abstracts/variables/general";
+
+// Import base styling
+@import "base/general";
+
+// Import Components styling
+@import "components/about";
+@import "components/button";
+@import "components/contact";
+@import "components/introduction";
+@import "components/qualifications";
+@import "components/scrollToTop";
+@import "components/skills";
+@import "components/slider";
+@import "components/social-list";
+// @import "components/particles";
+
+// Import Layout styling
+@import "layouts/nav/nav";
+@import "layouts/footer/footer";
+
+// Import page styling
+@import "pages/legal/legal";
+@import "pages/privacy/privacy";
+// @import "pages/linktree/linktree";
