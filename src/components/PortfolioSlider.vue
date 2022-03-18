@@ -29,6 +29,7 @@ export default {
                     :key="key"
                     class="carousel-item slider__wrapper"
                     :class="[project.id === 1 ? 'active' : '']"
+                    data-bs-interval="10000"
                 >
                     <div
                         class="slider__image image-wrapper"
