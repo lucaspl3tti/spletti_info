@@ -1,4 +1,24 @@
 <script>
+export default {
+    data(){
+        return {
+            collapseToggler: '.navbar-toggler',
+            collapseContainer: '#navbarNav',
+            activeClass: 'show',
+            collapsedClass: 'collapsed',
+        };
+    },
+    methods: {
+        onClickNavLink() {
+            const toggler = document.querySelector(this.collapseToggler);
+            const collapse = document.querySelector(this.collapseContainer);
+
+            toggler.classList.add(this.collapsedClass);
+            collapse.classList.remove(this.activeClass);
+        },
+    },
+}
+
 import { RouterLink, RouterView } from 'vue-router';
 </script>
 
@@ -23,6 +43,7 @@ import { RouterLink, RouterView } from 'vue-router';
                         <RouterLink
                             to="/"
                             class="nav-link"
+                            @click="onClickNavLink"
                         >
                             <i class="bi bi-house d-lg-none"></i>
                             <span class="nav-link__dash d-lg-none"></span>
@@ -35,6 +56,7 @@ import { RouterLink, RouterView } from 'vue-router';
                         <RouterLink
                             to="/#portfolio"
                             class="nav-link"
+                            @click="onClickNavLink"
                         >
                             <i class="bi bi-window-stack d-lg-none"></i>
                             <span class="nav-link__dash d-lg-none"></span>
@@ -47,6 +69,7 @@ import { RouterLink, RouterView } from 'vue-router';
                         <RouterLink
                             to="/#skills"
                             class="nav-link"
+                            @click="onClickNavLink"
                         >
                             <i class="bi bi-boxes d-lg-none"></i>
                             <span class="nav-link__dash d-lg-none"></span>
@@ -59,6 +82,7 @@ import { RouterLink, RouterView } from 'vue-router';
                         <RouterLink
                             to="/#about"
                             class="nav-link"
+                            @click="onClickNavLink"
                         >
                             <i class="bi bi-chat-left-quote d-lg-none"></i>
                             <span class="nav-link__dash d-lg-none"></span>
@@ -71,6 +95,7 @@ import { RouterLink, RouterView } from 'vue-router';
                         <RouterLink
                             to="/#contact"
                             class="nav-link"
+                            @click="onClickNavLink"
                         >
                             <i class="bi bi-chat-dots d-lg-none"></i>
                             <span class="nav-link__dash d-lg-none"></span>
