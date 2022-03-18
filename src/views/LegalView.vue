@@ -13,7 +13,7 @@ export default {
 <template>
 <div class="container container--content">
     <div class="legal-disclosure" id="legalWrapper">
-        <h1>Impressum</h1>
+        <h1>Impressum - Legal Disclosure</h1>
 
         <div class="legal-disclosure__content">
             <div class="personal-info">

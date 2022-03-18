@@ -43,7 +43,7 @@ export default {
             </div>
 
             <div class="introduction__image">
-                <img src="img/images/jls_profilepic.jpg">
+                <img :src="introContainer.profileImage">
             </div>
         </section>
 

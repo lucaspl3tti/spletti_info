@@ -15,6 +15,7 @@ export const websiteData = {
                 class: 'btn--contact'
             },
         },
+        profileImage: 'img/images/jls_profilepic.jpg',
     },
     portfolio: {
         heading: 'projects & portfolio',
