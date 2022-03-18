@@ -1,0 +1,86 @@
+<script>
+import { RouterLink, RouterView } from 'vue-router';
+</script>
+
+<template>
+    <nav class="navbar navbar-expand-lg navbar-dark nav-container">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 nav-logo">
+                <span class="d-block d-lg-none">
+                    JLS<span class="heading-dot">.</span>
+                </span>
+                <span class="d-none d-lg-block">
+                    Jan-Luca Splettstößer<span class="heading-dot">.</span>
+                </span>
+            </span>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+                <i class="bi bi-x"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <RouterLink
+                            to="/"
+                            class="nav-link"
+                        >
+                            <i class="bi bi-house d-lg-none"></i>
+                            <span class="nav-link__dash d-lg-none"></span>
+                            <span class="hover-underline">
+                                Home
+                            </span>
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink
+                            to="/#portfolio"
+                            class="nav-link"
+                        >
+                            <i class="bi bi-window-stack d-lg-none"></i>
+                            <span class="nav-link__dash d-lg-none"></span>
+                            <span class="hover-underline">
+                                Portfolio
+                            </span>
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink
+                            to="/#skills"
+                            class="nav-link"
+                        >
+                            <i class="bi bi-boxes d-lg-none"></i>
+                            <span class="nav-link__dash d-lg-none"></span>
+                            <span class="hover-underline">
+                                Skills
+                            </span>
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink
+                            to="/#about"
+                            class="nav-link"
+                        >
+                            <i class="bi bi-chat-left-quote d-lg-none"></i>
+                            <span class="nav-link__dash d-lg-none"></span>
+                            <span class="hover-underline">
+                                About
+                            </span>
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink
+                            to="/#contact"
+                            class="nav-link"
+                        >
+                            <i class="bi bi-chat-dots d-lg-none"></i>
+                            <span class="nav-link__dash d-lg-none"></span>
+                            <span class="hover-underline">
+                                Contact
+                            </span>
+                        </RouterLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
