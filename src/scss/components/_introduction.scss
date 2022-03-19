@@ -126,9 +126,10 @@
 
 @include media-breakpoint-up(lg) {
     .introduction {
-        grid-template-columns: 5fr 2fr;
+        grid-template-columns: auto 350px;
         grid-template-areas:
-            "intro-content intro-image intro-social";
+            "intro-content intro-image";
+        justify-content: space-between;
     }
 
     .introduction__content {
@@ -151,7 +152,6 @@
 
     .introduction__image {
         justify-self: flex-end;
-        transform: translateX(30px);
 
         .speech-bubble {
             top: 58%;
