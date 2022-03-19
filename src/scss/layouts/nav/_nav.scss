@@ -201,6 +201,18 @@
 
             .nav-link {
                 padding-right: 0;
+
+                &.nav-link--home,
+                &.nav-link--skills,
+                &.nav-link--about {
+                    &:hover {
+                        color: $color-body;
+                    }
+                }
+
+                &:hover {
+                    color: $color-body;
+                }
             }
         }
 
