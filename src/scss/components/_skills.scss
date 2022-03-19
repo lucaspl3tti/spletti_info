@@ -51,7 +51,8 @@
 .skills {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 15px;
     transition: opacity 1s ease-out;
     opacity: 0;
     height: 0;
@@ -86,6 +87,10 @@
 }
 
 @include media-breakpoint-up(md) {
+    .skills {
+        gap: 26px;
+    }
+
     .skills__box {
         font-size: $font-size-normal-mobile;
         flex: 0 0 22%;
@@ -98,7 +103,6 @@
     }
 
     .skills {
-        justify-content: center;
         gap: 40px
     }
 
