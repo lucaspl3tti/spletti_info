@@ -33,10 +33,31 @@
         &__text {
             max-height: 350px;
             overflow: hidden;
+            margin-bottom: 1rem;
 
             &-wrapper {
                 padding: 25px;
             }
+        }
+
+        &__tags {
+            display: flex;
+            flex-flow: row wrap;
+            place-items: flex-start;
+            gap: 5px;
+            max-height: 35px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        &__tag {
+            margin: 0;
+            border: 1px solid rgba(255, 109, 0, 1);;
+            border-radius: 15px;
+            padding: 5px 15px;
+            background-color: rgba(255, 134, 0, .4);
+            // color: $color-text-light;
+            font-size: 14px;
         }
 
         &__links {
@@ -113,7 +134,7 @@
             }
 
             &__text {
-                max-height: 275px;
+                max-height: 205px;
 
                 &-wrapper {
                     padding: 75px;

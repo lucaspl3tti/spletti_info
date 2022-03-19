@@ -55,6 +55,12 @@ export default {
                             <p v-html="project.description"></p>
                         </div>
 
+                        <div class="slider__tags">
+                            <p class="slider__tag" v-for="tag in project.tags" :key="tag">
+                                {{ tag }}
+                            </p>
+                        </div>
+
                         <div class="slider__links" :class="[project.liveLink ? 'link-wrapper--flex' : '']">
                             <a :href="project.repoLink" class="project__link project__link--github" target="_blank" rel="noopener noreferrer">
                                 <span class="hover-underline">Github Repo</span>
