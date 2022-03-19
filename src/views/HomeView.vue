@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="container container--content">
+    <div class="container container--content container--introduction">
         <section class="introduction start" id="home">
             <div class="introduction__content">
                 <h1 v-html="introContainer.heading"></h1>
