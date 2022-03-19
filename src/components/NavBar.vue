@@ -42,7 +42,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <li class="nav-item">
                         <RouterLink
                             to="/"
-                            class="nav-link"
+                            class="nav-link nav-link--home"
                             @click="onClickNavLink"
                         >
                             <i class="bi bi-house d-lg-none"></i>
@@ -55,7 +55,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <li class="nav-item">
                         <RouterLink
                             to="/#portfolio"
-                            class="nav-link"
+                            class="nav-link nav-link--portfolio"
                             @click="onClickNavLink"
                         >
                             <i class="bi bi-window-stack d-lg-none"></i>
@@ -68,7 +68,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <li class="nav-item">
                         <RouterLink
                             to="/#skills"
-                            class="nav-link"
+                            class="nav-link nav-link--skills"
                             @click="onClickNavLink"
                         >
                             <i class="bi bi-boxes d-lg-none"></i>
@@ -81,7 +81,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <li class="nav-item">
                         <RouterLink
                             to="/#about"
-                            class="nav-link"
+                            class="nav-link nav-link--about"
                             @click="onClickNavLink"
                         >
                             <i class="bi bi-chat-left-quote d-lg-none"></i>
@@ -94,7 +94,7 @@ import { RouterLink, RouterView } from 'vue-router';
                     <li class="nav-item">
                         <RouterLink
                             to="/#contact"
-                            class="nav-link"
+                            class="nav-link nav-link--contact"
                             @click="onClickNavLink"
                         >
                             <i class="bi bi-chat-dots d-lg-none"></i>
