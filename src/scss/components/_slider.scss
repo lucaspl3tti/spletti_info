@@ -88,6 +88,9 @@
 
         &__control {
             position: absolute;
+            top: auto;
+            bottom: 30%;
+            height: 50px;
             max-width: 55px;
             background-color: transparent;
             padding: 0 5px;
@@ -97,11 +100,11 @@
             transition: color $animation-speed;
 
             &--previous {
-                left: 5px;
+                left: -25px;
             }
 
             &--next {
-                right: 5px;
+                right: -25px;
             }
 
             i::before {
@@ -124,6 +127,16 @@
     }
 }
 
+@include media-breakpoint-up(md) {
+    .portfolio {
+        .slider {
+            &__control {
+                bottom: 12%;
+            }
+        }
+    }
+}
+
 @include media-breakpoint-up(lg) {
     .portfolio {
         .slider {
@@ -138,6 +151,20 @@
 
                 &-wrapper {
                     padding: 75px;
+                }
+            }
+
+            &__control {
+                bottom: auto;
+                top: 0;
+                height: 100%;
+
+                &--previous {
+                    left: 5px;
+                }
+
+                &--next {
+                    right: 5px;
                 }
             }
 
