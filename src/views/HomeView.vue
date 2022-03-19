@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-    <div class="container container--content">
+    <div class="container container--content container--introduction">
         <section class="introduction start" id="home">
             <div class="introduction__content">
                 <h1 v-html="introContainer.heading"></h1>
@@ -43,7 +43,10 @@ export default {
             </div>
 
             <div class="introduction__image">
-                <img :src="introContainer.profileImage">
+                <a href="https://www.instagram.com/luca.spl3tti/" target="_blank" rel="noopener noreferrer">
+                    <img :src="introContainer.profileImage">
+                </a>
+                <p class="speech-bubble">Visit me on Instagram!</p>
             </div>
         </section>
 

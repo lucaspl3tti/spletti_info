@@ -1,10 +1,29 @@
-.contact-button {
+.contact-me {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 75px;
+    border-radius: 25px;
+    padding: 50px;
+    background-color: $color-main;
+    color: $color-text-light;
+
+    .heading {
+        color: inherit;
+    }
+
+    .btn--contact-me {
+        margin-top: 25px;
+    }
 }
 
 @include media-breakpoint-up(md) {
-    .contact-button {
-        width: 300px;
+    .contact-me {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin-top: 100px;
+
+        .btn--contact-me {
+            width: 300px
+        }
     }
 }

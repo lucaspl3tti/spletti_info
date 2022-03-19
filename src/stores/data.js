@@ -31,6 +31,12 @@ export const websiteData = {
                 image: 'img/images/random-activity-spa_iphone13-mockup2.png',
                 imageRatio: '72/115',
                 paddingBottom: false,
+                tags: [
+                    'vue.js',
+                    'scss',
+                    'bootstrap 5',
+                    'spa'
+                ],
             },
             'portfolio-website': {
                 id: 2,
@@ -40,6 +46,13 @@ export const websiteData = {
                 image: 'img/images/portfolio-website_macbook-air-mockup.png',
                 imageRatio: '40/27',
                 paddingBottom: false,
+                tags: [
+                    'vue.js',
+                    'scss',
+                    'bootstrap 5',
+                    'spa',
+                    'ui design',
+                ],
             },
             'planets-facts-website': {
                 id: 3,
@@ -51,6 +64,13 @@ export const websiteData = {
                 image: 'img/images/planets-facts-website_mockups.png',
                 imageRatio: '16/9',
                 paddingBottom: false,
+                tags: [
+                    'vue.js',
+                    'scss',
+                    'bootstrap 5',
+                    'spa',
+                    'frontend mentor',
+                ],
             },
             'tip-calculator-app': {
                 id: 4,
@@ -62,6 +82,12 @@ export const websiteData = {
                 image: 'img/images/tip-calculator-app_macbook-air-mockup.png',
                 imageRatio: '7/5',
                 paddingBottom: false,
+                tags: [
+                    'javascript',
+                    'scss',
+                    'gulp',
+                    'frontend mentor',
+                ],
             },
             'pdflib-demo-script': {
                 id: 5,
@@ -73,6 +99,11 @@ export const websiteData = {
                 image: 'img/images/pdflib-example_macbook-air-mockup.png',
                 imageRatio: '40/27',
                 paddingBottom: false,
+                tags: [
+                    'pdflib',
+                    'php',
+                    'pdf generator',
+                ],
             }
         },
     },

@@ -54,8 +54,14 @@ export default {
             </div>
         </section>
 
-        <section class="contact-button" id="contact">
-            <a :href="contact.href" class="btn btn-primary">
+        <section class="contact-me" id="contact">
+            <h2 class="heading heading--about">
+                Get in touch<span class="heading-dot">.</span>
+            </h2>
+            <p class="subheading">
+                If you have a question or if you want to work with me, just send a quick message! &#10024;
+            </p>
+            <a :href="contact.href" class="btn btn-primary btn--contact-me">
                 {{ contact.text }}
                 <i class="fas fa-arrow-right"></i>
             </a>

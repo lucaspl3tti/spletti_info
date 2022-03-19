@@ -22,14 +22,14 @@ export default {
             </p>
         </div>
 
-        <div id="portfolioSlider" class="carousel slider slide carousel-fade">
+        <div id="portfolioSlider" class="carousel slider slide carousel-fade" data-bs-ride="false">
             <div class="carousel-inner">
                 <div
                     v-for="(project, key) in portfolio.projects"
                     :key="key"
                     class="carousel-item slider__wrapper"
                     :class="[project.id === 1 ? 'active' : '']"
-                    data-bs-interval="10000"
+                    data-bs-interval="8000"
                 >
                     <div
                         class="slider__image image-wrapper"
@@ -53,6 +53,12 @@ export default {
 
                         <div class="slider__text">
                             <p v-html="project.description"></p>
+                        </div>
+
+                        <div class="slider__tags">
+                            <p class="slider__tag" v-for="tag in project.tags" :key="tag">
+                                {{ tag }}
+                            </p>
                         </div>
 
                         <div class="slider__links" :class="[project.liveLink ? 'link-wrapper--flex' : '']">
