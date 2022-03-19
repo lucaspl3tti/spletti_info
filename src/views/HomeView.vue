@@ -43,7 +43,10 @@ export default {
             </div>
 
             <div class="introduction__image">
-                <img :src="introContainer.profileImage">
+                <a href="https://www.instagram.com/luca.spl3tti/" target="_blank" rel="noopener noreferrer">
+                    <img :src="introContainer.profileImage">
+                </a>
+                <p class="speech-bubble">Visit me on Instagram!</p>
             </div>
         </section>
 

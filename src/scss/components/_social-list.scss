@@ -35,8 +35,6 @@
 
 @include media-breakpoint-up(md) {
     .social-list {
-        display: flex;
-
         &__dash {
             width: 3px;
             height: 120px;
@@ -64,5 +62,11 @@
                 font-size: inherit;
             }
         }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .social-list {
+        display: flex;
     }
 }
