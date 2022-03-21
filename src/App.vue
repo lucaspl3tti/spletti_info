@@ -24,7 +24,7 @@ export default {
 
     <SocialList />
 
-    <!-- <ScrollToTop /> -->
+    <ScrollToTop />
 
     <PageFooter />
 </template>

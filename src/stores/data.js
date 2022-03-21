@@ -169,7 +169,7 @@ export const websiteData = {
                     ],
                 },
             },
-            'Schulische Laufbahn': {
+            'School career': {
                 school1: {
                     isLast: false,
                     timeperiod: '2018 - 2021',
