@@ -7,33 +7,21 @@ export default {
             assets: assets,
             skillsAndQualifications: websiteData.skillsAndQualifications,
             parentSelector: '#skills',
+            skillsToggled: true,
+            qualificationsToggled: false,
         };
     },
     methods: {
         onClickChangeContent() {
-            const el = document.querySelector(this.parentSelector);
-            const skillsLink = el.querySelector('.change-skills');
-            const skillsContent = el.querySelector('#skillsContainer');
-            const qualificationsLink = el.querySelector('.change-qualifications');
-            const qualificationsContent = el.querySelector('#qualificationsContainer');
-
-            if (qualificationsContent.classList.contains('show')) {
-                this.showEl(skillsContent, skillsLink, 'skills-is-active');
-                this.hideEl(qualificationsContent, qualificationsLink, 'qualifications-is-active');
+            if (this.qualificationsToggled) {
+                this.skillsToggled = true;
+                this.qualificationsToggled = false;
                 return
             }
 
-            this.showEl(qualificationsContent, qualificationsLink, 'qualifications-is-active');
-            this.hideEl(skillsContent, skillsLink, 'skills-is-active');
+            this.skillsToggled = false;
+            this.qualificationsToggled = true;
         },
-        showEl(el, elLink, activeLinkClass) {
-            el.classList.add('show');
-            elLink.classList.add(activeLinkClass);
-        },
-        hideEl(el, elLink, activeLinkClass) {
-            el.classList.remove('show');
-            elLink.classList.remove(activeLinkClass);
-        }
     },
 };
 </script>
@@ -47,12 +35,19 @@ export default {
 
             <div class="change-content">
                 <ul class="nav">
-                    <li class="nav-item change-skills skills-is-active" @click="onClickChangeContent">
+                    <li class="nav-item change-skills"
+                        :class="[this.skillsToggled ? 'skills-is-active' : '']"
+                        @click="onClickChangeContent"
+                    >
                         <p class="hover-underline">
                             {{ skillsAndQualifications.changeContent.skills }}
                         </p>
                     </li>
-                    <li class="nav-item change-qualifications" @click="onClickChangeContent">
+                    <li
+                        class="nav-item change-qualifications"
+                        :class="[this.qualificationsToggled ? 'qualifications-is-active' : '']"
+                        @click="onClickChangeContent"
+                    >
                         <p class="hover-underline">
                             {{ skillsAndQualifications.changeContent.qualifications }}
                         </p>
@@ -60,14 +55,18 @@ export default {
                 </ul>
             </div>
 
-            <div class="skills show" id="skillsContainer">
+            <div class="skills" :class="this.skillsToggled ? 'show' : 'hidden'" id="skillsContainer">
                 <div v-for="(asset, skill) in skillsAndQualifications.skills" :key="skill" class="skills__box">
                     <img class="skills__image" :src="asset" alt="">
                     <p class="skills__text">{{ skill }}</p>
                 </div>
             </div>
 
-            <div class="qualifications hidden" id="qualificationsContainer">
+            <div
+                class="qualifications"
+                :class="this.qualificationsToggled ? 'show' : 'hidden'"
+                id="qualificationsContainer"
+            >
                 <div class="cv-container">
                     <div class="experience" v-for="(jobs, key) in skillsAndQualifications.qualifications" :key="key">
                         <h3 class="experience__heading">

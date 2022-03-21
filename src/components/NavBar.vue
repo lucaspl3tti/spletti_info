@@ -38,12 +38,26 @@ import { RouterLink, RouterView } from 'vue-router';
                     Jan-Luca Splettstößer<span class="heading-dot">.</span>
                 </span>
             </span>
-            <button class="navbar-toggler" :class="[this.toggled ? 'collapsed' : '']" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @click="onClickNavToggler">
+            <button
+                class="navbar-toggler"
+                :class="[this.toggled ? 'collapsed' : '']"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                @click="onClickNavToggler"
+            >
                 <div class="collapse-menu-icon half start"></div>
                 <div class="collapse-menu-icon"></div>
                 <div class="collapse-menu-icon half end"></div>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" :class="[this.toggled ? '' : 'show']" id="navbarNav">
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                :class="[this.toggled ? '' : 'show']"
+                id="navbarNav"
+            >
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <RouterLink
