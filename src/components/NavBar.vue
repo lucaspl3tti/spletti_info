@@ -1,4 +1,6 @@
 <script>
+import SocialList from '@/components/SocialList.vue';
+
 export default {
     data(){
         return {
@@ -7,6 +9,9 @@ export default {
             activeClass: 'show',
             collapsedClass: 'collapsed',
         };
+    },
+    components: {
+        SocialList,
     },
     methods: {
         onClickNavLink() {
@@ -106,6 +111,10 @@ import { RouterLink, RouterView } from 'vue-router';
                         </RouterLink>
                     </li>
                 </ul>
+
+                <div class="social-list-nav">
+                    <SocialList />
+                </div>
             </div>
         </div>
     </nav>
