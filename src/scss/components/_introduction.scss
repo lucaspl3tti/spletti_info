@@ -26,6 +26,7 @@
 
     img {
         width: 85%;
+        margin-left: 15%;
         border-radius: 50%;
         aspect-ratio: 1/1;
     }
@@ -109,6 +110,7 @@
 
         img {
             width: auto;
+            margin-left: 0;
             transition: transform .33s, box-shadow .33s;
         }
 
