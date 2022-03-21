@@ -131,7 +131,13 @@
     .portfolio {
         .slider {
             &__control {
-                bottom: 12%;
+                bottom: 20%;
+            }
+
+            &__image {
+                img {
+                    max-height: 500px;
+                }
             }
         }
     }
@@ -144,6 +150,16 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: 500px;
+            }
+
+            &__image {
+                display: flex;
+                flex-flow: column;
+                place-items: center;
+
+                img {
+                    max-height: 450px;
+                }
             }
 
             &__text {

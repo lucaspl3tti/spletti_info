@@ -167,6 +167,10 @@
         font-size: 28px;
         color: $color-text;
 
+        &:focus {
+            color: $color-text;
+        }
+
         &.active {
             color: $color-text;
         }
@@ -220,6 +224,10 @@
             box-shadow: none;
         }
 
+        .navbar-toggler {
+            display: none;
+        }
+
         .navbar-nav {
             .nav-item {
                 &:not(:last-of-type) {
@@ -234,12 +242,16 @@
                 &.nav-link--skills,
                 &.nav-link--about {
                     &:hover {
-                        color: $color-body;
+                        color: $color-text-light;
                     }
                 }
 
                 &:hover {
-                    color: $color-body;
+                    color: $color-text-light;
+                }
+
+                &:focus {
+                    color: $color-text-light;
                 }
             }
         }
