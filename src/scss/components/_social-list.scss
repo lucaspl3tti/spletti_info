@@ -36,6 +36,7 @@
 .social-list-nav {
     .social-list {
         position: relative;
+        left: 0;
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
@@ -48,6 +49,9 @@
         .social-icon {
             height: 100%;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             &-wrapper {
                 width: 45px;
@@ -55,6 +59,8 @@
             }
 
             svg {
+                height: auto;
+                width: auto;
                 transform: scale(2);
                 transition: transform .33s;
             }
