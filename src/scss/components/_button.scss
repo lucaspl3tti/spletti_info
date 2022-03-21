@@ -29,7 +29,7 @@
     border-color: $color-orange-300;
     color: $color-text-light;
     overflow: hidden;
-    transition: $animation-speed;
+    transition: border-radius $animation-speed,color $animation-speed;
     z-index: 1;
 
     &::before {
@@ -41,7 +41,7 @@
         left: 50%;
         transform: translate(-50%, -50%) rotate(45deg);
         background-color: $color-orange-500;
-        transition: .5s ease;
+        transition: .5s ease-out;
         display: block;
         z-index: -1;
     }

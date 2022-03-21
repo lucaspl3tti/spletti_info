@@ -26,6 +26,7 @@
 
     img {
         width: 85%;
+        margin-left: 15%;
         border-radius: 50%;
         aspect-ratio: 1/1;
     }
@@ -78,7 +79,9 @@
             position: absolute;
             top: 58%;
             left: 30%;
+            display: flex;
             place-items: center;
+            opacity: 0;
             margin: 0;
             min-width: 40px;
             max-width: 220px;
@@ -89,12 +92,13 @@
             text-align: center;
             font-size: 1rem;
             box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3);
+            transition: opacity $animation-speed;
 
             &:before {
                 // layout
                 content: '';
                 position: absolute;
-                bottom: 100%;
+                top: -12%;
                 left: 1.5em; // offset should move with padding of parent
                 width: 0;
                 height: 0;
@@ -109,12 +113,14 @@
 
         img {
             width: auto;
+            margin-left: 0;
             transition: transform .33s, box-shadow .33s;
         }
 
         &:hover {
             .speech-bubble {
-                display: flex;
+                // display: flex;
+                opacity: 1;
             }
 
             img {

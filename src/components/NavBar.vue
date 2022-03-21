@@ -1,4 +1,6 @@
 <script>
+import SocialList from '@/components/SocialList.vue';
+
 export default {
     data(){
         return {
@@ -7,6 +9,9 @@ export default {
             activeClass: 'show',
             collapsedClass: 'collapsed',
         };
+    },
+    components: {
+        SocialList,
     },
     methods: {
         onClickNavLink() {
@@ -34,8 +39,9 @@ import { RouterLink, RouterView } from 'vue-router';
                 </span>
             </span>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list"></i>
-                <i class="bi bi-x"></i>
+                <div class="collapse-menu-icon half start"></div>
+                <div class="collapse-menu-icon"></div>
+                <div class="collapse-menu-icon half end"></div>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -105,6 +111,10 @@ import { RouterLink, RouterView } from 'vue-router';
                         </RouterLink>
                     </li>
                 </ul>
+
+                <div class="social-list-nav">
+                    <SocialList />
+                </div>
             </div>
         </div>
     </nav>

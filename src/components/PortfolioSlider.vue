@@ -56,7 +56,7 @@ export default {
                         </div>
 
                         <div class="slider__tags">
-                            <p class="slider__tag" v-for="tag in project.tags" :key="tag">
+                            <p v-for="tag in project.tags" :key="tag" class="slider__tag">
                                 {{ tag }}
                             </p>
                         </div>

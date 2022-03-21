@@ -1,9 +1,9 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
-import SocialList from './components/SocialList.vue';
-import ScrollToTop from './components/ScrollToTop.vue';
-import NavBar from './components/NavBar.vue';
-import PageFooter from './components/PageFooter.vue';
+import SocialList from '@/components/SocialList.vue';
+import ScrollToTop from '@/components/ScrollToTop.vue';
+import NavBar from '@/components/NavBar.vue';
+import PageFooter from '@/components/PageFooter.vue';
 
 export default {
     components: {
