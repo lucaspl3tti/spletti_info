@@ -1,5 +1,4 @@
-<script>import { c } from "../../dist/assets/vendor.2ceb3263";
-
+<script>
 export default {
     data(){
         return {
