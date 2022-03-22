@@ -189,7 +189,7 @@ export const websiteData = {
                         'A-Levels with a linguistic focus',
                         'Advanced Courses: English and German',
                         '3. Exam Subject: Engineering',
-                        '4. Abifach: Educational Science',
+                        '4. Exam Subject: Educational Science',
                     ],
                 },
             },
