@@ -30,7 +30,7 @@ import { RouterLink, RouterView } from 'vue-router';
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark nav-container">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1 nav-logo">
+            <span class="navbar-brand mb-0 h1 nav-logo handwriting-font">
                 <span class="d-block d-lg-none">
                     JLS<span class="heading-dot">.</span>
                 </span>

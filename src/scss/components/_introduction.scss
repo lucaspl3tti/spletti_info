@@ -27,6 +27,8 @@
     img {
         width: 85%;
         margin-left: 15%;
+        // box-shadow: 12px 12px 18px rgba($color: $color-main, $alpha: .45);
+        // border: 3px solid $color-main;
         border-radius: 50%;
         aspect-ratio: 1/1;
     }
@@ -90,7 +92,7 @@
             background-color: $color-body;
             padding: 20px 15px;
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.35rem;
             box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3);
             transition: opacity $animation-speed;
 
@@ -125,7 +127,7 @@
 
             img {
                 transform: translate(-10px, -10px);
-                box-shadow: 20px 20px 18px rgb(39 24 126 / 60%);
+                box-shadow: 20px 20px 18px rgba($color: $color-main, $alpha: .6);
             }
         }
     }

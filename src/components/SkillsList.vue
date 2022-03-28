@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <section class="skills-qualifications" id="skills">
+    <section class="skills-qualifications" id="skills" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
         <div class="container skills-qualifications-container">
             <h2 class="heading heading--skills">
                 {{ skillsAndQualifications.heading }}<span class="heading-dot">.</span>
@@ -39,7 +39,7 @@ export default {
                         :class="[this.skillsToggled ? 'skills-is-active' : '']"
                         @click="onClickChangeContent"
                     >
-                        <p class="hover-underline">
+                        <p class="hover-underline subtitle">
                             {{ skillsAndQualifications.changeContent.skills }}
                         </p>
                     </li>
@@ -48,7 +48,7 @@ export default {
                         :class="[this.qualificationsToggled ? 'qualifications-is-active' : '']"
                         @click="onClickChangeContent"
                     >
-                        <p class="hover-underline">
+                        <p class="hover-underline subtitle">
                             {{ skillsAndQualifications.changeContent.qualifications }}
                         </p>
                     </li>

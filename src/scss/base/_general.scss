@@ -1,5 +1,5 @@
 /** general styling */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;700&family=Poppins:wght@300;400;500;700&display=swap');
 
 body {
     margin: 0;
@@ -15,7 +15,17 @@ h3,
 h4,
 h5 {
     color: $color-text;
+}
+
+h1,
+h2 {
     font-weight: $font-weight-bold;
+}
+
+h3,
+h4,
+h5 {
+    font-weight: $font-weight-medium;
 }
 
 h1 {
@@ -78,6 +88,16 @@ main {
 
 .container {
     max-width: 100%;
+}
+
+.handwriting-font {
+    font-family: $font-handwriting !important;
+}
+
+.subtitle {
+    font-family: $font-handwriting !important;
+    font-size: 24px !important;
+    font-weight: $font-weight-medium !important;
 }
 
 .hover-underline {
@@ -159,6 +179,10 @@ main {
 
     h5 {
         font-size: $font-size-h5;
+    }
+
+    .subtitle {
+        font-size: 32px !important;
     }
 }
 

@@ -119,7 +119,7 @@
         .nav-link {
             &.nav-link--home,
             &.nav-link--skills,
-            &.nav-link--about {
+            &.nav-link--contact {
                 &:hover {
                     color: $color-main;
                 }
@@ -142,7 +142,9 @@
         align-items: center;
         cursor: pointer;
         padding: 1rem 0 1rem 1.5rem;
-        font-size: 26px;
+        font-family: $font-handwriting;
+        font-size: 38px;
+        font-weight: $font-weight-medium;
 
         &__dash {
             width: 50px;
@@ -164,7 +166,6 @@
     }
 
     .navbar-nav .nav-link {
-        font-size: 28px;
         color: $color-text;
 
         &:focus {
@@ -209,6 +210,15 @@
         border-radius: 25px;
         font-size: $font-size-small;
         color: $color-text-light;
+
+        .navbar-nav {
+            flex-flow: row wrap;
+            margin-bottom: 30px;
+
+            .nav-item {
+                flex: 0 0 50%;
+            }
+        }
     }
 }
 
@@ -216,12 +226,14 @@
 @include media-breakpoint-up(lg) {
     .nav-container {
         height: 100px;
+        box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
         background-color: $color-main;
         padding: 0 8%;
         font-size: $font-size-normal;
 
         .nav-logo {
             box-shadow: none;
+            font-size: 42px;
         }
 
         .navbar-toggler {
@@ -229,14 +241,18 @@
         }
 
         .navbar-nav {
+            flex-flow: row nowrap;
+            gap: 1.5rem;
+            margin-bottom: 0;
+
             .nav-item {
-                &:not(:last-of-type) {
-                    padding-right: 1.5rem;
-                }
+                flex: 0 0 auto;
             }
 
             .nav-link {
-                padding-right: 0;
+                color: $color-text-light;
+                font-size: 32px;
+                font-weight: $font-weight-normal;
 
                 &.nav-link--home,
                 &.nav-link--skills,
@@ -250,6 +266,10 @@
                     color: $color-text-light;
                 }
 
+                &.active {
+                    color: $color-text-light;
+                }
+
                 &:focus {
                     color: $color-text-light;
                 }
@@ -258,15 +278,6 @@
 
         .nav {
             margin-right: -15px;
-        }
-
-        .navbar-nav .nav-link {
-            color: $color-text-light;
-            font-size: 22px;
-
-            &.active {
-                color: $color-text-light;
-            }
         }
 
         .nav-active {

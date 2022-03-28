@@ -17,7 +17,7 @@ export default {
             <h2>
                 {{ portfolio.heading }}<span class="heading-dot">.</span>
             </h2>
-            <p class="subheading">
+            <p class="subtitle">
                 {{ portfolio.subtitle }}
             </p>
         </div>
@@ -57,7 +57,7 @@ export default {
                         </div>
 
                         <div class="slider__tags">
-                            <p v-for="tag in project.tags" :key="tag" class="slider__tag">
+                            <p v-for="tag in project.tags" :key="tag" class="slider__tag handwriting-font">
                                 {{ tag }}
                             </p>
                         </div>

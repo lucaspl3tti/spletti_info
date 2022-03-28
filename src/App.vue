@@ -4,6 +4,9 @@ import SocialList from '@/components/SocialList.vue';
 import ScrollToTop from '@/components/ScrollToTop.vue';
 import NavBar from '@/components/NavBar.vue';
 import PageFooter from '@/components/PageFooter.vue';
+import AOS from 'aos';
+
+AOS.init();
 
 export default {
     components: {
@@ -29,10 +32,6 @@ export default {
     <PageFooter />
 </template>
 
-<style>
-@import 'bootstrap/dist/css/bootstrap.css';
-</style>
-
 <style lang="scss">
-@import '@/scss/base.scss';
+@import '@/scss/main.scss';
 </style>

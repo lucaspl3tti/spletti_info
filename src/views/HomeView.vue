@@ -26,7 +26,7 @@ export default {
         <section class="introduction start" id="home">
             <div class="introduction__content">
                 <h1 v-html="introContainer.heading"></h1>
-                <p class="h3">
+                <p class="subtitle">
                     {{ introContainer.subtitle }}
                 </p>
                 <p class="introduction__description">
@@ -46,7 +46,7 @@ export default {
                 <a href="https://www.instagram.com/luca.spl3tti/" target="_blank" rel="noopener noreferrer">
                     <img :src="introContainer.profileImage">
                 </a>
-                <p class="speech-bubble">Visit me on Instagram!</p>
+                <p class="speech-bubble handwriting-font">Visit me on Instagram!</p>
             </div>
         </section>
 
