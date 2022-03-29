@@ -4,11 +4,19 @@ import SocialList from '@/components/SocialList.vue';
 export default {
     data(){
         return {
-            collapseToggler: '.navbar-toggler',
-            collapseContainer: '#navbarNav',
             activeClass: 'show',
             collapsedClass: 'collapsed',
+            showContentClass: 'show-nav-content',
+            animateItemClass: 'animate-nav-item',
+            animateContentClass: 'animate-nav-content',
             toggled: true,
+            showNavContent: false,
+            animateHomeItem: false,
+            animatePortfolioItem: false,
+            animateSkillsItem: false,
+            animateAboutItem: false,
+            animateContactItem: false,
+            animateSocialList: false,
         };
     },
     components: {
@@ -18,9 +26,34 @@ export default {
         onClickNavLink() {
             this.toggled = true;
         },
-        onClickNavToggler() {
-            this.toggled = false;
-        }
+        async onClickNavToggler() {
+            if (this.toggled) {
+                this.toggled = false;
+                this.showNavContent = true;
+                this.addNavItemAnimations();
+                return
+            }
+
+            this.removeNavItemAnimations();
+            this.showNavContent = false;
+            this.toggled = true;
+        },
+        addNavItemAnimations() {
+            setTimeout(() => this.animateHomeItem = true, 100);
+            setTimeout(() => this.animatePortfolioItem = true, 150);
+            setTimeout(() => this.animateSkillsItem = true, 200);
+            setTimeout(() => this.animateAboutItem = true, 250);
+            setTimeout(() => this.animateContactItem = true, 300);
+            setTimeout(() => this.animateSocialList = true, 350);
+        },
+        removeNavItemAnimations() {
+            this.animateHomeItem = false;
+            this.animatePortfolioItem = false;
+            this.animateSkillsItem = false;
+            this.animateAboutItem = false;
+            this.animateContactItem = false;
+            this.animateSocialList = false;
+        },
     },
 }
 
@@ -40,7 +73,7 @@ import { RouterLink, RouterView } from 'vue-router';
             </span>
             <button
                 class="navbar-toggler"
-                :class="[this.toggled ? 'collapsed' : '']"
+                :class="[this.toggled ? this.collapsedClass : '']"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
@@ -55,11 +88,14 @@ import { RouterLink, RouterView } from 'vue-router';
             </button>
             <div
                 class="collapse navbar-collapse justify-content-end"
-                :class="[this.toggled ? '' : 'show']"
+                :class="[this.toggled ? '' : this.activeClass]"
                 id="navbarNav"
             >
-                <ul class="navbar-nav">
-                    <li class="nav-item">
+                <ul
+                    class="navbar-nav"
+                    :class="[this.showNavContent ? this.showContentClass : '']"
+                >
+                    <li class="nav-item" :class="[this.animateHomeItem ? this.animateItemClass : '']">
                         <RouterLink
                             to="/"
                             class="nav-link nav-link--home"
@@ -72,7 +108,7 @@ import { RouterLink, RouterView } from 'vue-router';
                             </span>
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="[this.animatePortfolioItem ? this.animateItemClass : '']">
                         <RouterLink
                             to="/#portfolio"
                             class="nav-link nav-link--portfolio"
@@ -85,7 +121,7 @@ import { RouterLink, RouterView } from 'vue-router';
                             </span>
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="[this.animateSkillsItem ? this.animateItemClass : '']">
                         <RouterLink
                             to="/#skills"
                             class="nav-link nav-link--skills"
@@ -98,7 +134,7 @@ import { RouterLink, RouterView } from 'vue-router';
                             </span>
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="[this.animateAboutItem ? this.animateItemClass : '']">
                         <RouterLink
                             to="/#about"
                             class="nav-link nav-link--about"
@@ -111,7 +147,7 @@ import { RouterLink, RouterView } from 'vue-router';
                             </span>
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :class="[this.animateContactItem ? this.animateItemClass : '']">
                         <RouterLink
                             to="/#contact"
                             class="nav-link nav-link--contact"
@@ -126,7 +162,13 @@ import { RouterLink, RouterView } from 'vue-router';
                     </li>
                 </ul>
 
-                <div class="social-list-nav">
+                <div
+                    class="social-list-nav"
+                    :class="[
+                        this.showNavContent ? this.showContentClass : '',
+                        this.animateSocialList ? this.animateContentClass : ''
+                    ]"
+                >
                     <SocialList />
                 </div>
             </div>
