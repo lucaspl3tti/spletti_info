@@ -10,10 +10,14 @@ import { RouterLink, RouterView } from 'vue-router';
             </div>
             <div class="footer__links">
                 <p>
-                    <RouterLink to="/legal" class="footer__link-item hover-underline">Impressum - Legal Disclosure</RouterLink>
+                    <RouterLink to="/legal" class="footer__link-item hover-underline">
+                        Impressum - Legal Disclosure
+                    </RouterLink>
                 </p>
                 <p>
-                    <RouterLink to="/privacy" class="footer__link-item hover-underline">Datenschutzerklärung – Privacy Policy</RouterLink>
+                    <RouterLink to="/privacy" class="footer__link-item hover-underline">
+                        Datenschutzerklärung – Privacy Policy
+                    </RouterLink>
                 </p>
             </div>
         </div>

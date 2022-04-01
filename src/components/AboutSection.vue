@@ -14,7 +14,7 @@ export default {
 
 <template>
     <div class="container container-content">
-        <section class="about" id="about">
+        <section class="about" id="about" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
             <h2 class="heading heading--about">
                 {{ about.heading }}<span class="heading-dot">.</span>
             </h2>
@@ -25,8 +25,8 @@ export default {
                         <img :src="about.images.me" class="image__me">
                     </div>
                     <div class="about__introduction-content">
-                        <p class="introduction__subheading">{{ about.subheading }}</p>
-                        <p class="introduction__start">{{ about.intro }}</p>
+                        <p class="introduction__subheading subtitle">{{ about.subheading }}</p>
+                        <p class="introduction__start" v-html="about.intro"></p>
                         <p class="introduction__myself">{{ about.aboutMe }}</p>
                         <p class="introduction__interests">{{ about.interests }}</p>
                     </div>
@@ -54,11 +54,11 @@ export default {
             </div>
         </section>
 
-        <section class="contact-me" id="contact">
+        <section class="contact-me" id="contact" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
             <h2 class="heading heading--about">
-                Get in touch<span class="heading-dot">.</span>
+                get in touch<span class="heading-dot">.</span>
             </h2>
-            <p class="subheading">
+            <p class="subtitle">
                 If you have a question or if you want to work with me, just send a quick message! &#10024;
             </p>
             <a :href="contact.href" class="btn btn-primary btn--contact-me">

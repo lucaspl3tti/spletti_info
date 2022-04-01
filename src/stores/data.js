@@ -1,7 +1,7 @@
 export const websiteData = {
     introContainer: {
         heading: 'Hey,<br/>name\'s Luca',
-        subtitle: 'Frontend Developer und UI/UX Designer',
+        subtitle: 'Frontend Developer and UI/UX Designer',
         description: 'I\'m  a junior developer and designer with a burning passion for clean, maintainable code and creative designs.',
         buttons: {
             portfolioButton: {
@@ -169,7 +169,7 @@ export const websiteData = {
                     ],
                 },
             },
-            'Schulische Laufbahn': {
+            'School career': {
                 school1: {
                     isLast: false,
                     timeperiod: '2018 - 2021',
@@ -189,7 +189,7 @@ export const websiteData = {
                         'A-Levels with a linguistic focus',
                         'Advanced Courses: English and German',
                         '3. Exam Subject: Engineering',
-                        '4. Abifach: Educational Science',
+                        '4. Exam Subject: Educational Science',
                     ],
                 },
             },
@@ -203,7 +203,7 @@ export const websiteData = {
             frontend: 'img/images/ux.png',
         },
         subheading: 'Nice to meet you!',
-        intro: 'Name\'s Jan-Luca, Junior Frontend Developer und UI Designer',
+        intro: 'Name\'s <span class="handwriting-font about__name">Jan-Luca</span>, Junior Frontend Developer und UI Designer',
         aboutMe: 'Currently I have over three years of practical experience in developing digital products. It is especially important to me to write Code that\'s easy to understand as well as to maintain. Moreover I love to create beautiful and eye-catching desings.',
         interests: 'The interest in web development already developed in my youth, which was greatly incfluenced and then also encouraged by my Dad, who at that time build some websites himself, like the one for his company.',
         firstProject: 'My first own project was a pokemon fanpage, where I would post news and useful information about the games. Though it was build with a homepage builder, I got my first experience with HTML and CSS through building the Layout. In the following years I extended my knowledge and learned new things like WordPress and PHP. Furthermore I got the chance to deepen that knowledge in my school\'s IT course.',

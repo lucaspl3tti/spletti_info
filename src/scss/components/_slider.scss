@@ -45,7 +45,7 @@
             flex-flow: row wrap;
             place-items: flex-start;
             gap: 5px;
-            max-height: 35px;
+            max-height: 70px;
             overflow: hidden;
             margin-bottom: 1rem;
         }
@@ -54,10 +54,9 @@
             margin: 0;
             border: 1px solid rgba(255, 109, 0, 1);;
             border-radius: 15px;
-            padding: 5px 15px;
+            padding: 0 15px;
             background-color: rgba(255, 134, 0, .4);
-            // color: $color-text-light;
-            font-size: 14px;
+            font-size: 20px;
         }
 
         &__links {
@@ -138,6 +137,10 @@
                 img {
                     max-height: 500px;
                 }
+            }
+
+            &__tags {
+                max-height: 35px;
             }
         }
     }

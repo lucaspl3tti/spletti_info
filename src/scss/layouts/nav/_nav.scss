@@ -2,7 +2,7 @@
 .nav-container {
     position: fixed;
     top: 10px;
-    width: 98%;
+    width: 98vw;
     height: 70px;
     margin: 0 1%;
     background-color: transparent;
@@ -108,18 +108,25 @@
     .navbar-collapse {
         position: absolute;
         top: 70px;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 100px) !important;
         width: 95vw;
         left: 2vw;
         margin-top: 10px;
         box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
         border-radius: 25px;
         background-color: $color-body;
+        transition: height .6s;
+
+        &:not(.show) {
+            display: block;
+            height: 0 !important;
+            transition: height $animation-speed;
+        }
 
         .nav-link {
             &.nav-link--home,
             &.nav-link--skills,
-            &.nav-link--about {
+            &.nav-link--contact {
                 &:hover {
                     color: $color-main;
                 }
@@ -136,13 +143,25 @@
         align-items: center;
     }
 
+    .nav-item {
+        opacity: 0;
+        transition: opacity .5s;
+
+        &.animate-nav-item {
+            opacity: 1;
+            transition: opacity $animation-speed;
+        }
+    }
+
     .nav-link {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         cursor: pointer;
         padding: 1rem 0 1rem 1.5rem;
-        font-size: 26px;
+        font-family: $font-handwriting;
+        font-size: 38px;
+        font-weight: $font-weight-medium;
 
         &__dash {
             width: 50px;
@@ -163,16 +182,35 @@
         }
     }
 
-    .navbar-nav .nav-link {
-        font-size: 28px;
-        color: $color-text;
-
-        &:focus {
-            color: $color-text;
+    .navbar-nav {
+        &:not(.show-nav-content) {
+            display: none;
         }
 
-        &.active {
+        .nav-link {
             color: $color-text;
+
+            &:focus {
+                color: $color-text;
+            }
+
+            &.active {
+                color: $color-text;
+            }
+        }
+    }
+
+    .social-list-nav {
+        opacity: 0;
+        transition: opacity .6s;
+
+        &:not(.show-nav-content) {
+            display: none;
+        }
+
+        &.animate-nav-content {
+            opacity: 1;
+            transition: opacity $animation-speed;
         }
     }
 
@@ -209,6 +247,15 @@
         border-radius: 25px;
         font-size: $font-size-small;
         color: $color-text-light;
+
+        .navbar-nav {
+            flex-flow: row wrap;
+            margin-bottom: 30px;
+
+            .nav-item {
+                flex: 0 0 50%;
+            }
+        }
     }
 }
 
@@ -216,37 +263,58 @@
 @include media-breakpoint-up(lg) {
     .nav-container {
         height: 100px;
+        box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
         background-color: $color-main;
         padding: 0 8%;
         font-size: $font-size-normal;
 
         .nav-logo {
             box-shadow: none;
+            font-size: 38px;
         }
 
         .navbar-toggler {
             display: none;
         }
 
-        .navbar-nav {
-            .nav-item {
-                &:not(:last-of-type) {
-                    padding-right: 1.5rem;
+        .navbar-collapse {
+            &:not(.show) {
+                height: auto !important;
+
+                .navbar-nav {
+                    display: flex;
                 }
+            }
+        }
+
+        .navbar-nav {
+            flex-flow: row nowrap;
+            gap: 1.5rem;
+            margin-bottom: 0;
+
+            .nav-item {
+                flex: 0 0 auto;
+                opacity: 1;
             }
 
             .nav-link {
-                padding-right: 0;
+                color: $color-text-light;
+                font-size: 28px;
+                font-weight: $font-weight-normal;
 
                 &.nav-link--home,
                 &.nav-link--skills,
-                &.nav-link--about {
+                &.nav-link--contact {
                     &:hover {
                         color: $color-text-light;
                     }
                 }
 
                 &:hover {
+                    color: $color-text-light;
+                }
+
+                &.active {
                     color: $color-text-light;
                 }
 
@@ -258,15 +326,6 @@
 
         .nav {
             margin-right: -15px;
-        }
-
-        .navbar-nav .nav-link {
-            color: $color-text-light;
-            font-size: 22px;
-
-            &.active {
-                color: $color-text-light;
-            }
         }
 
         .nav-active {
@@ -286,6 +345,20 @@
             border-radius: 0;
             background-color: transparent;
             padding: 25px;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .nav-container {
+        .nav-logo {
+            font-size: 42px;
+        }
+
+        .navbar-nav {
+            .nav-link {
+                font-size: 32px;
+            }
         }
     }
 }

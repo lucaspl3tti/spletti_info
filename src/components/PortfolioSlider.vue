@@ -17,7 +17,7 @@ export default {
             <h2>
                 {{ portfolio.heading }}<span class="heading-dot">.</span>
             </h2>
-            <p class="subheading">
+            <p class="subtitle">
                 {{ portfolio.subtitle }}
             </p>
         </div>
@@ -33,12 +33,13 @@ export default {
                 >
                     <div
                         class="slider__image image-wrapper"
-                        :class="[
-                            'slider__image--slider' + project.id,
-                            project.paddingBottom ? 'pb-0' : ''
-                        ]"
+                        :class="[project.paddingBottom ? 'pb-0' : '']"
                     >
-                        <img :src="project.image" :alt="project.imageAltText" :style="['aspect-ratio: ' + project.imageRatio]">
+                        <img
+                            :src="project.image"
+                            :alt="project.imageAltText"
+                            :style="['aspect-ratio: ' + project.imageRatio]"
+                        >
                     </div>
 
                     <div
@@ -56,18 +57,29 @@ export default {
                         </div>
 
                         <div class="slider__tags">
-                            <p v-for="tag in project.tags" :key="tag" class="slider__tag">
+                            <p v-for="tag in project.tags" :key="tag" class="slider__tag handwriting-font">
                                 {{ tag }}
                             </p>
                         </div>
 
                         <div class="slider__links" :class="[project.liveLink ? 'link-wrapper--flex' : '']">
-                            <a :href="project.repoLink" class="project__link project__link--github" target="_blank" rel="noopener noreferrer">
+                            <a
+                                :href="project.repoLink"
+                                class="project__link project__link--github"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <span class="hover-underline">Github Repo</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
 
-                            <a v-if="project.liveLink" class="project__link project__link--live" :href="project.liveLink" target="_blank" rel="noopener noreferrer">
+                            <a
+                                v-if="project.liveLink"
+                                class="project__link project__link--live"
+                                :href="project.liveLink"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <span class="hover-underline">{{ project.liveLinkText }}</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -75,11 +87,21 @@ export default {
                     </div>
                 </div>
             </div>
-            <button class="slider__control slider__control--previous carousel-control-prev" type="button" data-bs-target="#portfolioSlider" data-bs-slide="prev">
+            <button
+                class="slider__control slider__control--previous carousel-control-prev"
+                type="button"
+                data-bs-target="#portfolioSlider"
+                data-bs-slide="prev"
+            >
                 <i class="bi bi-chevron-left"></i>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="slider__control slider__control--next carousel-control-next" type="button" data-bs-target="#portfolioSlider" data-bs-slide="next">
+            <button
+                class="slider__control slider__control--next carousel-control-next"
+                type="button"
+                data-bs-target="#portfolioSlider"
+                data-bs-slide="next"
+            >
                 <i class="bi bi-chevron-right"></i>
                 <span class="visually-hidden">Next</span>
             </button>
