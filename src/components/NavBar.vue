@@ -28,7 +28,7 @@ export default {
             this.removeNavItemAnimations();
             this.showNavContent = false;
         },
-        async onClickNavToggler() {
+        onClickNavToggler() {
             if (this.toggled) {
                 this.toggled = false;
                 this.showNavContent = true;
