@@ -5,7 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    left: 2%;
+    left: 2.5%;
     bottom: 0;
     width: 80px;
     z-index: $z-fixed;
@@ -101,13 +101,21 @@
 }
 
 @include media-breakpoint-up(lg) {
-    .social-list {
-        display: flex;
-    }
-
     .social-list-nav {
         .social-list {
             display: none;
         }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .social-list {
+        display: flex;
+    }
+}
+
+@include media-breakpoint-up(qhd) {
+    .social-list {
+        left: 11%;
     }
 }

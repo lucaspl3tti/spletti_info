@@ -10,6 +10,7 @@ export default {
             animateItemClass: 'animate-nav-item',
             animateContentClass: 'animate-nav-content',
             toggled: true,
+            hamburgerHalf: false,
             showNavContent: false,
             animateHomeItem: false,
             animatePortfolioItem: false,
@@ -31,12 +32,14 @@ export default {
         onClickNavToggler() {
             if (this.toggled) {
                 this.toggled = false;
+                this.hamburgerHalf = true;
                 this.showNavContent = true;
                 this.addNavItemAnimations();
                 return
             }
 
             this.removeNavItemAnimations();
+            setTimeout(() => this.hamburgerHalf = false, 330);
             this.showNavContent = false;
             this.toggled = true;
         },
@@ -64,7 +67,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark nav-container">
-        <div class="container-fluid">
+        <div class="container">
             <span class="navbar-brand mb-0 h1 nav-logo handwriting-font">
                 <span class="d-block d-lg-none">
                     JLS<span class="heading-dot">.</span>
@@ -84,9 +87,9 @@ import { RouterLink, RouterView } from 'vue-router';
                 aria-label="Toggle navigation"
                 @click="onClickNavToggler"
             >
-                <div class="collapse-menu-icon half start"></div>
-                <div class="collapse-menu-icon"></div>
-                <div class="collapse-menu-icon half end"></div>
+                <span class="collapse-menu-icon start" :class="[this.hamburgerHalf ? 'half' : '']"></span>
+                <span class="collapse-menu-icon"></span>
+                <span class="collapse-menu-icon end" :class="[this.hamburgerHalf ? 'half' : '']"></span>
             </button>
             <div
                 class="collapse navbar-collapse justify-content-end"
