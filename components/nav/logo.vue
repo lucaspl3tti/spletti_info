@@ -30,6 +30,13 @@ export default {}
 
 @media (min-width: $breakpoint-lg) {
   .navbar .navbar-brand {
+    height: 65px;
+    max-width: 35%;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .navbar .navbar-brand {
     box-shadow: none;
     font-size: 38px;
   }
