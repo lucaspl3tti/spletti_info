@@ -1,0 +1,5 @@
+$space-base: 4px;
+
+@function spacing($spacing: 1) {
+  @return $space-base * $spacing;
+}

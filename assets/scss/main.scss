@@ -1,0 +1,11 @@
+// Import variables and vendor scss
+@import '~/assets/scss/abstracts/variables.scss';
+@import "~/assets/scss/vendor/bootstrap/custom";
+@import "~/node_modules/bootstrap/scss/bootstrap";
+
+// Import base styling
+@import "base/base";
+@import "base/fonts";
+
+// import components styling
+@import "components/button";
