@@ -1,0 +1,173 @@
+{
+  "introduction": {
+    "heading": "Hey,<br/>name's Luca",
+    "subheading": "Frontend Entwickler und UI/UX Designer",
+    "description": "Ich bin ein Junior Frontend Entwickler und Designer mit einer Leidenschaft für sauberen, leicht zu erweiternden Code und kreative Designs.",
+    "buttons": {
+      "portfolio": {
+        "text": "Meine Projekte"
+      },
+      "contact": {
+        "text": "Kontaktiere mich"
+      }
+    },
+    "profileImageHoverText": "Folge mir auf Instagram!"
+  },
+
+  "portfolio": {
+    "heading": "projekte & portfolio",
+    "subheading": "Eine Präsentation meiner letzten Projekte.",
+    "projectLiveLinkText": "Live Seite",
+    "projectGithubLinkText": "Github Repo",
+    "projects": {
+      "countryInformationSpa": {
+        "title": "Country Information SPA",
+        "description": "Frontend Projekt Challenge von <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>Für diese Challenge baute ich eine SPA mit Verbindung zu einer REST API, um Informationen über jedes Land in der Datenbank anzuzeigen. Basierend auf VueJS mit SCSS & Bootstrap5."
+      },
+      "randomActivityApp": {
+        "title": "Random Activity SPA",
+        "description": "Eine kleine Web App für lustige Abende mit deinen Freunden. Es ist ein wenig inspiriert von \"Wahrheit oder Pflicht\", aber das Hauptziel der App ist es, eine weniger gezwungene Stimmung aufzubauen. Es können beliebig viele Spieler teilnehmen und auch beliebig viele Aktivitäten hinzugefügt werden. Es zählt nur der Spaß! Basierend auf VueJS mit SCSS & Bootstrap5."
+      },
+      "portfolioWebsite": {
+        "title": "Portfolio Webseite",
+        "description": "Meine persönliche Portfolio Webseite! Ich habe sie entwickelt um meine Projekte und mich selbst im Web repräsentieren zu können. Sie wurde mit Nuxt3, SCSS & Bootstrap5 gebaut."
+      },
+      "photosnapMarketingSite": {
+        "title": "Photosnap Marketing Site",
+        "description": "Frontend Projekt Challenge von <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>In dieser Challenge war es das Ziel eine Marketing Seite für die Fotografie Plattform \"Photosnap\" zu bauen. Das Design implementierte ich mittels VueJS mit SCSS & Bootstrap5."
+      },
+      "clockApp": {
+        "title": "Clock App",
+        "description": "Frontend Projekt Challenge von <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>Das Ziel war es, eine Uhr-App zu entwickeln und eine Verbindung zur externen API aufzubauen. Basierend auf Vanilla JS mit SCSS."
+      },
+      "planetsFactsWebsite": {
+        "title": "Planet Facts Site",
+        "description": "Frontend Projekt Challenge von <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>Das Ziel war es, eine Seite zu entwickeln, wo die Besucher interessante Fakten über die Planeten unseres Sonnensystems lernen können. Das Design wurde mittels VueJS und Bootstrap5 implementiert."
+      },
+      "tipCalculatorApp": {
+        "title": "Tip Calculator App",
+        "description": "Frontend Projekt Challenge von <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>Die App soll dem Besucher die Möglichkeit geben, ein genaues Trinkgeld errechnen zu können, basierend auf dem gezahlten Preis, der Anzahl von Freunden und einem Prozentsatz. Sie wurde mit Vanilla JS, SCSS und Bootstrap5 gebaut."
+      },
+      "pdflibDemoScript": {
+        "title": "PDFlib Demo Script",
+        "description": "Eine Demo eines dynamischen PDF-Generators, um die typischen Use-Cases der Library zu zeigen und wie man diese lösen kann. Der Generator wurde mit der PHP Version der PDFlib-Library umgesetzt.",
+        "pdfLinkText": "PDFlib Example"
+      }
+    }
+  },
+
+  "qualifications": {
+    "heading": "skills und qualifikationen",
+    "subtitle": "",
+    "changeContent": {
+      "skills": "Skills",
+      "jobs": "Qualifikationen"
+    },
+    "todayLabel": "Heute",
+    "careers": {
+      "professional": {
+        "heading": "Berufliche Laufbahn",
+        "jobs": {
+          "first": {
+            "title": "Junior Frontend Entwickler",
+            "tasks": {
+              "1": "Implementieren von User Interfaces in Web Anwendungen",
+              "2": "Entwicklung von Shopware 6 Plugins / Themes basierend auf JavaScript und SCSS",
+              "3": "Umsetzung und Erweitern von VueJS und NuxtJS Anwendungen",
+              "4": "Realisierung dynamischer PDF Generatoren basierend auf die PDFlib PHP Library",
+              "5": "Unterstützung bei der Erstellung von Screen Designs in Sketch & Figma"
+            }
+          },
+          "second": {
+            "title": "Auszubildender - Frontend Entwickler",
+            "tasks": {
+              "1": "Implementieren von User Interfaces in Web Anwendungen",
+              "2": "Entwicklung von HTML Newsletter Layouts",
+              "3": "Unterstützung bei der Erstellung von Screen Designs in Sketch & XD"
+            }
+          },
+          "third": {
+            "title": "Auszubildender - Backend Entwickler",
+            "tasks": {
+              "1": "Implemtierung und Wartung von Web Anwendungen basierend auf Typo3, PHP und MySQL",
+              "2": "Erweitern und Verbessern von existierenden PHP Scripts",
+              "3": "Migration von existierenden Software Lösungen auf neue Systeme",
+              "4": "Wartung von Datenbanken mithilfe von Datenbank-Tools"
+            }
+          }
+        }
+      },
+      "school": {
+        "heading": "Schulische Laufbahn",
+        "jobs": {
+          "first": {
+            "title": "Auszubildender als Fachinformatiker Anwendungsentwicklung",
+            "tasks": {
+              "1": "Schulischer Part meiner Ausbildung als Anwendungsentwickler",
+              "2": "Hauptfokus: PHP, JavaScirpt, C++ und Datenbanken"
+            }
+          },
+          "second": {
+            "title": "Allgemeine Hochschulreife",
+            "tasks": {
+              "1": "Abitur mit sprachlichem Schwerpunkt",
+              "2": "Leistungskurse: Englisch und Deutsch",
+              "3": "3. Abiturfach: Technik",
+              "4": "4. Abiturfach: Pädagogik"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "about": {
+    "heading": "über mich",
+    "subheading": "Nett dich kennenzulernen!",
+    "intro": "Name's <span class='handwriting-font about__name'>Jan-Luca</span>, Junior Frontend Entwickler und UI Designer",
+    "aboutMe": "Aktuell habe ich über drei Jahre an praktischer Erfahrung im entwickeln digitaler Produkte. Es ist mir besonders wichtig Code zu schreiben, welcher leicht zu verstehend und zu erweitern ist. Außerdem liebe ich es, kreative und interessante Desings zu erstellen.",
+    "interests": "Das Interesse für Webentwicklung entwickelte sich bereits in meiner Jugend. Dies war besonders durch meinen Vater geprägt und später auch ermutigt, welcher zu dieser Zeit selber einige Webseiten selber umsetzte, bspw. die seiner eigenen Firma.",
+    "firstProject": "Mein erstes Projekt war eine Pokemon Fanseite, wo ich News und nützliche Informationen über die Spiele teilte. Zwar war diese Webseite mit einem Homepage-Baukasten umgesetzt, dennoch bekam ich bereits hier meine ersten Erfahrungen mit HTML & CSS, durch die Umsetzung des Designs. In den folgenden Jahren erweiterte ich mein Wissen und lernte neue Dinge, wie WordPress und PHP. Darüberhinaus bekam ich die Chance mein Wissen im IT-Kurs meiner Schule zu vertiefen.",
+    "backend": "Nach der Schule, im Jahr 2018, begann ich dann schließloch meine Ausbildung als Webentwickler in einer deutschen Digitalagentur. In den ersten zwei Jahren war ich hauptsächlich in der Backend Entwicklung tätig, aber ich bekam ebenfalls die Chance mehr mit der Frontend Entwicklung in Kontakt zu kommen. So lernte ich neue Dinge, bspw. wie ich mit Design-Tools (Adobe XD und Sketch) umgehen kann.",
+    "frontend": "Aber mit der Zeit realisierte ich, dass ich mich in der Frontend Entwicklung um einiges wohler fühle als in der Backend Entwicklung. Ich entschied mich also dazu, meinen Fokus in diese Richtung zu verschieben. Nachdem ich meine Ausbildung erfolgreich abgeschlossen hatte begann ich meine aktuelle Position als Junior Frontend Entwickler, ebenfalls in einer deutschen Digitalagentur. Hier bin ich für Implementierung von UIs in Web Anwendungen verantwortlich, sowie das entwickeln von Shopware 6 Themes und Plugins mittels JavaScript & SCSS. Darüber hinaus baue ich dynamische PDF-Generatoren mit der PDFlib PHP Library und entwickle / erweitere VueJS und NuxtJS Anwendungen.",
+    "today": "Auch in meiner Freizeit ist mein Kopf voll mit Frontend Entwicklung und Design. Aktuell liebe ich es mein JavaScript Wissen zu vertiefen und Anwendungen mit VueJS / NuxtJS umzusetzen."
+  },
+
+  "contact": {
+    "heading": "kontakt aufnehmen",
+    "subheading": "Wenn du eine Frage hast oder mit mir arbeiten möchtest schreib' mir einfach eine kurze Nachricht! &#10024;",
+    "btnText": "Schreib mir!"
+  },
+
+  "legal": {
+    "heading": "Impressum - Legal Disclosure",
+    "contactInfo": {
+      "heading": "Kontakt",
+      "email": "jan-luca@spletti.info"
+    },
+    "inCharge": {
+      "heading": "Redaktionell verantwortlich",
+      "contacts": [
+        "Jan-Luca Splettstößer<br/>Dorotheenstraße 138a<br/>46537 Dinslaken"
+      ]
+    },
+    "liability": {
+      "content": {
+        "heading": "Haftung für Inhalte",
+        "copy": "Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
+      },
+      "links": {
+        "heading": "Haftung für Links",
+        "copy": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."
+      }
+    },
+    "copyright": {
+      "heading": "Urheberrecht",
+      "copy": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
+    },
+    "source": "Quelle:<br/><a class=\"hover-underline\" href=\"https://www.e-recht24.de\">https://www.e-recht24.de</a>",
+    "icons": {
+      "heading": "Icons Copyright"
+    }
+  }
+}
