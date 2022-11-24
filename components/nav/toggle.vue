@@ -124,6 +124,13 @@ export default {
 
 @media (min-width: $breakpoint-lg) {
   .navbar .navbar-toggler {
+    height: 65px;
+    width: 65px;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .navbar .navbar-toggler {
     display: none;
   }
 }

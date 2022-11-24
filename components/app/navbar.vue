@@ -3,7 +3,7 @@
     container="fluid"
     dark="true"
     fixed="top"
-    toggleable="lg"
+    toggleable="xl"
     variant="primary"
   >
     <NavLogo />
@@ -138,7 +138,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@media (min-width: $breakpoint-xl) {
   .navbar {
     height: 100px;
     box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
@@ -181,14 +181,6 @@ export default {
       display: flex;
       justify-content: flex-end;
       padding-left: spacing(15);
-    }
-  }
-}
-
-@media (min-width: $breakpoint-xl) {
-  .navbar {
-    .nav-logo {
-      font-size: 42px;
     }
   }
 }

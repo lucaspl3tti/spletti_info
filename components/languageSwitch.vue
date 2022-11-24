@@ -160,7 +160,7 @@ export default {
   }
 }
 
-@media (max-width: $breakpoint-lg) {
+@media (max-width: $breakpoint-xl) {
   .c-language-switch {
     position: relative;
 

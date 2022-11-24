@@ -4,9 +4,9 @@
       :name="`bi:${navItem.icon}`"
       size="45"
       color="currentColor"
-      :class="[`bi-${navItem.icon}`, 'd-lg-none']"
+      :class="[`bi-${navItem.icon}`, 'd-xl-none']"
     />
-    <span class="nav-link__dash d-lg-none"></span>
+    <span class="nav-link__dash d-xl-none"></span>
     <span class="hover-underline">
       {{ navItem.text }}
     </span>
@@ -120,7 +120,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@media (min-width: $breakpoint-xl) {
   .navbar {
     .navbar-collapse .nav-item {
       .nav-link {
@@ -154,6 +154,10 @@ export default {
 
     .navbar-nav .nav-item {
       flex: 0 0 auto;
+
+      .nav-link {
+        font-size: 32px;
+      }
     }
 
     .nav-item--active {
@@ -162,16 +166,6 @@ export default {
           transform: scaleX(1);
           transform-origin: bottom left;
         }
-      }
-    }
-  }
-}
-
-@media (min-width: $breakpoint-xl) {
-  .navbar {
-    .navbar-nav .nav-item {
-      .nav-link {
-        font-size: 32px;
       }
     }
   }
