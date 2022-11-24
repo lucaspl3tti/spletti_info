@@ -3,7 +3,7 @@
     <BContainer>
       <div id="legalWrapper" class="legal-disclosure">
         <h1>
-          {{ $t('legal.heading') }}
+          Impressum - Legal Disclosure
         </h1>
 
         <div class="legal-disclosure__content">
@@ -13,22 +13,22 @@
 
           <div class="contact-info">
             <h2>
-              {{ $t('legal.contactInfo.heading') }}
+              Kontakt
             </h2>
             <p>
               E-Mail:
               <a
                 class="hover-underline"
-                :href="'mailto:' + $t('legal.contactInfo.email')"
+                href="mailto:jan-luca@spletti.info"
               >
-                {{ $t('legal.contactInfo.email') }}
+                jan-luca@spletti.info
               </a>
             </p>
           </div>
 
           <div class="in-charge">
             <h2>
-              {{ $t('legal.inCharge.heading') }}
+              Redaktionell verantwortlich
             </h2>
             <p
               v-for="(contact, index) in contacts"
@@ -38,34 +38,34 @@
           </div>
           <div class="liability-content">
             <h2>
-              {{ $t('legal.liability.content.heading') }}
+              Haftung für Inhalte
             </h2>
             <p>
-              {{ $t('legal.liability.content.copy') }}
+              Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
             </p>
           </div>
 
           <div class="liability-links">
             <h2>
-              {{ $t('legal.liability.links.heading') }}
+              Haftung für Links
             </h2>
             <p>
-              {{ $t('legal.liability.links.copy') }}
+              Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
             </p>
           </div>
 
           <div class="copyright">
             <h2>
-              {{ $t('legal.copyright.heading') }}
+              Urheberrecht
             </h2>
             <p>
-              {{ $t('legal.copyright.copy') }}
+              Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
             </p>
           </div>
 
           <div class="icons">
             <h2>
-              {{ $t('legal.icons.heading') }}
+              Icon Copyright
             </h2>
 
             <p v-for="(icon, index) in icons" :key="index" class="icon">
@@ -75,7 +75,12 @@
             </p>
           </div>
 
-          <p class="legal-disclosure__source" v-html="$t('legal.source')" />
+          <p class="legal-disclosure__source">
+            Quelle:<br/>
+            <a class="hover-underline" href="https://www.e-recht24.de">
+              https://www.e-recht24.de
+            </a>
+          </p>
         </div>
       </div>
     </BContainer>
