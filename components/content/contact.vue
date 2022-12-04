@@ -13,7 +13,7 @@
 
     <div class="contact-form">
       <form
-        :action="`${this.$config.public.apiBase}/contact-form-7/v1/contact-forms/232/feedback`"
+        :action="`${$config.public.apiBase}/contact-form-7/v1/contact-forms/232/feedback`"
         method="post"
         class="contact-form__form"
         @submit.prevent="onFormSubmit"
@@ -151,7 +151,7 @@ export default {
       this.checkInputValidity(nameInput, 'Please enter your name.')
       this.checkInputEmailValidity(
         emailInput,
-        'Please enter your email address.',
+        'Please enter your email address.'
       )
       this.checkInputValidity(subjectInput, 'Please enter your subject.')
       this.checkInputValidity(messageInput, 'Please enter your message.')
@@ -190,14 +190,14 @@ export default {
     },
 
     onFormSubmit(event) {
-      this.validateForm();
+      this.validateForm()
 
-      if (!this.formIsValid) return this.error = true
+      if (!this.formIsValid) return (this.error = true)
       this.error = false
 
       const formElement = event.target
       const { action, method } = formElement
-      const body = new FormData();
+      const body = new FormData()
 
       body.append('your-name', this.form.name)
       body.append('your-email', this.form.email)
@@ -206,7 +206,7 @@ export default {
 
       fetch(action, {
         method,
-        body
+        body,
       })
         .then((response) => response.json())
         .then((response) => {
@@ -226,11 +226,11 @@ export default {
           // Handle the case when there's a problem with the request
           console.log(error)
           this.error = false
-        });
+        })
     },
 
     resetForm() {
-      if (this.success) setTimeout(() => this.success = false, 4000);
+      if (this.success) setTimeout(() => (this.success = false), 4000)
 
       // Reset the form values
       this.form.name = ''
@@ -247,8 +247,8 @@ export default {
       this.$nextTick(() => {
         this.show = true
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

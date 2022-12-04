@@ -24,8 +24,8 @@ export default {
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get html for page from api
     await useFetch(`${this.$config.public.apiBase}/wp/v2/posts?categories=10`, {
@@ -33,10 +33,22 @@ export default {
         const data = response._data
         const projectList = []
 
-        data.forEach(project => {
+        data.forEach((project) => {
           const fields = project.meta
           const image = project.featured_image
-          const { name, title, description, position, image_ratio, image_alt, image_has_padding_bottom, tags, github_link, live_link, live_link_text } = fields
+          const {
+            name,
+            title,
+            description,
+            position,
+            image_ratio,
+            image_alt,
+            image_has_padding_bottom,
+            tags,
+            github_link,
+            live_link,
+            live_link_text,
+          } = fields
 
           const translatedTitle = formatTranslations(title[0])
           const translatedDescription = formatTranslations(description[0])
@@ -44,7 +56,7 @@ export default {
           let hasPaddingBottom = true
           if (image_has_padding_bottom[0] === 0) hasPaddingBottom = false
 
-          const formattedTags = me.formatTags(tags[0])
+          const formattedTags = self.formatTags(tags[0])
 
           const projectItem = {
             id: Number(position[0]),
@@ -62,16 +74,18 @@ export default {
           }
 
           const repoLink = github_link[0]
-          if (repoLink !== '') projectItem.links[0] = {
-            type: 'repo',
-            href: repoLink,
-          }
+          if (repoLink !== '')
+            projectItem.links[0] = {
+              type: 'repo',
+              href: repoLink,
+            }
 
           const liveLink = live_link[0]
-          if (liveLink !== '') projectItem.links[1] = {
-            type: 'live',
-            href: liveLink,
-          }
+          if (liveLink !== '')
+            projectItem.links[1] = {
+              type: 'live',
+              href: liveLink,
+            }
 
           const liveLinkText = live_link_text[0]
           if (liveLinkText !== '')
@@ -81,7 +95,7 @@ export default {
           projectList[index] = projectItem
         })
 
-        me.projects = projectList
+        self.projects = projectList
       },
     })
   },
@@ -95,7 +109,7 @@ export default {
       })
 
       return tags
-    }
+    },
   },
 }
 </script>

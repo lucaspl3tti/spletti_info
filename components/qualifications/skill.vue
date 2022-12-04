@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       name: this.skill.meta.name[0],
-      image: this.skill.featured_image
+      image: this.skill.featured_image,
     }
   },
 }

@@ -1,4 +1,4 @@
-export default function (string: string, debug: boolean = false) {
+export default function (string: string, debug = false) {
   const split = string.split('{:de}')
   if (split.length === 1) {
     if (debug) console.log('Only english translation found: ', split)

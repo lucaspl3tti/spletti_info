@@ -1,8 +1,6 @@
 <template>
   <div class="form-group">
-    <label :for="inputId" class="form-label">
-      {{ label }}:
-    </label>
+    <label :for="inputId" class="form-label"> {{ label }}: </label>
 
     <input
       :id="inputId"
@@ -35,18 +33,18 @@ export default {
     inputId: {
       type: String,
       default: '',
-      required: true
+      required: true,
     },
 
     label: {
       type: String,
       default: '',
-      required: true
+      required: true,
     },
 
     value: {
       type: String,
-      default: ''
+      default: '',
     },
 
     type: {
@@ -67,7 +65,7 @@ export default {
     inputHelpId: {
       type: String,
       default: '',
-    }
+    },
   },
 
   methods: {
@@ -81,7 +79,7 @@ export default {
 
     onFocusout() {
       this.$emit('focusout')
-    }
+    },
   },
 }
 </script>

@@ -37,22 +37,22 @@ export default {
       socials: {
         socialLink1: {
           icon: 'instagram',
-          link: 'https://www.instagram.com/luca.spl3tti/'
+          link: 'https://www.instagram.com/luca.spl3tti/',
         },
         socialLink2: {
           icon: 'github',
-          link: 'https://www.github.com/lucaspl3tti'
+          link: 'https://www.github.com/lucaspl3tti',
         },
         socialLink3: {
           icon: 'linkedin',
-          link: 'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/'
+          link: 'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/',
         },
-      }
+      },
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get html for page from api
     await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/social-links`, {
@@ -63,9 +63,9 @@ export default {
         const socialLink3 = data.social_links['socialLink#3']
 
         // get page content from fetched data
-        me.socials.socialLink1 = socialLink1
-        me.socials.socialLink2 = socialLink2
-        me.socials.socialLink3 = socialLink3
+        self.socials.socialLink1 = socialLink1
+        self.socials.socialLink2 = socialLink2
+        self.socials.socialLink3 = socialLink3
       },
     })
   },

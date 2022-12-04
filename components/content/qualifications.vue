@@ -78,8 +78,8 @@ export default {
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get skills from api
     await useFetch(`${apiUrl}/wp/v2/posts?categories=3&per_page=100`, {
@@ -87,7 +87,7 @@ export default {
         const skills = response._data
 
         for (const skill of skills) {
-          me.skills = {
+          self.skills = {
             ...me.skills,
             [skill.meta.position[0]]: skill,
           }
@@ -123,8 +123,8 @@ export default {
             position: meta.position[0],
             career: meta.career[0],
             meta: {
-              ...job
-            }
+              ...job,
+            },
           }
 
           if (jobObject.career === 'professional') {
@@ -133,8 +133,8 @@ export default {
             schoolCareer[jobObject.position] = jobObject
           }
 
-          me.careers.professional.jobs = professionalCareer
-          me.careers.school.jobs = schoolCareer
+          self.careers.professional.jobs = professionalCareer
+          self.careers.school.jobs = schoolCareer
         }
       },
     })
@@ -217,7 +217,7 @@ export default {
   }
 }
 
-@include tablet-up{
+@include tablet-up {
   .skills {
     gap: spacing(6.5);
   }

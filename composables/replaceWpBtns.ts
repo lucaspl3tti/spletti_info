@@ -9,8 +9,7 @@ export default function (element: HTMLElement) {
 
     let btn = null
     if (isLink) {
-      href =
-        wpBtn.getAttribute('href') || ''
+      href = wpBtn.getAttribute('href') || ''
       btn = document.createElement('a')
       btn.href = href
     } else {

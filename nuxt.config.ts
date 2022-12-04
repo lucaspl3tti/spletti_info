@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     // Keys within public, will be also exposed to the client-side
     public: {
       apiBase: 'https://backend.spletti.info/wp-json',
-    }
+    },
   },
 
   app: {
@@ -37,10 +37,7 @@ export default defineNuxtConfig({
     plugins: [svgLoader()],
   },
 
-  modules: [
-    'bootstrap-vue-3/nuxt',
-    'nuxt-icon',
-  ],
+  modules: ['bootstrap-vue-3/nuxt', 'nuxt-icon'],
 
   css: ['~/assets/scss/main.scss'],
 })

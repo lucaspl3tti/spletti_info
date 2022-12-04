@@ -20,7 +20,10 @@
           <p class="introduction__subheading subheading">
             {{ $i18n.locale === 'ger' ? subheading?.de : subheading?.en }}
           </p>
-          <p class="introduction__start" v-html="$i18n.locale === 'ger' ? intro?.de : intro?.en" />
+          <p
+            class="introduction__start"
+            v-html="$i18n.locale === 'ger' ? intro?.de : intro?.en"
+          />
 
           <p class="introduction__myself">
             {{ $i18n.locale === 'ger' ? aboutMe?.de : aboutMe?.en }}
@@ -96,8 +99,8 @@ export default {
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get html for page from api
     await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/about-me`, {
@@ -105,15 +108,15 @@ export default {
         const data = response._data.meta
 
         // get page content from fetched data
-        me.heading = formatTranslations(data.heading[0])
-        me.subheading = formatTranslations(data.subheading[0])
-        me.intro = formatTranslations(data.intro_text[0])
-        me.aboutMe = formatTranslations(data.about_text[0])
-        me.interests = formatTranslations(data.interests[0])
-        me.firstProject = formatTranslations(data.first_project[0])
-        me.backend = formatTranslations(data.backend[0])
-        me.frontend = formatTranslations(data.frontend[0])
-        me.today = formatTranslations(data.today[0])
+        self.heading = formatTranslations(data.heading[0])
+        self.subheading = formatTranslations(data.subheading[0])
+        self.intro = formatTranslations(data.intro_text[0])
+        self.aboutMe = formatTranslations(data.about_text[0])
+        self.interests = formatTranslations(data.interests[0])
+        self.firstProject = formatTranslations(data.first_project[0])
+        self.backend = formatTranslations(data.backend[0])
+        self.frontend = formatTranslations(data.frontend[0])
+        self.today = formatTranslations(data.today[0])
       },
     })
 
@@ -124,14 +127,17 @@ export default {
 
   methods: {
     async fetchImage(id) {
-      const data = await useFetch(`${this.$config.public.apiBase}/wp/v2/media/${id}`, {
-        onResponse({ request, response, options }) {
-          return response._data
-        },
-      })
+      const data = await useFetch(
+        `${this.$config.public.apiBase}/wp/v2/media/${id}`,
+        {
+          onResponse({ request, response, options }) {
+            return response._data
+          },
+        }
+      )
 
       return data.data._value.source_url
-    }
+    },
   },
 }
 </script>

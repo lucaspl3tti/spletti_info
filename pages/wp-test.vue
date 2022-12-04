@@ -4,7 +4,7 @@
       'spletti',
       'spletti--home',
       `spletti-${$i18n.local}`,
-      'is-wp-page'
+      'is-wp-page',
     ]"
   >
     <BContainer>
@@ -17,18 +17,18 @@
 export default {
   data() {
     return {
-      wpHtml: ''
+      wpHtml: '',
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get html for page from api
     await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/sample-page`, {
       onResponse({ request, response, options }) {
         const data = response._data
-        me.wpHtml = data.content.rendered
+        self.wpHtml = data.content.rendered
       },
     })
 

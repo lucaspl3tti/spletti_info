@@ -22,14 +22,17 @@ export default {
       default: 'success',
       required: true,
       validator(value) {
-        return ['success', 'error'].includes(value);
-      }
+        return ['success', 'error'].includes(value)
+      },
     },
   },
 
   data() {
     return {
-      alertText: this.state === 'success' ? this.$t('contact.success') : this.$t('contact.error'),
+      alertText:
+        this.state === 'success'
+          ? this.$t('contact.success')
+          : this.$t('contact.error'),
       alertIcon: this.state === 'success' ? 'check' : 'exclamation',
     }
   },

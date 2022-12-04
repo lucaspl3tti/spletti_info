@@ -17,17 +17,20 @@ export default {
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get html for page from api
-    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/privacy-policy`, {
-      onResponse({ request, response, options }) {
-        const data = response._data
-        me.title = data.title.rendered
-        me.wpHtml = data.content.rendered
-      },
-    })
+    await useFetch(
+      `${this.$config.public.apiBase}/wuxt/v1/slug/privacy-policy`,
+      {
+        onResponse({ request, response, options }) {
+          const data = response._data
+          self.title = data.title.rendered
+          self.wpHtml = data.content.rendered
+        },
+      }
+    )
 
     replaceWpBtns(this.$el)
     addHoverUnderline(this.$el)

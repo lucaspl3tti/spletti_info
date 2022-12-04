@@ -2,7 +2,7 @@
   <div
     :class="[
       'introduction__image',
-      profileImage.socialLink !== '' ? 'has-social-link' : ''
+      profileImage.socialLink !== '' ? 'has-social-link' : '',
     ]"
   >
     <a
@@ -18,10 +18,16 @@
     </div>
 
     <p
-      v-if="profileImage.socialLink !== '' && profileImage.socialLinkCopy !== ''"
+      v-if="
+        profileImage.socialLink !== '' && profileImage.socialLinkCopy !== ''
+      "
       class="speech-bubble handwriting-font"
     >
-      {{ $i18n.locale === 'ger' ? profileImage.socialLinkCopy?.de : profileImage.socialLinkCopy?.en }}
+      {{
+        $i18n.locale === 'ger'
+          ? profileImage.socialLinkCopy?.de
+          : profileImage.socialLinkCopy?.en
+      }}
     </p>
   </div>
 </template>
@@ -38,8 +44,8 @@ export default {
     }
   },
 
-  async created () {
-    const me = this
+  async created() {
+    const self = this
 
     // get profile picture from api
     await useFetch(`${this.$config.public.apiBase}/wp/v2/posts?categories=6`, {
@@ -50,9 +56,9 @@ export default {
         if (socialLinkCopy !== '')
           socialLinkCopy = formatTranslations(socialLinkCopy)
 
-        me.profileImage.src = data.featured_image
-        me.profileImage.socialLink = data.meta.social_link[0]
-        me.profileImage.socialLinkCopy = socialLinkCopy
+        self.profileImage.src = data.featured_image
+        self.profileImage.socialLink = data.meta.social_link[0]
+        self.profileImage.socialLinkCopy = socialLinkCopy
       },
     })
   },
@@ -139,7 +145,6 @@ export default {
         }
       }
     }
-
   }
 }
 
