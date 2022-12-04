@@ -26,12 +26,20 @@
         >
           <div class="c-slider__text heading c-slider__text--heading">
             <h3>
-              {{ project.title }}
+              {{
+                $i18n.locale === 'ger' ? project.title?.de : project.title?.en
+              }}
             </h3>
           </div>
 
           <div class="c-slider__text">
-            <p v-html="project.description"></p>
+            <p
+              v-html="
+                $i18n.locale === 'ger'
+                  ? project.description.de
+                  : project.description?.en
+              "
+            />
           </div>
 
           <div class="c-slider__tags">
@@ -118,12 +126,16 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .c-slider {
     &__image {
       img {
         max-height: 500px;
       }
+    }
+
+    &__text {
+      font-size: 16px;
     }
 
     &__tags {
@@ -132,7 +144,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .c-slider {
     &__wrapper {
       display: grid;
@@ -154,6 +166,22 @@ export default {
 
     &--hidden {
       display: none;
+    }
+  }
+}
+
+@include desktop-up {
+  .c-slider {
+    &__text {
+      font-size: 18px;
+    }
+  }
+}
+
+@include desktop-large-up {
+  .c-slider {
+    &__text {
+      font-size: 20px;
     }
   }
 }

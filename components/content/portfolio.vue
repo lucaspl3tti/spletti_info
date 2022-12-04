@@ -20,215 +20,82 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      projects: [
-        {
-          id: 1,
-          name: 'countryInformationSpa',
-          title: this.$t('portfolio.projects.countryInformationSpa.title'),
-          description: this.$t(
-            'portfolio.projects.countryInformationSpa.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/country-information-page',
-            },
-            {
-              type: 'live',
-              href: 'https://jls-country-api-page.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/country-information-spa_macbook-mockup.png',
-            ratio: '4/3',
-            alt: 'Image of Country Information SPA',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa'],
-        },
-        {
-          id: 2,
-          name: 'randomActivityApp',
-          title: this.$t('portfolio.projects.randomActivityApp.title'),
-          description: this.$t(
-            'portfolio.projects.randomActivityApp.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/random-activity-webapp',
-            },
-            {
-              type: 'live',
-              href: 'https://random-activity-spa.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/random-activity-spa_iphone13-mockup2.png',
-            ratio: '72/115',
-            alt: 'Image of Random Activity App',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa'],
-        },
-        {
-          id: 3,
-          name: 'portfolioWebsite',
-          title: this.$t('portfolio.projects.portfolioWebsite.title'),
-          description: this.$t(
-            'portfolio.projects.portfolioWebsite.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/spletti_info',
-            },
-          ],
-          image: {
-            src: 'img/portfolio-website_macbook-air-mockup.png',
-            ratio: '40/27',
-            alt: 'Image of Personal Portfolio Website',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa', 'ui design'],
-        },
-        {
-          id: 4,
-          name: 'photosnapMarketingSite',
-          title: this.$t('portfolio.projects.photosnapMarketingSite.title'),
-          description: this.$t(
-            'portfolio.projects.photosnapMarketingSite.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/photosnap-marketing-site',
-            },
-            {
-              type: 'live',
-              href: 'https://photosnap-marketing-jls.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/photosnap-marketing_macbook-mockup.png',
-            ratio: '4/3',
-            alt: 'Image of Photosnap Marketing Website',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa', 'frontend mentor'],
-        },
-        {
-          id: 5,
-          name: 'clockApp',
-          title: this.$t('portfolio.projects.clockApp.title'),
-          description: this.$t('portfolio.projects.clockApp.description'),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/clock-app',
-            },
-            {
-              type: 'live',
-              href: 'https://jls-clock-app.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/clock-app_macbook-mockup.png',
-            ratio: '4/3',
-            alt: 'Image of Clock App',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa'],
-        },
-        {
-          id: 6,
-          name: 'planetsFactsWebsite',
-          title: this.$t('portfolio.projects.planetsFactsWebsite.title'),
-          description: this.$t(
-            'portfolio.projects.planetsFactsWebsite.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/planet-facts-site',
-            },
-            {
-              type: 'live',
-              href: 'https://planet-facts-jls.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/planets-facts-website_mockups.png',
-            ratio: '16/9',
-            alt: 'Image of Planet Facts SPA',
-            paddingBottom: true,
-          },
-          tags: ['vue.js', 'scss', 'bootstrap 5', 'spa', 'frontend mentor'],
-        },
-        {
-          id: 7,
-          name: 'tipCalculatorApp',
-          title: this.$t('portfolio.projects.tipCalculatorApp.title'),
-          description: this.$t(
-            'portfolio.projects.tipCalculatorApp.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/tip-calculator-app',
-            },
-            {
-              type: 'live',
-              href: 'https://tap-calculator-jls.netlify.app/',
-            },
-          ],
-          image: {
-            src: 'img/tip-calculator-app_macbook-air-mockup.png',
-            ratio: '7/5',
-            alt: 'Image of Tip Calculator App',
-            paddingBottom: true,
-          },
-          tags: ['javascript', 'scss', 'gulp', 'frontend mentor'],
-        },
-        {
-          id: 8,
-          name: 'pdflibDemoScript',
-          title: this.$t('portfolio.projects.pdflibDemoScript.title'),
-          description: this.$t(
-            'portfolio.projects.pdflibDemoScript.description'
-          ),
-          links: [
-            {
-              type: 'repo',
-              href: 'https://github.com/lucaspl3tti/pdflib-example-rendering',
-            },
-            {
-              type: 'live',
-              href: '/files/ExamplePDF_jls_pdf-rendering.pdf',
-              customLinkText: this.$t(
-                'portfolio.projects.pdflibDemoScript.pdfLinkText'
-              ),
-            },
-          ],
-          image: {
-            src: 'img/pdflib-example_macbook-air-mockup.png',
-            ratio: '40/27',
-            alt: 'Image of PDFlib Rendering Example',
-            paddingBottom: true,
-          },
-          tags: ['pdflib', 'php', 'pdf generator'],
-        },
-      ],
+      projects: [],
     }
   },
 
-  updated() {
-    this.projects.forEach((project) => {
-      project.title = this.$t(`portfolio.projects.${project.name}.title`)
-      project.description = this.$t(
-        `portfolio.projects.${project.name}.description`
-      )
+  async created () {
+    const me = this
+
+    // get html for page from api
+    await useFetch(`${this.$config.public.apiBase}/wp/v2/posts?categories=10`, {
+      onResponse({ request, response, options }) {
+        const data = response._data
+        const projectList = []
+
+        data.forEach(project => {
+          const fields = project.meta
+          const image = project.featured_image
+          const { name, title, description, position, image_ratio, image_alt, image_has_padding_bottom, tags, github_link, live_link, live_link_text } = fields
+
+          const translatedTitle = formatTranslations(title[0])
+          const translatedDescription = formatTranslations(description[0])
+
+          let hasPaddingBottom = true
+          if (image_has_padding_bottom[0] === 0) hasPaddingBottom = false
+
+          const formattedTags = me.formatTags(tags[0])
+
+          const projectItem = {
+            id: Number(position[0]),
+            name: name[0],
+            title: translatedTitle,
+            description: translatedDescription,
+            links: [],
+            image: {
+              src: image,
+              ratio: image_ratio[0],
+              alt: image_alt[0],
+              paddingBottom: hasPaddingBottom,
+            },
+            tags: formattedTags,
+          }
+
+          const repoLink = github_link[0]
+          if (repoLink !== '') projectItem.links[0] = {
+            type: 'repo',
+            href: repoLink,
+          }
+
+          const liveLink = live_link[0]
+          if (liveLink !== '') projectItem.links[1] = {
+            type: 'live',
+            href: liveLink,
+          }
+
+          const liveLinkText = live_link_text[0]
+          if (liveLinkText !== '')
+            projectItem.links[1]['customLinkText'] = liveLinkText
+
+          const index = Number(position[0]) - 1
+          projectList[index] = projectItem
+        })
+
+        me.projects = projectList
+      },
     })
+  },
+
+  methods: {
+    formatTags(string) {
+      const tags = string.split(',')
+
+      tags.forEach((tag, index) => {
+        tags[index] = tag.replace(' ', '')
+      })
+
+      return tags
+    }
   },
 }
 </script>

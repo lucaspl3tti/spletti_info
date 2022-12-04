@@ -77,13 +77,13 @@ export default {}
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .footer {
     font-size: $font-size-normal;
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .footer {
     min-height: 350px;
     padding: 5% 10%;

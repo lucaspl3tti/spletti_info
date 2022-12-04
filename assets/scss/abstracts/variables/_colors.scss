@@ -20,6 +20,23 @@ $color-orange-300: rgba(255, 134, 0, 1);
 $color-orange-400: rgba(255, 121, 0, 1);
 $color-orange-500: rgba(255, 109, 0, 1);
 
+// gray color variants
+$color-gray-050: #f6f6f6;
+$color-gray-100: #edebeb;
+$color-gray-200: #dedcdc;
+$color-gray-300: #cbcaca;
+$color-gray-400: #bcbbbb;
+$color-gray-450: #adacac;
+$color-gray-500: #999;
+$color-gray-600: #777;
+$color-gray-700: #555;
+$color-gray-800: #333;
+$color-gray-900: #111;
+
+// functional colors
+$color-success: #75b798;
+$color-error: #dc3545;
+
 /* SCSS Gradient */
 $gradient-top: linear-gradient(0deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
 $gradient-right: linear-gradient(90deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);

@@ -47,9 +47,6 @@
             v-for="(job, jobKey) in career.jobs"
             :key="jobKey"
             :job="job"
-            :job-key="jobKey"
-            :career-label="careerKey"
-            @updated="onUpdatedJob"
           />
         </div>
       </div>
@@ -58,164 +55,89 @@
 </template>
 
 <script>
+const runtimeConfig = useRuntimeConfig()
+const apiUrl = runtimeConfig.apiBase
+
 export default {
   data() {
     return {
       skillsToggled: true,
       jobsToggled: false,
-
-      skills: [
-        {
-          id: 'nuxtjs',
-          text: 'Nuxt.js',
-          image: '/img/icons/skills/nuxtjs-logo.png',
-        },
-        {
-          id: 'vuejs',
-          text: 'Vue.js',
-          image: '/img/icons/skills/vue-logo.png',
-        },
-        {
-          id: 'js',
-          text: 'JavaScript',
-          image: '/img/icons/skills/javascript.png',
-        },
-        {
-          id: 'sass',
-          text: 'SCSS / SASS',
-          image: '/img/icons/skills/sass-logo.png',
-        },
-        {
-          id: 'html5',
-          text: 'HTML5',
-          image: '/img/icons/skills/html5.png',
-        },
-        {
-          id: 'ui-ux',
-          text: 'UI/UX',
-          image: '/img/icons/skills/ui.png',
-        },
-        {
-          id: 'pdflib',
-          text: 'PDFlib PHP',
-          image: '/img/icons/skills/pdf-2--v1.png',
-        },
-        {
-          id: 'php',
-          text: 'PHP',
-          image: '/img/icons/skills/php.png',
-        },
-        {
-          id: 'twig',
-          text: 'Twig',
-          image: '/img/icons/skills/twig-logo.png',
-        },
-        {
-          id: 'shopware6',
-          text: 'Shopware 6',
-          image: '/img/icons/skills/shopware.png',
-        },
-        {
-          id: 'pimcore',
-          text: 'Pimcore X',
-          image: '/img/icons/skills/pimcore-logo-2.png',
-        },
-        {
-          id: 'git',
-          text: 'Git SCM',
-          image: '/img/icons/skills/git-logo.png',
-        },
-        {
-          id: 'vitejs',
-          text: 'ViteJS',
-          image: '/img/icons/skills/vitejs-logo.png',
-        },
-        {
-          id: 'gulpjs',
-          text: 'GulpJS',
-          image: '/img/icons/skills/gulpjs-logo.png',
-        },
-        {
-          id: 'css3',
-          text: 'CSS',
-          image: '/img/icons/skills/css3.png',
-        },
-        {
-          id: 'figma',
-          text: 'Figma',
-          image: '/img/icons/skills/figma-logo.png',
-        },
-        {
-          id: 'adobe-cc',
-          text: 'Adobe CC',
-          image: '/img/icons/skills/creative-cloud.png',
-        },
-        {
-          id: 'newsletter',
-          text: 'Newsletter',
-          image: '/img/icons/skills/mail.png',
-        },
-      ],
-
+      skills: {},
       careers: {
         professional: {
           heading: this.$t('qualifications.careers.professional.heading'),
-          jobs: {
-            first: {
-              isLast: false,
-              timeperiod: `2021 - ${this.$t('qualifications.todayLabel')}`,
-              company: 'twocream. creativemedia GmbH',
-              jobTitle: this.$t(
-                'qualifications.careers.professional.jobs.first.title'
-              ),
-              taskCount: 5,
-            },
-            second: {
-              isLast: false,
-              timeperiod: '2020 - 2021',
-              company: 'move elevator GmbH',
-              jobTitle: this.$t(
-                'qualifications.careers.professional.jobs.second.title'
-              ),
-              taskCount: 3,
-            },
-            third: {
-              isLast: true,
-              timeperiod: '2018 - 2020',
-              company: 'move elevator GmbH',
-              jobTitle: this.$t(
-                'qualifications.careers.professional.jobs.third.title'
-              ),
-              taskCount: 4,
-            },
-          },
+          jobs: {},
         },
 
         school: {
           heading: this.$t('qualifications.careers.school.heading'),
-          jobs: {
-            first: {
-              isLast: false,
-              timeperiod: '2018 - 2021',
-              company: 'Berufskolleg Stadtmitte Mülheim',
-              jobTitle: this.$t(
-                'qualifications.careers.school.jobs.first.title'
-              ),
-              taskCount: 2,
-            },
-            second: {
-              isLast: true,
-              timeperiod: '2009 - 2018',
-              company: 'Ernst-Barlach-Gesamtschule',
-              jobTitle: this.$t(
-                'qualifications.careers.school.jobs.second.title'
-              ),
-              taskCount: 4,
-            },
-          },
+          jobs: {},
         },
       },
     }
+  },
+
+  async created () {
+    const me = this
+
+    // get skills from api
+    await useFetch(`${apiUrl}/wp/v2/posts?categories=3&per_page=100`, {
+      onResponse({ request, response, options }) {
+        const skills = response._data
+
+        for (const skill of skills) {
+          me.skills = {
+            ...me.skills,
+            [skill.meta.position[0]]: skill,
+          }
+        }
+      },
+    })
+
+    // get jobs from api
+    await useFetch(`${apiUrl}/wp/v2/posts?categories=4&per_page=100`, {
+      onResponse({ request, response, options }) {
+        const professionalCareer = {}
+        const schoolCareer = {}
+        const jobs = response._data
+
+        for (const job of jobs) {
+          const { meta } = job
+
+          // get values
+          const title = formatTranslations(meta.title[0])
+          const timeperiod = formatTranslations(meta.timeperiod[0])
+          const company = formatTranslations(meta.company[0])
+          const tasks = formatTranslations(meta.tasks[0])
+
+          let isLast = false
+          if (Number(meta.is_last[0]) === 1) isLast = true
+
+          let jobObject = {
+            title,
+            timeperiod,
+            company,
+            tasks,
+            isLast,
+            position: meta.position[0],
+            career: meta.career[0],
+            meta: {
+              ...job
+            }
+          }
+
+          if (jobObject.career === 'professional') {
+            professionalCareer[jobObject.position] = jobObject
+          } else if (jobObject.career === 'school') {
+            schoolCareer[jobObject.position] = jobObject
+          }
+
+          me.careers.professional.jobs = professionalCareer
+          me.careers.school.jobs = schoolCareer
+        }
+      },
+    })
   },
 
   methods: {
@@ -228,33 +150,6 @@ export default {
 
       this.skillsToggled = false
       this.jobsToggled = true
-    },
-
-    onUpdatedJob() {
-      Object.entries(this.careers).forEach((career) => {
-        const careerKey = career[0]
-        const careerObject = career[1]
-
-        careerObject.heading = this.$t(
-          `qualifications.careers.${careerKey}.heading`
-        )
-
-        Object.entries(careerObject.jobs).forEach((job, index) => {
-          const jobIndex = job[0]
-          const jobObject = job[1]
-
-          if (careerKey === 'professional') {
-            if (index === 0)
-              jobObject.timeperiod = `2021 - ${this.$t(
-                'qualifications.todayLabel'
-              )}`
-          }
-
-          jobObject.jobTitle = this.$t(
-            `qualifications.careers.${careerKey}.jobs.${jobIndex}.title`
-          )
-        })
-      })
     },
   },
 }
@@ -322,13 +217,13 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up{
   .skills {
     gap: spacing(6.5);
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .skills-qualifications-container {
     padding: 5% 9%;
   }

@@ -4,6 +4,13 @@ import svgLoader from 'vite-svg-loader'
 export default defineNuxtConfig({
   ssr: false,
 
+  runtimeConfig: {
+    // Keys within public, will be also exposed to the client-side
+    public: {
+      apiBase: 'https://backend.spletti.info/wp-json',
+    }
+  },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -30,7 +37,10 @@ export default defineNuxtConfig({
     plugins: [svgLoader()],
   },
 
-  modules: ['bootstrap-vue-3/nuxt', 'nuxt-icon'],
+  modules: [
+    'bootstrap-vue-3/nuxt',
+    'nuxt-icon',
+  ],
 
   css: ['~/assets/scss/main.scss'],
 })

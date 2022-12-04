@@ -7,26 +7,27 @@
     data-aos-once="true"
   >
     <h2 class="heading heading--about">
-      {{ $t('about.heading') }}<span class="heading-dot">.</span>
+      <span v-html="$i18n.locale === 'ger' ? heading?.de : heading?.en" />
+      <span class="heading-dot">.</span>
     </h2>
 
     <div class="about-content">
       <div class="about__introduction">
         <div class="about__image about__image--introduction">
-          <img :src="images.me" class="image__me" />
+          <img :src="imageOfMyself" class="image__me" />
         </div>
         <div class="about__introduction-content">
           <p class="introduction__subheading subheading">
-            {{ $t('about.subheading') }}
+            {{ $i18n.locale === 'ger' ? subheading?.de : subheading?.en }}
           </p>
-          <p class="introduction__start" v-html="$t('about.intro')" />
+          <p class="introduction__start" v-html="$i18n.locale === 'ger' ? intro?.de : intro?.en" />
 
           <p class="introduction__myself">
-            {{ $t('about.aboutMe') }}
+            {{ $i18n.locale === 'ger' ? aboutMe?.de : aboutMe?.en }}
           </p>
 
           <p class="introduction__interests">
-            {{ $t('about.interests') }}
+            {{ $i18n.locale === 'ger' ? interests?.de : interests?.en }}
           </p>
         </div>
       </div>
@@ -39,11 +40,11 @@
             'about__image--centered-mobile',
           ]"
         >
-          <img :src="images.backend" class="image__backend" />
+          <img :src="backendImage" class="image__backend" />
         </div>
         <div class="about__my-start">
           <p class="first-project">
-            {{ $t('about.firstProject') }}
+            {{ $i18n.locale === 'ger' ? firstProject?.de : firstProject?.en }}
           </p>
         </div>
       </div>
@@ -56,19 +57,19 @@
             'about__image--centered-mobile',
           ]"
         >
-          <img :src="images.frontend" class="image__frontend" />
+          <img :src="frontendImage" class="image__frontend" />
         </div>
         <div class="career__path">
           <p class="career__backend">
-            {{ $t('about.backend') }}
+            {{ $i18n.locale === 'ger' ? backend?.de : backend?.en }}
           </p>
 
           <p class="career__frontend">
-            {{ $t('about.frontend') }}
+            {{ $i18n.locale === 'ger' ? frontend?.de : frontend?.en }}
           </p>
 
           <p class="career__today">
-            {{ $t('about.today') }}
+            {{ $i18n.locale === 'ger' ? today?.de : today?.en }}
           </p>
         </div>
       </div>
@@ -80,11 +81,56 @@
 export default {
   data() {
     return {
-      images: {
-        me: 'img/about-me.png',
-        backend: 'img/backend.png',
-        frontend: 'img/ux.png',
+      heading: '',
+      imageOfMyself: 'img/about-me.png',
+      subheading: '',
+      intro: '',
+      aboutMe: '',
+      interests: '',
+      firstProject: '',
+      backendImage: 'img/backend.png',
+      backend: '',
+      frontend: '',
+      frontendImage: 'img/ux.png',
+      today: '',
+    }
+  },
+
+  async created () {
+    const me = this
+
+    // get html for page from api
+    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/about-me`, {
+      onResponse({ request, response, options }) {
+        const data = response._data.meta
+
+        // get page content from fetched data
+        me.heading = formatTranslations(data.heading[0])
+        me.subheading = formatTranslations(data.subheading[0])
+        me.intro = formatTranslations(data.intro_text[0])
+        me.aboutMe = formatTranslations(data.about_text[0])
+        me.interests = formatTranslations(data.interests[0])
+        me.firstProject = formatTranslations(data.first_project[0])
+        me.backend = formatTranslations(data.backend[0])
+        me.frontend = formatTranslations(data.frontend[0])
+        me.today = formatTranslations(data.today[0])
       },
+    })
+
+    this.imageOfMyself = await this.fetchImage('216')
+    this.backendImage = await this.fetchImage('217')
+    this.frontendImage = await this.fetchImage('218')
+  },
+
+  methods: {
+    async fetchImage(id) {
+      const data = await useFetch(`${this.$config.public.apiBase}/wp/v2/media/${id}`, {
+        onResponse({ request, response, options }) {
+          return response._data
+        },
+      })
+
+      return data.data._value.source_url
     }
   },
 }
@@ -134,7 +180,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .about {
     &__image {
       &--introduction {
@@ -176,7 +222,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .about {
     &__beginning,
     &__career {
