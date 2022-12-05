@@ -29,10 +29,6 @@ export default {
     }
   },
 
-  // mounted () {
-  //   if (this.navItem.name === 'home') this.$el.classList.add(this.activeClass)
-  // },
-
   methods: {
     onClickNavLink() {
       const nav = document.querySelector('.navbar')
@@ -112,7 +108,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .navbar {
     .navbar-nav .nav-item {
       flex: 0 0 50%;
@@ -120,7 +116,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-xl) {
+@include desktop-up {
   .navbar {
     .navbar-collapse .nav-item {
       .nav-link {

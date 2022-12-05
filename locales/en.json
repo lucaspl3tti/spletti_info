@@ -10,50 +10,14 @@
       "contact": {
         "text": "Contact Me"
       }
-    },
-    "profileImageHoverText": "Visit me on Instagram!"
+    }
   },
 
   "portfolio": {
     "heading": "projects & portfolio",
     "subheading": "A showcase of some of my recent work",
     "projectLiveLinkText": "Live Site",
-    "projectGithubLinkText": "Github Repo",
-    "projects": {
-      "countryInformationSpa": {
-        "title": "Country Information SPA",
-        "description": "Frontend Project challenge from <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>For this challenge I needed to make an SPA with connection to a REST API to display informations for every country in the data. Based on VueJS with SCSS and Bootstrap5."
-      },
-      "randomActivityApp": {
-        "title": "Random Activity SPA",
-        "description": "A little web app for a funny evening with your friends. It's a little inspired by Truth or Dare but the main goal for the app was to have a less forced vibe to do things. You can add an infinite number of players and every player can add as many activites as they like. It's all about good vibes!<br/>Based on Vue.js and Bootstrap 5"
-      },
-      "portfolioWebsite": {
-        "title": "Portfolio Webseite",
-        "description": "My personal portfolio website! I developed it so I can showcase my work and represent myself in the web. It's build with Vue.js and Bootstrap 5."
-      },
-      "photosnapMarketingSite": {
-        "title": "Photosnap Marketing Site",
-        "description": "Frontend Project challenge from <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>In this challenge the goal was to create a marketing site for a photography platform called photosnap. I implemented the design using Vue3 together with SCSS and Bootstrap 5."
-      },
-      "clockApp": {
-        "title": "Clock App",
-        "description": "Frontend Project challenge from <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>The goal for this challenge was to create a clock app with connection to an external API. Based on Vanilla JS with SCSS."
-      },
-      "planetsFactsWebsite": {
-        "title": "Planet Facts Site",
-        "description": "Real life project challenge from <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>The goal was to create a site, where users can learn cool facts about all the planets in our solar system, which should at the end look like the given design.<br/>Based on Vue.js and Bootstrap 5."
-      },
-      "tipCalculatorApp": {
-        "title": "Tip Calculator App",
-        "description": "Real life project challenge from <a class='hover-underline' href='https://frontendmentor.io/' target='_blank' rel='noopener noreferrer'>Frontend Mentor</a>.<br/>The app should calculate a tip, based on the price you paid, the number of people and a percentage of the paid price you can choose.<br/>It was build with SCSS + Bootstrap 5 and Vanilla JavaScript."
-      },
-      "pdflibDemoScript": {
-        "title": "PDFlib Demo Script",
-        "description": "A dynamic pdf generator demo, to showcase typical use-cases of the library and how one can solve it. It's build on the php version of the PDFlib library.",
-        "pdfLinkText": "PDFlib Example"
-      }
-    }
+    "projectGithubLinkText": "Github Repo"
   },
 
   "qualifications": {
@@ -63,79 +27,42 @@
       "skills": "Skills",
       "jobs": "Qualifications"
     },
-    "todayLabel": "Today",
     "careers": {
       "professional": {
-        "heading": "Professional Career",
-        "jobs": {
-          "first": {
-            "title": "Junior Frontend Developer",
-            "tasks": {
-              "1": "Implementation of User Interfaces in Web Applications",
-              "2": "Developing Shopware 6 plugins / themes based on JavaScript and SCSS",
-              "3": "Building and Maintaining VueJS as well as NuxtJS Applications",
-              "4": "Realisation of dynamic PDF generators based on PDFlib PHP library",
-              "5": "Supporting the creation designs in Adobe XD and Sketch"
-            }
-          },
-          "second": {
-            "title": "Frontend Developer Trainee",
-            "tasks": {
-              "1": "Implementation of User Interfaces in Web Applications",
-              "2": "Developing HTML Newsletter Layouts",
-              "3": "Supporting the creation of designs in Sketch"
-            }
-          },
-          "third": {
-            "title": "Backend Developer Trainee",
-            "tasks": {
-              "1": "Implementation and maintaining of Web Applications based on Typo3, PHP and MySQL",
-              "2": "Maintaining and Enhancing of existing PHP scripts",
-              "3": "Migration of existing software solutions to newer systems",
-              "4": "Maintaining databases with the help of database-tools"
-            }
-          }
-        }
+        "heading": "Professional Career"
       },
       "school": {
-        "heading": "School Career",
-        "jobs": {
-          "first": {
-            "title": "Trainee as IT specialist in application development",
-            "tasks": {
-              "1": "Academic part of my apprenticeship as a web developer",
-              "2": "Main focus: PHP, JavaScirpt, C++ and databases"
-            }
-          },
-          "second": {
-            "title": "Diploma from german secondary school qualifying for university",
-            "tasks": {
-              "1": "A-Levels with a linguistic focus",
-              "2": "Advanced Courses: English and German",
-              "3": "3. Exam Subject: Engineering",
-              "4": "4. Exam Subject: Educational Science"
-            }
-          }
-        }
+        "heading": "School Career"
       }
     }
-  },
-
-  "about": {
-    "heading": "about me",
-    "subheading": "Nice to meet you!",
-    "intro": "Name's <span class='handwriting-font about__name'>Jan-Luca</span>, Junior Frontend Developer and UI Designer",
-    "aboutMe": "Currently I have over three years of practical experience in developing digital products. It is especially important to me to write Code that's easy to understand as well as to maintain. Moreover I love to create beautiful and eye-catching desings.",
-    "interests": "The interest in web development already developed in my youth, which was greatly incfluenced and then also encouraged by my Dad, who at that time build some websites himself, like the one for his company.",
-    "firstProject": "My first own project was a pokemon fanpage, where I would post news and useful information about the games. Though it was build with a homepage builder, I got my first experience with HTML and CSS through building the Layout. In the following years I extended my knowledge and learned new things like WordPress and PHP. Furthermore I got the chance to deepen that knowledge in my school's IT course.",
-    "backend": "After school, in 2018, i then began my training as a Webdeveloper at a german digital agency. In the first two years I was mainly active in backend development, but I also got the chance to get more in contact with Frontend Development and also learned new things, for example how to use Design-Tools like Adobe XD or Sketch.",
-    "frontend": "But with time I noticed that I'm a lot more comfortable in Frontend rather than the backend, so I decided to switch my focus entirely. After I completed my training I started at my current position as a Junior Frontend Developer at another german digital agency. There I'm currently responsible for the implementation of UIs in web applications, as well as developing Shopware 6 themes and plugins with SCSS and JavaScript. Moreover I am also developing dynamic PDF generators with the PDFlib PHP Library and building as well as maintaining VueJS and NuxtJS Applications.",
-    "today": "In my freetime my head is also wrapped up with Frontend Development and Design. Currently I love to expand my JavaScript knowledge as well as building some applications with Vue.js"
   },
 
   "contact": {
     "heading": "get in touch",
     "subheading": "If you have a question or if you want to work with me, just send a quick message! &#10024;",
-    "btnText": "Contact me!"
+    "btnText": "Contact me!",
+    "success": "Thank you for your message! It has been sent.",
+    "error": "One or more fields have an error. Please check and try again.",
+    "inputs": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Please enter your name..."
+      },
+      "email": {
+        "label": "Your E-Mail Address",
+        "placeholder": "Please enter your email address...",
+        "help": "We'll never share your e-mail address with others."
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Please enter a subject..."
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Please enter your message..."
+      }
+    },
+    "privacyNotice": "Here you'll find further information on <a class=\"link--light hover-underline\" href=\"/privacy\">data protection</a>",
+    "submitBtn": "Send"
   }
 }

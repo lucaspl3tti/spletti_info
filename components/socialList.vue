@@ -3,16 +3,16 @@
     <div class="social-list__dash"></div>
 
     <div
-      v-for="(item, index) in socials"
-      :key="index"
-      :class="['social-icon-wrapper', `social-icon-wrapper--${item.name}`]"
+      v-for="(item, key) in socials"
+      :key="key"
+      :class="['social-icon-wrapper', `social-icon-wrapper--${item.icon}`]"
     >
       <a class="social-icon" :href="item.link">
         <Icon
-          :name="`bi:${item.name}`"
+          :name="`bi:${item.icon}`"
           :size="iconSize"
           color="currentColor"
-          :class="['bi', `bi-${item.name}`, isNav ? 'd-lg-none' : '']"
+          :class="['bi', `bi-${item.icon}`, isNav ? 'd-lg-none' : '']"
         />
       </a>
     </div>
@@ -34,21 +34,40 @@ export default {
 
   data() {
     return {
-      socials: [
-        {
-          name: 'instagram',
+      socials: {
+        socialLink1: {
+          icon: 'instagram',
           link: 'https://www.instagram.com/luca.spl3tti/',
         },
-        {
-          name: 'github',
+        socialLink2: {
+          icon: 'github',
           link: 'https://www.github.com/lucaspl3tti',
         },
-        {
-          name: 'linkedin',
-          link: 'https://www.instagram.com/luca.spl3tti/',
+        socialLink3: {
+          icon: 'linkedin',
+          link: 'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/',
         },
-      ],
+      },
     }
+  },
+
+  async created() {
+    const self = this
+
+    // get html for page from api
+    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/social-links`, {
+      onResponse({ request, response, options }) {
+        const data = response._data
+        const socialLink1 = data.social_links['socialLink#1']
+        const socialLink2 = data.social_links['socialLink#2']
+        const socialLink3 = data.social_links['socialLink#3']
+
+        // get page content from fetched data
+        self.socials.socialLink1 = socialLink1
+        self.socials.socialLink2 = socialLink2
+        self.socials.socialLink3 = socialLink3
+      },
+    })
   },
 }
 </script>
@@ -123,7 +142,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .social-list {
     &__dash {
       width: 3px;
@@ -155,7 +174,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .social-list {
     display: flex;
   }

@@ -115,7 +115,7 @@ export default {
   align-items: center;
 }
 
-@media (max-width: $breakpoint-lg) {
+@include tablet-portrait-down {
   .nav-list {
     gap: spacing(5);
     margin-bottom: spacing(6);
@@ -126,7 +126,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .navbar {
     border-radius: 25px;
     font-size: $font-size-small;
@@ -138,7 +138,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-xl) {
+@include desktop-up {
   .navbar {
     height: 100px;
     box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);

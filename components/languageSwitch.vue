@@ -97,6 +97,7 @@ export default {
       border: 0;
       border-radius: 0;
       background-color: transparent;
+      color: $color-black;
 
       &::after {
         display: none;
@@ -105,6 +106,7 @@ export default {
       &:active {
         background-color: rgba($color-white, 0.25);
         border-radius: 5px;
+        color: $color-black;
       }
     }
 
@@ -160,7 +162,7 @@ export default {
   }
 }
 
-@media (max-width: $breakpoint-xl) {
+@include desktop-up {
   .c-language-switch {
     position: relative;
 
@@ -172,11 +174,11 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: $color-black;
+      color: $color-white;
       text-align: right;
 
       &:active {
-        color: $color-black;
+        color: $color-white;
       }
     }
 

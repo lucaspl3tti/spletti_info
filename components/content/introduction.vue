@@ -31,25 +31,14 @@
     </div>
 
     <div class="introduction__right">
-      <div class="introduction__image">
-        <a
-          :href="introduction.profileImage.link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img :src="introduction.profileImage.src" />
-        </a>
-        <p class="speech-bubble handwriting-font">
-          {{ $t(`introduction.profileImageHoverText`) }}
-        </p>
-      </div>
+      <ProfileImage />
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       translation: this.$i18n.locale,
       introduction: {
@@ -99,28 +88,6 @@ export default {
     margin: spacing(6) 0;
   }
 
-  &__image {
-    order: -2;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: spacing(6);
-    margin-left: auto;
-
-    .speech-bubble {
-      display: none;
-    }
-
-    img {
-      width: 85%;
-      margin-left: 15%;
-      // box-shadow: 12px 12px 18px rgba($color: $color-primary, $alpha: .45);
-      // border: 3px solid $color-primary;
-      border-radius: 50%;
-      aspect-ratio: 1/1;
-    }
-  }
-
   &__buttons {
     display: flex;
     flex-flow: column;
@@ -149,7 +116,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .introduction {
     display: grid;
     gap: spacing(5);
@@ -173,62 +140,6 @@ export default {
         width: 180px;
       }
     }
-
-    &__image {
-      align-self: center;
-      margin-top: spacing(2.5);
-
-      .speech-bubble {
-        position: absolute;
-        top: 58%;
-        left: 30%;
-        display: flex;
-        place-items: center;
-        opacity: 0;
-        margin: 0;
-        min-width: 40px;
-        max-width: 220px;
-        min-height: 40px;
-        border-radius: 30px;
-        background-color: $color-white;
-        padding: spacing(5) spacing(4);
-        text-align: center;
-        font-size: 21px;
-        box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3);
-        transition: opacity $animation-speed;
-
-        &:before {
-          content: '';
-          position: absolute;
-          top: -12%;
-          left: 1.5em;
-          width: 0;
-          height: 0;
-          border: 0.75rem solid transparent;
-          border-top: none;
-          border-bottom-color: $color-white;
-          filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
-        }
-      }
-
-      img {
-        width: auto;
-        margin-left: 0;
-        transition: transform 0.33s, box-shadow 0.33s;
-      }
-
-      &:hover {
-        .speech-bubble {
-          // display: flex;
-          opacity: 1;
-        }
-
-        img {
-          transform: translate(-10px, -10px);
-          box-shadow: 20px 20px 18px rgba($color: $color-primary, $alpha: 0.6);
-        }
-      }
-    }
   }
 
   .spletti-ger {
@@ -242,7 +153,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .introduction {
     grid-template-columns: auto 350px;
     grid-template-areas: 'intro-content intro-image';
@@ -263,19 +174,6 @@ export default {
       .btn--portfolio,
       .btn--contact {
         margin-top: spacing(8);
-      }
-    }
-
-    &__image {
-      justify-self: flex-end;
-
-      .speech-bubble {
-        top: 58%;
-        left: 37%;
-      }
-
-      img {
-        height: 350px;
       }
     }
   }

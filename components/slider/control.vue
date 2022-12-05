@@ -83,7 +83,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .c-slider__control {
     top: 230px;
 
@@ -97,7 +97,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .c-slider__control {
     bottom: auto;
     top: 0;

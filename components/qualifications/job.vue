@@ -8,32 +8,22 @@
     <div class="c-job__content">
       <div class="c-job__information">
         <div class="c-job__period">
-          {{ job.timeperiod }}
+          {{ $i18n.locale === 'ger' ? job.timeperiod?.de : job.timeperiod?.en }}
         </div>
         <div class="c-job__company">
-          {{ job.company }}
+          {{ $i18n.locale === 'ger' ? job.company?.de : job.company?.en }}
         </div>
       </div>
 
       <div class="c-job__description">
         <div class="c-job__title">
-          {{ job.jobTitle }}
+          {{ $i18n.locale === 'ger' ? job.title?.de : job.title?.en }}
         </div>
 
         <div class="c-job__tasks">
           <p class="task-list">
-            <span
-              v-for="number in job.taskCount"
-              :key="number"
-              class="task-list__item"
-            >
-              {{
-                $t(
-                  `qualifications.careers.${careerLabel}.jobs.${jobKey}.tasks.${number}`
-                )
-              }}
-              <br />
-            </span>
+            <span v-if="$i18n.locale === 'ger'" v-html="job.tasks?.de"></span>
+            <span v-else v-html="job.tasks?.en"></span>
           </p>
         </div>
       </div>
@@ -49,22 +39,6 @@ export default {
       default: () => {}, // eslint-disable-line
       required: true,
     },
-    jobKey: {
-      type: String,
-      default: '',
-      required: true,
-    },
-    careerLabel: {
-      type: String,
-      default: '',
-      required: true,
-    },
-  },
-
-  emits: ['updated'],
-
-  updated() {
-    this.$emit('updated')
   },
 }
 </script>
@@ -121,7 +95,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .c-job {
     &__information {
       flex: 0 0 25%;
