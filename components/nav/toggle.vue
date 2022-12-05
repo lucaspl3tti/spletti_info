@@ -122,14 +122,14 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .navbar .navbar-toggler {
     height: 65px;
     width: 65px;
   }
 }
 
-@media (min-width: $breakpoint-xl) {
+@include desktop-up {
   .navbar .navbar-toggler {
     display: none;
   }

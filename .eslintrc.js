@@ -22,8 +22,11 @@ module.exports = {
   plugins: ['@typescript-eslint'],
 
   rules: {
-    'vue/script-setup-no-uses-vars': 'off',
+    '@typescript-eslint/no-this-alias': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/no-v-html': 'off',
+    'vue/require-explicit-emits': 'off',
+    'vue/script-setup-no-uses-vars': 'off',
   },
 }

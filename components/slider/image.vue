@@ -45,7 +45,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-md) {
+@include tablet-up {
   .c-slider__image {
     img {
       max-height: 500px;
@@ -53,7 +53,7 @@ export default {
   }
 }
 
-@media (min-width: $breakpoint-lg) {
+@include tablet-portrait-up {
   .c-slider__image {
     display: flex;
     flex-flow: column;
