@@ -88,7 +88,7 @@ export default {
 
         for (const skill of skills) {
           self.skills = {
-            ...me.skills,
+            ...self.skills,
             [skill.meta.position[0]]: skill,
           }
         }
