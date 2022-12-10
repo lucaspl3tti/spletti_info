@@ -7,7 +7,7 @@
     data-aos-once="true"
   >
     <h2 class="heading heading--about">
-      <span v-html="$i18n.locale === 'ger' ? heading?.de : heading?.en" />
+      <span v-html="$i18n.locale === 'de' ? heading?.de : heading?.en" />
       <span class="heading-dot">.</span>
     </h2>
 
@@ -22,19 +22,19 @@
         </div>
         <div class="about__introduction-content">
           <p class="introduction__subheading subheading">
-            {{ $i18n.locale === 'ger' ? subheading?.de : subheading?.en }}
+            {{ $i18n.locale === 'de' ? subheading?.de : subheading?.en }}
           </p>
           <p
             class="introduction__start"
-            v-html="$i18n.locale === 'ger' ? intro?.de : intro?.en"
+            v-html="$i18n.locale === 'de' ? intro?.de : intro?.en"
           />
 
           <p class="introduction__myself">
-            {{ $i18n.locale === 'ger' ? aboutMe?.de : aboutMe?.en }}
+            {{ $i18n.locale === 'de' ? aboutMe?.de : aboutMe?.en }}
           </p>
 
           <p class="introduction__interests">
-            {{ $i18n.locale === 'ger' ? interests?.de : interests?.en }}
+            {{ $i18n.locale === 'de' ? interests?.de : interests?.en }}
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="about__my-start">
           <p class="first-project">
-            {{ $i18n.locale === 'ger' ? firstProject?.de : firstProject?.en }}
+            {{ $i18n.locale === 'de' ? firstProject?.de : firstProject?.en }}
           </p>
         </div>
       </div>
@@ -76,15 +76,15 @@
         </div>
         <div class="career__path">
           <p class="career__backend">
-            {{ $i18n.locale === 'ger' ? backend?.de : backend?.en }}
+            {{ $i18n.locale === 'de' ? backend?.de : backend?.en }}
           </p>
 
           <p class="career__frontend">
-            {{ $i18n.locale === 'ger' ? frontend?.de : frontend?.en }}
+            {{ $i18n.locale === 'de' ? frontend?.de : frontend?.en }}
           </p>
 
           <p class="career__today">
-            {{ $i18n.locale === 'ger' ? today?.de : today?.en }}
+            {{ $i18n.locale === 'de' ? today?.de : today?.en }}
           </p>
         </div>
       </div>

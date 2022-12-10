@@ -24,7 +24,7 @@
         English <IconUsa />
       </b-dropdown-item>
 
-      <b-dropdown-item @click="changeLanguage('ger')">
+      <b-dropdown-item @click="changeLanguage('de')">
         German <IconGermany />
       </b-dropdown-item>
     </b-dropdown>
@@ -48,16 +48,17 @@ export default {
   },
 
   methods: {
-    changeLanguage(key) {
+    changeLanguage(languageCode) {
       const main = document.querySelector('main')
-      const oldLang = this.$i18n.locale
+      const oldLanguageCode = this.$i18n.locale
 
-      this.$i18n.locale = key
-      this.language = key
+      this.$i18n.locale = languageCode
+      this.language = this.$i18n.locale
 
       localStorage.setItem('language', this.$i18n.locale)
-      main.classList.remove(`spletti-${oldLang}`)
-      main.classList.add(`spletti-${key}`)
+      main.classList.remove(`spletti-${oldLanguageCode}`)
+      main.classList.add(`spletti-${this.$i18n.locale}`)
+      document.documentElement.setAttribute('lang', this.$i18n.locale)
     },
   },
 }

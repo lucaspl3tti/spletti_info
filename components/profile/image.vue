@@ -10,6 +10,7 @@
       :href="profileImage.socialLink"
       target="_blank"
       rel="noopener noreferrer"
+      title="Instagram Link"
     >
       <nuxt-img
         :src="profileImage.src"
@@ -30,7 +31,7 @@
       class="speech-bubble handwriting-font"
     >
       {{
-        $i18n.locale === 'ger'
+        $i18n.locale === 'de'
           ? profileImage.socialLinkCopy?.de
           : profileImage.socialLinkCopy?.en
       }}

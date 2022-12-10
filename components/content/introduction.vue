@@ -142,7 +142,7 @@ export default {
     }
   }
 
-  .spletti-ger {
+  .spletti-de {
     .introduction {
       &__buttons {
         .btn {

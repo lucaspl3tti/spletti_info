@@ -27,7 +27,7 @@
           <div class="c-slider__text heading c-slider__text--heading">
             <h3>
               {{
-                $i18n.locale === 'ger' ? project.title?.de : project.title?.en
+                $i18n.locale === 'de' ? project.title?.de : project.title?.en
               }}
             </h3>
           </div>
@@ -35,7 +35,7 @@
           <div class="c-slider__text">
             <p
               v-html="
-                $i18n.locale === 'ger'
+                $i18n.locale === 'de'
                   ? project.description.de
                   : project.description?.en
               "

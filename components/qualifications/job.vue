@@ -8,21 +8,21 @@
     <div class="c-job__content">
       <div class="c-job__information">
         <div class="c-job__period">
-          {{ $i18n.locale === 'ger' ? job.timeperiod?.de : job.timeperiod?.en }}
+          {{ $i18n.locale === 'de' ? job.timeperiod?.de : job.timeperiod?.en }}
         </div>
         <div class="c-job__company">
-          {{ $i18n.locale === 'ger' ? job.company?.de : job.company?.en }}
+          {{ $i18n.locale === 'de' ? job.company?.de : job.company?.en }}
         </div>
       </div>
 
       <div class="c-job__description">
         <div class="c-job__title">
-          {{ $i18n.locale === 'ger' ? job.title?.de : job.title?.en }}
+          {{ $i18n.locale === 'de' ? job.title?.de : job.title?.en }}
         </div>
 
         <div class="c-job__tasks">
           <p class="task-list">
-            <span v-if="$i18n.locale === 'ger'" v-html="job.tasks?.de"></span>
+            <span v-if="$i18n.locale === 'de'" v-html="job.tasks?.de"></span>
             <span v-else v-html="job.tasks?.en"></span>
           </p>
         </div>
