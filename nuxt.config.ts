@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     plugins: [svgLoader()],
   },
 
-  modules: ['bootstrap-vue-3/nuxt', 'nuxt-icon'],
+  modules: ['bootstrap-vue-3/nuxt', 'nuxt-icon', '@nuxt/image-edge'],
 
   css: ['~/assets/scss/main.scss'],
 })

@@ -6,7 +6,7 @@
       !hasPaddingBottom ? 'pb-0' : '',
     ]"
   >
-    <img
+    <nuxt-img
       :src="image.src"
       :alt="image.alt"
       :style="['aspect-ratio: ' + image.ratio]"

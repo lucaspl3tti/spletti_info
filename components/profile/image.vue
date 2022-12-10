@@ -11,10 +11,16 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img :src="profileImage.src" />
+      <nuxt-img
+        :src="profileImage.src"
+        alt="Profile Image of Jan-Luca Splettstößer"
+      />
     </a>
     <div v-else>
-      <img :src="profileImage.src" />
+      <nuxt-img
+        :src="profileImage.src"
+        alt="Profile Image of Jan-Luca Splettstößer"
+      />
     </div>
 
     <p

@@ -14,7 +14,11 @@
     <div class="about-content">
       <div class="about__introduction">
         <div class="about__image about__image--introduction">
-          <img :src="imageOfMyself" class="image__me" />
+          <nuxt-img
+            :src="imageOfMyself"
+            class="image__me"
+            alt="Image of Jan-Luca Splettstößer"
+          />
         </div>
         <div class="about__introduction-content">
           <p class="introduction__subheading subheading">
@@ -43,7 +47,11 @@
             'about__image--centered-mobile',
           ]"
         >
-          <img :src="backendImage" class="image__backend" />
+          <nuxt-img
+            :src="backendImage"
+            class="image__backend"
+            alt="Backend Image"
+          />
         </div>
         <div class="about__my-start">
           <p class="first-project">
@@ -60,7 +68,11 @@
             'about__image--centered-mobile',
           ]"
         >
-          <img :src="frontendImage" class="image__frontend" />
+          <nuxt-img
+            :src="frontendImage"
+            class="image__frontend"
+            alt="Frontend Image"
+          />
         </div>
         <div class="career__path">
           <p class="career__backend">
