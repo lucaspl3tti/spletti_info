@@ -122,13 +122,6 @@ export default {
   }
 }
 
-@include tablet-portrait-up {
-  .navbar .navbar-toggler {
-    height: 65px;
-    width: 65px;
-  }
-}
-
 @include desktop-up {
   .navbar .navbar-toggler {
     display: none;

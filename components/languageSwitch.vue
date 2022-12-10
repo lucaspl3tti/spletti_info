@@ -7,34 +7,16 @@
         `c-language-switch__dropwdown--${language}`,
         'm-2',
       ]"
-      right
+      :right="isMobile ? false : true"
     >
       <template #button-content>
-        <div
-          class="dropdown-content"
-          @mouseover="onHoverDropdownBtn"
-          @mouseout="onHoverOutDropdownBtn"
-        >
-          <div v-if="language === 'ger'" class="dropdown-content__german">
-            <div class="dropdown-content__flexbox">
-              <div class="flexbox__copy hover-underline">
-                German<br />
-                Deutsch
-              </div>
-              <div class="flexbox__icon">
-                <IconGermany />
-              </div>
-            </div>
-          </div>
-
-          <div v-if="language === 'en'" class="dropdown-content__english">
-            <div class="dropdown-content__flexbox">
-              <div class="flexbox__copy hover-underline">English</div>
-              <div class="flexbox__icon">
-                <IconUsa />
-              </div>
-            </div>
-          </div>
+        <div class="dropdown-content">
+          <Icon
+            name="bi:globe"
+            size="32"
+            color="currentColor"
+            :class="['bi-globe']"
+          />
         </div>
       </template>
 
@@ -55,24 +37,17 @@ export default {
     return {
       key: 0,
       language: this.$i18n.locale,
+      isMobile: false,
     }
   },
 
+  mounted() {
+    this.isMobile = window.innerWidth < 786 ? true : false
+    window.onresize = () =>
+      (this.isMobile = window.innerWidth < 786 ? true : false)
+  },
+
   methods: {
-    onHoverDropdownBtn() {
-      const dropdownContent = this.$el.querySelector('.dropdown-content')
-      const dropdownBtnText = dropdownContent.querySelector('.flexbox__copy')
-
-      dropdownBtnText.classList.add('show')
-    },
-
-    onHoverOutDropdownBtn() {
-      const dropdownContent = this.$el.querySelector('.dropdown-content')
-      const dropdownBtnText = dropdownContent.querySelector('.flexbox__copy')
-
-      dropdownBtnText.classList.remove('show')
-    },
-
     changeLanguage(key) {
       const main = document.querySelector('main')
       const oldLang = this.$i18n.locale
@@ -111,31 +86,12 @@ export default {
     }
 
     &-content {
-      &__flexbox {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: spacing(2.5);
-      }
+      color: $color-orange-300;
+    }
 
-      .flexbox {
-        &__copy {
-          font-size: 12px;
-
-          &.hover-underline--focus {
-            &::after {
-              background-color: $color-white;
-            }
-          }
-        }
-
-        &__icon {
-          svg {
-            height: 32px;
-            width: 32px;
-          }
-        }
-      }
+    &-toggle {
+      min-width: 0;
+      padding: 0;
     }
 
     &-menu {
@@ -183,8 +139,8 @@ export default {
     }
 
     .dropdown {
-      &-menu {
-        left: 0;
+      &-content {
+        color: $color-white;
       }
     }
   }
