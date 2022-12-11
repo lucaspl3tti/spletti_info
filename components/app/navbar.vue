@@ -3,7 +3,7 @@
     container="fluid"
     dark="true"
     fixed="top"
-    toggleable="xl"
+    toggleable="lg"
     variant="primary"
   >
     <NavLogo />
@@ -138,7 +138,7 @@ export default {
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .navbar {
     height: 100px;
     box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);

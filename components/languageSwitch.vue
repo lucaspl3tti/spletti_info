@@ -119,7 +119,7 @@ export default {
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .c-language-switch {
     position: relative;
 

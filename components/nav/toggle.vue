@@ -122,7 +122,7 @@ export default {
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .navbar .navbar-toggler {
     display: none;
   }
