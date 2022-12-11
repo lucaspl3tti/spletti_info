@@ -3,7 +3,7 @@
     container="fluid"
     dark="true"
     fixed="top"
-    toggleable="xl"
+    toggleable="lg"
     variant="primary"
   >
     <NavLogo />
@@ -44,25 +44,25 @@ export default {
         },
         {
           name: 'portfolio',
-          link: '#portfolio',
+          link: '/#portfolio',
           text: 'Portfolio',
           icon: 'window-stack',
         },
         {
           name: 'skills',
-          link: '#skills',
+          link: '/#skills',
           text: 'Skills',
           icon: 'boxes',
         },
         {
           name: 'about',
-          link: '#about',
+          link: '/#about',
           text: 'About',
           icon: 'chat-left-quote',
         },
         {
           name: 'contact',
-          link: '#contact',
+          link: '/#contact',
           text: 'Contact',
           icon: 'chat-dots',
         },
@@ -138,7 +138,7 @@ export default {
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .navbar {
     height: 100px;
     box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
@@ -180,7 +180,7 @@ export default {
     .change-lang {
       display: flex;
       justify-content: flex-end;
-      padding-left: spacing(15);
+      padding-left: spacing(10);
     }
   }
 }

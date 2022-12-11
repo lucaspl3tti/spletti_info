@@ -10,11 +10,18 @@
       :href="profileImage.socialLink"
       target="_blank"
       rel="noopener noreferrer"
+      title="Instagram Link"
     >
-      <img :src="profileImage.src" />
+      <nuxt-img
+        :src="profileImage.src"
+        alt="Profile Image of Jan-Luca Splettstößer"
+      />
     </a>
     <div v-else>
-      <img :src="profileImage.src" />
+      <nuxt-img
+        :src="profileImage.src"
+        alt="Profile Image of Jan-Luca Splettstößer"
+      />
     </div>
 
     <p
@@ -24,7 +31,7 @@
       class="speech-bubble handwriting-font"
     >
       {{
-        $i18n.locale === 'ger'
+        $i18n.locale === 'de'
           ? profileImage.socialLinkCopy?.de
           : profileImage.socialLinkCopy?.en
       }}

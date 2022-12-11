@@ -1,9 +1,9 @@
 <template>
   <BNavbarBrand class="h1 mb-0 handwriting-font">
-    <span class="d-block d-lg-none">
+    <span class="d-block d-xl-none">
       JLS<span class="heading-dot">.</span>
     </span>
-    <span class="d-none d-lg-block">
+    <span class="d-none d-xl-block">
       Jan-Luca Splettstößer<span class="heading-dot">.</span>
     </span>
   </BNavbarBrand>
@@ -28,14 +28,13 @@ export default {}
   align-self: center;
 }
 
-@include tablet-portrait-up {
+@include tablet-up {
   .navbar .navbar-brand {
-    height: 65px;
     max-width: 35%;
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .navbar .navbar-brand {
     box-shadow: none;
     font-size: 38px;

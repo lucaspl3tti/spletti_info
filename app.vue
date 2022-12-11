@@ -19,6 +19,7 @@ export default {
     }
 
     this.$i18n.locale = language
+    document.documentElement.setAttribute('lang', language) // eslint-disable-line
   },
 }
 </script>

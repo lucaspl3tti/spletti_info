@@ -1,6 +1,11 @@
 <template>
   <div class="c-skill-box">
-    <img class="c-skill-box__image" :src="image" :alt="`Icon of ${name}`" />
+    <nuxt-img
+      :src="image"
+      class="c-skill-box__image"
+      :alt="`Icon of ${name}`"
+    />
+
     <p class="c-skill-box__text">
       {{ name }}
     </p>

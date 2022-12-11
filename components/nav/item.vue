@@ -4,9 +4,9 @@
       :name="`bi:${navItem.icon}`"
       size="45"
       color="currentColor"
-      :class="[`bi-${navItem.icon}`, 'd-xl-none']"
+      :class="[`bi-${navItem.icon}`, 'd-lg-none']"
     />
-    <span class="nav-link__dash d-xl-none"></span>
+    <span class="nav-link__dash d-lg-none"></span>
     <span class="hover-underline">
       {{ navItem.text }}
     </span>
@@ -116,7 +116,7 @@ export default {
   }
 }
 
-@include desktop-up {
+@include tablet-portrait-up {
   .navbar {
     .navbar-collapse .nav-item {
       .nav-link {
