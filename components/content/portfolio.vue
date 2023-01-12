@@ -74,18 +74,20 @@ export default {
           }
 
           const repoLink = github_link[0]
-          if (repoLink !== '')
+          if (repoLink !== '' && repoLink.length !== 0) {
             projectItem.links[0] = {
               type: 'repo',
               href: repoLink,
             }
+          }
 
           const liveLink = live_link[0]
-          if (liveLink !== '')
+          if (liveLink !== '') {
             projectItem.links[1] = {
               type: 'live',
               href: liveLink,
             }
+          }
 
           const liveLinkText = live_link_text[0]
           if (liveLinkText !== '')

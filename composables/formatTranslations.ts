@@ -1,7 +1,8 @@
-export default function (string: string, debug = false) {
+export default function (string: string, debug = false): unknown {
   const split = string.split('{:de}')
   if (split.length === 1) {
     if (debug) console.log('Only english translation found: ', split)
+
     return {
       de: string,
       en: string,
@@ -12,7 +13,7 @@ export default function (string: string, debug = false) {
 
   let object = {}
 
-  split.forEach((substring: string, index: number) => {
+  split.forEach((substring: string, index: number): void => {
     substring = substring.replaceAll('{:en}', '')
     substring = substring.replaceAll('{:de}', '')
     substring = substring.replaceAll('{:}', '')

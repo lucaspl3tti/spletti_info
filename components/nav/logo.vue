@@ -19,8 +19,6 @@ export default {}
   place-items: center;
   height: 55px;
   max-width: 25%;
-  box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
-  background-color: $color-primary;
   border-radius: 25px;
   padding: spacing(1) spacing(5);
   color: $color-white;

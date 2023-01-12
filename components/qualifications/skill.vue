@@ -1,6 +1,14 @@
 <template>
   <div class="c-skill-box">
+    <Icon
+      v-if="hasIcon"
+      :name="`${icon}`"
+      size="93"
+      :class="['icon--logos', `logos-${iconClass}`, 'c-skill-box__icon']"
+    />
+
     <nuxt-img
+      v-else
       :src="image"
       class="c-skill-box__image"
       :alt="`Icon of ${name}`"
@@ -26,7 +34,18 @@ export default {
     return {
       name: this.skill.meta.name[0],
       image: this.skill.featured_image,
+      icon: this.skill.meta.icon[0],
+      iconClass: '',
+      hasIcon: false,
     }
+  },
+
+  created() {
+    if (this.icon === undefined || this.icon === null || this.icon === '')
+      return
+
+    this.hasIcon = true
+    this.iconClass = this.icon.replace('logos:', '')
   },
 }
 </script>
@@ -39,15 +58,16 @@ export default {
   align-items: center;
   padding: 1%;
   border-radius: 13px;
-  margin-bottom: spacing(8);
   flex: 0 0 30%;
   max-width: 30%;
   background-color: $color-white;
   color: $color-black;
-  font-size: $font-size-small-mobile;
+  font-size: $font-size-smaller-mobile;
 
-  &__image {
+  &__image,
+  &__icon {
     width: 70%;
+    height: auto;
   }
 
   &__text {

@@ -1,5 +1,6 @@
 <template>
   <a
+    v-if="link"
     :class="[
       'project__link',
       link.type === 'repo' ? 'project__link--github' : '',
@@ -56,8 +57,14 @@ export default {
     transition: transform 0.25s;
   }
 
+  .hover-underline {
+    &::after {
+      background: $gradient-secondary-primary;
+    }
+  }
+
   &:hover {
-    color: $color-secondary;
+    color: $color-purple-700;
 
     .icon {
       transform: translateX(8px);
