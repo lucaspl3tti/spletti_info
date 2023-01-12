@@ -1,12 +1,14 @@
 <template>
   <div class="social-list">
-    <div class="social-list__dash"></div>
+    <!-- <div class="social-list__dash"></div> -->
 
     <div
       v-for="(item, key) in socials"
       :key="key"
       :class="['social-icon-wrapper', `social-icon-wrapper--${item.icon}`]"
     >
+      <div class="social-list__dash"></div>
+
       <a class="social-icon" :href="item.link">
         <Icon
           :name="`bi:${item.icon}`"
@@ -74,44 +76,76 @@ export default {
 
 <style lang="scss">
 .social-list {
-  position: fixed;
+  @include absolute-position($position: fixed, $top: auto, $bottom: 120px);
   display: none;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
   gap: spacing(5);
-  left: 2%;
-  bottom: 0;
   width: 80px;
   z-index: $z-fixed;
 
   &__dash {
-    order: 4;
-    width: 2px;
-    height: 100px;
+    height: 3px;
+    width: 70px;
     background-color: $color-secondary;
   }
 
   .social-icon {
-    height: 35px;
-    width: 35px;
-    color: $color-secondary;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: $color-secondary;
+    height: 45px;
+    width: 45px;
+    color: $color-white;
+    overflow: hidden;
+    transition: background-color $animation-speed;
 
-    svg {
-      height: 100%;
-      width: 100%;
+    &:hover {
+      background-color: $color-orange-500;
+      color: $color-white;
+      animation: pulse 1s;
+      box-shadow: 0 0 0 24px transparent;
+
+      .bi {
+        transform: scale(1.1);
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
     }
 
     .bi {
+      position: relative;
+      height: 60%;
+      width: 60%;
+      margin: auto;
+      color: inherit;
       font-size: inherit;
+      transform: scale(1);
+      transition: transform $animation-speed, color $animation-speed;
+      z-index: 20;
     }
+
+    // &:hover {
+    //   color: $color-white;
+
+    //   svg {
+    //     transform: translateY(-4px);
+    //   }
+    // }
   }
 }
 
 .social-list-nav {
   .social-list {
     position: relative;
-    left: 0;
+    bottom: 0;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -122,13 +156,14 @@ export default {
     }
 
     .social-icon {
-      height: 100%;
-      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: transparent;
+      color: $color-secondary;
 
       &-wrapper {
+        display: block;
         width: 45px;
         height: 45px;
       }
@@ -137,38 +172,6 @@ export default {
         height: auto;
         width: auto;
         transition: transform 0.33s;
-      }
-    }
-  }
-}
-
-@include tablet-up {
-  .social-list {
-    &__dash {
-      width: 3px;
-      height: 120px;
-    }
-
-    .social-icon {
-      height: 45px;
-      width: 45px;
-      transition: transform $animation-speed;
-
-      svg {
-        transform: translateY(0);
-        transition: transform 0.33s;
-      }
-
-      &:hover {
-        color: $color-orange-500;
-
-        svg {
-          transform: translateY(-4px);
-        }
-      }
-
-      .bi {
-        font-size: inherit;
       }
     }
   }
@@ -183,6 +186,12 @@ export default {
     .social-list {
       display: none;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $color-orange-500;
   }
 }
 </style>

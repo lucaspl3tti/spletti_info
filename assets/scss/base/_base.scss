@@ -111,7 +111,7 @@ main {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: $color-orange-400;
+    background: $color-orange-400;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
@@ -205,12 +205,6 @@ main {
     .hover-underline::after {
       transform: scaleX(1);
       transform-origin: bottom left;
-    }
-  }
-
-  .social-icon svg {
-    &:hover {
-      transform: scale(1.2);
     }
   }
 }

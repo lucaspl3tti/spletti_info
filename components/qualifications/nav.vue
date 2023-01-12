@@ -8,9 +8,9 @@
       ]"
       @click="onClickNavItem"
     >
-      <p class="hover-underline subheading">
+      <a class="hover-underline subheading">
         {{ $t(`qualifications.changeContent.skills`) }}
-      </p>
+      </a>
     </li>
     <li
       :class="[
@@ -20,9 +20,9 @@
       ]"
       @click="onClickNavItem"
     >
-      <p class="hover-underline subheading">
+      <a class="hover-underline subheading">
         {{ $t(`qualifications.changeContent.jobs`) }}
-      </p>
+      </a>
     </li>
   </ul>
 </template>
@@ -61,8 +61,14 @@ export default {
 
   .change-skills,
   .change-qualifications {
-    p {
+    a {
+      color: $color-white;
       cursor: pointer;
+
+      &:focus,
+      &:focus-visible {
+        box-shadow: 0 0 0 0.25rem rgba($color: $color-secondary, $alpha: 0.5);
+      }
     }
   }
 
@@ -70,7 +76,7 @@ export default {
   .qualifications-is-active {
     pointer-events: none;
 
-    p {
+    a {
       cursor: default;
     }
   }

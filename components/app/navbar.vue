@@ -74,22 +74,23 @@ export default {
 
 <style lang="scss">
 .navbar {
-  top: spacing(2.5);
-  width: calc(100vw - spacing(12));
-  height: 70px;
-  margin: 0 spacing(6);
-  background-color: transparent !important;
-  border-radius: 15px;
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding-top: 15px;
+  background-color: $color-primary !important;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
 
   .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .navbar-collapse {
     width: calc(100vw - 48px);
     background-color: $color-white;
-    margin-top: spacing(3);
+    margin-top: spacing(6);
     border-radius: 25px;
     box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.6);
   }
@@ -104,7 +105,7 @@ export default {
 
   .hover-underline {
     &::after {
-      background-color: $color-white;
+      background: $color-white;
     }
   }
 }
@@ -128,7 +129,7 @@ export default {
 
 @include tablet-up {
   .navbar {
-    border-radius: 25px;
+    border-radius: 0 0 25px 25px;
     font-size: $font-size-small;
     color: $color-white;
 
@@ -140,9 +141,11 @@ export default {
 
 @include tablet-portrait-up {
   .navbar {
+    top: 10px;
+    width: calc(100% - spacing(12));
     height: 100px;
-    box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
-    background-color: $color-primary !important;
+    margin: 0 spacing(6);
+    border-radius: 25px;
     padding: 0 spacing(5);
     font-size: $font-size-normal;
 

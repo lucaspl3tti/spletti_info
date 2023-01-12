@@ -180,7 +180,7 @@ export default {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: spacing(4);
+  gap: spacing(6) spacing(4);
   transition: opacity 1s ease-out;
   opacity: 0;
   height: 0;

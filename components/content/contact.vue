@@ -284,6 +284,13 @@ export default {
 
     &:is(textarea) {
       min-height: 100px;
+      max-height: 350px;
+    }
+
+    &:focus,
+    &:focus-visible {
+      border-color: transparent;
+      box-shadow: 0 0 0 0.25rem rgba($color: $color-white, $alpha: 0.25);
     }
   }
 
@@ -293,16 +300,18 @@ export default {
   }
 
   &__privacy {
+    font-size: $font-size-smaller-mobile;
+
     .hover-underline {
       &::after {
-        background-color: $color-white;
+        background: $color-white;
         transform: scaleX(1);
         transition: transform 0.25s ease-out, background-color 0.33s;
       }
 
       &:hover {
         &::after {
-          background-color: $color-orange-400;
+          background: $color-orange-400;
         }
       }
     }
@@ -340,6 +349,7 @@ export default {
     &__privacy {
       flex: 0 0 100%;
       max-width: 100%;
+      font-size: $font-size-small;
     }
   }
 }
@@ -348,6 +358,15 @@ export default {
   .contact-form {
     &__help {
       font-size: 14px;
+    }
+
+    .form-control {
+      height: 50px;
+
+      &:is(textarea) {
+        min-height: 150px;
+        max-height: 400px;
+      }
     }
   }
 }

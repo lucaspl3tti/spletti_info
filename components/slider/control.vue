@@ -78,8 +78,16 @@ export default {
     color: $color-secondary;
   }
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     color: $color-orange-500;
+  }
+
+  &:focus-visible {
+    svg {
+      border-radius: 50%;
+      box-shadow: 0 0 0 0.25rem rgba($color: $color-secondary, $alpha: 0.5);
+    }
   }
 }
 
