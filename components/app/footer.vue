@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container container--footer">
       <div class="footer__copyright">
-        <p>© Jan-Luca Splettstößer 2021-2023. All Rights reserved.</p>
+        <p>© Jan-Luca Splettstößer 2021 - {{ new Date().getFullYear() }}. All Rights reserved.</p>
       </div>
       <div class="footer__links">
         <p>
