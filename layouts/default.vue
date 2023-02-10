@@ -4,4 +4,6 @@
     <slot />
     <AppFooter />
   </div>
+
+  <ScrollToTop />
 </template>
