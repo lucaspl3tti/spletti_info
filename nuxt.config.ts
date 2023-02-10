@@ -18,6 +18,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       title: 'JLS Portfolio',
@@ -25,6 +26,50 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content: 'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
+        },
+        {
+          name: 'msapplication-TileColor',
+          content: '#27187e',
+        },
+        {
+          name: 'theme-color',
+          content: '#27187e',
+        },
+        {
+          name: 'application-name',
+          content: 'spletti.info',
+        },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: 'spletti.info',
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+        },
+        {
+          rel: 'manifest',
+          href: '/site.webmanifest',
+        },
+        {
+          rel: 'mask-icon',
+          href: '/safari-pinned-tab.svg',
+          color: '#27187e',
         },
       ],
     },
