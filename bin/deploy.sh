@@ -22,6 +22,7 @@ echo ''
 echo ''
 
 # copy static files if needed
+<<comment
 rsync -av static/* ../dist
 cd ../dist && mv _.htaccess .htaccess
 cd ../nuxt
@@ -29,12 +30,13 @@ cd ../nuxt
 echo "copied static files succesfully into dist directory"
 echo ''
 echo ''
+comment
 
 # create ipx folder for fallback images
 cd ../dist
 mkdir _ipx && cd _ipx && mkdir _ && cd _ && mkdir _img && cd ../..
 
-# copy images from img/ to _ipx/_img/
+# copy images from img/ to _ipx/_/img/
 rsync -av img/* _ipx/_/img
 
 echo "Created fallback image directory"
