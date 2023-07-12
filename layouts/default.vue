@@ -5,5 +5,6 @@
     <AppFooter />
   </div>
 
+  <SocialList icon-size="36" />
   <ScrollToTop />
 </template>
