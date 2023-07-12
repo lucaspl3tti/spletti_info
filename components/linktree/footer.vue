@@ -21,63 +21,63 @@
 <script setup>
 // ---- define variables
 // define default variables
-const runtimeConfig = useRuntimeConfig();
+const runtimeConfig = useRuntimeConfig()
 
-let name = ref('Jan-Luca Splettstößer');
-let links = reactive({});
-let fetchError = ref(false);
+let name = ref('Jan-Luca Splettstößer')
+let links = reactive({})
+let fetchError = ref(false)
 
-const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`;
-const { data, error } = await requestLinktreeData(linktreeApiUrl);
+const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`
+const { data, error } = await requestLinktreeData(linktreeApiUrl)
 handleLinktreeResponse(data, error)
 
 // ---- Define page functions
 /**
- * Request data for legal page
+ * Request data for linktree page
  * @param {string} apiUrl
  */
  async function requestLinktreeData(apiUrl) {
   const { data, error } = await useFetch(apiUrl, {
     onRequestError({ error }) {
-      return error;
+      return error
     },
     onResponse({ response }) {
-      return response._data[0];
+      return response._data[0]
     },
     onResponseError({ request, response }) {
-      return { request, response };
+      return { request, response }
     },
-  });
+  })
 
-  return { data, error };
-};
+  return { data, error }
+}
 
 /**
- * Process homepage fetch response
+ * Process linktree fetch response
  * @param {object} responseData
  * @param {object} requestError
  */
  function handleLinktreeResponse(responseData, requestError) {
-  if (requestError.value) return fetchError = ref(true);
-  fetchError = ref(false);
+  if (requestError.value) return fetchError = ref(true)
+  fetchError = ref(false)
 
-  const data = responseData.value[0];
-  name = ref(data.meta.name[0]);
+  const data = responseData.value[0]
+  name = ref(data.meta.name[0])
 
   links['legal_link'] = {
     target: data.meta.legal_link[0],
     text: 'Impressum - Legal Disclosure',
     openInNewTab: false
-  };
+  }
 
   if (data.meta.privacy_link[0] !== '') {
     links['privacy_link'] = {
       target: data.meta.privacy_link[0],
       text: 'Impressum - Legal Disclosure',
       openInNewTab: false
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

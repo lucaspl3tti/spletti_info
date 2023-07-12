@@ -22,6 +22,9 @@ particlesOptions = {
     },
   },
   particles: {
+    number: {
+      value: 50,
+    },
     color: {
       value: '#000',
     },
@@ -51,7 +54,7 @@ async function particlesInit(engine) {
   await loadStarsPreset(engine)
 }
 
-const particlesLoaded = async () => {
+async function particlesLoaded() {
   console.log('Particles container loaded')
 }
 </script>

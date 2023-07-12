@@ -16,46 +16,46 @@
 <script setup>
 // ---- define variables
 // define default variables
-const runtimeConfig = useRuntimeConfig();
+const runtimeConfig = useRuntimeConfig()
 
-let links = reactive({});
-let fetchError = ref(false);
+let links = reactive({})
+let fetchError = ref(false)
 
-const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`;
-const { data, error } = await requestLinktreeData(linktreeApiUrl);
-handleLinktreeResponse(data, error);
+const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`
+const { data, error } = await requestLinktreeData(linktreeApiUrl)
+handleLinktreeResponse(data, error)
 
 // ---- Define page functions
 /**
- * Request data for legal page
+ * Request data for linktree page
  * @param {string} apiUrl
  */
  async function requestLinktreeData(apiUrl) {
   const { data, error } = await useFetch(apiUrl, {
     onRequestError({ error }) {
-      return error;
+      return error
     },
     onResponse({ response }) {
-      return response._data[0];
+      return response._data[0]
     },
     onResponseError({ request, response }) {
-      return { request, response };
+      return { request, response }
     },
-  });
+  })
 
-  return { data, error };
+  return { data, error }
 };
 
 /**
- * Process homepage fetch response
+ * Process linktree fetch response
  * @param {object} responseData
  * @param {object} requestError
  */
  function handleLinktreeResponse(responseData, requestError) {
-  if (requestError.value) return fetchError = ref(true);
-  fetchError = ref(false);
+  if (requestError.value) return fetchError = ref(true)
+  fetchError = ref(false)
 
-  const data = responseData.value[0];
+  const data = responseData.value[0]
 
   // add links to array
   links['my_website'] = {
@@ -63,7 +63,7 @@ handleLinktreeResponse(data, error);
     text: 'Meine Webseite',
     iconClasses: 'fas fa-desktop',
     openInNewTab: false
-  };
+  }
 
   if (data.meta.instagram_link[0] !== '') {
     links['instagram'] = {
@@ -71,7 +71,7 @@ handleLinktreeResponse(data, error);
       text: 'Instagram',
       iconClasses: 'fab fa-instagram',
       openInNewTab: true
-    };
+    }
   }
 
   if (data.meta.github_link[0] !== '') {
@@ -80,7 +80,7 @@ handleLinktreeResponse(data, error);
       text: 'Github',
       iconClasses: 'fab fa-github',
       openInNewTab: true
-    };
+    }
   }
 
   if (data.meta.linkedin_link[0] !== '') {
@@ -89,7 +89,7 @@ handleLinktreeResponse(data, error);
       text: 'LinkedIn',
       iconClasses: 'fab fa-linkedin',
       openInNewTab: true
-    };
+    }
   }
 
   if (data.meta.spotify_link[0] !== '') {
@@ -98,7 +98,7 @@ handleLinktreeResponse(data, error);
       text: 'Spotify',
       iconClasses: 'fab fa-spotify',
       openInNewTab: true
-    };
+    }
   }
 
   links['contact'] = {
@@ -106,8 +106,8 @@ handleLinktreeResponse(data, error);
     text: 'Kontakt',
     iconClasses: 'fas fa-at',
     openInNewTab: false
-  };
-};
+  }
+}
 </script>
 
 <style lang="scss" scoped>
