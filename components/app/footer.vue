@@ -26,6 +26,8 @@ export default {}
 
 <style lang="scss">
 .footer {
+  position: relative;
+  z-index: 2;
   width: 100%;
   background-color: $color-primary;
   font-size: $font-size-normal-mobile;

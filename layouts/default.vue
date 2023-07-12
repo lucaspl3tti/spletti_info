@@ -1,4 +1,6 @@
 <template>
+  <AppParticles />
+
   <div>
     <AppNavbar />
     <slot />
