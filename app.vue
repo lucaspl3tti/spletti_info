@@ -2,8 +2,6 @@
   <div>
     <NuxtLayout>
       <NuxtPage />
-
-      <SocialList icon-size="36" />
     </NuxtLayout>
   </div>
 </template>
