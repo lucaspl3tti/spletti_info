@@ -1,3 +1,10 @@
+# run npm ci to clean install new and updated dependencies
+npm ci
+
+echo 'installed dependencies'
+echo ''
+echo ''
+
 # run nuxi build and generate process
 npm run build
 npm run generate
