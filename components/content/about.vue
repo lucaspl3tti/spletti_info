@@ -29,13 +29,15 @@
             v-html="$i18n.locale === 'de' ? intro?.de : intro?.en"
           />
 
-          <p class="introduction__myself">
-            {{ $i18n.locale === 'de' ? aboutMe?.de : aboutMe?.en }}
-          </p>
+          <p
+            class="introduction__myself"
+            v-html="$i18n.locale === 'de' ? aboutMe?.de : aboutMe?.en"
+          />
 
-          <p class="introduction__interests">
-            {{ $i18n.locale === 'de' ? interests?.de : interests?.en }}
-          </p>
+          <p
+            class="introduction__interests"
+            v-html="$i18n.locale === 'de' ? interests?.de : interests?.en"
+          />
         </div>
       </div>
 
@@ -54,9 +56,10 @@
           />
         </div>
         <div class="about__my-start">
-          <p class="first-project">
-            {{ $i18n.locale === 'de' ? firstProject?.de : firstProject?.en }}
-          </p>
+          <p
+            class="first-project"
+            v-html="$i18n.locale === 'de' ? firstProject?.de : firstProject?.en"
+          />
         </div>
       </div>
 
@@ -75,17 +78,20 @@
           />
         </div>
         <div class="career__path">
-          <p class="career__backend">
-            {{ $i18n.locale === 'de' ? backend?.de : backend?.en }}
-          </p>
+          <p
+            class="career__backend"
+            v-html="$i18n.locale === 'de' ? backend?.de : backend?.en"
+          />
 
-          <p class="career__frontend">
-            {{ $i18n.locale === 'de' ? frontend?.de : frontend?.en }}
-          </p>
+          <p
+            class="career__frontend"
+            v-html="$i18n.locale === 'de' ? frontend?.de : frontend?.en"
+          />
 
-          <p class="career__today">
-            {{ $i18n.locale === 'de' ? today?.de : today?.en }}
-          </p>
+          <p
+            class="career__today"
+            v-html="$i18n.locale === 'de' ? today?.de : today?.en"
+          />
         </div>
       </div>
     </div>
