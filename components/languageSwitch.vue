@@ -1,5 +1,5 @@
 <template>
-  <div class="c-language-switch">
+  <div :class="['c-language-switch', { 'd-none': !enabled }]">
     <b-dropdown
       text="Split Dropdown"
       :class="[
@@ -33,6 +33,13 @@
 
 <script>
 export default {
+  props: {
+    enabled: {
+      type: Boolean,
+      default: true,
+    },
+  },
+
   data() {
     return {
       key: 0,

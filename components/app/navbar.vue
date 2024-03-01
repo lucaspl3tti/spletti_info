@@ -20,7 +20,7 @@
 
       <div class="nav-list">
         <div class="change-lang">
-          <LanguageSwitch />
+          <LanguageSwitch :enabled="languageSwitchEnabled" />
         </div>
 
         <div class="social-list-nav">
@@ -67,6 +67,7 @@ export default {
           icon: 'chat-dots',
         },
       ],
+      languageSwitchEnabled: this.$config.public.languageSwitchEnabled,
     }
   },
 }

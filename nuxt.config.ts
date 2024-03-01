@@ -10,9 +10,11 @@ export default defineNuxtConfig({
       apiBase: 'https://backend.spletti.info/wp-json',
       siteUrl: 'https://spletti.info/',
       siteName: 'JLS Portfolio',
-      siteDescription: 'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
+      siteDescription:
+        'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
       language: 'en-US',
       titleSeparator: '·',
+      languageSwitchEnabled: false,
     },
   },
 
@@ -25,7 +27,8 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description',
-          content: 'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
+          content:
+            'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
         },
         {
           name: 'msapplication-TileColor',
@@ -91,7 +94,5 @@ export default defineNuxtConfig({
 
   css: ['~/assets/scss/main.scss'],
 
-  extends: [
-    'nuxt-seo-kit'
-  ]
+  extends: ['nuxt-seo-kit'],
 })
