@@ -30,7 +30,7 @@ function handleLinktreeResponse(data) {
 
 <style lang="scss" scoped>
 .linktree-head {
-  padding: 50px 0 0;
+  padding: spacing(12) 0 0;
 
   &__profile-image {
     display: block;
@@ -43,7 +43,7 @@ function handleLinktreeResponse(data) {
   }
 
   &__username {
-    padding: 15px 0;
+    padding: spacing(4) 0;
   }
 }
 </style>
