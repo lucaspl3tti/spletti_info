@@ -69,5 +69,21 @@
     },
     "privacyNotice": "Hier erhältst du weitere Informationen zum <a class=\"hover-underline\" href=\"/privacy\">Datenschutz</a>",
     "submitBtn": "Senden"
+  },
+
+  "linktree": {
+    "links": {
+      "my_website": "Meine Webseite",
+      "instagram": "Instagram",
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "spotify": "Spotify",
+      "contact": "Kontaktiere mich"
+    },
+
+    "footer": {
+      "legal": "Impressum - Legal Disclosure",
+      "privacy": "Datenschutz - Privacy Policy"
+    }
   }
 }
