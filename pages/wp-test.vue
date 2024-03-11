@@ -1,39 +1,41 @@
 <template>
   <main
+    ref="mainElement"
     :class="[
       'spletti',
-      'spletti--home',
-      `spletti-${$i18n.local}`,
+      'spletti--wp-test',
+      langClass,
       'is-wp-page',
     ]"
   >
-    <BContainer>
+    <v-container>
       <div class="content" v-html="wpHtml" />
-    </BContainer>
+    </v-container>
   </main>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      wpHtml: '',
-    }
-  },
+<script setup>
+import { useI18n } from 'vue-i18n'
+import aosInit from '~/mixins/aos'
 
-  async created() {
-    const self = this
+const mainElement = ref('')
+const runtimeConfig = useRuntimeConfig()
+const apiUrl = runtimeConfig.public.apiBase
+const { t, locale } = useI18n() // eslint-disable-line
+const langClass = `spletti-${locale.value}`
+const wpHtml = ref('')
 
-    // get html for page from api
-    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/sample-page`, {
-      onResponse({ request, response, options }) {
-        const data = response._data
-        self.wpHtml = data.content.rendered
-      },
-    })
+const wpTestData = await $fetch(`${apiUrl}/wuxt/v1/slug/sample-page`)
+handleWpTestData(wpTestData)
 
-    replaceWpBtns(this.$el)
-    addHoverUnderline(this.$el)
-  },
+onMounted(() => {
+  aosInit()
+
+  replaceWpBtns(mainElement.value)
+  addHoverUnderline(mainElement.value)
+})
+
+function handleWpTestData(data) {
+  wpHtml.value = data.content.rendered
 }
 </script>

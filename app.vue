@@ -1,25 +1,9 @@
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <nuxt-layout>
+      <nuxt-page />
+    </nuxt-layout>
+
+    <!-- <jls-mouse-glow /> -->
   </div>
 </template>
-
-<script>
-export default {
-  created() {
-    if (this.$config.public.languageSwitchEnabled) {
-      let language = localStorage.getItem('language')
-
-      if (language === null) {
-        localStorage.setItem('language', this.$i18n.locale)
-        language = this.$i18n.locale
-      }
-
-      this.$i18n.locale = language
-      document.documentElement.setAttribute('lang', language) // eslint-disable-line
-    }
-  },
-}
-</script>

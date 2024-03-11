@@ -1,39 +1,38 @@
 <template>
-  <main :class="['spletti', 'spletti--privacy', langClass, 'is-wp-page']">
-    <BContainer id="privacyWrapper" class="legal-disclosure">
+  <main
+    ref="privacyPageElement"
+    :class="['spletti', 'spletti--privacy', langClass, 'is-wp-page']"
+  >
+    <v-container id="privacyWrapper" class="legal-disclosure">
       <h1>{{ title }}</h1>
       <div class="legal-disclosure-conent" v-html="wpHtml" />
-    </BContainer>
+    </v-container>
   </main>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      langClass: `spletti-${this.$i18n.locale}`,
-      title: '',
-      wpHtml: '',
-    }
-  },
+<script setup>
+import { useI18n } from 'vue-i18n'
 
-  async created() {
-    const self = this
+const { t, locale } = useI18n() // eslint-disable-line
+const langClass = `spletti-${locale.value}`
+const privacyPageElement = ref('')
+const runtimeConfig = useRuntimeConfig()
+const apiUrl = runtimeConfig.public.apiBase
 
-    // get html for page from api
-    await useFetch(
-      `${this.$config.public.apiBase}/wuxt/v1/slug/privacy-policy`,
-      {
-        onResponse({ request, response, options }) {
-          const data = response._data
-          self.title = data.title.rendered
-          self.wpHtml = data.content.rendered
-        },
-      }
-    )
+const title = ref('')
+const wpHtml = ref('')
 
-    replaceWpBtns(this.$el)
-    addHoverUnderline(this.$el)
-  },
+const privacyData = await $fetch(`${apiUrl}/wuxt/v1/slug/privacy-policy`)
+handlePrivacyPageData(privacyData)
+
+onMounted(() => {
+  replaceWpBtns(privacyPageElement.value)
+  addHoverUnderline(privacyPageElement.value)
+
+})
+
+function handlePrivacyPageData(data) {
+  title.value = data.title.rendered
+  wpHtml.value = data.content.rendered
 }
 </script>

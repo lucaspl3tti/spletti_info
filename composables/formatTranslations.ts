@@ -1,4 +1,6 @@
-export default function (string: string, debug = false): unknown {
+import { Translation } from '../interfaces/translation.interface'
+
+export default function (string: string, debug = false): Translation {
   const split = string.split('{:de}')
   if (split.length === 1) {
     if (debug) console.log('Only english translation found: ', split)
@@ -11,7 +13,10 @@ export default function (string: string, debug = false): unknown {
 
   if (debug) console.log('English and German Translations found: ', split)
 
-  let object = {}
+  let object:Translation = {
+    de: null,
+    en: null
+  }
 
   split.forEach((substring: string, index: number): void => {
     substring = substring.replaceAll('{:en}', '')
@@ -20,16 +25,10 @@ export default function (string: string, debug = false): unknown {
     substring = substring.replaceAll('\r\n', '<br />')
 
     if (index === 0)
-      object = {
-        ...object,
-        en: substring,
-      }
+      object.en = substring
 
     if (index === 1)
-      object = {
-        ...object,
-        de: substring,
-      }
+      object.de = substring
   })
 
   return object

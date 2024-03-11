@@ -20,6 +20,11 @@
     "projectGithubLinkText": "Github Repo"
   },
 
+  "projects": {
+    "heading": "projects & portfolio",
+    "subheading": "A list with some of my recent and exciting projects."
+  },
+
   "qualifications": {
     "heading": "skills and qualifications",
     "subtitle": "",
@@ -62,7 +67,7 @@
         "placeholder": "Please enter your message..."
       }
     },
-    "privacyNotice": "Here you'll find further information on <a class=\"link--light hover-underline\" href=\"/privacy\">data protection</a>",
+    "privacyNotice": "Here you'll find further information on <a class=\"hover-underline\" href=\"/privacy\">data protection</a>",
     "submitBtn": "Send"
   }
 }

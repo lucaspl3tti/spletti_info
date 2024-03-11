@@ -1,40 +1,42 @@
 <template>
-  <main :class="['spletti', 'spletti--legal', langClass]">
-    <BContainer>
+  <main
+    ref="legalPageElement"
+    :class="['spletti', 'spletti--legal', langClass]"
+  >
+    <v-container>
       <div id="legalWrapper" class="legal-disclosure">
         <h1 v-html="title" />
 
         <div class="legal-disclosure__content" v-html="wpHtml" />
       </div>
-    </BContainer>
+    </v-container>
   </main>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      langClass: `spletti-${this.$i18n.locale}`,
-      title: '',
-      wpHtml: '',
-    }
-  },
+<script setup>
+import { useI18n } from 'vue-i18n'
 
-  async created() {
-    const self = this
+const { t, locale } = useI18n() // eslint-disable-line
+const langClass = `spletti-${locale.value}`
+const legalPageElement = ref('')
+const runtimeConfig = useRuntimeConfig()
+const apiUrl = runtimeConfig.public.apiBase
 
-    // get html for page from api
-    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/legal`, {
-      onResponse({ request, response, options }) {
-        const data = response._data
-        self.title = data.title.rendered
-        self.wpHtml = data.content.rendered
-      },
-    })
+const title = ref('')
+const wpHtml = ref('')
 
-    replaceWpBtns(this.$el)
-    addHoverUnderline(this.$el)
-  },
+const legalData = await $fetch(`${apiUrl}/wuxt/v1/slug/legal`)
+handleLegalPageData(legalData)
+
+onMounted(() => {
+  replaceWpBtns(legalPageElement.value)
+  addHoverUnderline(legalPageElement.value)
+
+})
+
+function handleLegalPageData(data) {
+  title.value = data.title.rendered
+  wpHtml.value = data.content.rendered
 }
 </script>
 

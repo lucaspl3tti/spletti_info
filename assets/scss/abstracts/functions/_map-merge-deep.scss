@@ -1,0 +1,25 @@
+@function map-merge-deep($map, $map2) {
+    @each $key, $value in $map {
+        @if type-of($map2) == map and map-has-key($map2, $key) and type-of($value) == map {
+            $map2: map-merge(
+                $map2,
+                (
+                    $key: map-merge-deep($value, map-get($map2, $key))
+                )
+            );
+        }
+    }
+
+    @each $key, $value in $map2 {
+        @if type-of($map) == map and map-has-key($map, $key) and type-of($value) == map {
+            $map2: map-merge(
+                $map2,
+                (
+                    $key: map-merge-deep(map-get($map, $key), $value)
+                )
+            );
+        }
+    }
+
+    @return map-merge($map, $map2);
+}

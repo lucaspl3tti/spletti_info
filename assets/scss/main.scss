@@ -1,14 +1,17 @@
 // Import variables and vendor scss
 @import '~/assets/scss/abstracts/variables.scss';
-@import "~/assets/scss/vendor/bootstrap/custom";
-@import "~/node_modules/bootstrap/scss/bootstrap";
 
 // import wordpress styling ---> needs to be here, so it can be overwritten in other scss files
-@import "wordpress/wordpress.scss";
+@import 'wordpress/wordpress.scss';
+
+// import vuetify styling ---> needs to be here, so it can be overwritten in other
+@import 'node_modules/vuetify/lib/styles/main.sass';
 
 // Import base styling
-@import "base/base";
-@import "base/fonts";
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/typography';
 
-// import components styling
-@import "components/button";
+// import components
+@import 'components/button';
+@import 'components/form';

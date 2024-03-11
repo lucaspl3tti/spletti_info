@@ -1,18 +1,18 @@
 <template>
   <Particles
     id="tsparticles"
-    :particlesInit="particlesInit"
-    :particlesLoaded="particlesLoaded"
+    :particles-init="particlesInit"
+    :particles-loaded="particlesLoaded"
     :options="particlesOptions"
   />
 </template>
 
 <script setup>
-import { loadStarsPreset } from 'tsparticles-preset-stars'
+import { loadStarsPreset } from 'tsparticles-preset-stars';
 
 let particlesOptions = {
   preset: 'stars',
-}
+};
 
 particlesOptions = {
   ...particlesOptions,
@@ -26,12 +26,12 @@ particlesOptions = {
       value: 50,
     },
     color: {
-      value: '#000',
+      value: '#cbcaca',
     },
     shape: {
       stroke: {
         width: 0,
-        color: '#fff',
+        color: '#cbcaca',
       },
     },
     opacity: {
@@ -48,13 +48,13 @@ particlesOptions = {
     },
   },
   retina_detect: true,
-}
+};
 
 async function particlesInit(engine) {
-  await loadStarsPreset(engine)
+  await loadStarsPreset(engine);
 }
 
-async function particlesLoaded() {
-  console.log('Particles container loaded')
+function particlesLoaded() {
+  console.log('Particles container loaded'); // eslint-disable-line
 }
 </script>
