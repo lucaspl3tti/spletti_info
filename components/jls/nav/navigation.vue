@@ -26,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line
 const properties = defineProps({
   isSidebar: {
     type: Boolean,

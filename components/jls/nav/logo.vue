@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+// eslint-disable-next-line
 const properties = defineProps({
   font: {
     type: String,

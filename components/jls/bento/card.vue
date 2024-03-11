@@ -1,6 +1,8 @@
 <template>
   <div class="jls-bento-card">
-    <div v-if="title" class="jls-bento-card__title">{{ title }}</div>
+    <div v-if="title" class="jls-bento-card__title">
+      {{ title }}
+    </div>
 
     <div class="jls-bento-card__body">
       <slot></slot>

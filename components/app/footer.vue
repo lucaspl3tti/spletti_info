@@ -6,7 +6,9 @@
           © Jan-Luca Splettstößer 2021 - {{ new Date().getFullYear() }}. All
           Rights reserved.
         </p>
-        <p v-if="showVersion" class="footer__version">spletti.me v5.0.0</p>
+        <p v-if="showVersion" class="footer__version">
+          spletti.me v5.0.0
+        </p>
       </div>
       <div class="footer__links">
         <p>

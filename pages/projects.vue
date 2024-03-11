@@ -49,7 +49,10 @@
                     project.links.length > 1 ? 'link-wrapper--flex' : '',
                   ]"
                 >
-                  <template v-for="(link, linkIndex) in project.links" :key="linkIndex">
+                  <template
+                    v-for="(link, linkIndex) in project.links"
+                    :key="linkIndex"
+                  >
                     <jls-project-link
                       v-if="link"
                       :link="link"

@@ -10,6 +10,9 @@
 <script setup>
 import { loadStarsPreset } from 'tsparticles-preset-stars';
 
+const runtimeConfig = useRuntimeConfig();
+const { isDev } = runtimeConfig.public;
+
 let particlesOptions = {
   preset: 'stars',
 };
@@ -55,6 +58,7 @@ async function particlesInit(engine) {
 }
 
 function particlesLoaded() {
+  if (!isDev) return;
   console.log('Particles container loaded'); // eslint-disable-line
 }
 </script>

@@ -153,7 +153,10 @@ function onClickCloseSidebar() {
       }
 
       .hover-underline {
-        background-image: linear-gradient(darken($color-secondary, 5%), darken($color-secondary, 5%));
+        background-image: linear-gradient(
+          darken($color-secondary, 5%),
+          darken($color-secondary, 5%)
+        );
       }
     }
 
@@ -181,7 +184,10 @@ function onClickCloseSidebar() {
       }
 
       .hover-underline {
-        background-image: linear-gradient(darken($color-orange-010, 5%), darken($color-orange-010, 5%));
+        background-image: linear-gradient(
+          darken($color-orange-010, 5%),
+          darken($color-orange-010, 5%)
+        );
       }
     }
 

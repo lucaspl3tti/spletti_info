@@ -4,7 +4,7 @@ import svgLoader from 'vite-svg-loader';
  * .env data
  */
 const { env } = process
-const siteUrl = env.SITE_URL;
+// const siteUrl = env.SITE_URL;
 const apiBase = env.API_URL
 const environment = env.APP_ENV;
 const enableDebug = env.ENABLE_DEBUG;
@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     public: {
       apiBase,
       showVersionInFooter: false,
+      isDev,
     },
   },
 
@@ -43,7 +44,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.',
+            'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
         },
       ],
     },
@@ -54,7 +55,7 @@ export default defineNuxtConfig({
       preprocessorOptions: {
         scss: {
           additionalData:
-            '@import "~/node_modules/vuetify/lib/styles/main.sass"; @import "~/assets/scss/abstracts/variables.scss";',
+            '@import "~/node_modules/vuetify/lib/styles/main.sass"; @import "~/assets/scss/abstracts/variables.scss";', // eslint-disable-line
         },
       },
     },

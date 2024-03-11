@@ -27,6 +27,7 @@
 </template>
 
 <script setup>
+// eslint-disable-next-line
 const properties = defineProps({
   iconSize: {
     type: String || Number,
@@ -38,8 +39,9 @@ const properties = defineProps({
   },
 })
 
-const runtimeConfig = useRuntimeConfig()
-const socialListApiUrl = `${runtimeConfig.public.apiBase}/wuxt/v1/slug/social-links`
+// const runtimeConfig = useRuntimeConfig()
+// const { apiBase } = runtimeConfig.public
+// const socialListApiUrl = `${apiBase}/wuxt/v1/slug/social-links`
 
 // define fallbacks
 const socials = {
@@ -53,7 +55,8 @@ const socials = {
   },
   socialLink3: {
     icon: 'linkedin',
-    link: 'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/',
+    link:
+      'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/',
   },
 };
 

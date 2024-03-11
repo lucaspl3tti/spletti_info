@@ -143,7 +143,8 @@ function handleImageData(data) {
 
         img {
           transform: translate(-10px, -10px);
-          box-shadow: 20px 20px 18px rgba($color: $color-secondary, $alpha: 0.4);
+          box-shadow:
+            20px 20px 18px rgba($color: $color-secondary, $alpha: 0.4);
         }
       }
     }

@@ -13,7 +13,7 @@ export default function (string: string, debug = false): Translation {
 
   if (debug) console.log('English and German Translations found: ', split)
 
-  let object:Translation = {
+  const object:Translation = {
     de: null,
     en: null
   }

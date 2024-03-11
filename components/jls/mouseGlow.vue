@@ -36,7 +36,9 @@ export default {
     },
 
     registerEvents() {
-      document.body.addEventListener('pointermove', (event) => this.onPointerMove(event))
+      document.body.addEventListener('pointermove', (event) => {
+        this.onPointerMove(event)
+      })
     },
 
     onPointerMove(event) {
