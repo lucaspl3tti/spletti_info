@@ -13,57 +13,24 @@
 </template>
 
 <script setup>
-// ---- define variables
-// define default variables
 const runtimeConfig = useRuntimeConfig()
 
-let username = ref('luca.spl3tti')
-let profileImageSrc = ref('/img/jls_profilepic.jpg')
-let fetchError = ref(false)
+const username = ref('luca.spl3tti')
+const profileImageSrc = ref('/img/jls_profilepic.jpg')
 
-const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`
-const { data, error } = await requestLinktreeData(linktreeApiUrl)
-handleLinktreeResponse(data, error)
+const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts/422`
+const linktreeData = await $fetch(linktreeApiUrl)
+handleLinktreeResponse(linktreeData)
 
-// ---- Define page functions
-/**
- * Request data for linktree page
- * @param {string} apiUrl
- */
- async function requestLinktreeData(apiUrl) {
-  const { data, error } = await useFetch(apiUrl, {
-    onRequestError({ error }) {
-      return error
-    },
-    onResponse({ response }) {
-      return response._data[0]
-    },
-    onResponseError({ request, response }) {
-      return { request, response }
-    },
-  })
-
-  return { data, error }
-}
-
-/**
- * Process linktree fetch response
- * @param {object} responseData
- * @param {object} requestError
- */
- function handleLinktreeResponse(responseData, requestError) {
-  if (requestError.value) return fetchError = ref(true)
-  fetchError = ref(false)
-
-  const data = responseData.value[0]
-  username = ref(data.meta.username[0])
-  profileImageSrc = ref(data.featured_image)
+function handleLinktreeResponse(data) {
+  username.value = data.meta.username[0]
+  profileImageSrc.value = data.featured_image
 }
 </script>
 
 <style lang="scss" scoped>
 .linktree-head {
-  padding: 50px 0 0;
+  padding: spacing(12) 0 0;
 
   &__profile-image {
     display: block;
@@ -76,7 +43,7 @@ handleLinktreeResponse(data, error)
   }
 
   &__username {
-    padding: 15px 0;
+    padding: spacing(4) 0;
   }
 }
 </style>

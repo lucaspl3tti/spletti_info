@@ -4,7 +4,7 @@ $color-secondary: #ff8600;
 
 // default colors
 $color-white: #f8f7fd;
-$color-black: #100c27;
+$color-black: #03010e;
 
 // purple color variants
 $color-purple-300: #6b57cb;
@@ -12,13 +12,19 @@ $color-purple-400: #4e38b7;
 $color-purple-500: #3d2c8d;
 $color-purple-600: #2d2069;
 $color-purple-700: #1c1442;
+$color-purple-800: #1e1b4b;
+$color-purple-900: rgba(16, 12, 39, 1);
+
+$color-background: rgba($color: #1e1b4b, $alpha: 1);
 
 // orange color variants
+$color-orange-010: #ffc86f;
 $color-orange-100: #ff9e00;
 $color-orange-200: #ff9100;
 $color-orange-300: #ff8600;
 $color-orange-400: #ff7900;
 $color-orange-500: #ff6d00;
+$color-orange-600: #eb6803;
 
 // gray color variants
 $color-gray-050: #f6f6f6;
@@ -38,15 +44,5 @@ $color-success: #75b798;
 $color-error: #dc3545;
 
 // gradients
-$gradient-secondary-primary: linear-gradient(90deg, $color-secondary 0%, $color-primary 100%);
-
-/* SCSS Gradient */
-$gradient-top: linear-gradient(0deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-right: linear-gradient(90deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-bottom: linear-gradient(180deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-left: linear-gradient(270deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-top-right: linear-gradient(45deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-bottom-right: linear-gradient(135deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-top-left: linear-gradient(225deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-bottom-left: linear-gradient(315deg, #ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
-$gradient-radial: radial-gradient(#ff6d00ff, #ff7900ff, #ff8500ff, #ff9100ff, #ff9e00ff, #240046ff, #3c096cff, #5a189aff, #7b2cbfff, #9d4eddff);
+$gradient-primary: linear-gradient(180deg, $color-purple-800 10%, $color-purple-700 40%, $color-purple-600 100%);
+$gradient-mouse-glow: repeating-linear-gradient(to right, $color-secondary 0%, $color-orange-100 50%, $color-orange-010 100%);

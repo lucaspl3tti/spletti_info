@@ -19,80 +19,59 @@
 </template>
 
 <script setup>
-// ---- define variables
-// define default variables
-const runtimeConfig = useRuntimeConfig()
+import { useI18n } from 'vue-i18n'
 
-let name = ref('Jan-Luca Splettstößer')
-let links = reactive({})
-let fetchError = ref(false)
+const { t, locale } = useI18n() // eslint-disable-line
+const runtimeConfig = useRuntimeConfig();
 
-const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`
-const { data, error } = await requestLinktreeData(linktreeApiUrl)
-handleLinktreeResponse(data, error)
+const name = ref('Jan-Luca Splettstößer');
+const links = reactive({});
+
+const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts/422`;
+const linktreeFooterData = await $fetch(linktreeApiUrl);
+handleLinktreeResponse(linktreeFooterData);
 
 // ---- Define page functions
-/**
- * Request data for linktree page
- * @param {string} apiUrl
- */
- async function requestLinktreeData(apiUrl) {
-  const { data, error } = await useFetch(apiUrl, {
-    onRequestError({ error }) {
-      return error
-    },
-    onResponse({ response }) {
-      return response._data[0]
-    },
-    onResponseError({ request, response }) {
-      return { request, response }
-    },
-  })
+function handleLinktreeResponse(data) {
+  name.value = data.meta.name[0];
 
-  return { data, error }
-}
-
-/**
- * Process linktree fetch response
- * @param {object} responseData
- * @param {object} requestError
- */
- function handleLinktreeResponse(responseData, requestError) {
-  if (requestError.value) return fetchError = ref(true)
-  fetchError = ref(false)
-
-  const data = responseData.value[0]
-  name = ref(data.meta.name[0])
-
-  links['legal_link'] = {
+  links.legal_link = {
     target: data.meta.legal_link[0],
-    text: 'Impressum - Legal Disclosure',
-    openInNewTab: false
-  }
+    text: t('linktree.footer.legal'),
+    openInNewTab: false,
+  };
 
   if (data.meta.privacy_link[0] !== '') {
-    links['privacy_link'] = {
+    links.privacy_link = {
       target: data.meta.privacy_link[0],
-      text: 'Impressum - Legal Disclosure',
-      openInNewTab: false
-    }
+      text: t('linktree.footer.privacy'),
+      openInNewTab: false,
+    };
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .linktree-footer {
-  padding: 0 0 50px;
+  padding: 0 0 spacing(12);
 
   &__username {
-    margin-top: 60px;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
+    margin-top: spacing(15);
+    margin-bottom: spacing(4);
+    font-size: 20px;
     font-weight: 700;
   }
 
   &__links {
-    font-size: 0.75rem;
+    font-size: 14px;
+  }
+}
+
+@include tablet-up {
+  .linktree-footer {
+    &__links {
+      font-size: 16px;
+    }
   }
 }
 </style>

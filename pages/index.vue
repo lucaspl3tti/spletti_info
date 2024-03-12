@@ -1,30 +1,29 @@
 <template>
   <main :class="['spletti', 'spletti--home', langClass]">
-    <BContainer>
-      <ContentIntroduction />
-      <ContentPortfolio />
-    </BContainer>
+    <v-container>
+      <content-introduction />
+      <content-portfolio />
+    </v-container>
 
-    <ContentQualifications />
+    <content-qualifications />
 
-    <BContainer>
-      <ContentAbout />
-      <ContentContact />
-    </BContainer>
+    <v-container>
+      <content-about />
+      <content-contact />
+    </v-container>
   </main>
 </template>
 
-<script>
-import aosMixin from '~/mixins/aos'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
+import aosInit from '~/mixins/aos'
 
-export default {
-  mixins: [aosMixin],
-  data() {
-    return {
-      langClass: `spletti-${this.$i18n.locale}`,
-    }
-  },
-}
+onMounted(() => {
+  aosInit()
+})
+
+const { t, locale } = useI18n() // eslint-disable-line
+const langClass = `spletti-${locale.value}`
 </script>
 
 <style lang="scss">

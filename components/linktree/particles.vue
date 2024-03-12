@@ -1,14 +1,14 @@
 <template>
   <Particles
     id="tsparticles"
-    :particlesInit="particlesInit"
-    :particlesLoaded="particlesLoaded"
+    :particles-init="particlesInit"
+    :particles-loaded="particlesLoaded"
     :options="particlesOptions"
   />
 </template>
 
 <script setup>
-import { loadFull } from 'tsparticles'
+import { loadFull } from 'tsparticles';
 
 const particlesOptions = {
   particles: {
@@ -97,13 +97,13 @@ const particlesOptions = {
     },
   },
   retina_detect: true,
-}
+};
 
 async function particlesInit(engine) {
-  await loadFull(engine)
+  await loadFull(engine);
 }
 
 async function particlesLoaded() {
-  console.log('Particles container loaded')
+  console.log('Particles container loaded');
 }
 </script>

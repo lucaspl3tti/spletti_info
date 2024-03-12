@@ -1,11 +1,11 @@
 <template>
   <main :class="['spletti', 'spletti--linktree', langClass]">
-    <LinktreeParticles />
+    <linktree-particles />
 
     <div class="linktree-container">
-      <LinktreeHead />
-      <LinktreeLinks />
-      <LinktreeFooter />
+      <linktree-head />
+      <linktree-links />
+      <linktree-footer />
     </div>
   </main>
 </template>
@@ -19,19 +19,19 @@ definePageMeta({
 
 <style lang="scss">
 .linktree {
-  background: rgba(16, 12, 39, 1);
-  color: rgba(248, 247, 253, 1);
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
+  background: $color-purple-900;
+  color: $color-white;
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
   letter-spacing: 2px;
   text-align: center;
 
   a {
     text-decoration: none;
-    color: rgba(248, 247, 253, 1);
+    color: $color-white;
 
     &:hover {
-      color: rgba(255, 109, 0, 1);
+      color: $color-secondary;
     }
   }
 

@@ -1,29 +1,3 @@
-.btn {
-  width: 100%;
-  min-width: 150px;
-  height: 50px;
-  padding: 12px;
-  // box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.4);
-  border: 2px solid $color-black;
-  border-radius: 0 25px;
-  font-weight: $font-weight-medium;
-  transition: border-radius 0.4s ease-out;
-  outline: 0;
-
-  .bi {
-    margin-left: 4px;
-    transition: transform 0.25s ease-in;
-  }
-
-  &:hover {
-    border-radius: 25px 0;
-
-    .bi {
-      transform: translateX(0.5rem);
-    }
-  }
-}
-
 .btn-primary {
   position: relative;
   background-color: $color-orange-300;

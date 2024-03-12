@@ -1,4 +1,5 @@
 {
+  "name": "nuxt3-starter",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,40 +9,49 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
-    "deploy": "bash bin/deploy.sh"
+    "lint:prettier": "prettier --check .",
+    "lint:prettier-fix": "prettier --write --list-different ."
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
-    "@types/aos": "^3.0.4",
+    "@babel/eslint-parser": "^7.22.7",
+    "@invictus.codes/nuxt-vuetify": "^0.3.0",
+    "@nuxtjs/device": "^3.1.0",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@popperjs/core": "^2.11.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "@vue/eslint-config-standard": "^8.0.1",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.7.0",
-    "jsdom": "20.0.2",
-    "jsdom-global": "3.0.2",
-    "nuxt": "^3.0.0",
+    "@vueuse/core": "^10.1.2",
+    "@vueuse/nuxt": "^10.1.2",
+    "eslint": "^8.56.0",
+    "lint-staged": "^13.0.3",
+    "nuxt": "^3.10.3",
     "nuxt-icon": "^0.1.7",
-    "nuxt-seo-kit": "^0.4.9",
-    "prettier": "^2.7.1",
+    "prettier": "^3.0.0",
+    "stylelint": "^14.11.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^28.0.0",
     "typescript": "^4.9.3",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.11",
-    "@popperjs/core": "^2.11.6",
+    "@mdi/font": "^7.2.96",
+    "@nuxt/ui": "^2.9.0",
+    "@nuxtjs/stylelint-module": "^5.1.0",
+    "@pinia/nuxt": "^0.4.10",
     "aos": "^2.3.4",
-    "bootstrap": "^5.2.2",
-    "bootstrap-icons": "^1.9.1",
-    "bootstrap-vue-3": "^0.3.12",
-    "pinia": "^2.1.3",
+    "axios": "^1.4.0",
+    "nuxt-icons": "^3.2.1",
     "sass": "^1.56.0",
     "tsparticles": "^2.10.1",
     "tsparticles-preset-stars": "^2.10.1",
     "vite-svg-loader": "^3.6.0",
-    "vue3-particles": "^2.10.1"
+    "vue3-particles": "^2.12.0"
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <section id="intro" class="introduction">
+  <section id="intro" class="introduction section">
     <div class="introduction__left">
       <h1 v-html="$t('introduction.heading')"></h1>
 
@@ -12,61 +12,66 @@
       </p>
 
       <div class="introduction__buttons">
-        <BButton
+        <jls-button
           v-for="(button, index) in introduction.buttons"
           :key="index"
-          variant="primary"
-          :class="`btn--${button.name}`"
-          :href="button.link"
+          theme="secondary"
+          :to="button.link"
+          :mirrored="button.isMirrored"
         >
           {{ button.text }}
-          <Icon
-            name="bi:arrow-right"
-            size="24"
-            color="currentColor"
-            class="bi-arrow-right"
-          />
-        </BButton>
+          <template #append>
+            <jls-icon
+              pack="bi"
+              name="arrow-right"
+              size="24"
+              color="currentColor"
+            />
+          </template>
+        </jls-button>
       </div>
     </div>
 
     <div class="introduction__right">
-      <ProfileImage />
+      <jls-profile-image />
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      translation: this.$i18n.locale,
-      introduction: {
-        buttons: [
-          {
-            name: 'portfolio',
-            link: '#portfolio',
-            text: this.$t(`introduction.buttons.portfolio.text`),
-          },
-          {
-            name: 'contact',
-            link: '#contact',
-            text: this.$t(`introduction.buttons.contact.text`),
-          },
-        ],
-        profileImage: {
-          src: '/img/jls_profilepic.jpg',
-          link: 'https://www.instagram.com/luca.spl3tti/',
-        },
-      },
-    }
-  },
+<script setup>
+import { useI18n } from 'vue-i18n';
 
-  updated() {
-    this.introduction.buttons.forEach((button) => {
-      button.text = this.$t(`introduction.buttons.${button.name}.text`)
-    })
+const { t, locale } = useI18n(); // eslint-disable-line
+
+const introduction = {
+  buttons: [
+    {
+      name: 'portfolio',
+      link: '#portfolio',
+      text: t('introduction.buttons.portfolio.text'),
+      isMirrored: false,
+    },
+    {
+      name: 'contact',
+      link: '#contact',
+      text: t('introduction.buttons.contact.text'),
+      isMirrored: true,
+    },
+  ],
+  profileImage: {
+    src: '/img/jls_profilepic.jpg',
+    link: 'https://www.instagram.com/luca.spl3tti/',
   },
+};
+
+onUpdated(() => {
+  introduction.buttons.forEach((button) => {
+    button.text = getButtonTranslation(button.name);
+  });
+});
+
+function getButtonTranslation(buttonName) {
+  return t(`introduction.buttons.${buttonName}.text`);
 }
 </script>
 
@@ -94,6 +99,8 @@ export default {
     gap: spacing(5);
 
     .btn {
+      width: 100%;
+
       .icon {
         transform: translateX(0);
         transition: transform $animation-speed;
@@ -106,13 +113,13 @@ export default {
       }
     }
 
-    .btn--contact {
-      border-radius: 25px 0;
+    // .btn--contact {
+    //   border-radius: 25px 0;
 
-      &:hover {
-        border-radius: 0 25px;
-      }
-    }
+    //   &:hover {
+    //     border-radius: 0 25px;
+    //   }
+    // }
   }
 }
 

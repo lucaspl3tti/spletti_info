@@ -1,20 +1,20 @@
 <template>
   <section
     id="about"
-    class="about"
+    class="about section"
     data-aos="fade-up"
     data-aos-duration="2000"
     data-aos-once="true"
   >
     <h2 class="heading heading--about">
-      <span v-html="$i18n.locale === 'de' ? heading?.de : heading?.en" />
+      <span>{{ getLangText(heading) }}</span>
       <span class="heading-dot">.</span>
     </h2>
 
     <div class="about-content">
       <div class="about__introduction">
         <div class="about__image about__image--introduction">
-          <nuxt-img
+          <img
             :src="imageOfMyself"
             class="image__me"
             alt="Image of Jan-Luca Splettstößer"
@@ -22,22 +22,18 @@
         </div>
         <div class="about__introduction-content">
           <p class="introduction__subheading subheading">
-            {{ $i18n.locale === 'de' ? subheading?.de : subheading?.en }}
+            {{ getLangText(subheading) }}
           </p>
-          <p
-            class="introduction__start"
-            v-html="$i18n.locale === 'de' ? intro?.de : intro?.en"
-          />
 
-          <p
-            class="introduction__myself"
-            v-html="$i18n.locale === 'de' ? aboutMe?.de : aboutMe?.en"
-          />
+          <p class="introduction__start" v-html="getLangText(intro)" />
 
-          <p
-            class="introduction__interests"
-            v-html="$i18n.locale === 'de' ? interests?.de : interests?.en"
-          />
+          <p class="introduction__myself">
+            {{ getLangText(aboutMe) }}
+          </p>
+
+          <p class="introduction__interests">
+            {{ getLangText(interests) }}
+          </p>
         </div>
       </div>
 
@@ -49,114 +45,97 @@
             'about__image--centered-mobile',
           ]"
         >
-          <nuxt-img
-            :src="backendImage"
-            class="image__backend"
-            alt="Backend Image"
-          />
+          <img :src="backendImage" class="image__backend" alt="Backend Image" />
         </div>
         <div class="about__my-start">
-          <p
-            class="first-project"
-            v-html="$i18n.locale === 'de' ? firstProject?.de : firstProject?.en"
-          />
+          <p class="first-project">
+            {{ getLangText(firstProject) }}
+          </p>
         </div>
       </div>
 
       <div class="about__career">
-        <div
-          :class="[
-            'about__image',
-            'about__image--career',
-            'about__image--centered-mobile',
-          ]"
-        >
-          <nuxt-img
-            :src="frontendImage"
-            class="image__frontend"
-            alt="Frontend Image"
-          />
-        </div>
         <div class="career__path">
-          <p
-            class="career__backend"
-            v-html="$i18n.locale === 'de' ? backend?.de : backend?.en"
-          />
+          <p class="career__backend">
+            {{ getLangText(backend) }}
+          </p>
 
-          <p
-            class="career__frontend"
-            v-html="$i18n.locale === 'de' ? frontend?.de : frontend?.en"
-          />
+          <div
+            :class="[
+              'about__image',
+              'about__image--career',
+              'about__image--centered-mobile',
+            ]"
+          >
+            <img
+              :src="frontendImage"
+              class="image__frontend"
+              alt="Frontend Image"
+            />
+          </div>
 
-          <p
-            class="career__today"
-            v-html="$i18n.locale === 'de' ? today?.de : today?.en"
-          />
+          <p class="career__frontend">
+            {{ getLangText(frontend) }}
+          </p>
+
+          <p class="career__today">
+            {{ getLangText(today) }}
+          </p>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      heading: '',
-      imageOfMyself: 'img/about-me.png',
-      subheading: '',
-      intro: '',
-      aboutMe: '',
-      interests: '',
-      firstProject: '',
-      backendImage: 'img/backend.png',
-      backend: '',
-      frontend: '',
-      frontendImage: 'img/ux.png',
-      today: '',
-    }
-  },
+<script setup>
+import { useI18n } from 'vue-i18n';
 
-  async created() {
-    const self = this
+const { t, locale } = useI18n(); // eslint-disable-line
 
-    // get html for page from api
-    await useFetch(`${this.$config.public.apiBase}/wuxt/v1/slug/about-me`, {
-      onResponse({ request, response, options }) {
-        const data = response._data.meta
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.apiBase;
 
-        // get page content from fetched data
-        self.heading = formatTranslations(data.heading[0])
-        self.subheading = formatTranslations(data.subheading[0])
-        self.intro = formatTranslations(data.intro_text[0])
-        self.aboutMe = formatTranslations(data.about_text[0])
-        self.interests = formatTranslations(data.interests[0])
-        self.firstProject = formatTranslations(data.first_project[0])
-        self.backend = formatTranslations(data.backend[0])
-        self.frontend = formatTranslations(data.frontend[0])
-        self.today = formatTranslations(data.today[0])
-      },
-    })
+const heading = ref('');
+const imageOfMyself = ref('img/about-me.png');
+const subheading = ref('');
+const intro = ref('');
+const aboutMe = ref('');
+const interests = ref('');
+const firstProject = ref('');
+const backendImage = ref('img/backend.png');
+const backend = ref('');
+const frontend = ref('');
+const frontendImage = ref('img/ux.png');
+const today = ref('');
 
-    this.imageOfMyself = await this.fetchImage('216')
-    this.backendImage = await this.fetchImage('217')
-    this.frontendImage = await this.fetchImage('218')
-  },
+const aboutData = await $fetch(`${apiUrl}/wuxt/v1/slug/about-me`);
+handleAboutData(aboutData);
 
-  methods: {
-    async fetchImage(id) {
-      const data = await useFetch(
-        `${this.$config.public.apiBase}/wp/v2/media/${id}`,
-        {
-          onResponse({ request, response, options }) {
-            return response._data
-          },
-        }
-      )
+async function handleAboutData(data) {
+  const { meta } = data;
 
-      return data.data._value.source_url
-    },
-  },
+  heading.value = formatTranslations(meta.heading[0]);
+  subheading.value = formatTranslations(meta.subheading[0]);
+  intro.value = formatTranslations(meta.intro_text[0]);
+  aboutMe.value = formatTranslations(meta.about_text[0]);
+  interests.value = formatTranslations(meta.interests[0]);
+  firstProject.value = formatTranslations(meta.first_project[0]);
+  backend.value = formatTranslations(meta.backend[0]);
+  frontend.value = formatTranslations(meta.frontend[0]);
+  today.value = formatTranslations(meta.today[0]);
+
+  imageOfMyself.value = await fetchImage('216');
+  backendImage.value = await fetchImage('217');
+  frontendImage.value = await fetchImage('218');
+}
+
+async function fetchImage(id) {
+  const imageData = await $fetch(`${apiUrl}/wp/v2/media/${id}`);
+  return imageData.source_url;
+}
+
+function getLangText(text) {
+  return locale.value === 'de' ? text?.de : text?.en;
 }
 </script>
 
@@ -183,8 +162,19 @@ export default {
     .image__frontend {
       width: 60%;
       align-self: center;
+    }
+
+    .image__backend {
       margin-bottom: spacing(4);
     }
+
+    .image__frontend {
+      margin: spacing(4);
+    }
+  }
+
+  p {
+    font-size: 20px;
   }
 }
 

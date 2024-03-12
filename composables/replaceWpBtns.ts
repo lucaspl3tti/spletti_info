@@ -2,21 +2,23 @@ export default function (element: HTMLElement): void {
   const wpBtns = element.querySelectorAll('.wp-element-button')
 
   wpBtns.forEach((wpBtn: Element): void => {
-    const downloadable = wpBtn.hasAttribute('download')
-    const isLink = wpBtn.hasAttribute('href')
-    let href = ''
-    const btnText = wpBtn.textContent
-    let btn = null
+    const downloadable = wpBtn.hasAttribute('download');
+    const isLink = wpBtn.hasAttribute('href');
+    let href = '';
+    const btnText = wpBtn.textContent;
+    let btn = null;
 
     if (isLink) {
-      href = wpBtn.getAttribute('href') || ''
-      btn = document.createElement('a')
-      btn.href = href
+      href = wpBtn.getAttribute('href') || '';
+      btn = document.createElement('a');
+      btn.href = href;
     } else {
-      btn = document.createElement('button')
+      btn = document.createElement('button');
     }
 
-    btn.classList.add('btn', 'btn-primary')
+    btn.classList.add('btn', 'btn-primary');
+
+    /* eslint-disable */
     btn.innerHTML = `
       <div class="btn-content">
         ${btnText}
@@ -34,12 +36,13 @@ export default function (element: HTMLElement): void {
           />
         </svg>
       </div>
-    `
+    `;
+    /* eslint-enable */
 
     if (downloadable) {
-      btn.setAttribute('download', '')
+      btn.setAttribute('download', '');
     }
 
-    wpBtn.replaceWith(btn)
+    wpBtn.replaceWith(btn);
   })
 }

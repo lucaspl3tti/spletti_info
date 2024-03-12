@@ -1,6 +1,7 @@
 <template>
   <section
     id="contact"
+    ref="contactElement"
     class="contact-me"
     data-aos="fade-up"
     data-aos-duration="2000"
@@ -9,17 +10,18 @@
     <h2 class="heading heading--about">
       {{ $t('contact.heading') }}<span class="heading-dot">.</span>
     </h2>
+
     <p class="subheading" v-html="$t('contact.subheading')" />
 
     <div class="contact-form">
       <form
-        :action="`${$config.public.apiBase}/contact-form-7/v1/contact-forms/232/feedback`"
+        :action="`${apiUrl}/contact-form-7/v1/contact-forms/232/feedback`"
         method="post"
         class="contact-form__form"
         @submit.prevent="onFormSubmit"
       >
-        <ContactFormAlert v-if="success" state="success" />
-        <ContactFormAlert v-if="error" state="error" />
+        <jls-contact-form-alert v-if="success" state="success" />
+        <jls-contact-form-alert v-if="error" state="error" />
 
         <div class="form-group form-group--name">
           <label for="your-name" class="form-label contact-form__label">
@@ -28,7 +30,7 @@
 
           <input
             id="your-name"
-            v-model="form.name"
+            v-model="formData.name"
             :placeholder="$t('contact.inputs.name.placeholder')"
             type="text"
             class="form-control contact-form__input"
@@ -44,7 +46,7 @@
 
           <input
             id="your-email"
-            v-model="form.email"
+            v-model="formData.email"
             :placeholder="$t('contact.inputs.email.placeholder')"
             type="email"
             class="form-control contact-form__input"
@@ -65,7 +67,7 @@
 
           <input
             id="your-subject"
-            v-model="form.subject"
+            v-model="formData.subject"
             :placeholder="$t('contact.inputs.subject.placeholder')"
             type="text"
             class="form-control contact-form__input"
@@ -81,7 +83,7 @@
 
           <textarea
             id="your-message"
-            v-model="form.message"
+            v-model="formData.message"
             :placeholder="$t('contact.inputs.message.placeholder')"
             class="form-control contact-form__input"
             name="your-message"
@@ -94,161 +96,166 @@
           <p v-html="$t('contact.privacyNotice')" />
         </div>
 
-        <BButton type="submit" variant="primary" class="contact-form__submit">
+        <jls-button
+          type="submit"
+          theme="secondary"
+          class="contact-form__submit"
+        >
           {{ $t('contact.submitBtn') }}
-          <Icon
-            name="bi:arrow-right"
-            size="24"
-            color="currentColor"
-            class="bi-arrow-right"
-          />
-        </BButton>
+          <template #append>
+            <jls-icon
+              pack="bi"
+              name="arrow-right"
+              size="24"
+              color="currentColor"
+            />
+          </template>
+        </jls-button>
       </form>
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      },
-      show: true,
-      invalidClass: 'is-invalid',
-      formIsValid: true,
-      success: false,
-      error: false,
-    }
-  },
+<script setup>
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.apiBase;
+const contactElement = ref('');
 
-  methods: {
-    onInput(event) {
-      const target = event.target
+const formData = reactive({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+});
+const show = ref(true);
+const formIsValid = ref(true);
+const success = ref(false);
+const error = ref(false);
 
-      this.error = false
-      target.classList.remove(this.invalidClass)
-      target.setCustomValidity('')
+const invalidClass = 'is-invalid';
 
-      if (!target.validity.valid) target.classList.add(this.invalidClass)
-    },
+function onInput(event) {
+  const target = event.target;
 
-    validateForm() {
-      this.resetValidation()
+  error.value = false;
+  target.classList.remove(invalidClass);
+  target.setCustomValidity('');
 
-      // get all form elements
-      const form = this.$el.querySelector('.contact-form__form')
-      const nameInput = form.querySelector('#your-name')
-      const emailInput = form.querySelector('#your-email')
-      const subjectInput = form.querySelector('#your-subject')
-      const messageInput = form.querySelector('#your-message')
+  if (!target.validity.valid) target.classList.add(invalidClass);
+}
 
-      // validate form inputs
-      this.checkInputValidity(nameInput, 'Please enter your name.')
-      this.checkInputEmailValidity(
-        emailInput,
-        'Please enter your email address.'
-      )
-      this.checkInputValidity(subjectInput, 'Please enter your subject.')
-      this.checkInputValidity(messageInput, 'Please enter your message.')
-    },
+function validateForm() {
+  resetValidation();
 
-    checkInputValidity(field, errorMessage) {
-      if (field.value === '') return this.setInvalidState(field, errorMessage)
+  // get all form elements
+  const form = contactElement.value.querySelector('.contact-form__form');
+  const nameInput = form.querySelector('#your-name');
+  const emailInput = form.querySelector('#your-email');
+  const subjectInput = form.querySelector('#your-subject');
+  const messageInput = form.querySelector('#your-message');
 
-      this.setValidState(field)
-    },
+  // validate form inputs
+  checkInputValidity(nameInput, 'Please enter your name.');
+  checkInputEmailValidity(emailInput, 'Please enter your email address.');
+  checkInputValidity(subjectInput, 'Please enter your subject.');
+  checkInputValidity(messageInput, 'Please enter your message.');
+}
 
-    checkInputEmailValidity(field, errorMessage) {
-      if (field.value === '') return this.setInvalidState(field, errorMessage)
+function checkInputValidity(field, errorMessage) {
+  if (field.value === '') return setInvalidState(field, errorMessage);
 
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      const match = field.value.match(regex)
+  setValidState(field);
+}
 
-      if (!match) {
-        return this.setInvalidState(field, 'Please enter a valid email address')
+function checkInputEmailValidity(field, errorMessage) {
+  if (field.value === '') return setInvalidState(field, errorMessage);
+
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const match = field.value.match(regex);
+
+  if (!match) {
+    return setInvalidState(field, 'Please enter a valid email address');
+  }
+
+  setValidState(field);
+}
+
+function setInvalidState(field, errorMessage) {
+  field.classList.add(invalidClass);
+  field.setCustomValidity(errorMessage);
+
+  if (formIsValid.value) field.reportValidity();
+  formIsValid.value = false;
+}
+
+function setValidState(field) {
+  field.classList.remove(invalidClass);
+  field.setCustomValidity('');
+
+  formIsValid.value = true;
+}
+
+function onFormSubmit(event) {
+  validateForm();
+
+  if (!formIsValid.value) return (error.value = true);
+  error.value = false;
+
+  const formElement = event.target;
+  const { action, method } = formElement;
+  const body = new FormData();
+
+  body.append('your-name', formData.name);
+  body.append('your-email', formData.email);
+  body.append('your-subject', formData.subject);
+  body.append('your-message', formData.message);
+
+  fetch(action, {
+    method,
+    body,
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      const status = response.status;
+
+      if (status === 'validation_failed') {
+        success.value = false;
+        error.value = true;
+        return;
       }
 
-      this.setValidState(field)
-    },
+      error.value = false;
+      success.value = true;
+      resetForm();
+    })
+    .catch((error) => {
+      // Handle the case when there's a problem with the request
+      console.log(error); // eslint-disable-line
+      error.value = true;
+    });
+}
 
-    setInvalidState(field, errorMessage) {
-      field.classList.add(this.invalidClass)
-      field.setCustomValidity(errorMessage)
-      if (this.formIsValid) field.reportValidity()
-      this.formIsValid = false
-    },
+function resetForm() {
+  if (success.value) {
+    setTimeout(() => (success.value = false), 4000);
+  }
 
-    setValidState(field) {
-      field.classList.remove(this.invalidClass)
-      field.setCustomValidity('')
-      this.formIsValid = true
-    },
+  // Reset the form values
+  formData.name = '';
+  formData.email = '';
+  formData.subject = '';
+  formData.message = '';
 
-    onFormSubmit(event) {
-      this.validateForm()
+  resetValidation();
+}
 
-      if (!this.formIsValid) return (this.error = true)
-      this.error = false
+function resetValidation() {
+  // Trick to reset/clear native browser form validation state
+  show.value = false;
 
-      const formElement = event.target
-      const { action, method } = formElement
-      const body = new FormData()
-
-      body.append('your-name', this.form.name)
-      body.append('your-email', this.form.email)
-      body.append('your-subject', this.form.subject)
-      body.append('your-message', this.form.message)
-
-      fetch(action, {
-        method,
-        body,
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          const status = response.status
-
-          if (status === 'validation_failed') {
-            this.success = false
-            this.error = true
-            return
-          }
-
-          this.error = false
-          this.success = true
-          this.resetForm()
-        })
-        .catch((error) => {
-          // Handle the case when there's a problem with the request
-          console.log(error)
-          this.error = false
-        })
-    },
-
-    resetForm() {
-      if (this.success) setTimeout(() => (this.success = false), 4000)
-
-      // Reset the form values
-      this.form.name = ''
-      this.form.email = ''
-      this.form.subject = ''
-      this.form.message = ''
-
-      this.resetValidation()
-    },
-
-    resetValidation() {
-      // Trick to reset/clear native browser form validation state
-      this.show = false
-      this.$nextTick(() => {
-        this.show = true
-      })
-    },
-  },
+  nextTick(() => {
+    show.value = true;
+  });
 }
 </script>
 
@@ -258,7 +265,7 @@ export default {
   margin-top: spacing(18.5);
   border-radius: 25px;
   padding: spacing(12.5);
-  background-color: $color-primary;
+  background-color: $color-purple-800;
   color: $color-white;
 
   .heading {
@@ -300,13 +307,17 @@ export default {
   }
 
   &__privacy {
-    font-size: $font-size-smaller-mobile;
+    p {
+      font-size: $font-size-smaller-mobile;
+    }
 
     .hover-underline {
       &::after {
         background: $color-white;
         transform: scaleX(1);
-        transition: transform 0.25s ease-out, background-color 0.33s;
+        transition:
+          transform 0.25s ease-out,
+          background-color 0.33s;
       }
 
       &:hover {

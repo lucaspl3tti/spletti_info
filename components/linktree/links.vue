@@ -1,145 +1,116 @@
 <template>
   <div class="link-list">
-    <a
+    <jls-button
       v-for="(item, index) in links"
       :key="index"
+      theme="secondary"
       :href="item.target"
       :target="item.openInNewTab ? '_blank' : '_self'"
       class="link-list__link"
     >
-      <i :class="item.iconClasses"></i>
+      <jls-icon
+        :pack="item.icon.pack"
+        :name="item.icon.name"
+        size="24"
+        color="currentColor"
+      />
       &nbsp;<span>{{ item.text }}</span>
-    </a>
+    </jls-button>
   </div>
 </template>
 
 <script setup>
-// ---- define variables
-// define default variables
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n() // eslint-disable-line
 const runtimeConfig = useRuntimeConfig()
 
-let links = reactive({})
-let fetchError = ref(false)
+const links = reactive({})
 
-const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts?categories=12`
-const { data, error } = await requestLinktreeData(linktreeApiUrl)
-handleLinktreeResponse(data, error)
+const linktreeApiUrl = `${runtimeConfig.public.apiBase}/wp/v2/posts/422`
+const linktreeData = await $fetch(linktreeApiUrl)
+handleLinktreeResponse(linktreeData)
 
-// ---- Define page functions
-/**
- * Request data for linktree page
- * @param {string} apiUrl
- */
- async function requestLinktreeData(apiUrl) {
-  const { data, error } = await useFetch(apiUrl, {
-    onRequestError({ error }) {
-      return error
-    },
-    onResponse({ response }) {
-      return response._data[0]
-    },
-    onResponseError({ request, response }) {
-      return { request, response }
-    },
-  })
-
-  return { data, error }
-};
-
-/**
- * Process linktree fetch response
- * @param {object} responseData
- * @param {object} requestError
- */
- function handleLinktreeResponse(responseData, requestError) {
-  if (requestError.value) return fetchError = ref(true)
-  fetchError = ref(false)
-
-  const data = responseData.value[0]
-
+function handleLinktreeResponse(data) {
   // add links to array
-  links['my_website'] = {
+  links.my_website = {
     target: data.meta.website_link[0],
-    text: 'Meine Webseite',
-    iconClasses: 'fas fa-desktop',
+    text: t('linktree.links.my_website'),
+    icon: {
+      pack: 'bi',
+      name: 'window-desktop',
+    },
     openInNewTab: false
   }
 
   if (data.meta.instagram_link[0] !== '') {
-    links['instagram'] = {
+    links.instagram = {
       target: data.meta.instagram_link[0],
-      text: 'Instagram',
-      iconClasses: 'fab fa-instagram',
+      text: t('linktree.links.instagram'),
+      icon: {
+        pack: 'bi',
+        name: 'instagram',
+      },
       openInNewTab: true
     }
   }
 
   if (data.meta.github_link[0] !== '') {
-    links['github'] = {
+    links.github = {
       target: data.meta.github_link[0],
-      text: 'Github',
-      iconClasses: 'fab fa-github',
+      text: t('linktree.links.github'),
+      icon: {
+        pack: 'bi',
+        name: 'github',
+      },
       openInNewTab: true
     }
   }
 
   if (data.meta.linkedin_link[0] !== '') {
-    links['linkedin'] = {
+    links.linkedin = {
       target: data.meta.linkedin_link[0],
-      text: 'LinkedIn',
-      iconClasses: 'fab fa-linkedin',
+      text: t('linktree.links.linkedin'),
+      icon: {
+        pack: 'bi',
+        name: 'linkedin',
+      },
       openInNewTab: true
     }
   }
 
   if (data.meta.spotify_link[0] !== '') {
-    links['spotify'] = {
+    links.spotify = {
       target: data.meta.spotify_link[0],
-      text: 'Spotify',
-      iconClasses: 'fab fa-spotify',
+      text: t('linktree.links.spotify'),
+      icon: {
+        pack: 'bi',
+        name: 'spotify',
+      },
       openInNewTab: true
     }
   }
 
-  links['contact'] = {
+  links.contact = {
     target: `mailto:${data.meta.email[0]}`,
-    text: 'Kontakt',
-    iconClasses: 'fas fa-at',
+    text: t('linktree.links.contact'),
+    icon: {
+      pack: 'bi',
+      name: 'envelope-at',
+    },
     openInNewTab: false
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.link-list__link {
-  display: block;
-  width: 250px;
-  margin: 1.25rem auto 0 auto;
-  padding: 0.5rem 2rem;
-  background: rgba(255, 134, 0, 1);
-  border: 2px solid rgba(255, 134, 0, 1);
-  border-radius: 25px 0;
-  color: rgba(248, 247, 253, 1);
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: border-radius 0.4s;
+.link-list {
+  display: grid;
+  place-items: center;
+  gap: spacing(4);
 
-  .fas,
-  .fab {
-    transform: scale(1);
-    transition: transform 0.4s;
-  }
-
-  &:hover {
-    background: rgba(255, 109, 0, 1);
-    border-radius: 0 25px;
-    border-color: rgba(255, 109, 0, 1);
-    color: rgba(248, 247, 253, 1);
-
-    .fas,
-    .fab {
-      transform: scale(1.35);
-    }
+  &__link {
+    width: 250px;
   }
 }
 

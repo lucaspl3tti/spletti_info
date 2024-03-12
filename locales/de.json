@@ -20,6 +20,11 @@
     "projectGithubLinkText": "Github Repo"
   },
 
+  "projects": {
+    "heading": "projekte & portfolio.",
+    "subheading": "Eine Liste mit einigen spannenden Projekten von mir."
+  },
+
   "qualifications": {
     "heading": "skills und qualifikationen",
     "subtitle": "",
@@ -62,7 +67,23 @@
         "placeholder": "Bitte gebe deine Nachricht ein..."
       }
     },
-    "privacyNotice": "Hier erhältst du weitere Informationen zum <a class=\"link--light hover-underline\" href=\"/privacy\">Datenschutz</a>",
+    "privacyNotice": "Hier erhältst du weitere Informationen zum <a class=\"hover-underline\" href=\"/privacy\">Datenschutz</a>",
     "submitBtn": "Senden"
+  },
+
+  "linktree": {
+    "links": {
+      "my_website": "Meine Webseite",
+      "instagram": "Instagram",
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "spotify": "Spotify",
+      "contact": "Kontaktiere mich"
+    },
+
+    "footer": {
+      "legal": "Impressum - Legal Disclosure",
+      "privacy": "Datenschutz - Privacy Policy"
+    }
   }
 }
