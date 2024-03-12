@@ -25,6 +25,12 @@ export default defineNuxtConfig({
 
   debug: isDebugEnabled,
 
+  nitro: {
+    prerender: {
+      ignore: ['/wp-test'],
+    },
+  },
+
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {

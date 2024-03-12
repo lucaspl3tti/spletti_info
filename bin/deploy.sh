@@ -6,7 +6,7 @@ echo ''
 echo ''
 
 # run nuxi build and generate process
-npm run build
+# npm run build
 npm run generate
 
 echo 'generated all nuxt files'
