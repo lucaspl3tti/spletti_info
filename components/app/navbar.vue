@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="c-app-bar">
+  <v-layout class="jls-app-bar">
     <jls-nav-sidebar
       :is-open-drawer="openSidebar"
       @closed-drawer="onClosedDrawer"
@@ -11,10 +11,14 @@
 
         <jls-nav-navigation />
 
-        <jls-nav-toggle
-          :is-open-sidebar="openSidebar"
-          @toggled="onToggledSidebar"
-        />
+        <div class="jls-app-bar__actions">
+          <jls-language-switch :enabled="languageSwitchEnabled" />
+
+          <jls-nav-toggle
+            :is-open-sidebar="openSidebar"
+            @toggled="onToggledSidebar"
+          />
+        </div>
       </v-container>
     </v-app-bar>
   </v-layout>
@@ -29,6 +33,9 @@ const properties = defineProps({
   },
 });
 
+const runtimeConfig = useRuntimeConfig();
+const { languageSwitchEnabled } = runtimeConfig.public;
+
 const openSidebar = ref(false);
 
 function onToggledSidebar(toggled) {
@@ -41,7 +48,14 @@ function onClosedDrawer(newValue) {
 </script>
 
 <style lang="scss">
-.c-app-bar {
+.jls-app-bar {
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: spacing(4);
+  }
+
   .v-app-bar {
     left: 0 !important;
     height: 90px;

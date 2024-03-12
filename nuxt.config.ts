@@ -31,20 +31,71 @@ export default defineNuxtConfig({
       apiBase,
       showVersionInFooter: false,
       isDev,
+      languageSwitchEnabled: false,
     },
   },
 
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+
     head: {
       htmlAttrs: { lang: 'en-US' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'Jan-Luca Splettstößer - Portfolio',
+      title: 'JLS - Portfolio',
       meta: [
         {
           name: 'description',
           content:
             'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
+        },
+        {
+          name: 'msapplication-TileColor',
+          content: '#1e1b4b',
+        },
+        {
+          name: 'theme-color',
+          content: '#1e1b4b',
+        },
+        {
+          name: 'application-name',
+          content: 'spletti.me',
+        },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: 'spletti.me',
+        },
+        {
+          property: 'og:image',
+          content: '/jls_profilepic.jpg',
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+        },
+        {
+          rel: 'manifest',
+          href: '/site.webmanifest',
+        },
+        {
+          rel: 'mask-icon',
+          href: '/safari-pinned-tab.svg',
+          color: '#1e1b4b',
         },
       ],
     },
@@ -75,10 +126,12 @@ export default defineNuxtConfig({
       },
     ],
     '@invictus.codes/nuxt-vuetify',
-    '@vueuse/nuxt',
     '@nuxtjs/device',
-    'nuxt-icon',
+    '@nuxtjs/eslint-module',
     '@nuxt/ui',
+    '@vueuse/nuxt',
+    'nuxt-icon',
+    'nuxt-icons',
   ],
 
   css: ['@mdi/font/css/materialdesignicons.min.css', '~/assets/scss/main.scss'],
@@ -86,7 +139,7 @@ export default defineNuxtConfig({
   vuetify: {
     vuetifyOptions: {
       theme: {
-        defaultTheme: 'light',
+        defaultTheme: 'dark',
       },
     },
   },

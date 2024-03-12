@@ -174,6 +174,7 @@ function onClickCloseZoomModal() {
     .v-window__left,
     .v-window__right {
       background-color: $color-white;
+      color: $color-black;
 
       &:hover {
         background-color: darken($color-white, 10%);

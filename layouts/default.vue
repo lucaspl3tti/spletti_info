@@ -17,5 +17,7 @@
     <jls-social-list />
 
     <jls-scroll-to-top />
+
+    <nuxt-loading-indicator />
   </div>
 </template>

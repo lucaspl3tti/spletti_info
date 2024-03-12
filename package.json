@@ -47,6 +47,7 @@
     "@pinia/nuxt": "^0.4.10",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
+    "nuxt-icons": "^3.2.1",
     "sass": "^1.56.0",
     "tsparticles": "^2.10.1",
     "tsparticles-preset-stars": "^2.10.1",

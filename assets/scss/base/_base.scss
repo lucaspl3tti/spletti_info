@@ -84,6 +84,10 @@ img {
   .d-lg-grid {
     display: grid !important;
   }
+
+  .v-container {
+    padding: spacing(4) 70px !important;
+  }
 }
 
 @include desktop-up {
@@ -101,5 +105,11 @@ img {
 
   .d-xl-grid {
     display: grid !important;
+  }
+}
+
+@include desktop-medium-up {
+  .v-container {
+    padding: spacing(4) !important;
   }
 }
