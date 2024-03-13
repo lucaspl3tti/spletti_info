@@ -31,31 +31,31 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
-const emit = defineEmits(['closed-drawer'])
+const emit = defineEmits(['closed-drawer']);
 
-const isOpenDrawer = computed(() => props.isOpenDrawer)
-const drawer = ref(false)
+const isOpenDrawer = computed(() => props.isOpenDrawer);
+const drawer = ref(false);
 
 watch(isOpenDrawer, () => {
-  drawer.value = isOpenDrawer.value
+  drawer.value = isOpenDrawer.value;
 
   if (!drawer.value) {
-    closeDrawer()
+    closeDrawer();
   }
-})
+});
 
 watch(drawer, () => {
-  closeDrawer()
-})
+  closeDrawer();
+});
 
 function closeDrawer() {
-  emit('closed-drawer', drawer.value)
+  emit('closed-drawer', drawer.value);
 }
 
 function onClickCloseSidebar() {
-  drawer.value = false
+  drawer.value = false;
 }
 </script>
 

@@ -1,10 +1,12 @@
 <template>
-  <Particles
-    id="tsparticles"
-    :particles-init="particlesInit"
-    :particles-loaded="particlesLoaded"
-    :options="particlesOptions"
-  />
+  <client-only>
+    <Particles
+      id="tsparticles"
+      :particles-init="particlesInit"
+      :particles-loaded="particlesLoaded"
+      :options="particlesOptions"
+    />
+  </client-only>
 </template>
 
 <script setup>

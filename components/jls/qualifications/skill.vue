@@ -20,34 +20,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    skill: {
-      type: Object,
-      default: () => {}, // eslint-disable-line
-      required: true,
-    },
+<script setup>
+const properties = defineProps({
+  skill: {
+    type: Object,
+    default: () => ({}),
+    required: true,
   },
+});
 
-  data() {
-    return {
-      name: this.skill.meta.name[0],
-      image: this.skill.featured_image,
-      icon: this.skill.meta.icon[0],
-      iconClass: '',
-      hasIcon: false,
-    }
-  },
+const name = ref(properties.skill.meta.name[0]);
+const image = ref(properties.skill.featured_image);
+const icon = ref(properties.skill.meta.icon[0]);
 
-  created() {
-    if (this.icon === undefined || this.icon === null || this.icon === '')
-      return
+const iconClass = computed(() =>  {
+  if (!icon.value || icon.value === '') return '';
+  return icon.value.replace('logos:', '');
+});
 
-    this.hasIcon = true
-    this.iconClass = this.icon.replace('logos:', '')
-  },
-}
+const hasIcon = computed(() => {
+  if (!icon.value || icon.value === '') return false;
+  return true
+});
 </script>
 
 <style lang="scss">

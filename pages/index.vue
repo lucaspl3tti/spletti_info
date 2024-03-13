@@ -15,15 +15,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-import aosInit from '~/mixins/aos'
+import { useI18n } from 'vue-i18n';
+import aosInit from '~/mixins/aos';
+
+const { t, locale } = useI18n(); // eslint-disable-line
+const langClass = ref('');
 
 onMounted(() => {
-  aosInit()
-})
-
-const { t, locale } = useI18n() // eslint-disable-line
-const langClass = `spletti-${locale.value}`
+  langClass.value = `spletti-${locale.value}`;
+  aosInit();
+});
 </script>
 
 <style lang="scss">

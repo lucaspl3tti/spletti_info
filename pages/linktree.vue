@@ -11,7 +11,15 @@
 </template>
 
 <script setup>
-const langClass = ref(`spletti-${localStorage.language}`)
+import { useI18n } from 'vue-i18n';
+
+const { t, locale } = useI18n(); // eslint-disable-line
+const langClass = ref('')
+
+onMounted(() => {
+  langClass.value = `spletti-${locale.value}`
+})
+
 definePageMeta({
   layout: 'linktree',
 });

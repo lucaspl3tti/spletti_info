@@ -35,14 +35,14 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n() // eslint-disable-line
+const { t, locale } = useI18n(); // eslint-disable-line
 
 const properties = defineProps({
   job: {
     type: Object,
-    default: () => {}, // eslint-disable-line
+    default: () => ({}),
     required: true,
   },
 
@@ -50,19 +50,19 @@ const properties = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
 const tasks = computed(() => {
-  let tasks = ''
-  const language = locale.value
+  let tasks = '';
+  const language = locale.value;
 
-  const list = properties.job.tasks[language].split(/\n|\s\n/)
+  const list = properties.job.tasks[language].split(/\n|\s\n/);
   list.forEach((item) => {
-    tasks += `${item}<br />`
-  })
+    tasks += `${item}<br />`;
+  });
 
-  return tasks
-})
+  return tasks;
+});
 </script>
 
 <style lang="scss">

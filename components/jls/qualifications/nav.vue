@@ -27,26 +27,23 @@
   </ul>
 </template>
 
-<script>
-export default {
-  props: {
-    skillsToggled: {
-      type: Boolean,
-      required: true,
-    },
-    jobsToggled: {
-      type: Boolean,
-      required: true,
-    },
+<script setup>
+// eslint-disable-next-line
+const properties = defineProps({
+  skillsToggled: {
+    type: Boolean,
+    required: true,
   },
-
-  emits: ['change'],
-
-  methods: {
-    onClickNavItem() {
-      this.$emit('change')
-    },
+  jobsToggled: {
+    type: Boolean,
+    required: true,
   },
+});
+
+const emit = defineEmits(['change']);
+
+function onClickNavItem() {
+  emit('change');
 }
 </script>
 

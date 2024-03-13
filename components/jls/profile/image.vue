@@ -2,7 +2,7 @@
   <div
     :class="[
       'introduction__image',
-      { 'has-social-link': profileImage.socialLink !== '' }
+      { 'has-social-link': profileImage.socialLink !== '' },
     ]"
   >
     <a
@@ -40,29 +40,29 @@
 </template>
 
 <script setup>
-const runtimeConfig = useRuntimeConfig()
-const apiUrl = runtimeConfig.public.apiBase
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.apiBase;
 
 const profileImage = reactive({
   src: '/img/jls_profilepic.jpg',
   socialLink: 'https://www.instagram.com/luca.spl3tti/',
   socialLinkCopy: '',
-})
+});
 
-const imageData = await $fetch(`${apiUrl}/wp/v2/posts?categories=6`)
-handleImageData(imageData[0])
+const imageData = await $fetch(`${apiUrl}/wp/v2/posts?categories=6`);
+handleImageData(imageData[0]);
 
 function handleImageData(data) {
-  const { meta } = data
+  const { meta } = data;
 
-  let socialLinkCopy = meta.copy_of_social_link[0]
+  let socialLinkCopy = meta.copy_of_social_link[0];
   if (socialLinkCopy !== '') {
-    socialLinkCopy = formatTranslations(socialLinkCopy)
+    socialLinkCopy = formatTranslations(socialLinkCopy);
   }
 
-  profileImage.src = data.featured_image
-  profileImage.socialLink = meta.social_link[0]
-  profileImage.socialLinkCopy = socialLinkCopy
+  profileImage.src = data.featured_image;
+  profileImage.socialLink = meta.social_link[0];
+  profileImage.socialLinkCopy = socialLinkCopy;
 }
 </script>
 
@@ -131,7 +131,9 @@ function handleImageData(data) {
     img {
       width: auto;
       margin-left: 0;
-      transition: transform 0.33s, box-shadow 0.33s;
+      transition:
+        transform 0.33s,
+        box-shadow 0.33s;
     }
 
     &.has-social-link {

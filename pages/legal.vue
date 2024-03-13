@@ -14,29 +14,30 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n() // eslint-disable-line
-const langClass = `spletti-${locale.value}`
-const legalPageElement = ref('')
-const runtimeConfig = useRuntimeConfig()
-const apiUrl = runtimeConfig.public.apiBase
+const { t, locale } = useI18n(); // eslint-disable-line
+const langClass = ref('');
+const legalPageElement = ref('');
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.apiBase;
 
-const title = ref('')
-const wpHtml = ref('')
+const title = ref('');
+const wpHtml = ref('');
 
-const legalData = await $fetch(`${apiUrl}/wuxt/v1/slug/legal`)
-handleLegalPageData(legalData)
+const legalData = await $fetch(`${apiUrl}/wuxt/v1/slug/legal`);
+handleLegalPageData(legalData);
 
 onMounted(() => {
-  replaceWpBtns(legalPageElement.value)
-  addHoverUnderline(legalPageElement.value)
+  langClass.value = `spletti-${locale.value}`;
 
-})
+  replaceWpBtns(legalPageElement.value);
+  addHoverUnderline(legalPageElement.value);
+});
 
 function handleLegalPageData(data) {
-  title.value = data.title.rendered
-  wpHtml.value = data.content.rendered
+  title.value = data.title.rendered;
+  wpHtml.value = data.content.rendered;
 }
 </script>
 

@@ -28,20 +28,20 @@ const properties = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
-const emit = defineEmits(['toggled'])
+const emit = defineEmits(['toggled']);
 
-const isOpenSidebar = computed(() => properties.isOpenSidebar)
-const toggled = ref(false)
+const isOpenSidebar = computed(() => properties.isOpenSidebar);
+const toggled = ref(false);
 
 watch(isOpenSidebar, () => {
-  toggled.value = isOpenSidebar.value
-})
+  toggled.value = isOpenSidebar.value;
+});
 
 function onClickAppBarToggle() {
-  toggled.value = !toggled.value
-  emit('toggled', toggled)
+  toggled.value = !toggled.value;
+  emit('toggled', toggled);
 }
 </script>
 
@@ -67,7 +67,9 @@ function onClickAppBarToggle() {
 
     &__line {
       fill: none;
-      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      transition:
+        stroke-dasharray 400ms,
+        stroke-dashoffset 400ms;
       stroke: $color-white;
       stroke-width: 5.5;
       stroke-linecap: round;

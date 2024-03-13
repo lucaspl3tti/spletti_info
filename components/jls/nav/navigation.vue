@@ -32,7 +32,7 @@ const properties = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
 const navItems = [
   {
@@ -65,7 +65,7 @@ const navItems = [
     text: 'Contact',
     icon: 'chat-dots',
   },
-]
+];
 </script>
 
 <style lang="scss">
@@ -93,17 +93,17 @@ const navItems = [
   font-size: 38px;
   font-weight: $font-weight-medium;
 
-    &:hover {
-      color: darken($color-white, 20%);
-    }
+  &:hover {
+    color: darken($color-white, 20%);
+  }
 
-    &:focus {
-      color: $color-white;
-    }
+  &:focus {
+    color: $color-white;
+  }
 
-    &.active {
-      color: $color-white;
-    }
+  &.active {
+    color: $color-white;
+  }
 
   &__dash {
     width: 50px;

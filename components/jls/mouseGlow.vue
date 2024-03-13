@@ -5,51 +5,45 @@
   </div>
 </template>
 
-<script>
-import Utilities from '~/helper/utilities.helper'
+<script setup>
+import Utilities from '~/helper/utilities.helper';
 
-export default {
-  data() {
-    return {
-      isActive: true,
-    }
-  },
+const mouseGlow = ref('');
+const isActive = ref(true);
 
-  mounted() {
-    this.mouseGlow = this.$refs.mouseGlow
+onMounted(() => {
+  checkDevice();
+  window.addEventListener('resize', () => checkDevice());
+});
 
-    this.checkDevice()
-    window.addEventListener('resize', () => this.checkDevice())
-  },
+function checkDevice() {
+  const isTouchDevice = Utilities.isTouchDevice();
+  const isMobileDevice = Utilities.checkScreenSizeDown('768px');
 
-  methods: {
-    checkDevice() {
-      const isTouchDevice = Utilities.isTouchDevice();
-      const isMobileDevice = Utilities.checkScreenSizeDown('768px');
+  if (!isTouchDevice && !isMobileDevice) {
+    mouseGlow.value.classList.add('show');
+    registerEvents();
+  } else {
+    mouseGlow.value.classList.remove('show');
+  }
+}
 
-      if (!isTouchDevice && !isMobileDevice) {
-        this.mouseGlow.classList.add('show')
-        this.registerEvents()
-      } else {
-        this.mouseGlow.classList.remove('show')
-      }
+function registerEvents() {
+  document.body.addEventListener('pointermove', (event) => {
+    onPointerMove(event);
+  });
+}
+
+function onPointerMove(event) {
+  const { clientY, clientX } = event;
+
+  mouseGlow.value.animate(
+    {
+      left: `${clientX}px`,
+      top: `${clientY}px`,
     },
-
-    registerEvents() {
-      document.body.addEventListener('pointermove', (event) => {
-        this.onPointerMove(event)
-      })
-    },
-
-    onPointerMove(event) {
-      const { clientY, clientX} = event
-
-      this.mouseGlow.animate({
-        left: `${clientX}px`,
-        top: `${clientY}px`,
-      }, { duration: 3000, fill: 'forwards'})
-    }
-  },
+    { duration: 3000, fill: 'forwards' },
+  );
 }
 </script>
 

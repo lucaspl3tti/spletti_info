@@ -32,9 +32,7 @@
                 </div>
 
                 <div class="project-card__copy">
-                  <p
-                    v-html="getTextTranslation(project.description)"
-                  />
+                  <p v-html="getTextTranslation(project.description)" />
                 </div>
 
                 <div class="project-card__tags">
@@ -53,10 +51,7 @@
                     v-for="(link, linkIndex) in project.links"
                     :key="linkIndex"
                   >
-                    <jls-project-link
-                      v-if="link"
-                      :link="link"
-                    />
+                    <jls-project-link v-if="link" :link="link" />
                   </template>
                 </div>
               </div>
@@ -69,28 +64,32 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
-import aosInit from '~/mixins/aos'
+import { useI18n } from 'vue-i18n';
+import aosInit from '~/mixins/aos';
 
 onMounted(() => {
-  aosInit()
-})
+  aosInit();
+});
 
-const runtimeConfig = useRuntimeConfig()
-const apiUrl = runtimeConfig.public.apiBase
-const { t, locale } = useI18n() // eslint-disable-line
-const langClass = `spletti-${locale.value}`
-const projects = ref([])
+const runtimeConfig = useRuntimeConfig();
+const apiUrl = runtimeConfig.public.apiBase;
+const { t, locale } = useI18n(); // eslint-disable-line
+const langClass = ref('');
+const projects = ref([]);
 
-const projectsData = await $fetch(`${apiUrl}/wp/v2/posts?categories=10`)
-handleProjectsData(projectsData)
+const projectsData = await $fetch(`${apiUrl}/wp/v2/posts?categories=10`);
+handleProjectsData(projectsData);
+
+onMounted(() => {
+  langClass.value = `spletti-${locale.value}`;
+});
 
 function handleProjectsData(data) {
-  const projectList = []
+  const projectList = [];
 
   data.forEach((project) => {
-    const fields = project.meta
-    const image = project.featured_image
+    const fields = project.meta;
+    const image = project.featured_image;
     const {
       name,
       title,
@@ -111,15 +110,15 @@ function handleProjectsData(data) {
       extra_image_6: extraImage6,
       extra_image_7: extraImage7,
       extra_image_8: extraImage8,
-    } = fields
+    } = fields;
 
-    const translatedTitle = formatTranslations(title[0])
-    const translatedDescription = formatTranslations(description[0])
+    const translatedTitle = formatTranslations(title[0]);
+    const translatedDescription = formatTranslations(description[0]);
 
-    let hasPaddingBottom = true
-    if (imageHasPaddingBottom[0] === 0) hasPaddingBottom = false
+    let hasPaddingBottom = true;
+    if (imageHasPaddingBottom[0] === 0) hasPaddingBottom = false;
 
-    const formattedTags = formatTags(tags[0])
+    const formattedTags = formatTags(tags[0]);
 
     const extraImages = [
       extraImage1,
@@ -130,7 +129,7 @@ function handleProjectsData(data) {
       extraImage6,
       extraImage7,
       extraImage8,
-    ]
+    ];
 
     const images = {
       featured: {
@@ -139,12 +138,12 @@ function handleProjectsData(data) {
         alt: imageAlt[0],
         paddingBottom: hasPaddingBottom,
       },
-      extras: []
-    }
+      extras: [],
+    };
 
     extraImages.forEach((image) => {
-      if (image[0] && image[0] !== '') images.extras.push(image[0])
-    })
+      if (image[0] && image[0] !== '') images.extras.push(image[0]);
+    });
 
     const projectItem = {
       id: Number(position[0]),
@@ -154,54 +153,54 @@ function handleProjectsData(data) {
       links: [],
       images,
       tags: formattedTags,
-    }
+    };
 
-    const repoLink = githubLink[0]
-    projectItem.links[0] = null
+    const repoLink = githubLink[0];
+    projectItem.links[0] = null;
     if (repoLink !== '' && repoLink.length !== 0) {
       projectItem.links[0] = {
         type: 'repo',
         href: repoLink,
-      }
+      };
     } else {
-      projectItem.links[0] = null
+      projectItem.links[0] = null;
     }
 
-    const prodLink = liveLink[0]
-    projectItem.links[1] = null
+    const prodLink = liveLink[0];
+    projectItem.links[1] = null;
     if (prodLink !== '') {
       projectItem.links[1] = {
         type: 'live',
         href: prodLink,
-      }
+      };
     }
 
-    const prodLinkText = liveLinkText[0]
-    if (prodLinkText !== '') projectItem.links[1].customLinkText = prodLinkText
+    const prodLinkText = liveLinkText[0];
+    if (prodLinkText !== '') projectItem.links[1].customLinkText = prodLinkText;
 
-    const index = Number(position[0]) - 1
-    projectList[index] = projectItem
-  })
+    const index = Number(position[0]) - 1;
+    projectList[index] = projectItem;
+  });
 
-  projects.value = projectList
+  projects.value = projectList;
 }
 
 function formatTags(string) {
-  const tags = string.split(',')
+  const tags = string.split(',');
 
   tags.forEach((tag, index) => {
-    tags[index] = tag.replace(' ', '')
-  })
+    tags[index] = tag.replace(' ', '');
+  });
 
-  return tags
+  return tags;
 }
 
 function getPortfolioGridItemClass(index) {
-  return `projects-grid__item--item${index + 1}`
+  return `projects-grid__item--item${index + 1}`;
 }
 
 function getTextTranslation(text) {
-  return locale.value === 'de' ? text?.de : text?.en
+  return locale.value === 'de' ? text?.de : text?.en;
 }
 </script>
 

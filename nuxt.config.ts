@@ -17,8 +17,6 @@ const isDebugEnabled = enableDebug === '1';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
-
   devtools: {
     enabled: isDev,
   },
@@ -133,8 +131,9 @@ export default defineNuxtConfig({
     ],
     '@invictus.codes/nuxt-vuetify',
     '@nuxtjs/device',
+    '@nuxt/devtools',
     '@nuxtjs/eslint-module',
-    '@nuxt/ui',
+    // '@nuxt/ui',
     '@vueuse/nuxt',
     'nuxt-icon',
     'nuxt-icons',
