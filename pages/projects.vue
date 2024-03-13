@@ -285,6 +285,7 @@ function getTextTranslation(text) {
           &__body {
             display: flex;
             flex-flow: row nowrap;
+            align-items: center;
             gap: spacing(2);
           }
 
