@@ -1,10 +1,11 @@
 <template>
   <div class="c-skill-box">
-    <icon
+    <jls-icon
       v-if="hasIcon"
-      :name="`${icon}`"
+      :pack="icon.pack"
+      :name="icon.name"
       size="93"
-      :class="['icon--logos', `logos-${iconClass}`, 'c-skill-box__icon']"
+      :class="['icon--logos', `${icon.pack}-${icon.name}`, 'c-skill-box__icon']"
     />
 
     <img
@@ -31,15 +32,23 @@ const properties = defineProps({
 
 const name = ref(properties.skill.meta.name[0]);
 const image = ref(properties.skill.featured_image);
-const icon = ref(properties.skill.meta.icon[0]);
 
-const iconClass = computed(() =>  {
-  if (!icon.value || icon.value === '') return '';
-  return icon.value.replace('logos:', '');
+const icon = computed(() =>  {
+  if (
+    !properties.skill.meta.icon[0] ||
+    properties.skill.meta.icon[0] === ''
+  ) return null;
+
+  const details = properties.skill.meta.icon[0].split(':');
+
+  const pack = details[0];
+  const name = details[1]
+
+  return { pack, name };
 });
 
 const hasIcon = computed(() => {
-  if (!icon.value || icon.value === '') return false;
+  if (!icon.value) return false;
   return true
 });
 </script>
