@@ -35,6 +35,20 @@ onMounted(() => {
   addHoverUnderline(legalPageElement.value);
 });
 
+useHead({
+  title: 'Impressum / Legal Disclosure',
+  meta: [
+    {
+      name: 'description',
+      content: 'Legal Disclosure from Jan-Luca Splettstößer',
+    },
+    {
+      property: 'og:title',
+      content: 'Impressum / Legal Disclosure | spletti.me',
+    },
+  ],
+});
+
 function handleLegalPageData(data) {
   title.value = data.title.rendered;
   wpHtml.value = data.content.rendered;

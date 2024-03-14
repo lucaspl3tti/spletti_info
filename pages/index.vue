@@ -19,11 +19,20 @@ import { useI18n } from 'vue-i18n';
 import aosInit from '~/mixins/aos';
 
 const { t, locale } = useI18n(); // eslint-disable-line
-const langClass = ref('');
+const langClass = ref(`spletti-${locale.value}`);
 
 onMounted(() => {
-  langClass.value = `spletti-${locale.value}`;
   aosInit();
+});
+
+useHead({
+  title: 'JLS - Frontend Developer',
+  meta: [
+    {
+      property: 'og:title',
+      content: 'JLS - Frontend Developer | spletti.me',
+    },
+  ],
 });
 </script>
 

@@ -14,11 +14,21 @@
 import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n(); // eslint-disable-line
-const langClass = ref('')
+const langClass = ref(`spletti-${locale.value}`);
 
-onMounted(() => {
-  langClass.value = `spletti-${locale.value}`
-})
+useHead({
+  title: 'JLS - Linktree',
+  meta: [
+    {
+      name: 'description',
+      content: 'Linktree from Jan-Luca Splettstößer',
+    },
+    {
+      property: 'og:title',
+      content: 'JLS - Linktree | spletti.me',
+    },
+  ],
+});
 
 definePageMeta({
   layout: 'linktree',

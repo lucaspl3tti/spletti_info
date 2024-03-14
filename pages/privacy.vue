@@ -14,7 +14,7 @@
 import { useI18n } from 'vue-i18n';
 
 const { t, locale } = useI18n(); // eslint-disable-line
-const langClass = ref('');
+const langClass = ref(`spletti-${locale.value}`);
 const privacyPageElement = ref('');
 const runtimeConfig = useRuntimeConfig();
 const apiUrl = runtimeConfig.public.apiBase;
@@ -26,10 +26,22 @@ const privacyData = await $fetch(`${apiUrl}/wuxt/v1/slug/privacy-policy`);
 handlePrivacyPageData(privacyData);
 
 onMounted(() => {
-  langClass.value = `spletti-${locale.value}`;
-
   replaceWpBtns(privacyPageElement.value);
   addHoverUnderline(privacyPageElement.value);
+});
+
+useHead({
+  title: 'Datenschutz / Privacy Policy',
+  meta: [
+    {
+      name: 'description',
+      content: 'Privacy Policy from Jan-Luca Splettstößer',
+    },
+    {
+      property: 'og:title',
+      content: 'Datenschutz / Privacy Policy | spletti.me',
+    },
+  ],
 });
 
 function handlePrivacyPageData(data) {

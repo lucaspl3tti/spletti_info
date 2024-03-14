@@ -74,14 +74,24 @@ onMounted(() => {
 const runtimeConfig = useRuntimeConfig();
 const apiUrl = runtimeConfig.public.apiBase;
 const { t, locale } = useI18n(); // eslint-disable-line
-const langClass = ref('');
+const langClass = ref(`spletti-${locale.value}`);
 const projects = ref([]);
 
 const projectsData = await $fetch(`${apiUrl}/wp/v2/posts?categories=10`);
 handleProjectsData(projectsData);
 
-onMounted(() => {
-  langClass.value = `spletti-${locale.value}`;
+useHead({
+  title: 'Projects',
+  meta: [
+    {
+      name: 'description',
+      content: 'A list with some of Jan-Luca\'s recent and exciting projects.',
+    },
+    {
+      property: 'og:title',
+      content: 'Projects | spletti.me',
+    },
+  ],
 });
 
 function handleProjectsData(data) {

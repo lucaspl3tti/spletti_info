@@ -1,5 +1,7 @@
 <template>
   <div>
+    <seo-kit />
+
     <nuxt-layout>
       <nuxt-page />
     </nuxt-layout>

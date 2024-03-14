@@ -4,7 +4,7 @@ import svgLoader from 'vite-svg-loader';
  * .env data
  */
 const { env } = process
-// const siteUrl = env.SITE_URL;
+const siteUrl = env.SITE_URL;
 const apiBase = env.API_URL
 const environment = env.APP_ENV;
 const enableDebug = env.ENABLE_DEBUG;
@@ -33,9 +33,16 @@ export default defineNuxtConfig({
     // Keys within public, will be also exposed to the client-side
     public: {
       apiBase,
+      siteUrl,
       showVersionInFooter: false,
       isDev,
       languageSwitchEnabled: false,
+
+      siteName: 'spletti.me',
+      siteDescription:
+        'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
+      language: 'en-US',
+      titleSeparator: '|',
     },
   },
 
@@ -46,7 +53,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en-US' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'JLS - Portfolio',
+      title: 'spletti.me',
       meta: [
         {
           name: 'description',
@@ -71,7 +78,7 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:image',
-          content: '/jls_profilepic.jpg',
+          content: `${siteUrl}/jls_profilepic.jpg`,
         },
       ],
       link: [
@@ -103,6 +110,14 @@ export default defineNuxtConfig({
         },
       ],
     },
+
+    rootId: 'jls',
+  },
+
+  site: {
+    indexable: !isDev,
+    url: siteUrl,
+    name: 'JLS',
   },
 
   vite: {
@@ -152,4 +167,6 @@ export default defineNuxtConfig({
   alias: {
     pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
   },
+
+  extends: ['nuxt-seo-kit'],
 });
