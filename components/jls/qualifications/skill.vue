@@ -57,7 +57,7 @@ const hasIcon = computed(() => {
 .c-skill-box {
   display: flex;
   aspect-ratio: 1/1;
-  flex-direction: column;
+  flex-flow: column;
   align-items: center;
   padding: 1%;
   border-radius: 13px;
@@ -71,6 +71,11 @@ const hasIcon = computed(() => {
   &__icon {
     width: 70%;
     height: auto;
+
+    svg {
+      width: 100% !important;
+      height: 100% !important;
+    }
   }
 
   &__text {
