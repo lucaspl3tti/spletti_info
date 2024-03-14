@@ -3,9 +3,9 @@
     ref="privacyPageElement"
     :class="['spletti', 'spletti--privacy', langClass, 'is-wp-page']"
   >
-    <v-container id="privacyWrapper" class="legal-disclosure">
+    <v-container id="privacyWrapper" class="privacy-policy">
       <h1>{{ title }}</h1>
-      <div class="legal-disclosure-conent" v-html="wpHtml" />
+      <div class="privacy-policy-conent" v-html="wpHtml" />
     </v-container>
   </main>
 </template>
