@@ -1,6 +1,7 @@
 <template>
   <div class="nuxt-layout nuxt-layout--default">
-    <app-particles />
+    <app-particles v-if="mode === 'dark'" color="#cbcaca" />
+    <app-particles v-if="mode === 'light'" color="#191727" />
 
     <div class="jls-navigation">
       <app-navbar />

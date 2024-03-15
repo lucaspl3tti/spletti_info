@@ -15,45 +15,50 @@ import { loadStarsPreset } from 'tsparticles-preset-stars';
 const runtimeConfig = useRuntimeConfig();
 const { isDev } = runtimeConfig.public;
 
-let particlesOptions = {
-  preset: 'stars',
-};
+const properties = defineProps({
+  color: {
+    type: String,
+    default: '#cbcaca',
+  },
+});
 
-particlesOptions = {
-  ...particlesOptions,
-  background: {
-    color: {
-      value: 'transparent',
-    },
-  },
-  particles: {
-    number: {
-      value: 50,
-    },
-    color: {
-      value: '#cbcaca',
-    },
-    shape: {
-      stroke: {
-        width: 0,
-        color: '#cbcaca',
+const particlesOptions = computed(() => {
+  return {
+    preset: 'stars',
+    background: {
+      color: {
+        value: 'transparent',
       },
     },
-    opacity: {
-      value: {
-        min: 0.1,
-        max: 0.4,
+    particles: {
+      number: {
+        value: 50,
+      },
+      color: {
+        value: properties.color,
+      },
+      shape: {
+        stroke: {
+          width: 0,
+          color: properties.color,
+        },
+      },
+      opacity: {
+        value: {
+          min: 0.1,
+          max: 0.4,
+        },
+      },
+      size: {
+        value: {
+          min: 0.5,
+          max: 4,
+        },
       },
     },
-    size: {
-      value: {
-        min: 0.5,
-        max: 4,
-      },
-    },
-  },
-  retina_detect: true,
-};
+    retina_detect: true,
+  }
+});
 
 async function particlesInit(engine) {
   await loadStarsPreset(engine);
