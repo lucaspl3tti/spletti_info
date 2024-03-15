@@ -21,3 +21,8 @@
     <nuxt-loading-indicator />
   </div>
 </template>
+
+<script setup>
+const { store } = useColorMode();
+const mode = computed(() => store.value === 'auto' ? 'dark' : store.value); // eslint-disable-line
+</script>

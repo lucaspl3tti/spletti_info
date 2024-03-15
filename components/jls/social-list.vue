@@ -7,21 +7,26 @@
     >
       <div class="social-list__dash"></div>
 
-      <jls-button
-        class="social-icon"
-        :href="item.link"
-        target="_blank"
-        theme="secondary"
-        rounded
-        icon-btn
-      >
-        <icon
-          :name="`bi:${item.icon}`"
-          :size="iconSize"
-          color="currentColor"
-          :class="['c-icon', `c-icon--${item.icon}`]"
-        />
-      </jls-button>
+      <v-tooltip :text="item.tooltip" theme="light" :location="tooltipLocation">
+        <template #activator="{ props }">
+          <jls-button
+            class="social-icon"
+            :href="item.link"
+            target="_blank"
+            theme="secondary"
+            rounded
+            icon-btn
+            v-bind="props"
+          >
+            <icon
+              :name="`bi:${item.icon}`"
+              :size="iconSize"
+              color="currentColor"
+              :class="['c-icon', `c-icon--${item.icon}`]"
+            />
+          </jls-button>
+        </template>
+      </v-tooltip>
     </div>
   </div>
 </template>
@@ -37,7 +42,7 @@ const properties = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
 // const runtimeConfig = useRuntimeConfig()
 // const { apiBase } = runtimeConfig.public
@@ -48,17 +53,23 @@ const socials = {
   socialLink1: {
     icon: 'instagram',
     link: 'https://www.instagram.com/luca.spl3tti/',
+    tooltip: 'Instagram',
   },
   socialLink2: {
     icon: 'github',
     link: 'https://www.github.com/lucaspl3tti',
+    tooltip: 'Github',
   },
   socialLink3: {
     icon: 'linkedin',
-    link:
-      'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/',
+    link: 'https://www.linkedin.com/in/jan-luca-splettst%C3%B6%C3%9Fer-105966212/', // eslint-disable-line
+    tooltip: 'LinkedIn',
   },
 };
+
+const tooltipLocation = computed(() => {
+  return properties.isNav ? 'bottom' : 'end';
+});
 
 // // get html for page from api
 // const data = await getSocialList(socialListApiUrl)

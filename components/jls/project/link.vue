@@ -43,6 +43,7 @@ const properties = defineProps({
 
 <style lang="scss">
 .project__link {
+  margin-top: spacing(2);
   color: $color-primary;
   transition:
     color $animation-speed,
@@ -54,10 +55,20 @@ const properties = defineProps({
   }
 
   &:hover {
-    color: $color-purple-700;
+    color: $color-purple-800;
 
     .icon {
       transform: translateX(8px);
+    }
+  }
+}
+
+@include light-mode {
+  .project__link {
+    color: $color-secondary;
+
+    &:hover {
+      color: $color-orange-200;
     }
   }
 }

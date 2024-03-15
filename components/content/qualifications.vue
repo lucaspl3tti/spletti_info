@@ -173,8 +173,8 @@ function handleJobData(data) {
 <style lang="scss">
 .skills-qualifications {
   margin-top: spacing(25);
-  background-color: $color-purple-800;
-  box-shadow: inset 0 0 20px 8px rgba($color: #000000, $alpha: 0.2);
+  background-color: $color-primary-var;
+  box-shadow: inset 0 0 20px 8px rgba($color: $color-black, $alpha: 0.2);
 }
 
 .skills-qualifications-container {

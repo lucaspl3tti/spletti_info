@@ -27,4 +27,11 @@ const properties = defineProps({
   background-color: $color-white;
   color: $color-black;
 }
+
+@include light-mode {
+  .jls-bento-card {
+    background-color: $color-primary-var;
+    color: $color-white;
+  }
+}
 </style>

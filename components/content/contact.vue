@@ -265,7 +265,7 @@ function resetValidation() {
   margin-top: spacing(18.5);
   border-radius: 25px;
   padding: spacing(12.5);
-  background-color: $color-purple-800;
+  background-color: $color-primary-var;
   color: $color-white;
 
   .heading {
