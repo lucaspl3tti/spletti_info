@@ -11,7 +11,7 @@ body {
   font-size: $font-size-default;
   background-color: $color-background;
   // background: $gradient-primary center center no-repeat;
-  color: var(--color-text);
+  color: $color-text;
   min-height: calc(100vh - $margin-page-top - $margin-page-bottom);
 }
 
