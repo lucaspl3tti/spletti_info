@@ -12,6 +12,8 @@
         <jls-nav-navigation />
 
         <div class="jls-app-bar__actions">
+          <jls-theme-switch />
+
           <jls-language-switch :enabled="languageSwitchEnabled" />
 
           <jls-nav-toggle
@@ -56,15 +58,15 @@ function onClosedDrawer(newValue) {
     gap: spacing(4);
   }
 
-  .v-app-bar {
+  .v-app-bar.v-toolbar {
     left: 0 !important;
     height: 90px;
     width: 100vw !important;
     margin: 0;
-    background-color: $color-purple-800;
+    background-color: $color-primary-var;
     padding-top: spacing(4);
     border-radius: 0 0 16px 16px;
-    box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.6);
+    box-shadow: 0 0 14px 0 rgba($color: $color-black, $alpha: 0.45);
 
     .v-container {
       display: flex;

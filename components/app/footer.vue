@@ -39,7 +39,7 @@ const showVersion = ref(showVersionInFooter);
   z-index: 2;
   width: 100%;
   @include paddingY(50px);
-  background-color: $color-purple-800;
+  background-color: $color-primary-var;
   font-size: $font-size-normal-mobile;
   color: $color-white;
 

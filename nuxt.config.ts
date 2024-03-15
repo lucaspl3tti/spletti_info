@@ -17,6 +17,8 @@ const isDebugEnabled = enableDebug === '1';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
+
   devtools: {
     enabled: isDev,
   },
@@ -59,6 +61,11 @@ export default defineNuxtConfig({
           name: 'description',
           content:
             'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
+        },
+        {
+          name: 'keywords',
+          content:
+            'Jan-Luca Splettstößer, Spletti, Frontend Developer, Frontend Entwickler, UI Designer, Luca Splettstößer', // eslint-disable-line
         },
         {
           name: 'msapplication-TileColor',

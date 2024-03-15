@@ -9,9 +9,9 @@ body {
   margin: 0;
   font-family: $font-default;
   font-size: $font-size-default;
-  background-color: $color-purple-600;
+  background-color: $color-background;
   // background: $gradient-primary center center no-repeat;
-  color: $color-white;
+  color: var(--color-text);
   min-height: calc(100vh - $margin-page-top - $margin-page-bottom);
 }
 
@@ -123,4 +123,10 @@ img {
     max-width: 1250px !important;
     padding: spacing(4) !important;
   }
+}
+
+@include light-mode {
+  --color-primary: #{$color-purple-550} !important;
+  --color-background: #{$color-white} !important;
+  --color-text: #{$color-black} !important;
 }

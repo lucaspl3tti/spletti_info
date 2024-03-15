@@ -10,7 +10,6 @@
       :href="profileImage.socialLink"
       target="_blank"
       rel="noopener noreferrer"
-      title="Instagram Link"
     >
       <img
         :src="profileImage.src"
@@ -147,6 +146,19 @@ function handleImageData(data) {
           transform: translate(-10px, -10px);
           box-shadow:
             20px 20px 18px rgba($color: $color-secondary, $alpha: 0.4);
+        }
+      }
+    }
+  }
+
+  @include light-mode {
+    .introduction__image {
+      &.has-social-link {
+        &:hover {
+          img {
+            box-shadow:
+              20px 20px 18px rgba($color: $color-purple-400, $alpha: 0.6);
+          }
         }
       }
     }

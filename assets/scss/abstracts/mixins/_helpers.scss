@@ -8,6 +8,18 @@
   }
 }
 
+// media query for light mode
+@mixin light-mode {
+  .light {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  .dark {
+    @content;
+  }
+}
 // Text selection
 @mixin text-selection($color-selection, $color-selection-bg) {
   ::-moz-selection { // sass-lint:disable-line no-vendor-prefixes
