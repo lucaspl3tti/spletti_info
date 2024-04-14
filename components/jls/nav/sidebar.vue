@@ -214,4 +214,12 @@ function onClickCloseSidebar() {
     }
   }
 }
+
+@include light-mode {
+  .c-sidebar {
+    .v-navigation-drawer {
+      background-color: rgba($color: $color-purple-550, $alpha: 0.95);
+    }
+  }
+}
 </style>

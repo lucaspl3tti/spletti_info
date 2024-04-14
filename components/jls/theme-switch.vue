@@ -1,11 +1,17 @@
 <template>
   <div class="jls-theme-switch">
-    <jls-button
-      variant="text"
-      @click="toggleTheme"
-    >
-      <jls-icon pack="bi" :name="themeIcon" size="24" color="currentColor" />
-    </jls-button>
+    <v-tooltip text="Toggle Theme" theme="light" location="bottom">
+      <template #activator="{ props }">
+        <jls-button variant="text" v-bind="props" @click="toggleTheme">
+          <jls-icon
+            pack="bi"
+            :name="themeIcon"
+            size="24"
+            color="currentColor"
+          />
+        </jls-button>
+      </template>
+    </v-tooltip>
   </div>
 </template>
 
@@ -17,11 +23,9 @@ const themeIcon = computed(() => {
   return mode.value === 'dark' ? 'moon-fill' : 'sun-fill';
 });
 
-function toggleTheme () {
+function toggleTheme() {
   mode.value = mode.value === 'dark' ? 'light' : 'dark';
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
