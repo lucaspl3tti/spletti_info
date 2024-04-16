@@ -38,7 +38,7 @@ export default defineNuxtConfig({
       isDev,
       languageSwitchEnabled: false,
 
-      siteName: 'spletti.me',
+      siteName: 'luca-spletti.dev',
       siteDescription:
         'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
       language: 'en-US',
@@ -53,7 +53,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en-US' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'spletti.me',
+      title: 'luca-spletti.dev',
       meta: [
         {
           name: 'description',
@@ -75,11 +75,11 @@ export default defineNuxtConfig({
         },
         {
           name: 'application-name',
-          content: 'spletti.me',
+          content: 'luca-spletti.dev',
         },
         {
           name: 'apple-mobile-web-app-title',
-          content: 'spletti.me',
+          content: 'luca-spletti.dev',
         },
         {
           property: 'og:image',
