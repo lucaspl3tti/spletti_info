@@ -20,7 +20,7 @@
 
       <v-divider />
 
-      <jls-nav-navigation is-sidebar />
+      <jls-nav-navigation is-sidebar @open-link="onOpenLink" />
     </v-navigation-drawer>
   </div>
 </template>
@@ -56,6 +56,11 @@ function closeDrawer() {
 
 function onClickCloseSidebar() {
   drawer.value = false;
+}
+
+function onOpenLink(target) {
+  drawer.value = false;
+  navigateTo(target);
 }
 </script>
 

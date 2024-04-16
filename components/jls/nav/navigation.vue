@@ -5,9 +5,9 @@
       :key="index"
       :class="['c-navigation__item', `c-navigation__item--${navItem.name}`]"
     >
-      <nuxt-link
+      <a
         :class="['c-nav-link', `c-nav-link--${navItem.name}`]"
-        :to="navItem.link"
+        @click="onClickNav(navItem.link)"
       >
         <icon
           v-if="isSidebar"
@@ -20,12 +20,12 @@
         <span class="hover-underline">
           {{ navItem.text }}
         </span>
-      </nuxt-link>
+      </a>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 // eslint-disable-next-line
 const properties = defineProps({
   isSidebar: {
@@ -66,6 +66,12 @@ const navItems = [
     icon: 'chat-dots',
   },
 ];
+
+const emit = defineEmits(['open-link']);
+
+function onClickNav(target) {
+  emit('open-link', target);
+}
 </script>
 
 <style lang="scss">
