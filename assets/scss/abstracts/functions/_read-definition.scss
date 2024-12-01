@@ -1,9 +1,0 @@
-@function read-definition($definition, $key) {
-    $return: ();
-
-    @if (map-has-key($definition, $key)) {
-        $return: map-get($definition, $key);
-    }
-
-    @return $return;
-}

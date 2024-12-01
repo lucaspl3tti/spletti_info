@@ -1,0 +1,54 @@
+$font-body: 'Sora', sans-serif;
+$heading-margin-bottom: 8px;
+
+$font-default: 'Sora', sans-serif;
+$font-handwriting: 'Caveat', cursive;
+$font-code: 'monospace';
+
+$font-sizes-heading: (
+  xs: (
+    1: 42px,
+    2: 32px,
+    3: 24px,
+    4: 20px,
+    5: 18px,
+    6: 16px,
+  ),
+
+  md: (
+    1: 52px,
+    2: 42px,
+    3: 28px,
+    4: 24px,
+    5: 20px,
+    6: 18px,
+  ),
+);
+
+$font-sizes-copy: (
+  default: (
+    xs: 16px,
+    md: 18px,
+    xl: 20px,
+  ),
+  large: (
+    xs: 20px,
+    md: 22px,
+    xl: 24px,
+  ),
+  small: (
+    xs: 14px,
+    md: 16px,
+    xl: 18px,
+  ),
+  smaller: (
+    xs: 12px,
+    md: 14px,
+    xl: 16px,
+  ),
+);
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
