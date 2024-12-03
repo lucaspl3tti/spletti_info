@@ -56,6 +56,7 @@ export default defineNuxtConfig({
       isDev,
       languageSwitchEnabled: false,
       useAppLoader: true,
+      appLoaderSpeed: 600,
 
       siteName: siteTitle,
       siteDescription: siteDescription,

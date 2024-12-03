@@ -23,7 +23,9 @@
 
 <script setup lang="ts">
 const route = useRoute();
-const loaderSpeed = 1500;
+const runtimeConfig = useRuntimeConfig();
+const { appLoaderSpeed } = runtimeConfig.public;
+const loaderSpeed = appLoaderSpeed || 1500;
 const animating = ref(false);
 const active = ref(true);
 

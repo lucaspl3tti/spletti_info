@@ -3,8 +3,6 @@ body {
   min-height: calc(100dvh - $margin-page-top - $margin-page-bottom);
   margin: 0;
   background-color: $color-background;
-
-  // background: $gradient-primary center center no-repeat;
   color: $color-text;
   font-family: $font-default;
   font-size: map.get($font-sizes-copy, 'default', 'md');
@@ -33,8 +31,7 @@ ul {
 }
 
 a {
-  display: inline-flex;
-  gap: spacing(4);
+  @include flex($gap: spacing(4), $inline: true);
   color: $color-secondary;
   text-decoration: none;
   transition: color $animation-speed;
