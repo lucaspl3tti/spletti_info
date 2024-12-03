@@ -1,6 +1,6 @@
-# spletti.info Portfolio
+# luca-spletti.dev Portfolio
 
-My personal portfolio website using Nuxt3 with Bootstrap Vue, Vue i18n and AOS.
+Frontend Application of my personal portfolio website using Nuxt3 with Vuetify, Vue i18n and AOS.
 
 ## Setup
 

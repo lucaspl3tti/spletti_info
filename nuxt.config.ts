@@ -1,13 +1,18 @@
-import svgLoader from 'vite-svg-loader';
+import { resolve } from 'path';
 
 /**
  * .env data
  */
-const { env } = process
+const { env } = process;
 const siteUrl = env.SITE_URL;
-const apiBase = env.API_URL
+const siteTitle = env.SITE_TITLE;
+const backendUrl = env.BACKEND_URL;
+const apiUrl = env.API_URL;
+const defaultSiteLanguage = env.DEFAULT_SITE_LANG;
+const appVersion = env.APP_VERSION;
 const environment = env.APP_ENV;
 const enableDebug = env.ENABLE_DEBUG;
+const devServerPort = env.APP_DEV_SERVER_PORT;
 
 /**
  * Config data
@@ -15,33 +20,47 @@ const enableDebug = env.ENABLE_DEBUG;
 const isDev = environment === 'dev';
 const isDebugEnabled = enableDebug === '1';
 
+/**
+ * Define default variables
+ */
+const siteDescription = 'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.'; // eslint-disable-line max-len
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: {
-    enabled: isDev,
-  },
-
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: isDev },
   debug: isDebugEnabled,
 
-  nitro: {
-    prerender: {
-      ignore: ['/wp-test'],
-    },
+  devServer: {
+    port: Number(devServerPort) || 3000,
+  },
+
+  srcDir: resolve(__dirname, './src'),
+  serverDir: resolve(__dirname, './server'),
+
+  alias: {
+    '~': resolve(__dirname, './'),
+    '@': resolve(__dirname, './src'),
   },
 
   runtimeConfig: {
     // Keys within public, will be also exposed to the client-side
     public: {
-      apiBase,
+      apiUrl,
+      backendUrl,
       siteUrl,
+      siteTitle,
+      logoText: 'Jan-Luca Splettstößer',
+      appVersion,
       showVersionInFooter: false,
       isDev,
       languageSwitchEnabled: false,
+      useAppLoader: true,
+      appLoaderSpeed: 600,
 
-      siteName: 'luca-spletti.dev',
-      siteDescription:
-        'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
-      language: 'en-US',
+      siteName: siteTitle,
+      siteDescription: siteDescription,
+      language: defaultSiteLanguage,
       titleSeparator: '|',
     },
   },
@@ -50,20 +69,18 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
 
     head: {
-      htmlAttrs: { lang: 'en-US' },
+      htmlAttrs: { lang: defaultSiteLanguage },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      title: 'luca-spletti.dev',
+      title: siteTitle,
       meta: [
         {
           name: 'description',
-          content:
-            'Portfolio Website of Jan-Luca Splettstößer, Frontend Web Developer and UI / UX Designer.', // eslint-disable-line
+          content: siteDescription,
         },
         {
           name: 'keywords',
-          content:
-            'Jan-Luca Splettstößer, Spletti, Frontend Developer, Frontend Entwickler, UI Designer, Luca Splettstößer', // eslint-disable-line
+          content: 'Jan-Luca Splettstößer, Spletti, Frontend Developer, Frontend Entwickler, UI Designer, Luca Splettstößer', // eslint-disable-line max-len
         },
         {
           name: 'msapplication-TileColor',
@@ -75,11 +92,11 @@ export default defineNuxtConfig({
         },
         {
           name: 'application-name',
-          content: 'luca-spletti.dev',
+          content: siteTitle,
         },
         {
           name: 'apple-mobile-web-app-title',
-          content: 'luca-spletti.dev',
+          content: siteTitle,
         },
         {
           property: 'og:image',
@@ -119,47 +136,49 @@ export default defineNuxtConfig({
     rootId: 'jls',
   },
 
+  vite: {
+   css: {
+     preprocessorOptions: {
+       scss: {
+         additionalData: '@use "sass:map"; @use "sass:color"; @use "sass:meta"; @use "sass:list"; @import "~/node_modules/vuetify/lib/styles/generic/colors"; @import "@/assets/scss/abstracts/variables.scss";', // eslint-disable-line max-len
+       },
+     },
+   },
+  },
+
+  css: [
+    '@mdi/font/css/materialdesignicons.min.css',
+    '@/assets/scss/main.scss',
+  ],
+
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/i18n',
+    '@nuxt/icon',
+    '@nuxtjs/seo',
+    '@nuxtjs/stylelint-module',
+    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] } ],
+    '@vueuse/nuxt',
+    'nuxt-icons',
+    'pinia-plugin-persistedstate/nuxt',
+    'vuetify-nuxt-module',
+  ],
+
+  i18n: {
+    strategy: 'prefix_except_default',
+    locales: [
+      { code: 'en', language: 'en-US' },
+      { code: 'de', language: 'de-DE' },
+    ],
+    defaultLocale: 'en',
+    vueI18n: './i18n.config.ts', // custom path example
+  },
+
   site: {
     indexable: !isDev,
     url: siteUrl,
     name: 'JLS',
   },
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData:
-            '@import "~/node_modules/vuetify/lib/styles/main.sass"; @import "~/assets/scss/abstracts/variables.scss";', // eslint-disable-line
-        },
-      },
-    },
-
-    plugins: [svgLoader()],
-  },
-
-  build: {
-    transpile: ['vuetify'],
-  },
-
-  modules: [
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: ['defineStore', 'acceptHMRUpdate'],
-      },
-    ],
-    '@invictus.codes/nuxt-vuetify',
-    '@nuxtjs/device',
-    '@nuxt/devtools',
-    '@nuxtjs/eslint-module',
-    // '@nuxt/ui',
-    '@vueuse/nuxt',
-    'nuxt-icon',
-    'nuxt-icons',
-  ],
-
-  css: ['@mdi/font/css/materialdesignicons.min.css', '~/assets/scss/main.scss'],
 
   vuetify: {
     vuetifyOptions: {
@@ -168,10 +187,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
-  alias: {
-    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
-  },
-
-  extends: ['nuxt-seo-kit'],
 });
