@@ -1,0 +1,105 @@
+{
+  "general": {
+    "languages": {
+      "en": "English",
+      "de": "German"
+    },
+    "wordings": {
+      "here": "here"
+    }
+  },
+  "introduction": {
+    "heading": "Hey,<br/>name's Luca",
+    "subheading": "Frontend Developer and UI/UX Designer",
+    "description": "I'm  a frontend developer and designer with a burning passion for clean, maintainable code and creative designs.",
+    "buttons": {
+      "portfolio": {
+        "text": "My Work"
+      },
+      "contact": {
+        "text": "Contact Me"
+      }
+    }
+  },
+
+  "portfolio": {
+    "heading": "projects & portfolio",
+    "subheading": "A showcase of some of my recent work",
+    "projectLiveLinkText": "Live Site",
+    "projectGithubLinkText": "Github Repo"
+  },
+
+  "projects": {
+    "heading": "projects & portfolio",
+    "subheading": "A list with some of my recent and exciting projects."
+  },
+
+  "qualifications": {
+    "heading": "skills and qualifications",
+    "subtitle": "",
+    "changeContent": {
+      "skills": "Skills",
+      "jobs": "Qualifications"
+    },
+    "careers": {
+      "professional": {
+        "heading": "Professional Career"
+      },
+      "school": {
+        "heading": "School Career"
+      }
+    }
+  },
+
+  "contact": {
+    "heading": "get in touch",
+    "subheading": "If you have a question or if you want to work with me, just send a quick message! &#10024;",
+    "btnText": "Contact me!",
+    "success": "Thank you for your message! It has been sent.",
+    "error": "One or more fields have an error. Please check and try again.",
+    "inputs": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Please enter your name..."
+      },
+      "email": {
+        "label": "Your E-Mail Address",
+        "placeholder": "Please enter your email address...",
+        "help": "We'll never share your e-mail address with others.",
+        "invalid": "Please enter a valid email address."
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Please enter a subject..."
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Please enter your message..."
+      },
+      "required": "This field is required"
+    },
+    "privacyNotice": "I accept the privacy policies. Further information on data protection can be found {link}.",
+    "privacyError": "You need to accept the privacy policies",
+    "submitBtn": "Send"
+  },
+
+  "legalTexts": {
+    "englishVersion": "English Version"
+  },
+
+  "linktree": {
+    "links": {
+      "my_website": "My Website",
+      "instagram": "Instagram",
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "spotify": "Spotify",
+      "contact": "Contact me"
+    },
+
+    "footer": {
+      "legal": "Impressum - Legal Disclosure",
+      "privacy": "Datenschutz - Privacy Policy"
+    }
+  }
+}

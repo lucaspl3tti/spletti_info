@@ -1,5 +1,0 @@
-@mixin iterator($map, $keys...) {
-    @each $key, $value in map-get-deep($map, $keys...) {
-        @content($value, $key);
-    }
-}
