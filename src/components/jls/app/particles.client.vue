@@ -1,9 +1,9 @@
 <template>
   <client-only>
-    <vue-particles
+    <nuxt-particles
       id="tsparticles"
-      :particles-loaded="particlesLoaded"
       :options="particlesOptions"
+      @load="particlesLoaded"
     />
   </client-only>
 </template>
@@ -18,9 +18,10 @@ const properties = withDefaults(defineProps<AppParticlesProperties>(), {
   color: '#cbcaca',
 });
 
-const particlesOptions = computed<Record<string, unknown>>(() => {
-  const options: Record<string, unknown> = {
-    preset: 'stars',
+checkComponentPropertyValidity(properties.color, 'color', 'app-particles', true); // eslint-disable-line max-len
+
+const particlesOptions = computed(() => {
+  return {
     background: {
       color: {
         value: 'transparent',
@@ -28,16 +29,10 @@ const particlesOptions = computed<Record<string, unknown>>(() => {
     },
     particles: {
       number: {
-        value: 50,
+        value: 100,
       },
       color: {
         value: properties.color,
-      },
-      shape: {
-        stroke: {
-          width: 0,
-          color: properties.color,
-        },
       },
       opacity: {
         value: {
@@ -54,8 +49,6 @@ const particlesOptions = computed<Record<string, unknown>>(() => {
     },
     retina_detect: true,
   };
-
-  return options;
 });
 
 function particlesLoaded(): void {

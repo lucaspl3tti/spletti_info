@@ -5,6 +5,37 @@ import type {
   Theme,
 } from '@/types/misc.types';
 
+// form interfaces
+export interface FormProperties {
+  disabled?: boolean
+  fastFail?: boolean
+  readonly?: boolean
+  validateOn?: 'eager'
+    | 'lazy'
+    | 'blur'
+    | 'input'
+    | 'submit'
+    | 'invalid-input'
+    | 'blur lazy'
+    | 'input lazy'
+    | 'submit lazy'
+    | 'invalid-input lazy'
+    | 'blur eager'
+    | 'input eager'
+    | 'submit eager'
+    | 'invalid-input eager'
+    | 'lazy blur'
+    | 'lazy input'
+    | 'lazy submit'
+    | 'lazy invalid-input'
+    | 'eager blur'
+    | 'eager input'
+    | 'eager submit'
+    | 'eager invalid-input'
+  action?: string
+  method?: 'post' | 'put' | 'patch'
+}
+
 // alert interfaces
 export interface FormAlertProperties {
   state: AlertState

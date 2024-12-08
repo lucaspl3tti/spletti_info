@@ -28,17 +28,9 @@ const properties = withDefaults(defineProps<BadgeProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!themeColorOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for badge component!`);
-}
-
-if (!variantBasicOptions.includes(properties.variant)) {
-  throw new Error(`The variant "${properties.variant}" is not valid for badge component!`);
-}
-
-if (!['default', ...sizeOptions].includes(properties.size)) {
-  throw new Error(`The size "${properties.size}" is not valid for badge component!`);
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'badge', true, themeColorOptions);
+checkComponentPropertyValidity(properties.variant, 'variant', 'badge', true, variantBasicOptions);
+checkComponentPropertyValidity(properties.size, 'size', 'badge', true, ['default', ...sizeOptions]);
 /* eslint-enable max-len */
 </script>
 

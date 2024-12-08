@@ -44,6 +44,11 @@ const properties = withDefaults(defineProps<IconProperties>(), {
   hasNoDefaultAnimation: false,
 });
 
+checkComponentPropertyValidity(properties.name, 'name', 'icon', true);
+checkComponentPropertyValidity(properties.pack, 'pack', 'icon', true);
+checkComponentPropertyValidity(properties.size, 'size', 'icon', true);
+checkComponentPropertyValidity(properties.color, 'color', 'color', true);
+
 const iconType = computed(() => properties.pack === 'jls' ? 'jls' : 'custom');
 const iconClasses = computed(() => [
   'nuxt-icon',

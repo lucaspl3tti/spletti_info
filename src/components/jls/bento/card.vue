@@ -1,6 +1,6 @@
 <template>
   <div class="jls-bento-card">
-    <div v-if="title" class="jls-bento-card__title">
+    <div v-if="!Utilities.isEmpty(title)" class="jls-bento-card__title">
       {{ title }}
     </div>
 
@@ -12,10 +12,11 @@
 
 <script setup lang=ts>
 import type { BentoCardProperties } from '@/interfaces/components/cards.interface'; // eslint-disable-line max-len
+import { Utilities } from '~/src/helper/utilities.helper';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<BentoCardProperties>(), {
-  title: '',
+  title: undefined,
 });
 </script>
 

@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import type { TimelineProperties } from '@/interfaces/components/misc.interface'; // eslint-disable-line max-len
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const properties = withDefaults(defineProps<TimelineProperties>(), {
   align: 'center',
   direction: 'vertical',
@@ -24,4 +24,11 @@ const properties = withDefaults(defineProps<TimelineProperties>(), {
   side: undefined,
   truncateLine: undefined,
 });
+
+/* eslint-disable max-len */
+checkComponentPropertyValidity(properties.align, 'align', 'timeline', true, ['start', 'center']);
+checkComponentPropertyValidity(properties.direction, 'direction', 'timeline', true, ['horizontal', 'vertical']);
+checkComponentPropertyValidity(properties.side, 'side', 'timeline', false, ['start', 'end']);
+checkComponentPropertyValidity(properties.truncateLine, 'truncate-line', 'timeline', true, ['align', 'end', 'both']);
+/* eslint-enable max-len */
 </script>

@@ -18,7 +18,8 @@
     />
 
     <div class="contact-form">
-      <form
+      <jls-form
+        ref="contactForm"
         :action="`${apiUrl}/contact`"
         method="post"
         class="contact-form__form"
@@ -37,12 +38,7 @@
             type="input"
             name="your-name"
             required
-            :error-messages="invalidFields.name
-              ? $t('contact.inputs.required')
-              : ''
-            "
             :rules="[() => !!name || $t('contact.inputs.required')]"
-            @input="onInput('name')"
           />
         </div>
 
@@ -57,16 +53,11 @@
             name="your-email"
             required
             :hint="$t('contact.inputs.email.help')"
-            :error-messages="invalidFields.email
-              ? $t('contact.inputs.required')
-              : ''
-            "
             :rules="[
               () => !!email || $t('contact.inputs.required'),
               () => Utilities.isValidEmail(email)
                 || $t('contact.inputs.email.invalid'),
             ]"
-            @input="onInput('email')"
           />
         </div>
 
@@ -80,12 +71,7 @@
             type="input"
             name="your-subject"
             required
-            :error-messages="invalidFields.subject
-              ? $t('contact.inputs.required')
-              : ''
-            "
             :rules="[() => !!subject || $t('contact.inputs.required')]"
-            @input="onInput('subject')"
           />
         </div>
 
@@ -99,12 +85,7 @@
             variant="filled"
             name="your-message"
             required
-            :error-messages="invalidFields.message
-              ? $t('contact.inputs.required')
-              : ''
-            "
             :rules="[() => !!message || $t('contact.inputs.required')]"
-            @input="onInput('message')"
           />
         </div>
 
@@ -120,7 +101,7 @@
           </div>
 
           <div
-            v-if="invalidFields.privacy"
+            v-if="privacyError"
             class="contact-form__privacy-error is-invalid"
           >
             <p>{{ $t('contact.privacyError') }}</p>
@@ -144,7 +125,7 @@
             />
           </template>
         </jls-button>
-      </form>
+      </jls-form>
     </div>
   </jls-section>
 </template>
@@ -159,7 +140,8 @@ import { Utilities } from '@/helper/utilities.helper';
 const { t } = useI18n();
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
-const contactElement = ref('');
+const contactElement = ref();
+const contactForm = ref();
 
 const name = ref('');
 const email = ref('');
@@ -177,46 +159,18 @@ const formData = computed<ContactFormRequestData>(() => {
 });
 
 const privacyError = ref(false);
-const privacyLink = `
-  <a class="hover-underline" href="/privacy">${t('general.wordings.here')}</a>
-`;
-const show = ref(true);
-const invalidFields: Record<string, boolean> = reactive({
-  name: false,
-  email: false,
-  subject: false,
-  message: false,
-  privacy: false,
-});
+const privacyLink = `<a class="hover-underline" href="/privacy">${t('general.wordings.here')}</a>`; // eslint-disable-line max-len
 const formIsValid = ref(true);
 const success = ref(false);
 const error = ref(false);
 
-function onInput(target: string): void {
-  invalidFields[target] = false;
-}
-
 function validateForm(): void {
-  resetValidation();
-
-  invalidFields['name'] = Utilities.isEmpty(name.value);
-  invalidFields['email'] = Utilities.isEmpty(email.value) || !Utilities.isValidEmail(email.value); // eslint-disable-line max-len
-  invalidFields['subject'] = Utilities.isEmpty(subject.value);
-  invalidFields['message'] = Utilities.isEmpty(message.value);
-  invalidFields['privacy'] = !userAcceptedPrivacy.value;
-
-  if (Object.values(invalidFields).includes(true)) {
-    formIsValid.value = false;
-    return;
-  }
-
-  formIsValid.value = true;
+  formIsValid.value = contactForm.value.validate();
+  privacyError.value = !userAcceptedPrivacy.value;
 }
 
 function onChangePrivacySettings(): void {
-  if (privacyError.value) {
-    privacyError.value = !userAcceptedPrivacy.value;
-  }
+  privacyError.value = !userAcceptedPrivacy.value;
 }
 
 function onFormSubmit(event: Event): void {
@@ -270,22 +224,12 @@ function resetForm(): void {
     setTimeout(() => (success.value = false), 4000);
   }
 
-  // Reset the form values
-  name.value = '';
-  email.value = '';
-  subject.value = '';
-  message.value = '';
-
   resetValidation();
+  contactForm.value.reset();
 }
 
 function resetValidation(): void {
-  // Trick to reset/clear native browser form validation state
-  show.value = false;
-
-  nextTick(() => {
-    show.value = true;
-  });
+  contactForm.value.resetValidation();
 }
 </script>
 

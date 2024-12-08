@@ -160,6 +160,7 @@ export default defineNuxtConfig({
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] } ],
     '@vueuse/nuxt',
     'nuxt-icons',
+    'nuxt-particles',
     'pinia-plugin-persistedstate/nuxt',
     'vuetify-nuxt-module',
   ],
@@ -172,6 +173,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     vueI18n: './i18n.config.ts', // custom path example
+  },
+
+  particles: {
+    mode: 'full', // 'full' | 'slim' | 'basic' | 'custom'
+    lazy: true,
   },
 
   site: {

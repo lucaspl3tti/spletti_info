@@ -18,11 +18,7 @@ const properties = withDefaults(defineProps<SubheadingProperties>(), {
   position: 'left',
 });
 
-/* eslint-disable max-len */
-if (!textPositionOptions.includes(properties.position)) {
-  throw new Error(`The position "${properties.position}" is not valid for subheading component!`);
-}
-/* eslint-enable max-len */
+checkComponentPropertyValidity(properties.position, 'position', 'subheading', true, textPositionOptions); // eslint-disable-line max-len
 </script>
 
 <style lang="scss">

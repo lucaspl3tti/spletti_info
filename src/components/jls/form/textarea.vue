@@ -68,7 +68,7 @@ import type {
 import { variantOptions, typeOptions } from '@/consts/form';
 import { themeOptions } from '@/consts/misc';
 
-const model = defineModel<FormTextareaModel>({
+const model = defineModel<FormTextareaModel|null>({
   default: '',
   required: true,
 });
@@ -91,17 +91,12 @@ const properties = withDefaults(defineProps<FormInputProperties>(), {
   autoGrow: false,
 });
 
-if (!themeOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for form textarea component!`); // eslint-disable-line max-len
-}
-
-if (!variantOptions.includes(properties.variant)) {
-  throw new Error(`The variant "${properties.variant}" is not valid for form textarea component!`); // eslint-disable-line max-len
-}
-
-if (!typeOptions.includes(properties.type)) {
-  throw new Error(`The type "${properties.type}" is not valid for form textarea component!`); // eslint-disable-line max-len
-}
+/* eslint-disable max-len */
+checkComponentPropertyValidity(properties.theme, 'theme', 'form-textarea', true, themeOptions);
+checkComponentPropertyValidity(properties.variant, 'variant', 'form-textarea', true, variantOptions);
+checkComponentPropertyValidity(properties.type, 'type', 'form-textarea', true, typeOptions);
+checkComponentPropertyValidity(properties.iconPack, 'icon-pack', 'form-textarea', true);
+/* eslint-enable max-len */
 
 const emit = defineEmits([
   'click:prepend',

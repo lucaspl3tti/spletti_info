@@ -104,7 +104,7 @@ export class Utilities {
    * ## Helper function to check if a value is empty
    */
   static isEmpty<Type>(value: Type): boolean {
-    if (value === null || value === undefined) {
+    if (!value) {
       return true;
     }
 

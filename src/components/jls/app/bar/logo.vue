@@ -19,12 +19,13 @@
 <script setup lang="ts">
 import type { AppBarLogoProperties } from '@/interfaces/components/app.interface'; // eslint-disable-line max-len
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<AppBarLogoProperties>(), {
   text: '',
   isHandwritingFont: false,
   hideDot: false,
 });
+
+checkComponentPropertyValidity(properties.text, 'text', 'app-bar-logo', true);
 </script>
 
 <style lang="scss">

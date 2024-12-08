@@ -37,15 +37,20 @@
 <script setup lang="ts">
 import type { AppNavProperties } from '@/interfaces/components/app.interface';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<AppNavProperties>(), {
-  items: null,
+  items: undefined,
   isSidebar: false,
   showIcon: false,
   iconPack: 'bi',
   iconSize: '45',
   isHandwritingFont: false,
 });
+
+/* eslint-disable max-len */
+checkComponentPropertyValidity(properties.items, 'items', 'app-nav', true);
+checkComponentPropertyValidity(properties.iconPack, 'icon-pack', 'app-nav', true);
+checkComponentPropertyValidity(properties.iconSize, 'icon-size', 'app-nav', true);
+/* eslint-enable max-len */
 
 const emit = defineEmits(['open-link']);
 
