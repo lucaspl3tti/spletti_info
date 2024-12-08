@@ -26,7 +26,11 @@
 
 <script setup lang="ts">
 import type { HeadingProperties } from '@/interfaces/components/misc.interface'; // eslint-disable-line max-len
-import { textPositionOptions, themeColorOptions } from '@/consts/misc';
+import {
+  headingTypes,
+  textPositionOptions,
+  themeColorOptions,
+} from '@/consts/misc';
 
 const properties = withDefaults(defineProps<HeadingProperties>(), {
   headingType: 'h1',
@@ -37,13 +41,9 @@ const properties = withDefaults(defineProps<HeadingProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!textPositionOptions.includes(properties.position)) {
-  throw new Error(`The position "${properties.position}" is not valid for heading component!`);
-}
-
-if (!themeColorOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for heading component!`);
-}
+checkComponentPropertyValidity(properties.position, 'position', 'heading', true, textPositionOptions);
+checkComponentPropertyValidity(properties.theme, 'theme', 'heading', true, themeColorOptions);
+checkComponentPropertyValidity(properties.headingType, 'heading-type', 'heading', true, headingTypes);
 /* eslint-enable max-len */
 </script>
 

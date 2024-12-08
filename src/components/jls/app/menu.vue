@@ -31,13 +31,13 @@ const model = defineModel<boolean>({
   required: true,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<AppMenuProperties>(), {
-  items: null,
-  logoText: '',
+  items: undefined,
   showSocialList: false,
   isHandwritingFont: false,
 });
+
+checkComponentPropertyValidity(properties.items, 'items', 'app-menu', true);
 
 function onClickCloseSidebar(): void {
   model.value = false;

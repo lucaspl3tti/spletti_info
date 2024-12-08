@@ -22,6 +22,8 @@ const properties = withDefaults(defineProps<ThemeSwitchProperties>(), {
   colorMode: 'dark',
 });
 
+checkComponentPropertyValidity(properties.colorMode, 'color-mode', 'theme-switch', true, ['dark', 'light']);  // eslint-disable-line max-len
+
 const themeIcon = computed<ThemeIcon>((): ThemeIcon => {
   return properties.colorMode === 'dark' ? 'moon-fill' : 'sun-fill';
 });

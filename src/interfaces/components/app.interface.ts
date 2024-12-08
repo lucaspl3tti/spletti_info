@@ -1,7 +1,6 @@
 // app bar
 export interface AppBarProperties {
-  color?: string
-  navItems: NavItem[] | null
+  navItems: NavItem[]
   hideNav?: boolean
 }
 
@@ -20,7 +19,7 @@ export interface NavItem {
 
 // app nav
 export interface AppNavProperties {
-  items: NavItem[] | null
+  items: NavItem[]
   isSidebar?: boolean
   showIcon?: boolean
   iconPack?: string
@@ -30,8 +29,7 @@ export interface AppNavProperties {
 
 // app menu
 export interface AppMenuProperties {
-  items: NavItem[] | null
-  logoText: string
+  items: NavItem[]
   showSocialList?: boolean
   isHandwritingFont?: boolean
 }

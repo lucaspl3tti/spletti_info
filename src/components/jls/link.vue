@@ -38,13 +38,9 @@ const properties = withDefaults(defineProps<LinkProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!themeOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for link component!`);
-}
-
-if (!['_blank', '_self', '_parent', '_top'].includes(properties.target)) {
-  throw new Error(`The target "${properties.target}" is not valid for link component!`);
-}
+checkComponentPropertyValidity(properties.to, 'to', 'link', true);
+checkComponentPropertyValidity(properties.theme, 'theme', 'link', true, themeOptions);
+checkComponentPropertyValidity(properties.target, 'target', 'link', true, ['_blank', '_self', '_parent', '_top']);
 /* eslint-enable max-len */
 
 const rel = computed<string>((): string => properties.target === '_blank'

@@ -75,21 +75,10 @@ const properties = withDefaults(defineProps<ButtonProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!variantOptions.includes(properties.variant)) {
-  throw new Error(`The variant "${properties.variant}" is not valid for button component!`);
-}
-
-if (![...themeOptions, 'none'].includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for button component!`);
-}
-
-if (!densityOptions.includes(properties.density)) {
-  throw new Error(`The density "${properties.density}" is not valid for button component!`);
-}
-
-if (!['', ...sizeOptions].includes(properties.size)) {
-  throw new Error(`The size "${properties.size}" is not valid for button component!`);
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'button', true, [...themeOptions, 'none']);
+checkComponentPropertyValidity(properties.variant, 'variant', 'button', true, variantOptions);
+checkComponentPropertyValidity(properties.density, 'density', 'button', true, densityOptions);
+checkComponentPropertyValidity(properties.size, 'size', 'button', false, sizeOptions);
 /* eslint-enable max-len */
 
 const buttonCustomClasses = computed(
@@ -110,7 +99,12 @@ const hasAppendSlot = computed(() => !!slots.append);
   text-indent: 0;
 
   &:not(.jls-btn--text):not(.jls-btn--plain) {
-    @include flex($justify: center, $align: center, $gap: spacing(2));
+    @include flex(
+      $justify: center,
+      $align: center,
+      $gap: spacing(2),
+      $inline: true
+    );
     min-width: 150px;
     height: 50px;
     border: 2px solid $color-black;

@@ -51,13 +51,8 @@ const properties = withDefaults(defineProps<CardProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!themeOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for card component!`);
-}
-
-if (!variantBasicOptions.includes(properties.variant)) {
-  throw new Error(`The variant "${properties.variant}" is not valid for card component!`);
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'card', true, themeOptions);
+checkComponentPropertyValidity(properties.variant, 'variant', 'card', true, variantBasicOptions);
 /* eslint-enable max-len */
 </script>
 

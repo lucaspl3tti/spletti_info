@@ -39,10 +39,12 @@ const properties = withDefaults(defineProps<SocialListProperties>(), {
   isNav: false,
 });
 
+checkComponentPropertyValidity(properties.iconSize, 'icon-size', 'social-list', true); // eslint-disable-line max-len
+
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
-const socials: Ref<SocialItem[] | null> = ref(null);
+const socials: Ref<SocialItem[]|null> = ref(null);
 
 const tooltipLocation = computed(() => {
   return properties.isNav ? 'bottom' : 'end';
@@ -51,7 +53,7 @@ const tooltipLocation = computed(() => {
 // // get html for page from api
 await getSocialList(`${apiUrl}/social-links`);
 
-async function getSocialList(url: string) {
+async function getSocialList(url: string): Promise<void> {
   const response: ApiResponse = await $fetch(url);
   const { data } = response;
 

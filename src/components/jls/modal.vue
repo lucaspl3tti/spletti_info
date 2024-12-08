@@ -77,17 +77,9 @@ const properties = withDefaults(defineProps<ModalProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!themeOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for modal component!`);
-}
-
-if (properties.transition && !['top', 'bottom'].includes(properties.transition)) {
-  throw new Error(`The transition "${properties.transition}" is not valid for modal component!`);
-}
-
-if (!['absolute', 'relative'].includes(properties.toolbarPosition)) {
-  throw new Error(`The toolbar position "${properties.toolbarPosition}" is not valid for modal component!`);
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'modal', true, themeOptions);
+checkComponentPropertyValidity(properties.transition, 'transition', 'modal', false, themeOptions);
+checkComponentPropertyValidity(properties.toolbarPosition, 'toolbar-position', 'link', true, ['absolute', 'relative']);
 /* eslint-enable max-len */
 </script>
 

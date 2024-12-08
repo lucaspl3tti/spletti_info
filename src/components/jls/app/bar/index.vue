@@ -41,12 +41,12 @@
 import { useColorMode } from '@vueuse/core';
 import type { AppBarProperties } from '@/interfaces/components/app.interface';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<AppBarProperties>(), {
-  color: 'deep-purple-darken-4',
-  navItems: null,
+  navItems: undefined,
   hideNav: false,
 });
+
+checkComponentPropertyValidity(properties.navItems, 'nav-items', 'app-bar', true); // eslint-disable-line max-len
 
 const colorModeDefault = useColorMode();
 const colorMode = computed(() => colorModeDefault.value === 'auto'

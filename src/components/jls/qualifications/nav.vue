@@ -45,7 +45,8 @@ function onClickNavItem(): void {
 
 <style lang="scss" scoped>
 .jls-qualifications-nav {
-  @include flex(row wrap, $justify: center);
+  @include flex(row wrap, $justify: center, $align: center);
+  height: 100%;
   @include marginY(spacing(3), 0);
   padding-left: 0;
   color: inherit;

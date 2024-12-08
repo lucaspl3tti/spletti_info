@@ -6,6 +6,9 @@
     },
     "wordings": {
       "here": "hier"
+    },
+    "download": {
+      "label": "Download"
     }
   },
   "introduction": {

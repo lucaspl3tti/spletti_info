@@ -1,9 +1,9 @@
 <template>
   <client-only>
-    <vue-particles
+    <nuxt-particles
       id="tsparticles"
-      :particles-loaded="particlesLoaded"
       :options="particlesOptions"
+      @load="particlesLoaded"
     />
   </client-only>
 </template>
@@ -18,9 +18,10 @@ const properties = withDefaults(defineProps<LinktreeParticlesProperties>(), {
   color: '#cbcaca',
 });
 
+checkComponentPropertyValidity(properties.color, 'color', 'app-particles', true); // eslint-disable-line max-len
+
 const particlesOptions = computed(() => {
   return {
-    preset: 'stars',
     background: {
       color: {
         value: 'transparent',
@@ -28,16 +29,10 @@ const particlesOptions = computed(() => {
     },
     particles: {
       number: {
-        value: 50,
+        value: 80,
       },
       color: {
         value: properties.color,
-      },
-      shape: {
-        stroke: {
-          width: 0,
-          color: properties.color,
-        },
       },
       opacity: {
         value: {

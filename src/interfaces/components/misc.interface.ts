@@ -3,6 +3,7 @@ import type {
   Density,
   HeadingType,
   LinkTarget,
+  LoaderDotsVariants,
   Location,
   PositionBasic,
   RoundedValue,
@@ -57,6 +58,11 @@ export interface CardProperties {
   isModal?: boolean
 }
 
+// container component
+export interface ContainerProperties {
+  size?: SizeWithDefault
+}
+
 // hamburger component
 export interface HamburgerProperties {
   active?: boolean
@@ -99,6 +105,24 @@ export interface LinkProperties {
 // list component
 export interface ListProperties {
   items?: string[]
+}
+
+// loader components
+export interface LoaderCircleProperties {
+  theme?: Theme
+  size?: SizeWithDefault
+}
+
+export interface LoaderDotsProperties {
+  variant?: LoaderDotsVariants,
+  theme?: Theme
+  size?: SizeWithDefault
+}
+
+export interface LoaderTextProperties {
+  text?: string
+  theme?: Theme
+  size?: 'default'|HeadingType
 }
 
 // modal component

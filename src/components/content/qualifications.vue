@@ -17,6 +17,9 @@
           :jobs-toggled="jobsToggled"
           @change="onChangeContent"
         />
+
+        <!-- @TODO: add later -->
+        <!-- <jls-qualifications-resume /> -->
       </div>
 
       <div
@@ -162,6 +165,8 @@ function handleJobData(response: JobsResponse): void {
   }
 
   .change-content {
+    position: relative;
+    min-height: 50px;
     margin-bottom: spacing(10);
   }
 }
@@ -207,6 +212,14 @@ function handleJobData(response: JobsResponse): void {
 @include tablet-up {
   .skills {
     gap: spacing(6.5);
+  }
+}
+
+@include tablet-portrait-down {
+  .skills-qualifications-container {
+    .change-content {
+      @include flex(column);
+    }
   }
 }
 

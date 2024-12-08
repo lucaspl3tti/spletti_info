@@ -15,12 +15,7 @@ const properties = withDefaults(defineProps<TooltipProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!themeBasicOptions.includes(properties.theme)) {
-  throw new Error(`The heading theme "${properties.theme}" is not valid for tooltip component!`);
-}
-
-if (!['top', 'bottom', 'start', 'end'].includes(properties.location)) {
-  throw new Error(`The text location "${properties.location}" is not valid for tooltip component!`);
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'tooltip', true, themeBasicOptions);
+checkComponentPropertyValidity(properties.location, 'location', 'tooltip', true, ['top', 'bottom', 'start', 'end']);
 /* eslint-enable max-len */
 </script>

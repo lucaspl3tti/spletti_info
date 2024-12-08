@@ -60,9 +60,9 @@ const properties = withDefaults(defineProps<ProjectImageProperties>(), {
 });
 
 const zoomModalOpen = ref(false);
-const hasPaddingBottom = computed(
-  () => properties.thumbnail?.has_padding_bottom,
-);
+const hasPaddingBottom = computed(() => {
+  return properties.thumbnail?.has_padding_bottom;
+});
 
 function onClickImage(): void {
   zoomModalOpen.value = true;

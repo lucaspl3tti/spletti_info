@@ -19,7 +19,7 @@ import type { FormCheckboxProperties } from '@/interfaces/components/form.interf
 
 import { themeOptions } from '@/consts/misc';
 
-const model = defineModel<string|string[] | boolean>({
+const model = defineModel<string|string[]|boolean|null>({
   default: false,
   required: true,
 });
@@ -30,9 +30,7 @@ const properties = withDefaults(defineProps<FormCheckboxProperties>(), {
   inline: false,
 });
 
-if (!themeOptions.includes(properties.theme)) {
-  throw new Error(`The theme "${properties.theme}" is not valid for form checkbox component!`); // eslint-disable-line max-len
-}
+checkComponentPropertyValidity(properties.theme, 'theme', 'form-checkbox', true, themeOptions); // eslint-disable-line max-len
 </script>
 
 <style lang="scss">

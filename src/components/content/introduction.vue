@@ -52,7 +52,7 @@ const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const texts: Ref<ProfileBasics|null> = ref(null);
-const profilePicture: Ref<ProfilePicture | null> = ref(null);
+const profilePicture: Ref<ProfilePicture|null> = ref(null);
 
 const response: ApiResponse = await $fetch(`${apiUrl}/single-types/profile`);
 await handleResponseData(response);

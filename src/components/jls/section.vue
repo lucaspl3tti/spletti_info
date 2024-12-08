@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import type { SectionProperties } from '@/interfaces/components/misc.interface';
 import { ArrayAccess } from '@/helper/array-access.helper';
-import { textPositionOptions } from '@/consts/misc';
+import { headingTypes, textPositionOptions } from '@/consts/misc';
 
 const properties = withDefaults(defineProps<SectionProperties>(), {
   id: undefined,
@@ -42,17 +42,9 @@ const properties = withDefaults(defineProps<SectionProperties>(), {
 });
 
 /* eslint-disable max-len */
-if (!['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(properties.headingType)) {
-  throw new Error(`The heading type "${properties.headingType}" is not valid for section component!`);
-}
-
-if (!textPositionOptions.includes(properties.textPosition)) {
-  throw new Error(`The text position "${properties.textPosition}" is not valid for section component!`);
-}
-
-if (!textPositionOptions.includes(properties.titlePosition)) {
-  throw new Error(`The title position "${properties.titlePosition}" is not valid for section component!`);
-}
+checkComponentPropertyValidity(properties.headingType, 'heading-type', 'section', true, headingTypes);
+checkComponentPropertyValidity(properties.textPosition, 'text-position', 'section', true, textPositionOptions);
+checkComponentPropertyValidity(properties.titlePosition, 'title-position', 'section', true, textPositionOptions);
 /* eslint-enable max-len */
 
 const contentClasses = computed<string[]>((): string[] => {
