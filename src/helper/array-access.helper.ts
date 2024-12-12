@@ -48,5 +48,16 @@ export class ArrayAccess {
     }
 
     return Array.isArray(value) ? value : [value];
-}
+  }
+
+  /**
+   * Helper function to format an array of strings into a sentence
+   */
+  static formatStringArrayToSentence(stringArray: string[]): string {
+    if (!stringArray?.length) {
+      return '';
+    }
+
+    return stringArray.join(', ').replace(/, ([^,]*)$/, ' and $1.');
+  }
 }
