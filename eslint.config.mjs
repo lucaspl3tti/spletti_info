@@ -36,6 +36,7 @@ export default withNuxt([
         array: false,
       }],
 
+      'no-prototype-builtins': 0,
       'object-curly-spacing': ['error', 'always'],
       'no-console': 'error',
       '@typescript-eslint/ban-ts-comment': 0,

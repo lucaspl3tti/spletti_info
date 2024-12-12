@@ -40,14 +40,13 @@ export class ArrayAccess {
   }
 
   /**
-   * Helper function to determine if value is a string or an array of strings
-   * Always returns an array of string
+   * Helper function to wrap a value in an array
    */
-  static toStringArray(value: string|string[]|undefined|null): string[] {
-    if (!value) {
+  static wrapInArray<Type>(value: Type|null|undefined): Type[] {
+    if (value === null || value === undefined) {
       return [];
     }
 
     return Array.isArray(value) ? value : [value];
-  }
+}
 }
