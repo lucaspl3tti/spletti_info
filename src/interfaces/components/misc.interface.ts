@@ -119,6 +119,10 @@ export interface LoaderDotsProperties {
   size?: SizeWithDefault
 }
 
+export interface LoaderShapesProperties {
+  size?: SizeWithDefault
+}
+
 export interface LoaderTextProperties {
   text?: string
   theme?: Theme
