@@ -8,7 +8,7 @@
       },
     ]"
   >
-    <jls-loader-dots variant="growing" size="default" />
+    <jls-loader-dots variant="jumping" size="default" />
   </div>
 </template>
 

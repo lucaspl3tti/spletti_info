@@ -16,7 +16,7 @@ export const densityOptions: Density[] = ['default', 'comfortable', 'compact'];
 
 export const headingTypes: HeadingType[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-export const loaderDotsVariants: LoaderDotsVariants[] = ['flashing', 'elastic', 'collision', 'typing', 'growing'];
+export const loaderDotsVariants: LoaderDotsVariants[] = ['flashing', 'elastic', 'collision', 'typing', 'growing', 'spinning', 'jumping'];
 
 export const sizeOptions: Size[] = ['x-small', 'small', 'large', 'x-large'];
 
