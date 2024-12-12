@@ -5,6 +5,7 @@ import type { JsonObject } from '@/interfaces/helpers.interface';
  * Utility helper functions
  */
 export class Utilities {
+  // ##### General utility functions
   /**
    * ## Helper function to block scope for a given amount of time in ms and run
    * next set piece of code only after given time has passed
@@ -14,39 +15,34 @@ export class Utilities {
   }
 
   /**
-   * ## Helper function to get the current viewport from window
+   * ## Helper function to check if a value is empty
    */
-  static getViewport(viewport: Viewport): MediaQueryList {
-    const viewports = {
-      'sm': 576,
-      'md': 768,
-      'lg': 992,
-      'xl': 1200,
-      'xxl': 1400,
-      '3xl': 1600,
-      '4k': 2400,
-    };
+  static isEmpty<Type>(value: Type): boolean {
+    if (!value) {
+      return true;
+    }
 
-    const viewportWidth = viewports[viewport];
+    if (typeof value === 'string') {
+      return value.trim() === '';
+    }
 
-    return window.matchMedia(`(min-width: ${viewportWidth}px)`);
-  }
+    if (Array.isArray(value)) {
+      return value.length === 0;
+    }
 
-  /**
-   * ## Helper function to see if the viewport matches the MediaQuery
-   */
-  static matchesViewport(viewport: MediaQueryList): boolean {
-    return viewport.matches;
-  }
+    if (value instanceof Map || value instanceof Set) {
+      return value.size === 0;
+    }
 
-  /**
-   * ## Helper function to watch the viewport
-   */
-  static watchViewport(
-    viewport: MediaQueryList,
-    callback: (event: MediaQueryListEvent) => void,
-  ) {
-    viewport.addEventListener('change', (event) => callback(event));
+    if (value instanceof Object) {
+      return Object.keys(value).length === 0;
+    }
+
+    if (value instanceof FormData) {
+      return ![...value.keys()].length || [...value.keys()].length === 0;
+    }
+
+    return false;
   }
 
   /**
@@ -101,53 +97,8 @@ export class Utilities {
   }
 
   /**
-   * ## Helper function to check if a value is empty
+   * ## Helper function to get form data from a json object
    */
-  static isEmpty<Type>(value: Type): boolean {
-    if (!value) {
-      return true;
-    }
-
-    if (typeof value === 'string') {
-      return value.trim() === '';
-    }
-
-    if (Array.isArray(value)) {
-      return value.length === 0;
-    }
-
-    if (value instanceof Map || value instanceof Set) {
-      return value.size === 0;
-    }
-
-    if (value instanceof Object) {
-      return Object.keys(value).length === 0;
-    }
-
-    if (value instanceof FormData) {
-      return ![...value.keys()].length || [...value.keys()].length === 0;
-    }
-
-    return false;
-  }
-
-  /**
-   * ## Helper function to get a random number between a given minimum value
-   * and a given maximum value
-   */
-  static getRandomNumber(minimumValue: number, maximumValue: number): number {
-    // eslint-disable-next-line max-len
-    return Math.floor(Math.random() * (maximumValue - minimumValue + 1) + minimumValue);
-  }
-
-  /**
-   * ## Helper function to validate an email address
-   */
-  static isValidEmail(email: string) {
-    const emailRegex = /^[a-zA-Z0-9._-]+(\+[a-zA-Z0-9._-]+)?@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // eslint-disable-line max-len
-    return emailRegex.test(email);
-  }
-
   static getFormDataFromJson(
     jsonObject: JsonObject,
     parentKey: string = '',
@@ -173,5 +124,69 @@ export class Utilities {
     });
 
     return formData;
+  }
+
+  // ##### Viewport utility functions
+  /**
+   * ## Helper function to get the current viewport from window
+   */
+  static getViewport(viewport: Viewport): MediaQueryList {
+    const viewports = {
+      'sm': 576,
+      'md': 768,
+      'lg': 992,
+      'xl': 1200,
+      'xxl': 1400,
+      '3xl': 1600,
+      '4k': 2400,
+    };
+
+    const viewportWidth = viewports[viewport];
+
+    return window.matchMedia(`(min-width: ${viewportWidth}px)`);
+  }
+
+  /**
+   * ## Helper function to see if the viewport matches the MediaQuery
+   */
+  static matchesViewport(viewport: MediaQueryList): boolean {
+    return viewport.matches;
+  }
+
+  /**
+   * ## Helper function to watch the viewport
+   */
+  static watchViewport(
+    viewport: MediaQueryList,
+    callback: (event: MediaQueryListEvent) => void,
+  ) {
+    viewport.addEventListener('change', (event) => callback(event));
+  }
+
+  // ##### Number utility functions
+  /**
+   * ## Helper function to get a random number between a given minimum value
+   * and a given maximum value
+   */
+  static getRandomNumber(minimumValue: number, maximumValue: number): number {
+    // eslint-disable-next-line max-len
+    return Math.floor(Math.random() * (maximumValue - minimumValue + 1) + minimumValue);
+  }
+
+  static numberIsEven(number: number): boolean {
+    return number % 2 === 0;
+  }
+
+  static numberIsOdd(number: number): boolean {
+    return number % 2 !== 0;
+  }
+
+  // ##### Validation utility functions
+  /**
+   * ## Helper function to validate an email address
+   */
+  static isValidEmail(email: string) {
+    const emailRegex = /^[a-zA-Z0-9._-]+(\+[a-zA-Z0-9._-]+)?@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // eslint-disable-line max-len
+    return emailRegex.test(email);
   }
 }
