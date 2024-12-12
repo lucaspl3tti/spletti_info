@@ -2,7 +2,7 @@
   <div
     :class="[
       'jls-app-menu',
-      { 'show': model },
+      { 'show': isOpen },
     ]"
   >
     <div class="jls-app-menu__wrapper">
@@ -24,7 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import type { AppMenuProperties } from '@/interfaces/components/app.interface'; // eslint-disable-line max-len
+import type { AppMenuProperties } from '@/interfaces/components/app.interface';
+import { Dom } from '~/src/helper/dom.helper';
+import { Formatting } from '~/src/helper/formatting.helper';
 
 const model = defineModel<boolean>({
   default: false,
@@ -39,12 +41,65 @@ const properties = withDefaults(defineProps<AppMenuProperties>(), {
 
 checkComponentPropertyValidity(properties.items, 'items', 'app-menu', true);
 
+const isOpen = ref(false);
+const scrollTop = ref(0);
+const scrollLeft = ref(0);
+
+watch(() => model.value, () => {
+  if (model.value) {
+    return onOpen();
+  }
+
+  onClose();
+});
+
 function onClickCloseSidebar(): void {
   model.value = false;
+}
+
+async function onOpen() {
+  const htmlElement = document.documentElement;
+  scrollTop.value = htmlElement.scrollTop;
+  scrollLeft.value = htmlElement.scrollLeft;
+  isOpen.value = true;
+
+  await sleep(330);
+
+  htmlElement.style.setProperty(
+    '--c-body-scroll-x',
+    `-${Formatting.convertToUnit(scrollTop.value)}`,
+  );
+
+  htmlElement.style.setProperty(
+    '--c-body-scroll-y',
+    `-${Formatting.convertToUnit(scrollLeft.value)}`,
+  );
+
+  Dom.addClass(htmlElement, 'jls-app-menu-scroll-blocked');
+}
+
+function onClose() {
+  const htmlElement = document.documentElement;
+
+  Dom.removeClass(htmlElement, 'jls-app-menu-scroll-blocked');
+  htmlElement.scrollTop = scrollTop.value;
+  htmlElement.scrollLeft = scrollLeft.value;
+
+  isOpen.value = false;
 }
 </script>
 
 <style lang="scss">
+html.jls-app-menu-scroll-blocked {
+  @include absolute-position(
+    fixed,
+    $top: var(--c-body-scroll-y),
+    $left: var(--c-body-scroll-x),
+  );
+  width: 100%;
+  height: 100%;
+}
+
 .jls-app-menu {
   @include absolute-position(
     fixed,
