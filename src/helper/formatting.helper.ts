@@ -109,4 +109,23 @@ export class Formatting {
   static toDashCase(string: string): string {
     return string.replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase();
   }
+
+  /**
+   * ## Helper function to convert a given string to a string with a unit.
+   *
+   * If the given string is empty or not a number, it will return null.
+   * If the given string is a number, it will return a string with the
+   * given unit (default is 'px').
+   */
+  static convertToUnit(string: string|number, unit = 'px'): string|null {
+    if (string === null || string === '') {
+      return null;
+    } else if (isNaN(+string)) {
+      return String(string);
+    } else if (!isFinite(+string)) {
+      return null;
+    } else {
+      return `${Number(string)}${unit}`;
+    }
+  }
 }

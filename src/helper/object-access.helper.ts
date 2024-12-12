@@ -41,6 +41,13 @@ export class ObjectAccess {
     return entries.slice(-amount);
   }
 
+  static has<Object extends Record<string, any>>(
+    object: Object,
+    key: (keyof Object)[],
+  ): boolean {
+    return key.every((k) => object.hasOwnProperty(k));
+  }
+
   /**
    * ## Helper function to remove a specific item from an object
    * (by its key)
@@ -49,7 +56,7 @@ export class ObjectAccess {
     object: Record<Key, Value>,
     keyToRemove: Key,
   ): Record<Key, Value> {
-    const { [keyToRemove]: removedItem, ...rest } = object; // eslint-disable-line max-len, @typescript-eslint/no-unused-vars
+    const { [keyToRemove]: removedItem, ...rest } = object; // eslint-disable-line max-len
     return rest as Record<Key, Value>;
   }
 

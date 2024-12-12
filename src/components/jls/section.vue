@@ -48,11 +48,11 @@ checkComponentPropertyValidity(properties.titlePosition, 'title-position', 'sect
 /* eslint-enable max-len */
 
 const contentClasses = computed<string[]>((): string[] => {
-  return ArrayAccess.toStringArray(properties.contentClass);
+  return ArrayAccess.wrapInArray(properties.contentClass) as string[];
 });
 
 const titleClasses = computed<string[]>((): string[] => {
-  return ArrayAccess.toStringArray(properties.titleClass);
+  return ArrayAccess.wrapInArray(properties.titleClass) as string[];
 });
 </script>
 
