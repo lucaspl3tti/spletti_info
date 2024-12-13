@@ -16,6 +16,10 @@
           :to="button.link"
           :mirrored="button.isMirrored"
           uneven-border
+          :title="button.name === 'contact'
+            ? $t(`introduction.buttons.contact.text`)
+            : $t(`introduction.buttons.portfolio.text`)
+          "
         >
           {{
             button.name === 'contact'

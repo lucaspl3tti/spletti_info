@@ -16,6 +16,7 @@
             :to="localePath('legal')"
             theme="light"
             class="footer__link-item"
+            title="Impressum - Legal Disclosure"
           >
             Impressum - Legal Disclosure
           </jls-link>
@@ -25,6 +26,7 @@
             :to="localePath('privacy')"
             theme="light"
             class="footer__link-item"
+            title="Datenschutzerklärung – Privacy Policy"
           >
             Datenschutzerklärung – Privacy Policy
           </jls-link>

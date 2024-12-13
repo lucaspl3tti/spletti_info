@@ -10,6 +10,7 @@
         { 'handwriting-font': isHandwritingFont },
       ]"
       no-underline
+      :title="text"
     >
       {{ text }}<span v-if="!hideDot" class="heading-dot">.</span>
     </jls-link>

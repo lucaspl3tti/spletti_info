@@ -96,6 +96,7 @@ export interface LanguageSwitchProperties {
 // link component
 export interface LinkProperties {
   to: string
+  title: string
   theme?: Theme
   target?: LinkTarget
   isExternal?: boolean

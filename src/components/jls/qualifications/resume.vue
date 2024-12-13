@@ -5,6 +5,7 @@
     to="/img/about-me.png"
     is-external
     uneven-border
+    :title="$t(`general.download.label`)"
   >
     {{ $t(`general.download.label`) }}
     <template #append>

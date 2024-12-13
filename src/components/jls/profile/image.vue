@@ -9,6 +9,7 @@
       class="jls-profile-image__link"
       is-external
       no-underline
+      title="Instagram luca.spl3tti"
     >
       <img
         :src="imageUrl"

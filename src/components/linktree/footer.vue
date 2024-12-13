@@ -10,6 +10,7 @@
         :key="index"
         :href="item.href"
         :target="item.target"
+        :title="item.label"
         class="legal-link hover-underline"
       >
         {{ item.label }}

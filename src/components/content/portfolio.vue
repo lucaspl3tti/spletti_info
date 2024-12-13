@@ -26,8 +26,9 @@
           :to="localePath('/projects')"
           width="180"
           uneven-border
+          :title="$t('general.wordings.more')"
         >
-          Mehr sehen
+          {{ $t('general.wordings.more') }}
           <template #append>
             <jls-icon
               pack="bi"

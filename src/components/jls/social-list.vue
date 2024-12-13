@@ -13,6 +13,7 @@
         target="_blank"
         theme="secondary"
         icon-btn
+        :title="item.tooltip"
       >
         <jls-icon
           pack="bi"

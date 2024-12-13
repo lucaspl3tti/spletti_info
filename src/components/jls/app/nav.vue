@@ -26,6 +26,7 @@
           class="jls-app-nav-link__link"
           :to="localePath(item.link)"
           theme="light"
+          :title="$t(`general.navigation.${item.translationKey}`)"
         >
           {{ $t(`general.navigation.${item.translationKey}`) }}
         </jls-link>

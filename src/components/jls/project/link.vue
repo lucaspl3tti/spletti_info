@@ -9,6 +9,12 @@
     :href="link.href"
     target="_blank"
     rel="noopener noreferrer"
+    :title="link.type === 'repo'
+      ? $t('portfolio.projectGithubLinkText')
+      : link.type === 'live'
+        ? link.text || $t('portfolio.projectLiveLinkText')
+        : ''
+    "
   >
     <span v-if="link.type === 'repo'" class="hover-underline">
       {{ $t('portfolio.projectGithubLinkText') }}

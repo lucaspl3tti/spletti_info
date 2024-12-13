@@ -159,7 +159,7 @@ const formData = computed<ContactFormRequestData>(() => {
 });
 
 const privacyError = ref(false);
-const privacyLink = `<a class="hover-underline" href="/privacy">${t('general.wordings.here')}</a>`; // eslint-disable-line max-len
+const privacyLink = `<a class="hover-underline" href="/privacy" title="Privacy Policy">${t('general.wordings.here')}</a>`; // eslint-disable-line max-len
 const formIsValid = ref(true);
 const success = ref(false);
 const error = ref(false);

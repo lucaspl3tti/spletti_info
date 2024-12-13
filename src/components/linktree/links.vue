@@ -8,6 +8,7 @@
       :target="item.target"
       uneven-border
       class="link-list__link"
+      :title="item.label"
     >
       <template #prepend>
         <jls-icon

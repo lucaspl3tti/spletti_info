@@ -8,6 +8,7 @@
     <nuxt-link
       v-if="!isExternal"
       :to="to"
+      :title="title"
     >
       <span :class="[{ 'hover-underline': !noUnderline }]"><slot /></span>
       <slot name="append" />
@@ -18,6 +19,7 @@
       :href="to"
       :target="target"
       :rel="rel"
+      :title="title"
     >
       <span :class="[{ 'hover-underline': !noUnderline }]"><slot /></span>
       <slot name="append" />
@@ -31,6 +33,7 @@ import { themeOptions } from '@/consts/misc';
 
 const properties = withDefaults(defineProps<LinkProperties>(), {
   to: '',
+  title: '',
   theme: 'secondary',
   target: '_blank',
   isExternal: false,
@@ -39,6 +42,7 @@ const properties = withDefaults(defineProps<LinkProperties>(), {
 
 /* eslint-disable max-len */
 checkComponentPropertyValidity(properties.to, 'to', 'link', true);
+checkComponentPropertyValidity(properties.title, 'title', 'link', true);
 checkComponentPropertyValidity(properties.theme, 'theme', 'link', true, themeOptions);
 checkComponentPropertyValidity(properties.target, 'target', 'link', true, ['_blank', '_self', '_parent', '_top']);
 /* eslint-enable max-len */
