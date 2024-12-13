@@ -4,9 +4,7 @@
       <jls-heading heading-type="h1" :text="texts?.heading" />
       <jls-subheading v-if="texts?.subheading" :text="texts?.subheading" />
 
-      <p class="introduction__description">
-        {{ texts?.copy }}
-      </p>
+      <p class="introduction__description" v-html=texts?.copy />
 
       <div class="introduction__buttons">
         <jls-button
