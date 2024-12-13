@@ -41,7 +41,7 @@ const properties = withDefaults(defineProps<ProjectLinkProperties>(), {
 .project__link {
   @include flex($align: center, $gap: spacing(1));
   margin-top: spacing(2);
-  color: $color-primary;
+  color: $color-white;
   transition:
     color $animation-speed,
     transform $animation-speed;
@@ -51,20 +51,10 @@ const properties = withDefaults(defineProps<ProjectLinkProperties>(), {
   }
 
   &:hover {
-    color: $color-purple-800;
+    color: $color-orange-100;
 
     .nuxt-icon {
       transform: translateX(8px);
-    }
-  }
-}
-
-@include light-mode {
-  .project__link {
-    color: $color-white;
-
-    &:hover {
-      color: $color-orange-100;
     }
   }
 }

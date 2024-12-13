@@ -23,20 +23,13 @@ const properties = withDefaults(defineProps<BentoCardProperties>(), {
 <style lang="scss">
 .jls-bento-card {
   border-radius: 30px;
-  background-color: $color-white;
+  background-color: $color-primary-var;
   padding: spacing(5);
-  color: $color-black;
+  color: $color-white;
 
   &__body {
     @include flex(column);
     height: 100%;
-  }
-}
-
-@include light-mode {
-  .jls-bento-card {
-    background-color: $color-primary-var;
-    color: $color-white;
   }
 }
 </style>

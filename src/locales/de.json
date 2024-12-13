@@ -6,13 +6,17 @@
     },
     "wordings": {
       "here": "hier",
-      "more": "Mehr sehen"
+      "more": "Mehr sehen",
+      "all": "Alle"
     },
     "download": {
       "label": "Download"
     },
     "toggleTheme": {
       "label": "Theme wechseln"
+    },
+    "filtering": {
+      "label": "Filtern nach"
     },
     "navigation": {
       "home": "Startseite",
@@ -44,7 +48,7 @@
   },
 
   "projects": {
-    "heading": "projekte & portfolio.",
+    "heading": "projekte & portfolio",
     "subheading": "Eine Liste mit einigen spannenden Projekten von mir."
   },
 
@@ -92,7 +96,8 @@
       },
       "required": "Dieses Feld ist erforderlich"
     },
-    "privacyNotice": "Ich akzeptiere die Datenschutzerklärun. Weitere Informationen können {link} gefunden werden.",
+    "privacyNotice": "Ich akzeptiere die Datenschutzerklärung. Weitere Informationen können {link} gefunden werden.",
+    "privacyError": "Du musst die Datenschutzerklärun akzeptieren.",
     "submitBtn": "Senden"
   },
 

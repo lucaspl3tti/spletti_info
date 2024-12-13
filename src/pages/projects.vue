@@ -12,6 +12,21 @@
           </p>
         </div>
 
+        <div class="filter-bar">
+          <jls-dropdown
+            :items="tagsStore"
+            :default-active-item="defaultActiveFilter"
+            activator-title="Filtern nach"
+            :theme="colorMode"
+            @active-item-changed="onFilterActiveItemChanged"
+          >
+            <template #activatorTitle>
+              <span>{{ $t('general.filtering.label') }}</span>
+              <span v-if="activeFilter">: {{ activeFilter.title }}</span>
+            </template>
+          </jls-dropdown>
+        </div>
+
         <client-only>
           <div class="projects-grid">
             <jls-project-item
@@ -32,13 +47,30 @@
 
 <script setup lang="ts">
 import type { ApiResponse, Project } from '@/interfaces/api.interface';
+import type { DropdownItem } from '../interfaces/components/misc.interface';
+import { ArrayAccess } from '../helper/array-access.helper';
+import { Formatting } from '../helper/formatting.helper';
 import { Utilities } from '@/helper/utilities.helper';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl, siteTitle } = runtimeConfig.public;
-const { locale } = useI18n();
+const { t, locale } = useI18n();
+const { store } = useColorMode();
+const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
 const langClass = ref(`spletti-${locale.value}`);
 const projects: Ref<Project[]> = ref([]);
+const allProjects: Ref<Project[]> = ref([]);
+const tagsStore: DropdownItem[] = reactive([
+  {
+    id: 'all',
+    title: t('general.wordings.all'),
+    callback: (id) => filterProjects(id!),
+  },
+]);
+const defaultActiveFilter: Ref<DropdownItem|undefined> = ref(
+  ArrayAccess.getObjectByValue(tagsStore, 'id', 'all'),
+);
+const activeFilter: Ref<DropdownItem|undefined> = ref(defaultActiveFilter.value); // eslint-disable-line max-len
 
 const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects?lang=${locale.value}`); // eslint-disable-line max-len
 handleProjectsData(projectsData);
@@ -69,6 +101,43 @@ function handleProjectsData(response: ApiResponse): void {
   });
 
   projects.value = projectList;
+  allProjects.value = projects.value;
+  addTagsToStore();
+}
+
+function addTagsToStore(): void {
+  Utilities.iterate(projects.value, (project: Project): void => {
+    Utilities.iterate(project.tags, (tag: string): void => {
+      if (!ArrayAccess.hasObjectWithValue(tagsStore, 'title', tag)) {
+        tagsStore.push({
+          id: Formatting.spaceToDashCase(tag),
+          title: tag,
+          callback: (id) => filterProjects(id!),
+        });
+      }
+    });
+  });
+}
+
+function filterProjects(id: string): void {
+  if (id === 'all') {
+    projects.value = allProjects.value;
+    return;
+  }
+
+  projects.value = allProjects.value.filter((project: Project) => {
+    const tag = ArrayAccess.getObjectByValue(tagsStore, 'id', id)?.title;
+
+    if (!tag) {
+      throw new Error('Tag not found');
+    }
+
+    return project.tags.includes(tag);
+  });
+}
+
+function onFilterActiveItemChanged(item: DropdownItem): void {
+  activeFilter.value = item;
 }
 
 function getPortfolioGridItemClass(index: number): string {

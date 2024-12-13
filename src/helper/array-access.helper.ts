@@ -28,6 +28,28 @@ export class ArrayAccess {
     return array.slice(-amount);
   }
 
+  /**
+   * ## Helper function to get object in array by a specific value
+   */
+  static getObjectByValue<Type extends object, Key extends keyof Type>(
+    array: Type[],
+    key: Key,
+    value: Type[Key],
+  ): Type|undefined {
+    return array.find((item) => item[key] === value);
+  }
+
+  /**
+   * ## Helper function to check if an array has an object with a specific value
+   */
+  static hasObjectWithValue<Type>(
+    array: Type[],
+    key: keyof Type,
+    value: Type[keyof Type],
+  ): boolean {
+    return array.some((item) => item[key] === value);
+  }
+
   static removeItem<Type>(array: Type[], itemToRemove: Type) {
     return array.filter((item) => item !== itemToRemove);
   }

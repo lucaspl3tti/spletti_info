@@ -34,6 +34,7 @@
             v-model="name"
             :label="$t('contact.inputs.name.label')"
             :placeholder="$t('contact.inputs.name.placeholder')"
+            :theme="colorMode"
             variant="filled"
             type="input"
             name="your-name"
@@ -48,6 +49,7 @@
             v-model="email"
             :label="$t('contact.inputs.email.label')"
             :placeholder="$t('contact.inputs.email.placeholder')"
+            :theme="colorMode"
             variant="filled"
             type="email"
             name="your-email"
@@ -67,6 +69,7 @@
             v-model="subject"
             :label="$t('contact.inputs.subject.label')"
             :placeholder="$t('contact.inputs.subject.placeholder')"
+            :theme="colorMode"
             variant="filled"
             type="input"
             name="your-subject"
@@ -81,7 +84,7 @@
             v-model="message"
             :label="$t('contact.inputs.message.label')"
             :placeholder="$t('contact.inputs.message.placeholder')"
-            theme="light"
+            :theme="colorMode"
             variant="filled"
             name="your-message"
             required
@@ -138,6 +141,8 @@ import type {
 import { Utilities } from '@/helper/utilities.helper';
 
 const { t } = useI18n();
+const { store } = useColorMode();
+const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 const contactElement = ref();

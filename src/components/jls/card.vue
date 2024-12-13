@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CardProperties } from '@/interfaces/components/misc.interface';
+import type { CardProperties } from '@/interfaces/components/cards.interface';
 import { themeOptions, variantBasicOptions } from '@/consts/misc';
 
 const properties = withDefaults(defineProps<CardProperties>(), {

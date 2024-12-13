@@ -143,24 +143,28 @@ function onClickAppendInner() {
 
   &--light {
     .v-field {
+      background: $color-white;
       color: $color-white;
     }
   }
 
   &--dark {
     .v-field {
-      color: $color-black;
+      background: $color-dark;
+      color: $color-dark;
     }
   }
 
   &--primary {
     .v-field {
+      background: $color-purple-300;
       color: $color-purple-300;
     }
   }
 
   &--secondary {
     .v-field {
+      background: $color-secondary;
       color: $color-secondary;
     }
   }

@@ -6,13 +6,17 @@
     },
     "wordings": {
       "here": "here",
-      "more": "See More"
+      "more": "See More",
+      "all": "All"
     },
     "download": {
       "label": "Download"
     },
     "toggleTheme": {
       "label": "Toggle Theme"
+    },
+    "filtering": {
+      "label": "Filter by"
     },
     "navigation": {
       "home": "Home",

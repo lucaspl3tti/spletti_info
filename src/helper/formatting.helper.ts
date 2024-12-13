@@ -106,8 +106,12 @@ export class Formatting {
     return newString;
   }
 
-  static toDashCase(string: string): string {
+  static kebabToDashCase(string: string): string {
     return string.replace(/([A-Z])/g, '-$1').replace(/^-/, '').toLowerCase();
+  }
+
+  static spaceToDashCase(string: string): string {
+    return string.replace(' ', '-').toLowerCase();
   }
 
   /**

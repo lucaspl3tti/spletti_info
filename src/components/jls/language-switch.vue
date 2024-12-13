@@ -1,11 +1,12 @@
 <template>
-  <div :class="['jls-language-switch', { 'd-none': disabled }]">
-    <v-menu
+  <div class="jls-language-switch">
+    <jls-dropdown
       :class="[
         'jls-language-switch__menu',
         `jls-language-switch__menu--${language}`,
-        'm-2',
       ]"
+      :theme="colorMode"
+      :disabled="disabled"
     >
       <template #activator="{ props }">
         <jls-button
@@ -22,32 +23,40 @@
         </jls-button>
       </template>
 
-      <v-list class="jls-language-switch__list">
-        <v-list-item @click="changeLanguage('en')">
-          <v-list-item-title>
-            {{ $t('general.languages.en') }}
-            <jls-icon
-              pack="jls"
-              name="usa"
-              size="24"
-              color="currentColor"
-            />
-          </v-list-item-title>
-        </v-list-item>
+      <template #dropdownList>
+        <v-list class="jls-dropdown__list">
+          <v-list-item
+            class="jls-dropdown__list-item"
+            @click="changeLanguage('en')"
+          >
+            <v-list-item-title>
+              {{ $t('general.languages.en') }}
+              <jls-icon
+                pack="jls"
+                name="usa"
+                size="24"
+                color="currentColor"
+              />
+            </v-list-item-title>
+          </v-list-item>
 
-        <v-list-item @click="changeLanguage('de')">
-          <v-list-item-title>
-            {{ $t('general.languages.de') }}
-            <jls-icon
-              pack="jls"
-              name="germany"
-              size="24"
-              color="currentColor"
-            />
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
+          <v-list-item
+            class="jls-dropdown__list-item"
+            @click="changeLanguage('de')"
+          >
+            <v-list-item-title>
+              {{ $t('general.languages.de') }}
+              <jls-icon
+                pack="jls"
+                name="germany"
+                size="24"
+                color="currentColor"
+              />
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </template>
+    </jls-dropdown>
   </div>
 </template>
 
@@ -61,6 +70,8 @@ const properties = withDefaults(defineProps<LanguageSwitchProperties>(), {
 });
 
 const { locale, setLocale } = useI18n();
+const { store } = useColorMode();
+const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
 let emitter: InstanceType<typeof NativeEventEmitter>;
 
 // const key = ref(0);
@@ -92,7 +103,7 @@ function changeLanguage(languageCode: 'en'|'de') {
 }
 </script>
 
-<style lang="scss">
+<!-- <style lang="scss">
 .jls-language-switch {
   &__list {
     .v-list-item-title {
@@ -100,4 +111,4 @@ function changeLanguage(languageCode: 'en'|'de') {
     }
   }
 }
-</style>
+</style> -->

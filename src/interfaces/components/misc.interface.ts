@@ -49,18 +49,31 @@ export interface ButtonProperties {
   mirrored?: boolean
 }
 
-// card component
-export interface CardProperties {
-  title?: string
-  theme?: Theme
-  variant?: VariantBasic
-  hideActions?: boolean
-  isModal?: boolean
-}
-
 // container component
 export interface ContainerProperties {
   size?: SizeWithDefault
+}
+
+// dropdown component
+export interface DropdownProperties {
+  items?: DropdownItem[]
+  disabled?: boolean
+  activatorTitle?: string
+  activatorTheme?: ThemeNoneSelectable
+  theme?: ThemeBasic
+  defaultActiveItem?: DropdownItem
+}
+
+export interface DropdownItem {
+  id: string
+  title: string
+  callback: (id?: string) => void
+}
+
+export interface DropdownTriggerProps {
+  'aria-expanded'?: string
+  'aria-haspopup'?: string
+  onClick?: (event: MouseEvent) => void
 }
 
 // hamburger component
