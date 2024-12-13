@@ -6,7 +6,6 @@
         `jls-language-switch__menu--${language}`,
         'm-2',
       ]"
-      open-on-hover
     >
       <template #activator="{ props }">
         <jls-button
