@@ -94,10 +94,11 @@ import type { ApiResponse, AboutMe } from '@/interfaces/api.interface';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
+const { locale } = useI18n();
 
 const aboutData: Ref<AboutMe|null> = ref(null);
 
-const requestUrl = `${apiUrl}/single-types/about-me`;
+const requestUrl = `${apiUrl}/single-types/about-me?lang=${locale.value}`;
 const aboutResponse: ApiResponse = await $fetch(requestUrl);
 handleAboutData(aboutResponse);
 

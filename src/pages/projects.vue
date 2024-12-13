@@ -40,7 +40,7 @@ const { locale } = useI18n();
 const langClass = ref(`spletti-${locale.value}`);
 const projects: Ref<Project[]> = ref([]);
 
-const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects`);
+const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects?lang=${locale.value}`); // eslint-disable-line max-len
 handleProjectsData(projectsData);
 
 useHead({

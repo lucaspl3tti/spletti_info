@@ -13,7 +13,7 @@
       <div class="footer__links">
         <p>
           <jls-link
-            to="/legal"
+            :to="localePath('legal')"
             theme="light"
             class="footer__link-item"
           >
@@ -22,7 +22,7 @@
         </p>
         <p>
           <jls-link
-            to="/privacy"
+            :to="localePath('privacy')"
             theme="light"
             class="footer__link-item"
           >
@@ -35,6 +35,7 @@
 </template>
 
 <script setup lang=ts>
+const localePath = useLocalePath();
 const runtimeConfig = useRuntimeConfig();
 const { showVersionInFooter, appVersion, siteTitle } = runtimeConfig.public;
 

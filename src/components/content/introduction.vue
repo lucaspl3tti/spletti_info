@@ -48,13 +48,14 @@ import type {
 } from '@/interfaces/api.interface';
 import type { Introduction } from '@/interfaces/contents.interface';
 
+const { locale } = useI18n();
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const texts: Ref<ProfileBasics|null> = ref(null);
 const profilePicture: Ref<ProfilePicture|null> = ref(null);
 
-const response: ApiResponse = await $fetch(`${apiUrl}/single-types/profile`);
+const response: ApiResponse = await $fetch(`${apiUrl}/single-types/profile?lang=${locale.value}`); // eslint-disable-line max-len
 await handleResponseData(response);
 
 const introduction: Introduction = reactive({

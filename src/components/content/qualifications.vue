@@ -93,7 +93,7 @@ import type { Careers } from '@/interfaces/contents.interface';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const viewport: Ref<MediaQueryList|null> = ref(null);
 const isViewportXl = ref(false);
@@ -112,8 +112,8 @@ const careers: Careers = reactive({
   },
 });
 
-const skillsData: ApiResponse = await $fetch(`${apiUrl}/skills`);
-const jobsData: JobsResponse = await $fetch(`${apiUrl}/jobs`);
+const skillsData: ApiResponse = await $fetch(`${apiUrl}/skills?lang=${locale.value}`); // eslint-disable-line max-len
+const jobsData: JobsResponse = await $fetch(`${apiUrl}/jobs?lang=${locale.value}`); // eslint-disable-line max-len
 
 handleSkillsData(skillsData);
 handleJobData(jobsData);

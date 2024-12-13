@@ -4,31 +4,31 @@ export const navItems: NavItem[] = [
   {
     name: 'home',
     link: '/',
-    text: 'Home',
+    translationKey: 'home',
     icon: 'house',
   },
   {
     name: 'portfolio',
     link: '/#portfolio',
-    text: 'Portfolio',
+    translationKey: 'portfolio',
     icon: 'window-stack',
   },
   {
     name: 'skills',
     link: '/#skills',
-    text: 'Skills',
+    translationKey: 'skills',
     icon: 'boxes',
   },
   {
     name: 'about',
     link: '/#about',
-    text: 'About',
+    translationKey: 'about',
     icon: 'chat-left-quote',
   },
   {
     name: 'contact',
     link: '/#contact',
-    text: 'Contact',
+    translationKey: 'contact',
     icon: 'chat-dots',
   },
 ];

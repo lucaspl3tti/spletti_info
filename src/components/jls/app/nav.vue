@@ -24,10 +24,10 @@
 
         <jls-link
           class="jls-app-nav-link__link"
-          :to="item.link"
+          :to="localePath(item.link)"
           theme="light"
         >
-          {{ item.text }}
+          {{ $t(`general.navigation.${item.translationKey}`) }}
         </jls-link>
       </div>
     </div>
@@ -36,6 +36,8 @@
 
 <script setup lang="ts">
 import type { AppNavProperties } from '@/interfaces/components/app.interface';
+
+const localePath = useLocalePath();
 
 const properties = withDefaults(defineProps<AppNavProperties>(), {
   items: undefined,

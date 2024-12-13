@@ -21,7 +21,12 @@
 
     <div class="portfolio-actions">
       <div class="portfolio-see-all">
-        <jls-button theme="secondary" to="/projects" width="180" uneven-border>
+        <jls-button
+          theme="secondary"
+          :to="localePath('/projects')"
+          width="180"
+          uneven-border
+        >
           Mehr sehen
           <template #append>
             <jls-icon
@@ -41,12 +46,14 @@
 import type { ApiResponse, Project } from '@/interfaces/api.interface';
 import { Utilities } from '@/helper/utilities.helper';
 
+const { locale } = useI18n();
+const localePath = useLocalePath();
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const projects: Ref<Project[]> = ref([]);
 
-const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects`);
+const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects?lang=${locale.value}`); // eslint-disable-line max-len
 handleProjectsData(projectsData);
 
 function handleProjectsData(response: ApiResponse): void {

@@ -1,7 +1,7 @@
 <template>
   <v-app-bar-title class="jls-app-bar-logo">
     <jls-link
-      to="/"
+      :to="localePath('/')"
       theme="light"
       :class="[
         'nav-logo',
@@ -18,6 +18,8 @@
 
 <script setup lang="ts">
 import type { AppBarLogoProperties } from '@/interfaces/components/app.interface'; // eslint-disable-line max-len
+
+const localePath = useLocalePath();
 
 const properties = withDefaults(defineProps<AppBarLogoProperties>(), {
   text: '',

@@ -3,32 +3,13 @@
     <jls-container id="legalWrapper" class="legal-disclosure">
       <h1>{{ title }}</h1>
 
-      <div
-        v-if="!Utilities.isEmpty(htmlContentEN)"
-        class="go-to-english-version"
-      >
-        <a href="#english">
-          <span class="hover-underline">Go to english version</span>
-          <jls-icon pack="bi" name="arrow-right" size="24" />
-        </a>
-      </div>
-
-      <div class="legal-disclosure__content" v-html="htmlContentDE" />
-
-      <div
-        v-if="!Utilities.isEmpty(htmlContentEN)"
-        class="legal-disclosure__content--en"
-      >
-        <h2 id="english">{{ $t('legalTexts.englishVersion') }}</h2>
-        <div v-html="htmlContentEN" />
-      </div>
+      <div class="legal-disclosure__content" v-html="htmlContent" />
     </jls-container>
   </main>
 </template>
 
 <script setup lang="ts">
 import type { ApiResponse } from '@/interfaces/api.interface';
-import { Utilities } from '@/helper/utilities.helper';
 
 const { locale } = useI18n();
 const langClass = ref('');
@@ -36,10 +17,9 @@ const runtimeConfig = useRuntimeConfig();
 const { apiUrl, siteTitle } = runtimeConfig.public;
 
 const title = ref('');
-const htmlContentDE = ref('');
-const htmlContentEN = ref('');
+const htmlContent = ref('');
 
-const response: ApiResponse = await $fetch(`${apiUrl}/legal-texts/impressum`);
+const response: ApiResponse = await $fetch(`${apiUrl}/legal-texts/impressum?lang=${locale.value}`); // eslint-disable-line max-len
 handleLegalPageData(response);
 
 onMounted(() => {
@@ -64,8 +44,7 @@ function handleLegalPageData(response: ApiResponse): void {
   const { data } = response;
 
   title.value = data.heading as string;
-  htmlContentDE.value = (data.content as Record<string, string>).de;
-  htmlContentEN.value = (data.content as Record<string, string>).en;
+  htmlContent.value = data.content;
 }
 </script>
 

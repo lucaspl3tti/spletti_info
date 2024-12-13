@@ -8,7 +8,11 @@
         color="currentColor"
       />
 
-      <jls-tooltip text="Toggle Theme" theme="light" location="bottom" />
+      <jls-tooltip
+        :text="$t('general.toggleTheme.label')"
+        theme="light"
+        location="bottom"
+      />
     </jls-button>
   </div>
 </template>

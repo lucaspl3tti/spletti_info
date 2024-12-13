@@ -9,6 +9,16 @@
     },
     "download": {
       "label": "Download"
+    },
+    "toggleTheme": {
+      "label": "Toggle Theme"
+    },
+    "navigation": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "skills": "Skills",
+      "about": "About",
+      "contact": "Contac"
     }
   },
   "introduction": {

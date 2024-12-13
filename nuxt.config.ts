@@ -54,7 +54,7 @@ export default defineNuxtConfig({
       appVersion,
       showVersionInFooter: false,
       isDev,
-      languageSwitchEnabled: false,
+      languageSwitchEnabled: true,
       useAppLoader: true,
       appLoaderSpeed: 1000,
 
@@ -169,7 +169,7 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     locales: [
       { code: 'en', language: 'en-US' },
-      // { code: 'de', language: 'de-DE' },
+      { code: 'de', language: 'de-DE' },
     ],
     defaultLocale: 'en',
     vueI18n: './i18n.config.ts', // custom path example
