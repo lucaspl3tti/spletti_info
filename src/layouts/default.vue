@@ -3,8 +3,10 @@
     <nuxt-loading-indicator />
     <jls-app-loader v-if="useAppLoader" />
 
-    <jls-app-particles v-if="mode === 'dark'" color="#cbcaca" />
-    <jls-app-particles v-if="mode === 'light'" color="#191727" />
+    <client-only>
+      <jls-app-particles v-if="mode === 'dark'" color="#cbcaca" />
+      <jls-app-particles v-if="mode === 'light'" color="#191727" />
+    </client-only>
 
     <div class="jls-navigation">
       <jls-app-bar :nav-items="navItems" hide-nav />
