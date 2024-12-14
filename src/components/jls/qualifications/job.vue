@@ -146,7 +146,7 @@ const skills = computed(() => {
 @include desktop-up {
   .jls-qualifications-job {
     &--right {
-      &__skills {
+      .jls-qualifications-job__skills {
         justify-content: flex-end;
       }
 
