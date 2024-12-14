@@ -76,6 +76,7 @@ export interface Job extends ApiResponseDataBase {
   timeperiod: string
   company: string
   tasks: string
+  skills: string
   career: string
   position: number
 }

@@ -2,6 +2,7 @@
   <div class="nuxt-layout nuxt-layout--default">
     <nuxt-loading-indicator />
     <jls-app-loader v-if="useAppLoader" />
+    <!-- <jls-app-cursor /> -->
 
     <client-only>
       <jls-app-particles v-if="mode === 'dark'" color="#cbcaca" />

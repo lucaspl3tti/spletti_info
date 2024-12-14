@@ -13,14 +13,18 @@
 </template>
 
 <script setup lang="ts">
+import { NativeEventEmitter } from '@/helper/event-emitter.helper';
+
 const route = useRoute();
 const runtimeConfig = useRuntimeConfig();
 const { appLoaderSpeed } = runtimeConfig.public;
 const loaderSpeed = appLoaderSpeed || 1500;
 const animating = ref(false);
 const active = ref(true);
+let emitter: InstanceType<typeof NativeEventEmitter>;
 
 onMounted(() => {
+  emitter = new NativeEventEmitter();
   hideLoader();
 });
 
@@ -42,6 +46,7 @@ async function hideLoader() {
   await sleep(330);
   animating.value = false;
   active.value = false;
+  emitter.publish('app-loaded');
 }
 </script>
 

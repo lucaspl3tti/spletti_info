@@ -32,3 +32,12 @@ checkComponentPropertyValidity(properties.side, 'side', 'timeline', false, ['sta
 checkComponentPropertyValidity(properties.truncateLine, 'truncate-line', 'timeline', true, ['align', 'end', 'both']);
 /* eslint-enable max-len */
 </script>
+
+<style lang="scss">
+.jls-timeline {
+  &.v-timeline--vertical.v-timeline--justify-auto {
+    grid-template-columns:
+      calc(50% - 16px) min-content calc(50% - 16px) !important;
+  }
+}
+</style>

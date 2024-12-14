@@ -60,15 +60,9 @@ function onClickCloseSidebar(): void {
 async function onOpen() {
   const htmlElement = document.documentElement;
   scrollTop.value = htmlElement.scrollTop;
-  scrollLeft.value = htmlElement.scrollLeft;
   isOpen.value = true;
 
   await sleep(330);
-
-  htmlElement.style.setProperty(
-    '--c-body-scroll-x',
-    `-${Formatting.convertToUnit(scrollTop.value)}`,
-  );
 
   htmlElement.style.setProperty(
     '--c-body-scroll-y',

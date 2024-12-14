@@ -82,4 +82,26 @@ export class ArrayAccess {
 
     return stringArray.join(', ').replace(/, ([^,]*)$/, ' and $1.');
   }
+
+  /**
+   * Helper function to get an array of strings from newlines in a string
+   */
+  static getArrayFromNewlines(string: string): string[] {
+    if (Utilities.isEmpty(string)) {
+      return [];
+    }
+
+    return string.split(/\n|\s\n/);
+  }
+
+  /**
+   * Helper function to get an array of strings from newlines in a string
+   */
+  static getArrayFromCommas(string: string): string[] {
+    if (Utilities.isEmpty(string)) {
+      return [];
+    }
+
+    return string.split(',').map(item => item.trim());
+  }
 }
