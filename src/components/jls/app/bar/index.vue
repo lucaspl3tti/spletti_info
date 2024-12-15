@@ -83,7 +83,6 @@ function toggleTheme(): void {
     background-color: $color-primary-var;
     padding-top: spacing(4);
     transition:
-      background-color ($animation-speed + 300ms),
       height 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       width 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
@@ -110,7 +109,6 @@ function toggleTheme(): void {
   &.jls-app-bar--menu-open {
     .v-app-bar.v-toolbar {
       box-shadow: none;
-      background-color: transparent;
     }
   }
 }

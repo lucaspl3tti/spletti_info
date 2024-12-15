@@ -5,8 +5,10 @@
     <!-- <jls-app-cursor /> -->
 
     <client-only>
-      <jls-app-particles v-if="mode === 'dark'" color="#cbcaca" />
-      <jls-app-particles v-if="mode === 'light'" color="#191727" />
+      <jls-app-particles
+        :color="particlesColor"
+        :particles-count="particlesCount"
+      />
     </client-only>
 
     <div class="jls-navigation">
@@ -30,9 +32,12 @@
 <script setup lang="ts">
 import aosInit from '@/mixins/aos';
 import { navItems } from '@/consts/nav-items';
+import { useColorMode } from '@vueuse/core';
 
 const runtimeConfig = useRuntimeConfig();
 const { useAppLoader } = runtimeConfig.public;
+const breakpoints = useBreakpoints();
+const activeBreakpoint = breakpoints.active();
 
 onMounted(() => {
   aosInit();
@@ -40,4 +45,13 @@ onMounted(() => {
 
 const { store } = useColorMode();
 const mode = computed(() => store.value === 'auto' ? 'dark' : store.value);
+const isMobile = computed(() => {
+  return activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm';
+});
+
+const particlesColor = computed(() => mode.value === 'dark'
+  ? '#cbcaca'
+  : '#191727',
+);
+const particlesCount = computed(() => !isMobile.value ? 100 : 80);
 </script>

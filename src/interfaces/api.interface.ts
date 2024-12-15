@@ -26,6 +26,7 @@ export interface ProjectLink {
   href: string
   text?: string
   type: string
+  is_file?: boolean
 }
 
 export interface Project extends ApiResponseDataBase {

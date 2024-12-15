@@ -10,7 +10,7 @@
         <div class="about__image about__image--introduction">
           <img
             v-if="aboutData?.basic.personal_image"
-            :src="getImageFullPath(aboutData.basic.personal_image)"
+            :src="getAssetFullPath(aboutData.basic.personal_image)"
             class="image__me"
             alt="Image of Jan-Luca Splettstößer"
           />
@@ -42,7 +42,7 @@
         >
           <img
             v-if="aboutData?.professional.backend_image"
-            :src="getImageFullPath(aboutData.professional.backend_image)"
+            :src="getAssetFullPath(aboutData.professional.backend_image)"
             class="image__backend"
             alt="Backend Image"
           />
@@ -70,7 +70,7 @@
           >
             <img
               v-if="aboutData?.professional.frontend_image"
-              :src="getImageFullPath(aboutData.professional.frontend_image)"
+              :src="getAssetFullPath(aboutData.professional.frontend_image)"
               class="image__frontend"
               alt="Frontend Image"
             />

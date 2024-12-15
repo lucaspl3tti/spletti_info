@@ -12,7 +12,7 @@ export interface ProjectImageProperties {
 
 // project link
 export interface ProjectLinkProperties {
-  link: ProjectLink | null
+  link: ProjectLink
 }
 
 export interface ProjectItemProperties {

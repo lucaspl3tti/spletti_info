@@ -11,7 +11,7 @@
 
       <img
         v-else
-        :src="skill!.image ? getImageFullPath(skill!.image) : undefined"
+        :src="skill!.image ? getAssetFullPath(skill!.image) : undefined"
         class="jls-card-mini__image"
         :alt="`Icon of ${skill!.name}`"
       />

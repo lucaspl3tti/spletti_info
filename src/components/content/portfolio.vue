@@ -125,14 +125,6 @@ function getPortfolioGridItemClass(index: number): string {
 
     .jls-bento-card {
       @include size(100%);
-
-      &__image {
-        height: 200px;
-
-        &__img {
-          max-height: 100%;
-        }
-      }
     }
   }
 }
@@ -205,6 +197,23 @@ function getPortfolioGridItemClass(index: number): string {
   }
 }
 
+@include desktop-down {
+  .portfolio-grid {
+    &__item {
+      .jls-bento-card {
+        &__image {
+          height: 200px;
+
+          &__img {
+            max-height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
+
 @include desktop-up {
   .portfolio-grid {
     grid-template-areas:
@@ -218,16 +227,6 @@ function getPortfolioGridItemClass(index: number): string {
     &__item {
       &--item6 {
         @include portfolio-grid-item-wide;
-      }
-
-      .jls-bento-card {
-        &__image {
-          height: auto;
-
-          &__img {
-            max-height: none;
-          }
-        }
       }
     }
   }

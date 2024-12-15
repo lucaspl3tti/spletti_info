@@ -106,7 +106,6 @@ const skills = computed(() => {
 
   &__skills {
     @include flex(row wrap, $justify: flex-start, $gap: spacing(1.5));
-    max-width: 75%;
     margin-top: spacing(4);
   }
 
@@ -159,6 +158,10 @@ const skills = computed(() => {
       .v-timeline-item__opposite {
         @include flex(column, $align: flex-start);
       }
+    }
+
+    &__skills {
+      max-width: 75%;
     }
   }
 }

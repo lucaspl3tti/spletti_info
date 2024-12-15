@@ -6,7 +6,7 @@
       link.type === 'repo' ? 'project__link--github' : '',
       link.type === 'live' ? 'project__link--live' : '',
     ]"
-    :href="link.href"
+    :href="linkTarget"
     target="_blank"
     rel="noopener noreferrer"
     :title="link.type === 'repo'
@@ -31,9 +31,20 @@
 <script setup lang="ts">
 import type { ProjectLinkProperties } from '@/interfaces/components/projects.interface'; // eslint-disable-line max-len
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<ProjectLinkProperties>(), {
-  link: null,
+  link: undefined,
+});
+
+const linkTarget = computed(() => {
+  if (properties.link.type !== 'live') {
+    return properties.link.href;
+  }
+
+  if (!properties.link.is_file) {
+    return properties.link.href;
+  }
+
+  return getAssetFullPath(properties.link.href);
 });
 </script>
 

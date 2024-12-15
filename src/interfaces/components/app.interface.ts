@@ -36,5 +36,14 @@ export interface AppMenuProperties {
 
 // app particles
 export interface AppParticlesProperties {
-  color: string
+  color: string,
+  particlesCount?: number|string
+  enableLinks?: boolean
+  disableMovement?: boolean
+  minimumSize?: number|string
+  maximumSize?: number|string
+  minimumSpeed?: number|string
+  maximumSpeed?: number|string
+  minimumOpacity?: number|string
+  maximumOpacity?: number|string
 }

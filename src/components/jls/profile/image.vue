@@ -47,7 +47,7 @@ const socialLinkUrl = computed(() => properties.data?.social_link.href);
 const socialLinkLabel = computed(() => properties.data?.social_link.label);
 const imageUrl = computed(() => {
   if (properties.data?.image) {
-    return getImageFullPath(properties.data?.image);
+    return getAssetFullPath(properties.data?.image);
   }
 
   return null;

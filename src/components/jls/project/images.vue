@@ -8,7 +8,7 @@
   >
     <img
       class="jls-bento-card__image__img"
-      :src="getImageFullPath(thumbnail!.path)"
+      :src="getAssetFullPath(thumbnail!.path)"
       :alt="thumbnail!.metadata?.alt"
       :style="['aspect-ratio: ' + thumbnail!.ratio]"
       @click="onClickImage"
@@ -41,7 +41,7 @@
         <template v-for="(image, index) in images" :key="index">
           <v-carousel-item
             class="zoom-modal__img"
-            :src="getImageFullPath(image.path)"
+            :src="getAssetFullPath(image.path)"
             :alt="image.metadata?.atl"
             :style="{ 'aspect-ratio': image?.ratio }"
           />
@@ -174,6 +174,14 @@ function onClickImage(): void {
 
     &__img {
       max-height: 450px;
+    }
+  }
+}
+
+@include desktop-up {
+  .jls-bento-card__image {
+    &__img {
+      max-height: 300px;
     }
   }
 }

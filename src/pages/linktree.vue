@@ -4,7 +4,7 @@
 
     <div class="linktree-container">
       <linktree-head
-        :profille-image="getImageFullPath(linktreeData!.basic.profile_picture)"
+        :profille-image="getAssetFullPath(linktreeData!.basic.profile_picture)"
         :username="linktreeData!.basic.username"
       />
 
