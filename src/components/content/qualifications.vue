@@ -18,8 +18,7 @@
           @change="onChangeContent"
         />
 
-        <!-- @TODO: add later -->
-        <!-- <jls-qualifications-resume /> -->
+        <jls-qualifications-resume />
       </div>
 
       <div
@@ -167,7 +166,7 @@ function handleJobData(response: JobsResponse): void {
   .change-content {
     position: relative;
     min-height: 50px;
-    margin-bottom: spacing(10);
+    @include marginY(spacing(3), spacing(10));
   }
 }
 

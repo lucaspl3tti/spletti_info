@@ -47,7 +47,7 @@ function onClickNavItem(): void {
 .jls-qualifications-nav {
   @include flex(row wrap, $justify: center, $align: center);
   height: 100%;
-  @include marginY(spacing(3), 0);
+  min-height: 50px;
   padding-left: 0;
   color: inherit;
   list-style: none;

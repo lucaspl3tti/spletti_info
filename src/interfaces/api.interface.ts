@@ -89,6 +89,10 @@ export interface JobsResponse extends ApiResponse {
   }
 }
 
+export interface Resume extends ApiResponseDataBase {
+  filepath: string
+}
+
 // about me interfaces
 export interface AboutMe extends ApiResponseDataBase {
   basic: {

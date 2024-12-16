@@ -1,13 +1,14 @@
 <template>
   <jls-button
+    v-if="resume"
     class="jls-qualifications-resume"
-    theme="secondary"
-    to="/img/about-me.png"
+    :href="getAssetFullPath(resume.filepath)"
     is-external
-    uneven-border
-    :title="$t(`general.download.label`)"
+    target="_blank"
+    theme="secondary"
+    :title="$t('qualifications.resume.download.label')"
   >
-    {{ $t(`general.download.label`) }}
+    {{ $t('qualifications.resume.download.label') }}
     <template #append>
       <jls-icon
         pack="bi"
@@ -20,7 +21,20 @@
 </template>
 
 <script setup lang="ts">
-// @TODO: Implement code to get file for download button from API
+import type { ApiResponse, Resume } from '~/src/interfaces/api.interface';
+
+const runtimeConfig = useRuntimeConfig();
+const { apiUrl } = runtimeConfig.public;
+const { locale } = useI18n();
+
+const resume: Ref<Resume|null> = ref(null);
+const resumeData: ApiResponse = await $fetch(`${apiUrl}/single-types/resume?lang=${locale.value}`); // eslint-disable-line max-len
+
+handleResumeData(resumeData);
+
+function handleResumeData(response: ApiResponse): void {
+  resume.value = response.data as Resume;
+}
 </script>
 
 <style lang="scss">
@@ -32,14 +46,15 @@
   }
 }
 
-@include tablet-portrait-down {
+@include tablet-down {
   .jls-qualifications-resume {
     align-self: flex-end;
-    margin-top: spacing(4)
+    width: 100%;
+    margin-top: spacing(4);
   }
 }
 
-@include tablet-portrait-up {
+@include tablet-up {
   .jls-qualifications-resume {
     @include absolute-position(
       $top: 0,

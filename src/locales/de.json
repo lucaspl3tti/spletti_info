@@ -66,6 +66,11 @@
       "school": {
         "heading": "Schulische Laufbahn"
       }
+    },
+    "resume": {
+      "download": {
+        "label": "Lebenslauf"
+      }
     }
   },
 
