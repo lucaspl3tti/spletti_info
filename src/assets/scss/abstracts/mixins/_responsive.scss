@@ -3,7 +3,7 @@
 */
 // resposive behavior
 @mixin phone-only {
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: ($breakpoint-sm - 1px)) {
     @content;
   }
 }
@@ -15,7 +15,7 @@
 }
 
 @mixin phone-portrait-down {
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: ($breakpoint-sm - 1px)) {
     @content;
   }
 }
@@ -27,7 +27,7 @@
 }
 
 @mixin tablet-down {
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: ($breakpoint-md - 1px)) {
     @content;
   }
 }
@@ -46,7 +46,7 @@
 }
 
 @mixin tablet-portrait-down {
-  @media (max-width: $breakpoint-lg) {
+  @media (max-width: ($breakpoint-lg - 1px)) {
     @content;
   }
 }
@@ -70,7 +70,7 @@
 }
 
 @mixin desktop-down {
-  @media (max-width: $breakpoint-xl) {
+  @media (max-width: ($breakpoint-xl - 1px)) {
     @content;
   }
 }
@@ -88,7 +88,7 @@
 }
 
 @mixin desktop-medium-down {
-  @media (max-width: $breakpoint-xxl) {
+  @media (max-width: ($breakpoint-xxl - 1px)) {
     @content;
   }
 }
@@ -106,7 +106,7 @@
 }
 
 @mixin desktop-large-down {
-  @media (max-width: $breakpoint-3xl) {
+  @media (max-width: ($breakpoint-3xl - 1px)) {
     @content;
   }
 }
@@ -124,7 +124,7 @@
 }
 
 @mixin desktop-4k-down {
-  @media (max-width: $breakpoint-4k) {
+  @media (max-width: ($breakpoint-4k - 1px)) {
     @content;
   }
 }
