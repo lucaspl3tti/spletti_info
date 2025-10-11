@@ -13,7 +13,7 @@ export interface AppBarLogoProperties {
 export interface NavItem {
   name: string
   link: string
-  translationKey: string
+  text: string
   icon: string
 }
 

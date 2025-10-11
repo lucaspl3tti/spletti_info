@@ -6,7 +6,7 @@
     <jls-container class="skills-qualifications-container">
       <jls-heading
         heading-type="h2"
-        :text="$t(`qualifications.heading`)"
+        :text="headingText"
         position="center"
         class="heading--skills"
       />
@@ -92,7 +92,9 @@ import type { Careers } from '@/interfaces/contents.interface';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
-const { t, locale } = useI18n();
+const { locale } = useI18n();
+
+const headingText = await $trans('qualifications.heading', locale.value);
 
 const viewport: Ref<MediaQueryList|null> = ref(null);
 const isViewportXl = ref(false);
@@ -101,12 +103,18 @@ const jobsToggled = ref(false);
 const skills: Ref<Skill[]> = ref([]);
 const careers: Careers = reactive({
   professional: {
-    heading: t('qualifications.careers.professional.heading'),
+    heading: await $trans(
+      'qualifications.careers.professional.heading',
+      locale.value,
+    ),
     jobs: null,
   },
 
   school: {
-    heading: t('qualifications.careers.school.heading'),
+    heading: await $trans(
+      'qualifications.careers.school.heading',
+      locale.value,
+    ),
     jobs: null,
   },
 });

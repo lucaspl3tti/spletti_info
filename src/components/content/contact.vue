@@ -6,13 +6,13 @@
   >
     <jls-heading
       heading-type="h2"
-      :text="$t('contact.heading')"
+      :text="headingText"
       position="center"
       class="heading--contact"
     />
 
     <jls-subheading
-      :text="$t('contact.subheading')"
+      :text="subheadingText"
       is-html
       position="center"
     />
@@ -32,14 +32,14 @@
           <jls-form-textfield
             id="your-name"
             v-model="name"
-            :label="$t('contact.inputs.name.label')"
-            :placeholder="$t('contact.inputs.name.placeholder')"
+            :label="formControlTexts.name.label"
+            :placeholder="formControlTexts.name.placeholder"
             :theme="colorMode"
             variant="filled"
             type="input"
             name="your-name"
             required
-            :rules="[() => !!name || $t('contact.inputs.required')]"
+            :rules="[() => !!name || formControlTexts.required]"
           />
         </div>
 
@@ -47,18 +47,18 @@
           <jls-form-textfield
             id="your-email"
             v-model="email"
-            :label="$t('contact.inputs.email.label')"
-            :placeholder="$t('contact.inputs.email.placeholder')"
+            :label="formControlTexts.email.label"
+            :placeholder="formControlTexts.email.placeholder"
             :theme="colorMode"
             variant="filled"
             type="email"
             name="your-email"
             required
-            :hint="$t('contact.inputs.email.help')"
+            :hint="formControlTexts.email.help"
             :rules="[
-              () => !!email || $t('contact.inputs.required'),
+              () => !!email || formControlTexts.required,
               () => Utilities.isValidEmail(email)
-                || $t('contact.inputs.email.invalid'),
+                || formControlTexts.email.invalid,
             ]"
           />
         </div>
@@ -67,14 +67,14 @@
           <jls-form-textfield
             id="your-subject"
             v-model="subject"
-            :label="$t('contact.inputs.subject.label')"
-            :placeholder="$t('contact.inputs.subject.placeholder')"
+            :label="formControlTexts.subject.label"
+            :placeholder="formControlTexts.subject.placeholder"
             :theme="colorMode"
             variant="filled"
             type="input"
             name="your-subject"
             required
-            :rules="[() => !!subject || $t('contact.inputs.required')]"
+            :rules="[() => !!subject || formControlTexts.required]"
           />
         </div>
 
@@ -82,13 +82,13 @@
           <jls-form-textarea
             id="your-message"
             v-model="message"
-            :label="$t('contact.inputs.message.label')"
-            :placeholder="$t('contact.inputs.message.placeholder')"
+            :label="formControlTexts.message.label"
+            :placeholder="formControlTexts.message.placeholder"
             :theme="colorMode"
             variant="filled"
             name="your-message"
             required
-            :rules="[() => !!message || $t('contact.inputs.required')]"
+            :rules="[() => !!message || formControlTexts.required]"
           />
         </div>
 
@@ -100,14 +100,14 @@
               theme="light"
               @change="onChangePrivacySettings"
             />
-            <p v-html="$t('contact.privacyNotice', { link: privacyLink })" />
+            <p v-html="formControlTexts.privacy.label" />
           </div>
 
           <div
             v-if="privacyError"
             class="contact-form__privacy-error is-invalid"
           >
-            <p>{{ $t('contact.privacyError') }}</p>
+            <p>{{ formControlTexts.privacy.invalid }}</p>
           </div>
         </div>
 
@@ -118,7 +118,7 @@
           uneven-border
           class="contact-form__submit"
         >
-          {{ $t('contact.submitBtn') }}
+          {{ submitBtnText }}
           <template #append>
             <jls-icon
               pack="bi"
@@ -140,7 +140,7 @@ import type {
 } from '@/interfaces/api.interface';
 import { Utilities } from '@/helper/utilities.helper';
 
-const { t } = useI18n();
+const { locale } = useI18n();
 const { store } = useColorMode();
 const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
 const runtimeConfig = useRuntimeConfig();
@@ -148,6 +148,40 @@ const { apiUrl } = runtimeConfig.public;
 const contactElement = ref();
 const contactForm = ref();
 
+// texts
+const headingText = await $trans('contact.heading', locale.value);
+const subheadingText = await $trans('contact.subheading', locale.value);
+const formControlTexts = {
+  required: await $trans('contact.inputs.required', locale.value),
+  name: {
+    label: await $trans('contact.inputs.name.label', locale.value),
+    placeholder: await $trans('contact.inputs.name.label', locale.value),
+  },
+  email: {
+    label: await $trans('contact.inputs.email.label', locale.value),
+    placeholder: await $trans('contact.inputs.email.label', locale.value),
+    help: await $trans('contact.inputs.email.help', locale.value),
+    invalid: await $trans('contact.inputs.email.invalid', locale.value),
+  },
+  subject: {
+    label: await $trans('contact.inputs.subject.label', locale.value),
+    placeholder: await $trans('contact.inputs.subject.label', locale.value),
+  },
+  message: {
+    label: await $trans('contact.inputs.message.label', locale.value),
+    placeholder: await $trans(
+      'contact.inputs.message.placeholder',
+      locale.value,
+    ),
+  },
+  privacy: {
+    label: $trans('contact.privacyNotice', locale.value),
+    invalid: await $trans('contact.privacyError', locale.value),
+  },
+};
+const submitBtnText = await $trans('contact.submitBtn', locale.value);
+
+// form values
 const name = ref('');
 const email = ref('');
 const subject = ref('');
@@ -164,7 +198,6 @@ const formData = computed<ContactFormRequestData>(() => {
 });
 
 const privacyError = ref(false);
-const privacyLink = `<a class="hover-underline" href="/privacy" title="Privacy Policy">${t('general.wordings.here')}</a>`; // eslint-disable-line max-len
 const formIsValid = ref(true);
 const success = ref(false);
 const error = ref(false);

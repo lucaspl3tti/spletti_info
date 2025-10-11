@@ -4,11 +4,11 @@
       <jls-section
         id="projects"
         class="projects"
-        :title="$t('projects.heading')"
+        :title="headingText"
       >
         <div class="heading heading--projects">
           <p class="subheading">
-            {{ $t('projects.subheading') }}
+            {{ subheadingText }}
           </p>
         </div>
 
@@ -21,7 +21,7 @@
             @active-item-changed="onFilterActiveItemChanged"
           >
             <template #activatorTitle>
-              <span>{{ $t('general.filtering.label') }}</span>
+              <span>{{ filterLabelText }}</span>
               <span v-if="activeFilter">: {{ activeFilter.title }}</span>
             </template>
           </jls-dropdown>
@@ -54,16 +54,21 @@ import { Utilities } from '@/helper/utilities.helper';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl, siteTitle } = runtimeConfig.public;
-const { t, locale } = useI18n();
+const { locale } = useI18n();
 const { store } = useColorMode();
 const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
 const langClass = ref(`spletti-${locale.value}`);
 const projects: Ref<Project[]> = ref([]);
 const allProjects: Ref<Project[]> = ref([]);
+
+const headingText = await $trans('portfolio.heading', locale.value);
+const subheadingText = await $trans('portfolio.subheading', locale.value);
+const filterLabelText = await $trans('general.filtering.label', locale.value);
+
 const tagsStore: DropdownItem[] = reactive([
   {
     id: 'all',
-    title: t('general.wordings.all'),
+    title: await $trans('general.wordings.all', locale.value),
     callback: (id) => filterProjects(id!),
   },
 ]);

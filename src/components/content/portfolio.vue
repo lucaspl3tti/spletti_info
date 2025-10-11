@@ -2,10 +2,10 @@
   <jls-section
     id="portfolio"
     name="portfolio"
-    :title="$t('portfolio.heading')"
+    :title="headingText"
   >
     <div class="heading heading--portfolio">
-      <jls-subheading :text="$t('portfolio.subheading')" position="center" />
+      <jls-subheading :text="subheadingText" position="center" />
     </div>
 
     <client-only>
@@ -26,9 +26,9 @@
           :to="localePath('/projects')"
           width="180"
           uneven-border
-          :title="$t('general.wordings.more')"
+          :title="seeMoreText"
         >
-          {{ $t('general.wordings.more') }}
+          {{ seeMoreText }}
           <template #append>
             <jls-icon
               pack="bi"
@@ -53,6 +53,9 @@ const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const projects: Ref<Project[]> = ref([]);
+const headingText = await $trans('portfolio.heading', locale.value);
+const subheadingText = await $trans('portfolio.subheading', locale.value);
+const seeMoreText = await $trans('general.wordings.more', locale.value);
 
 const projectsData: ApiResponse = await $fetch(`${apiUrl}/projects?lang=${locale.value}`); // eslint-disable-line max-len
 handleProjectsData(projectsData);

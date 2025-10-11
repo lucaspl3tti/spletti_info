@@ -166,8 +166,12 @@ export default defineNuxtConfig({
    'vuetify-nuxt-module',
   ],
 
+  pinia: {
+    storesDirs: ['./src/stores/**'],
+  },
+
   i18n: {
-    strategy: 'prefix_except_default',
+    strategy: 'prefix_and_default',
     locales: [
       { code: 'en', language: 'en-US' },
       { code: 'de', language: 'de-DE' },

@@ -14,9 +14,11 @@
 
 <script setup lang="ts">
 import { NativeEventEmitter } from '@/helper/event-emitter.helper';
+import { useRouterStore } from '@/stores/router.store';
 
 const route = useRoute();
 const runtimeConfig = useRuntimeConfig();
+const routerStore = useRouterStore();
 const { appLoaderSpeed } = runtimeConfig.public;
 const loaderSpeed = appLoaderSpeed || 1500;
 const animating = ref(false);
@@ -31,6 +33,10 @@ onMounted(() => {
 watch(
   () => route.path,
   () => {
+    if (routerStore.isHardReload) {
+      return routerStore.setHardReload(false);
+    }
+
     if (route.path === 'linktree') {
       return;
     }

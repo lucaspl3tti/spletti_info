@@ -18,18 +18,18 @@
 import type { FormAlertProperties } from '@/interfaces/components/form.interface'; // eslint-disable-line max-len
 import { stateOptions } from '~/src/consts/form';
 
-const { t } = useI18n();
-
 const properties = withDefaults(defineProps<FormAlertProperties>(), {
   state: 'success',
 });
 
 checkComponentPropertyValidity(properties.state, 'state', 'form-alert', true, stateOptions); // eslint-disable-line max-len
 
+const successText = await $trans('contact.success');
+const errorText = await $trans('contact.error');
 const alertText = computed(() => {
   return properties.state === 'success'
-    ? t('contact.success')
-    : t('contact.error');
+    ? successText
+    : errorText;
 });
 
 const alertIcon = computed(() => {

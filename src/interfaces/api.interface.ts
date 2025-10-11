@@ -6,6 +6,11 @@ export interface ApiResponse {
   }
 }
 
+export interface TranslationResponse {
+  success: boolean
+  data: string
+}
+
 interface ApiResponseDataBase {
   id: number
   create_date: string

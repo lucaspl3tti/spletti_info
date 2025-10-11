@@ -9,6 +9,7 @@ export interface IntroButton {
   name: string
   link: string
   isMirrored: boolean
+  text: string
 }
 
 // qualification content

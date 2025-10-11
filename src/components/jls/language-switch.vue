@@ -61,25 +61,23 @@
 </template>
 
 <script setup lang="ts">
-import { NativeEventEmitter } from '@/helper/event-emitter.helper';
 import type { LanguageSwitchProperties } from '@/interfaces/components/misc.interface'; // eslint-disable-line max-len
-
+import { useRouterStore } from '@/stores/router.store';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<LanguageSwitchProperties>(), {
   disabled: false,
 });
 
-const { locale, setLocale } = useI18n();
+const { locale } = useI18n();
 const { store } = useColorMode();
+const routerStore = useRouterStore();
 const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);
-let emitter: InstanceType<typeof NativeEventEmitter>;
 
 // const key = ref(0);
 const language = ref(locale.value);
 const isMobile = ref(false);
 
 onMounted(() => {
-  emitter = new NativeEventEmitter();
   isMobile.value = window.innerWidth < 786 ? true : false;
 
   window.onresize = () => {
@@ -88,18 +86,10 @@ onMounted(() => {
 });
 
 function changeLanguage(languageCode: 'en'|'de') {
-  const main = document.querySelector('main');
-  const oldLanguageCode = locale.value;
+  localStorage.setItem('language', languageCode);
+  routerStore.setHardReload(true);
 
-  setLocale(languageCode);
-  language.value = locale.value;
-
-  localStorage.setItem('language', locale.value);
-  main!.classList.remove(`spletti-${oldLanguageCode}`);
-  main!.classList.add(`spletti-${locale.value}`);
-  document.documentElement.setAttribute('lang',locale.value);
-
-  emitter.publish('language-changed');
+  window.location.href = `/${languageCode}`;
 }
 </script>
 

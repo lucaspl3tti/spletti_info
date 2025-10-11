@@ -14,16 +14,9 @@
           :to="button.link"
           :mirrored="button.isMirrored"
           uneven-border
-          :title="button.name === 'contact'
-            ? $t(`introduction.buttons.contact.text`)
-            : $t(`introduction.buttons.portfolio.text`)
-          "
+          :title="button.text"
         >
-          {{
-            button.name === 'contact'
-              ? $t(`introduction.buttons.contact.text`)
-              : $t(`introduction.buttons.portfolio.text`)
-          }}
+          {{ button.text }}
           <template #append>
             <jls-icon
               pack="bi"
@@ -56,9 +49,14 @@ const { apiUrl } = runtimeConfig.public;
 
 const texts: Ref<ProfileBasics|null> = ref(null);
 const profilePicture: Ref<ProfilePicture|null> = ref(null);
-
-const response: ApiResponse = await $fetch(`${apiUrl}/single-types/profile?lang=${locale.value}`); // eslint-disable-line max-len
-await handleResponseData(response);
+const contactText = await $trans(
+  'introduction.buttons.contact.text',
+  locale.value,
+);
+const portfolioText = await $trans(
+  'introduction.buttons.portfolio.text',
+  locale.value,
+);
 
 const introduction: Introduction = reactive({
   buttons: [
@@ -66,14 +64,20 @@ const introduction: Introduction = reactive({
       name: 'portfolio',
       link: '#portfolio',
       isMirrored: false,
+      text: portfolioText,
     },
     {
       name: 'contact',
       link: '#contact',
       isMirrored: true,
+      text: contactText,
     },
   ],
 });
+
+// eslint-disable-next-line max-len
+const response: ApiResponse = await $fetch(`${apiUrl}/single-types/profile?lang=${locale.value}`);
+await handleResponseData(response);
 
 function handleResponseData(response: ApiResponse): void {
   const { data } = response;

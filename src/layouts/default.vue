@@ -9,11 +9,12 @@
         :color="particlesColor"
         :particles-count="particlesCount"
       />
+
+      <div class="jls-navigation">
+        <jls-app-bar :nav-items="navItems" hide-nav />
+      </div>
     </client-only>
 
-    <div class="jls-navigation">
-      <jls-app-bar :nav-items="navItems" hide-nav />
-    </div>
 
     <div class="page-content">
       <slot />
@@ -31,8 +32,19 @@
 
 <script setup lang="ts">
 import aosInit from '@/mixins/aos';
-import { navItems } from '@/consts/nav-items';
+// import { navItems } from '@/consts/nav-items';
+import type { NavItem } from '@/interfaces/components/app.interface';
 import { useColorMode } from '@vueuse/core';
+import { useNavItemsStore } from '@/stores/nav-items.store';
+
+const { locale } = useI18n();
+const navItemsStore = useNavItemsStore();
+const navItems = ref<NavItem[]>([]);
+await navItemsStore.loadTranslations(
+  $trans,
+  locale.value,
+);
+navItems.value = navItemsStore.getItems();
 
 const runtimeConfig = useRuntimeConfig();
 const { useAppLoader } = runtimeConfig.public;
