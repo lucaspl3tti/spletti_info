@@ -1,0 +1,136 @@
+// theme colors
+$color-primary: #21125c;
+$color-secondary: #ff6d00;
+
+$color-primary-010: color.adjust($color-primary, $lightness: 35%);
+$color-primary-100: color.adjust($color-primary, $lightness: 20%);
+$color-primary-200: color.adjust($color-primary, $lightness: 15%);
+$color-primary-300: color.adjust($color-primary, $lightness: 10%);
+$color-primary-400: color.adjust($color-primary, $lightness: 5%);
+$color-primary-500: $color-primary;
+$color-primary-600: color.adjust($color-primary, $lightness: -5%);
+$color-primary-700: color.adjust($color-primary, $lightness: -10%);
+$color-primary-800: color.adjust($color-primary, $lightness: -15%);
+$color-primary-900: color.adjust($color-primary, $lightness: -20%);
+
+$color-secondary-100: color.adjust($color-secondary, $lightness: 20%);
+$color-secondary-200: color.adjust($color-secondary, $lightness: 15%);
+$color-secondary-300: color.adjust($color-secondary, $lightness: 10%);
+$color-secondary-400: color.adjust($color-secondary, $lightness: 5%);
+$color-secondary-500: $color-secondary;
+$color-secondary-600: color.adjust($color-secondary, $lightness: -5%);
+$color-secondary-700: color.adjust($color-secondary, $lightness: -10%);
+$color-secondary-800: color.adjust($color-secondary, $lightness: -15%);
+$color-secondary-900: color.adjust($color-secondary, $lightness: -20%);
+
+// default colors
+$color-white: #f4f4f4;
+$color-black: #101010;
+$color-dark: #191727;
+
+// gray color variants
+$color-gray-050: #f6f6f6;
+$color-gray-100: #edebeb;
+$color-gray-200: #dedcdc;
+$color-gray-300: #cbcaca;
+$color-gray-400: #bcbbbb;
+$color-gray-450: #adacac;
+$color-gray-500: #999;
+$color-gray-600: #777;
+$color-gray-700: #555;
+$color-gray-750: #444;
+$color-gray-800: #333;
+$color-gray-850: #212121;
+$color-gray-900: #111;
+
+// functional colors
+$color-success: #198754;
+$color-error: #dc3545;
+$color-info: #0dcaf0;
+$color-warning: #ffc107;
+
+// theme colors
+$color-background: $color-dark;
+$color-text: $color-gray-050;
+$color-border: $color-gray-400;
+
+$color-primary-var: var(--color-primary);
+$color-secondary-var: var(--color-secondary);
+
+// purple color variants
+$color-purple-300: #6b57cb;
+$color-purple-400: #4e38b7;
+$color-purple-500: #3d2c8d;
+$color-purple-550: #27187e;
+$color-purple-600: #2d2069;
+$color-purple-700: #21125c;
+$color-purple-800: #1e1b4b;
+$color-purple-850: #1c1442;
+$color-purple-900: #100c27;
+
+// orange color variants
+$color-orange-010: #ffc86f;
+$color-orange-100: #ff9e00;
+$color-orange-200: #ff9100;
+$color-orange-300: #ff8600;
+$color-orange-400: #ff7900;
+$color-orange-500: #ff6d00;
+$color-orange-600: #eb6803;
+
+:root {
+  // theme colors
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+
+  --color-primary-010: #{$color-primary-010};
+  --color-primary-100: #{$color-primary-100};
+  --color-primary-200: #{$color-primary-200};
+  --color-primary-300: #{$color-primary-300};
+  --color-primary-400: #{$color-primary-400};
+  --color-primary-500: #{$color-primary-500};
+  --color-primary-600: #{$color-primary-600};
+  --color-primary-700: #{$color-primary-700};
+  --color-primary-800: #{$color-primary-800};
+  --color-primary-900: #{$color-primary-900};
+
+  --color-secondary-100: #{$color-secondary-100};
+  --color-secondary-200: #{$color-secondary-200};
+  --color-secondary-300: #{$color-secondary-300};
+  --color-secondary-400: #{$color-secondary-400};
+  --color-secondary-500: #{$color-secondary-500};
+  --color-secondary-600: #{$color-secondary-600};
+  --color-secondary-700: #{$color-secondary-700};
+  --color-secondary-800: #{$color-secondary-800};
+  --color-secondary-900: #{$color-secondary-900};
+
+  // default colors
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-dark: #{$color-dark};
+
+  // gray color variants
+  --color-gray-050: #{$color-gray-050};
+  --color-gray-100: #{$color-gray-100};
+  --color-gray-200: #{$color-gray-200};
+  --color-gray-300: #{$color-gray-300};
+  --color-gray-400: #{$color-gray-400};
+  --color-gray-450: #{$color-gray-450};
+  --color-gray-500: #{$color-gray-500};
+  --color-gray-600: #{$color-gray-600};
+  --color-gray-700: #{$color-gray-700};
+  --color-gray-800: #{$color-gray-800};
+  --color-gray-850: #{$color-gray-850};
+  --color-gray-900: #{$color-gray-900};
+
+  // functional colors
+  --color-success: #{$color-success};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+  --color-warning: #{$color-warning};
+
+  // theme semantic
+  --color-background: #{$color-background};
+  --color-text: #{$color-text};
+  --color-border: #{$color-border};
+}
+

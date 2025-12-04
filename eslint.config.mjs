@@ -1,6 +1,6 @@
 // @ts-check
 import globals from 'globals';
-import withNuxt from './.nuxt/eslint.config.mjs'
+import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt([
   {
@@ -19,7 +19,8 @@ export default withNuxt([
     },
 
     rules: {
-      'max-len': ['error', { code: 80 }],
+      'max-len': ['error', { code: 100 }],
+      indent: ['error', 2, { SwitchCase: 1 }],
 
       semi: ['error', 'always'],
 
@@ -36,9 +37,10 @@ export default withNuxt([
         array: false,
       }],
 
+      'no-empty-source': 0,
       'no-prototype-builtins': 0,
       'object-curly-spacing': ['error', 'always'],
-      'no-console': 'error',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
       '@typescript-eslint/ban-ts-comment': 0,
       '@typescript-eslint/no-this-alias': 0,
       '@typescript-eslint/no-extraneous-class': 0,

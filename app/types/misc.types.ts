@@ -1,0 +1,32 @@
+/* eslint-disable max-len */
+export type ButtonBorderStyles = 'default' | 'rounded' | 'pill' | 'asymmetrical' | 'asymmetrical-mirrored';
+export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonVariants = 'default' | 'ghost';
+export type ButtonVariantsWithText = ButtonVariants | 'text';
+export type ColorModes = 'light' | 'dark';
+export type ColorFuntionals = 'danger' | 'success' | 'warning' | 'info';
+export type ColorThemes = 'primary' | 'secondary';
+export type ColorVariants = ColorModes | ColorThemes;
+export type ColorVariantsExtended = ColorVariants | ColorFuntionals;
+export type HeadingSite = 'h1'
+export type HeadingSub = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type Heading = HeadingSite | HeadingSub;
+export type InputType = 'text' | 'number' | 'email' | 'password' | 'search' | 'url' | 'tel' | 'date' | 'time' | 'range' | 'color' | 'datetime' | 'datetime-local' | 'month' | 'week';
+export type LinkTargets = '_blank' | '_self' | '_parent' | '_top';
+export type LoaderDotsVariants = 'flashing' | 'elastic' | 'collision' | 'typing' | 'growing' | 'spinning' | 'jumping';
+export type Numberish = number | string;
+export type PositionValue = 'top' | 'right' | 'bottom' | 'left';
+export type PositionValueHorizontal = 'left' | 'center' | 'right';
+export type PositionValueVertical = 'top' | 'bottom';
+export type PositionValueVerticalWithCenter = PositionValueVertical | 'center';
+export type Sizes = 'sm' | 'md' | 'lg';
+export type SizesExtra = Sizes | 'xs' | 'xl';
+export type TextPositions = 'start' | 'center' | 'end';
+export type ThemeIcon = 'moon-fill' | 'sun-fill'
+export type TooltipPlacementsTop = 'top' | 'top-start' | 'top-end'
+export type TooltipPlacementsBottom = 'bottom' | 'bottom-start' | 'bottom-end'
+export type TooltipPlacementsLeft = 'left' | 'left-start' | 'left-end'
+export type TooltipPlacementsRight = 'right' | 'right-start' | 'right-end'
+export type TooltipPlacements = TooltipPlacementsTop | TooltipPlacementsBottom | TooltipPlacementsLeft | TooltipPlacementsRight
+export type Viewport = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'fhd' | '2k' | '4k'
+/* eslint-enable max-len */

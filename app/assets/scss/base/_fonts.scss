@@ -1,0 +1,55 @@
+// default font
+@font-face {
+  font-family: $font-default;
+  font-weight: 400;
+  src: url('#{$font-path-default-base}-Regular.ttf');
+}
+
+@font-face {
+  font-family: $font-default;
+  font-weight: 300;
+  src: url('#{$font-path-default-base}-Light.ttf');
+}
+
+@font-face {
+  font-family: $font-default;
+  font-weight: 500;
+  src: url('#{$font-path-default-base}-Medium.ttf');
+}
+
+@font-face {
+  font-family: $font-default;
+  font-weight: 600;
+  src: url('#{$font-path-default-base}-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: $font-default;
+  font-weight: 700;
+  src: url('#{$font-path-default-base}-Bold.ttf');
+}
+
+// handwriting font: Caveat
+@font-face {
+  font-family: $font-handwriting;
+  font-weight: 400;
+  src: url('#{$font-path-handwriting-base}-Regular.ttf');
+}
+
+@font-face {
+  font-family: $font-handwriting;
+  font-weight: 500;
+  src: url('#{$font-path-handwriting-base}-Medium.ttf');
+}
+
+@font-face {
+  font-family: $font-handwriting;
+  font-weight: 600;
+  src: url('#{$font-path-handwriting-base}-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: $font-handwriting;
+  font-weight: 700;
+  src: url('#{$font-path-handwriting-base}-Bold.ttf');
+}

@@ -1,0 +1,64 @@
+@for $type from 1 to 6 {
+  h#{$type} {
+    $headingType: h#{$type};
+
+    font-size: map.get($clb-font-sizes, $headingType, 'xs',);
+    line-height: map.get($clb-font-sizes, $headingType, 'xs') + 4px;
+
+    a {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+p {
+  margin: 0 0 spacing(4);
+  font-size: map.get($clb-font-sizes, 'default', 'xs');
+  line-height: map.get($clb-font-sizes, 'default', 'xs') + 4px;
+
+  a,
+  li {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.handwriting-font {
+  font-family: $font-handwriting-family !important;
+}
+
+.heading {
+  text-align: center;
+}
+
+.heading-dot {
+  color: $color-orange-400;
+}
+
+.subheading {
+  margin-bottom: spacing(4);
+  font-family: $font-handwriting-family !important;
+  font-size: 24px !important;
+  font-weight: $font-weight-medium !important;
+}
+
+@include tablet-up {
+  @for $type from 1 to 6 {
+    h#{$type} {
+      $headingType: h#{$type};
+
+      font-size: map.get($clb-font-sizes, $headingType, 'md',);
+      line-height: map.get($clb-font-sizes, $headingType, 'md') + 6px;
+    }
+  }
+
+  p {
+    font-size: map.get($clb-font-sizes, 'default', 'md');
+    line-height: map.get($clb-font-sizes, 'default', 'md') + 4px;
+  }
+
+  .subheading {
+    font-size: 32px !important;
+  }
+}
