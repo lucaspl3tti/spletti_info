@@ -7,6 +7,7 @@ import type {
   ColorFuntionals,
   ColorVariants,
   ColorVariantsExtended,
+  FormAlertState,
   HeadingSite,
   HeadingSub,
   Heading,
@@ -71,6 +72,11 @@ export const colorVariantsExtended: ColorVariantsExtended[] = [
   ...colorFunctionals,
 ];
 
+export const formAlertStates: FormAlertState[] = [
+  'success',
+  'error',
+];
+
 export const headingSiteTypes: HeadingSite[] = ['h1'];
 
 export const headingSubTypes: HeadingSub[] = [
@@ -87,13 +93,21 @@ export const headingTypes: Heading[] = [
 ];
 
 export const inputTypes: InputType[] =  [
+  'color',
+  'date',
+  'datetime',
+  'datetime-local',
   'email',
   'password',
+  'month',
   'number',
+  'range',
   'search',
   'tel',
-  'url',
   'text',
+  'time',
+  'url',
+  'week',
 ];
 
 export const linkTarget: LinkTargets[] = [
