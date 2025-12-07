@@ -1,0 +1,63 @@
+$clb-prefix: 'clb-';
+$animation-speed: 0.33s;
+$animation-speed-fast: 0.2s;
+
+$margin-page-top: 30px;
+$margin-page-bottom: 30px;
+
+// Z-Index
+$z-dropdown: 1000 !default;
+$z-sticky: 1020 !default;
+$z-fixed: 1030 !default;
+$z-offcanvas-backdrop: 1040 !default;
+$z-offcanvas: 1045 !default;
+$z-modal-backdrop: 1050 !default;
+$z-modal: 1055 !default;
+$z-popover: 1070 !default;
+$z-tooltip: 1080 !default;
+$z-toast: 1090 !default;
+
+// Media Queries
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px,
+  fhd: 1920px,
+  2k: 2560px,
+  4k: 3440px,
+);
+
+$breakpoint-sm: map.get($grid-breakpoints, 'sm');
+$breakpoint-md: map.get($grid-breakpoints, 'md');
+$breakpoint-lg: map.get($grid-breakpoints, 'lg');
+$breakpoint-xl: map.get($grid-breakpoints, 'xl');
+$breakpoint-xxl: map.get($grid-breakpoints, 'xxl');
+$breakpoint-fhd: map.get($grid-breakpoints, 'fhd');
+$breakpoint-2k: map.get($grid-breakpoints, '2k');
+$breakpoint-4k: map.get($grid-breakpoints, '4k');
+
+// image aspect-ratio and fit-modes
+$aspect-ratios: (
+  '1x1': math.div(1, 1),
+  '2x1': math.div(2, 1),
+  '2x3': math.div(2, 3),
+  '3x1': math.div(3, 1),
+  '3x2': math.div(3, 2),
+  '3x4': math.div(3, 4),
+  '4x3': math.div(4, 3),
+  '16x9': math.div(16, 9),
+  '21x9': math.div(21, 9),
+  '30x9': math.div(30, 9),
+);
+
+$object-fit-values: fill contain cover;
+
+// text styles
+$text-columns: (
+  2: 1rem,
+  3: 1rem,
+  4: 1rem,
+);

@@ -13,12 +13,16 @@ const appVersion = env.APP_VERSION;
 const environment = env.APP_ENV;
 const enableDebug = env.ENABLE_DEBUG;
 const devServerPort = env.APP_DEV_SERVER_PORT;
+const enableMultiLanguage = env.ENABLE_MULTI_LANGUAGE;
+const enableAppLoader = env.ENABLE_APP_LOADER;
 
 /**
  * Config data
  */
 const isDev = environment === 'dev';
 const isDebugEnabled = enableDebug === '1';
+const isLanguageSwitchEnabled = enableMultiLanguage === '1';
+const isAppLoaderEnabled = enableAppLoader === '1';
 
 /**
  * Define default variables
@@ -27,7 +31,7 @@ const siteDescription = 'Portfolio Website of Jan-Luca Splettstößer, Frontend 
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: isDev },
   debug: isDebugEnabled,
 
@@ -35,12 +39,37 @@ export default defineNuxtConfig({
     port: Number(devServerPort) || 3000,
   },
 
-  srcDir: resolve(__dirname, './src'),
-  serverDir: resolve(__dirname, './server'),
-
   alias: {
     '~': resolve(__dirname, './'),
-    '@': resolve(__dirname, './src'),
+    '@helper': resolve(__dirname, './app/helpers/helper'),
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "sass:map"; @use "sass:color"; @use "sass:meta"; @use "sass:list"; @use "sass:math"; @import "@/assets/scss/abstracts/variables.scss";', // eslint-disable-line max-len
+          quietDeps: true,
+          silenceDeprecations: [
+            'color-functions',
+            'global-builtin',
+            'import',
+            // 'mixed-decls',
+            'legacy-js-api',
+          ],
+        },
+      },
+    },
+
+    server: {
+      watch: {
+        ignored: [
+          '**/public/**',
+          '**/static/**',
+          '**/.git/**',
+        ],
+      },
+    },
   },
 
   runtimeConfig: {
@@ -51,11 +80,12 @@ export default defineNuxtConfig({
       siteUrl,
       siteTitle,
       logoText: 'Jan-Luca Splettstößer',
+      logoTextMobile: 'JLS',
       appVersion,
-      showVersionInFooter: false,
+      showVersionInFooter: isDev,
       isDev,
-      languageSwitchEnabled: true,
-      useAppLoader: true,
+      languageSwitchEnabled: isLanguageSwitchEnabled,
+      useAppLoader: isAppLoaderEnabled,
       appLoaderSpeed: 1000,
 
       siteName: siteTitle,
@@ -136,48 +166,36 @@ export default defineNuxtConfig({
     rootId: 'jls',
   },
 
-  vite: {
-   css: {
-     preprocessorOptions: {
-       scss: {
-         additionalData: '@use "sass:map"; @use "sass:color"; @use "sass:meta"; @use "sass:list"; @import "~/node_modules/vuetify/lib/styles/generic/colors"; @import "@/assets/scss/abstracts/variables.scss";', // eslint-disable-line max-len
-       },
-     },
-   },
-  },
-
-  css: [
-    '@mdi/font/css/materialdesignicons.min.css',
-    '@/assets/scss/main.scss',
-  ],
+  css: ['bootstrap/dist/css/bootstrap.min.css', '@/assets/scss/main.scss'],
 
   modules: [
-   '@nuxt/eslint',
-   '@nuxtjs/device',
-   '@nuxtjs/i18n',
-   '@nuxt/icon',
-   '@nuxtjs/seo',
-   '@nuxtjs/stylelint-module',
-   ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] } ],
-   '@vueuse/nuxt',
-   'nuxt-icons',
-   'nuxt-particles',
-   'pinia-plugin-persistedstate/nuxt',
-   'vuetify-nuxt-module',
+    '@bootstrap-vue-next/nuxt',
+    '@nuxt/eslint',
+    '@nuxtjs/device',
+    '@nuxtjs/i18n',
+    '@nuxt/icon',
+    '@nuxtjs/seo',
+    '@nuxtjs/stylelint-module',
+    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] } ],
+    '@vueuse/nuxt',
+    'nuxt-icons',
+    'nuxt-particles',
+    'nuxt-typed-router',
+    'pinia-plugin-persistedstate/nuxt',
   ],
 
-  pinia: {
-    storesDirs: ['./src/stores/**'],
-  },
+  device: {},
+
+  eslint: {},
 
   i18n: {
-    strategy: 'prefix_and_default',
+    strategy: 'prefix_except_default',
     locales: [
       { code: 'en', language: 'en-US' },
       { code: 'de', language: 'de-DE' },
     ],
     defaultLocale: 'en',
-    vueI18n: './i18n.config.ts', // custom path example
+    vueI18n: './i18n.config.ts',
   },
 
   particles: {
@@ -185,17 +203,13 @@ export default defineNuxtConfig({
     lazy: true,
   },
 
+  pinia: {
+    storesDirs: ['@/stores/**'],
+  },
+
   site: {
     indexable: !isDev,
     url: siteUrl,
     name: 'JLS',
-  },
-
-  vuetify: {
-    vuetifyOptions: {
-      theme: {
-        defaultTheme: 'dark',
-      },
-    },
   },
 });

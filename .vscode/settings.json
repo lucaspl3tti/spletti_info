@@ -1,8 +1,4 @@
 {
-  "prettier.requireConfig": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#3420a9",
     "activityBar.background": "#3420a9",
@@ -22,10 +18,5 @@
     "titleBar.inactiveBackground": "#27187e99",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#27187e",
-  "eslint.useFlatConfig": true,
-  "i18n-ally.localesPaths": [
-    "src/locales"
-  ],
-  "i18n-ally.sourceLanguage": "de"
+  "peacock.color": "#27187e"
 }

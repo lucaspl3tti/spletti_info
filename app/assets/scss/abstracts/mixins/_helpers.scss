@@ -1,0 +1,88 @@
+/**
+ * Helper mixins
+*/
+// media query for print
+@mixin media-print {
+  @media print {
+    @content;
+  }
+}
+
+// media query for checking if hover is supported
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// media query for light mode
+@mixin light-mode {
+  .light {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  .dark {
+    @content;
+  }
+}
+
+// truncate multiline
+@mixin truncate-multiline(
+  $line-height: 1.2em,
+  $line-count: 2,
+  $background-color: $color-white
+) {
+  max-width: 95%;
+  height: $line-height * $line-count;
+  margin-right: -1em;
+  padding-right: 1em;
+  overflow: hidden;
+  line-height: $line-height;
+  text-align: justify;
+  line-clamp: $line-count;
+  text-overflow: ellipsis;
+
+  /* stylelint-disable */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-count;
+  /* stylelint-enable */
+}
+
+/* stylelint-disable selector-no-vendor-prefix */
+// Text selection
+@mixin text-selection($color-selection, $color-selection-bg) {
+  ::-moz-selection {
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: $color-selection-bg;
+    color: $color-selection;
+    text-shadow: none;
+  }
+}
+
+// Placeholders
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+/* stylelint-enable selector-no-vendor-prefix */

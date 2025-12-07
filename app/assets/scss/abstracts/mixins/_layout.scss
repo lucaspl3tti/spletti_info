@@ -1,0 +1,118 @@
+/**
+* ##### Layout Mixins #####
+*/
+// spacing
+$space-base: 4px;
+
+@function spacing($spacing: 1) {
+  @return $space-base * $spacing;
+}
+
+// positioning
+@mixin position(
+  $position: absolute,
+  $top: 0,
+  $right: auto,
+  $bottom: auto,
+  $left: 0,
+  $zIndex: 1,
+) {
+  position: $position;
+  inset: $top $right $bottom $left;
+  z-index: $zIndex;
+}
+
+// flex
+@mixin flex(
+  $flow: row wrap,
+  $justify: null,
+  $align: null,
+  $gap: null,
+  $inline: false,
+) {
+  $display: if($inline, inline-flex, flex);
+
+  display: $display;
+  flex-flow: $flow;
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+// grid
+@mixin grid(
+  $gap: null,
+  $columns: null,
+  $rows: null,
+  $inline: false,
+) {
+  $display: if($inline, inline-grid, grid);
+
+  display: $display;
+
+  @if $gap {
+    gap: $gap;
+  }
+
+  @if $columns {
+    grid-template-columns: $columns;
+  }
+
+  @if $rows {
+    grid-template-rows: $rows;
+  }
+}
+
+// box model
+@mixin border($width: 1px, $style: solid, $color: $color-black, $radius: 0) {
+  $border: if($width == 0, $width, $width $style $color);
+
+  border: $border;
+  border-radius: $radius;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin paddingY(
+  $paddingTop,
+  $paddingBottom: $paddingTop,
+) {
+  padding-top: $paddingTop;
+  padding-bottom: $paddingBottom;
+}
+
+@mixin paddingX(
+  $paddingLeft,
+  $paddingRight: $paddingLeft,
+) {
+  padding-left: $paddingLeft;
+  padding-right: $paddingRight;
+}
+
+@mixin marginY(
+  $marginTop,
+  $marginBottom: $marginTop,
+) {
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+
+@mixin marginX(
+  $marginLeft,
+  $marginRight: $marginLeft,
+) {
+  margin-left: $marginLeft;
+  margin-right: $marginRight;
+}

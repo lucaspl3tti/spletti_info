@@ -1,0 +1,34 @@
+/* eslint-disable max-len */
+export type ClbButtonBorderStyles = 'default' | 'rounded' | 'pill' | 'asymmetrical' | 'asymmetrical-mirrored';
+export type ButtonType = 'button' | 'submit' | 'reset';
+export type ClbButtonVariants = 'default' | 'ghost';
+export type ClbButtonVariantsWithText = ClbButtonVariants | 'text';
+export type ClbColorModes = 'light' | 'dark';
+export type ClbColorFuntionals = 'danger' | 'success' | 'warning' | 'info';
+export type ClbColorThemes = 'primary' | 'secondary';
+export type ClbColorVariants = ClbColorModes | ClbColorThemes;
+export type ClbColorVariantsExtended = ClbColorVariants | ClbColorFuntionals;
+export type ClbFormAlertState = 'success' | 'error';
+// export type FormInputVariant = 'outlined' | 'underlined' | 'filled';
+export type HeadingSite = 'h1'
+export type HeadingSub = 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+export type Heading = HeadingSite | HeadingSub;
+export type InputType = 'text' | 'number' | 'email' | 'password' | 'search' | 'url' | 'tel' | 'date' | 'time' | 'range' | 'color' | 'datetime' | 'datetime-local' | 'month' | 'week';
+export type LinkTargets = '_blank' | '_self' | '_parent' | '_top';
+export type ClbLoaderDotsVariants = 'flashing' | 'elastic' | 'collision' | 'typing' | 'growing' | 'spinning' | 'jumping';
+export type Numberish = number | string;
+export type PositionValue = 'top' | 'right' | 'bottom' | 'left';
+export type PositionValueHorizontal = 'left' | 'center' | 'right';
+export type PositionValueVertical = 'top' | 'bottom';
+export type PositionValueVerticalWithCenter = PositionValueVertical | 'center';
+export type ClbSizes = 'sm' | 'md' | 'lg';
+export type ClbSizesExtra = ClbSizes | 'xs' | 'xl';
+export type TextPositions = 'start' | 'center' | 'end';
+export type ClbThemeIcon = 'moon-fill' | 'sun-fill'
+export type ClbTooltipPlacementsTop = 'top' | 'top-start' | 'top-end'
+export type ClbTooltipPlacementsBottom = 'bottom' | 'bottom-start' | 'bottom-end'
+export type ClbTooltipPlacementsLeft = 'left' | 'left-start' | 'left-end'
+export type ClbTooltipPlacementsRight = 'right' | 'right-start' | 'right-end'
+export type ClbTooltipPlacements = ClbTooltipPlacementsTop | ClbTooltipPlacementsBottom | ClbTooltipPlacementsLeft | ClbTooltipPlacementsRight
+export type ClbViewport = 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'fhd' | '2k' | '4k'
+/* eslint-enable max-len */

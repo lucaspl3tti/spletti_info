@@ -1,0 +1,133 @@
+$clb-btn-default-border-color: $color-text;
+$clb-btn-default-color: $color-text;
+$clb-btn-default-active-border-color: $color-text;
+$clb-btn-default-active-color: $color-text;
+
+$clb-btn-default-font-size: map.get($clb-font-sizes, 'default', 'md');
+$clb-btn-default-line-height: map.get($clb-font-sizes, 'default', 'md') + 2px;
+
+$clb-btn-padding-y: spacing(1);
+$clb-btn-padding-x: spacing(4);
+
+// primary styles
+$clb-btn-primary-bg-color: $color-primary;
+$clb-btn-primary-hover-bg-color: color.adjust($color-primary, $lightness: 10%);
+$clb-btn-primary-active-bg-color: color.adjust($color-primary, $lightness: 15%);
+$clb-btn-primary-border-color: $color-primary;
+$clb-btn-primary-hover-border-color: color.adjust($color-primary, $lightness: 10%);
+$clb-btn-primary-active-border-color: color.adjust($color-primary, $lightness: 15%);
+$clb-btn-primary-color: $color-white;
+$clb-btn-primary-hover-color: $color-white;
+$clb-btn-primary-active-color: $color-white;
+
+// secondary styles
+$clb-btn-secondary-bg-color: $color-secondary;
+$clb-btn-secondary-hover-bg-color: color.adjust($color-secondary, $lightness: 10%);
+$clb-btn-secondary-active-bg-color: color.adjust($color-secondary, $lightness: 15%);
+$clb-btn-secondary-border-color: $color-secondary;
+$clb-btn-secondary-hover-border-color: color.adjust($color-secondary, $lightness: 10%);
+$clb-btn-secondary-active-border-color: color.adjust($color-secondary, $lightness: 15%);
+$clb-btn-secondary-color: $color-white;
+$clb-btn-secondary-hover-color: $color-white;
+$clb-btn-secondary-active-color: $color-white;
+
+// light styles
+$clb-btn-light-bg-color: $color-white;
+$clb-btn-light-hover-bg-color: color.adjust($color-white, $lightness: -5%);
+$clb-btn-light-active-bg-color: color.adjust($color-white, $lightness: -10%);
+$clb-btn-light-border-color: $color-white;
+$clb-btn-light-hover-border-color: color.adjust($color-white, $lightness: -5%);
+$clb-btn-light-active-border-color: color.adjust($color-white, $lightness: -10%);
+$clb-btn-light-color: $color-black;
+$clb-btn-light-hover-color: $color-black;
+$clb-btn-light-active-color: $color-black;
+
+// dark styles
+$clb-btn-dark-bg-color: $color-dark;
+$clb-btn-dark-hover-bg-color: color.adjust($color-dark, $lightness: 5%);
+$clb-btn-dark-active-bg-color: color.adjust($color-dark, $lightness: 10%);
+$clb-btn-dark-border-color: $color-dark;
+$clb-btn-dark-hover-border-color: color.adjust($color-dark, $lightness: 5%);
+$clb-btn-dark-active-border-color: color.adjust($color-dark, $lightness: 10%);
+$clb-btn-dark-color: $color-white;
+$clb-btn-dark-hover-color: $color-white;
+$clb-btn-dark-active-color: $color-white;
+
+// danger styles
+$clb-btn-danger-bg-color: $color-error;
+$clb-btn-danger-hover-bg-color: color.adjust($color-error, $lightness: -10%);
+$clb-btn-danger-active-bg-color: color.adjust($color-error, $lightness: -15%);
+$clb-btn-danger-border-color: $color-error;
+$clb-btn-danger-hover-border-color: color.adjust($color-error, $lightness: -10%);
+$clb-btn-danger-active-border-color: color.adjust($color-error, $lightness: -15%);
+$clb-btn-danger-color: $color-white;
+$clb-btn-danger-hover-color: $color-white;
+$clb-btn-danger-active-color: $color-white;
+
+// success styles
+$clb-btn-success-bg-color: $color-success;
+$clb-btn-success-hover-bg-color: color.adjust($color-success, $lightness: -10%);
+$clb-btn-success-active-bg-color: color.adjust($color-success, $lightness: -15%);
+$clb-btn-success-border-color: $color-success;
+$clb-btn-success-hover-border-color: color.adjust($color-success, $lightness: -10%);
+$clb-btn-success-active-border-color: color.adjust($color-success, $lightness: -15%);
+$clb-btn-success-color: $color-white;
+$clb-btn-success-hover-color: $color-white;
+$clb-btn-success-active-color: $color-white;
+
+// warning styles
+$clb-btn-warning-bg-color: $color-warning;
+$clb-btn-warning-hover-bg-color: color.adjust($color-warning, $lightness: -10%);
+$clb-btn-warning-active-bg-color: color.adjust($color-warning, $lightness: -15%);
+$clb-btn-warning-border-color: $color-warning;
+$clb-btn-warning-hover-border-color: color.adjust($color-warning, $lightness: -10%);
+$clb-btn-warning-active-border-color: color.adjust($color-warning, $lightness: -15%);
+$clb-btn-warning-color: $color-white;
+$clb-btn-warning-hover-color: $color-white;
+$clb-btn-warning-active-color: $color-white;
+
+// info styles
+$clb-btn-info-bg-color: $color-info;
+$clb-btn-info-hover-bg-color: color.adjust($color-info, $lightness: -10%);
+$clb-btn-info-active-bg-color: color.adjust($color-info, $lightness: -15%);
+$clb-btn-info-border-color: $color-info;
+$clb-btn-info-hover-border-color: color.adjust($color-info, $lightness: -10%);
+$clb-btn-info-active-border-color: color.adjust($color-info, $lightness: -15%);
+$clb-btn-info-color: $color-white;
+$clb-btn-info-hover-color: $color-white;
+$clb-btn-info-active-color: $color-white;
+
+// sm styles
+$clb-btn-sm-min-width: auto;
+$clb-btn-sm-min-height: 30px;
+$clb-btn-sm-padding-y: spacing(1.5);
+$clb-btn-sm-padding-x: spacing(4);
+$clb-btn-sm-font-size: map.get($clb-font-sizes, 'default', 'md');
+$clb-btn-sm-line-height: map.get($clb-font-sizes, 'default', 'md') + 2px;
+
+// md styles
+$clb-btn-md-min-width: 120px;
+$clb-btn-md-min-height: 40px;
+$clb-btn-md-padding-y: spacing(2.5);
+$clb-btn-md-padding-x: spacing(6);
+$clb-btn-md-font-size: map.get($clb-font-sizes, 'default', 'md');
+$clb-btn-md-line-height: map.get($clb-font-sizes, 'default', 'md') + 4px;
+
+// lg styles
+$clb-btn-lg-min-width: 160px;
+$clb-btn-lg-min-height: 50px;
+$clb-btn-lg-padding-y: spacing(3.5);
+$clb-btn-lg-padding-x: spacing(8);
+$clb-btn-lg-font-size: map.get($clb-font-sizes, 'default', 'xl');
+$clb-btn-lg-line-height: map.get($clb-font-sizes, 'default', 'xl') + 6px;
+
+// rounded styles
+$clb-btn-rounded-border-radius: 8px;
+
+// assymetrical styles
+$clb-btn-asymmetrical-border-radius: 25px;
+
+// icon button styles
+$clb-btn-icon-size-sm: 30px;
+$clb-btn-icon-size-md: 40px;
+$clb-btn-icon-size-lg: 50px;
