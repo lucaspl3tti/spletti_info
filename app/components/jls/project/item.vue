@@ -46,11 +46,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ProjectItemProperties } from '@/interfaces/content/projects.interface';
+import type { JlsProjectItemProperties } from '@/interfaces/content/projects.interface';
 import { ObjectAccess } from '@helper/object-access.helper';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const properties = withDefaults(defineProps<ProjectItemProperties>(), {
+const properties = withDefaults(defineProps<JlsProjectItemProperties>(), {
   project: null,
 });
 </script>
@@ -58,7 +58,9 @@ const properties = withDefaults(defineProps<ProjectItemProperties>(), {
 <style lang="scss" scoped>
 .project-card {
   &__content {
-    display: grid;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: column;
   }
 
   &__title {
@@ -72,12 +74,12 @@ const properties = withDefaults(defineProps<ProjectItemProperties>(), {
 
   &__tags {
     @include flex(row wrap, $gap: spacing(2));
+    margin-top: auto;
     padding: spacing(2) 0;
   }
 
   &__links {
     @include flex($justify: space-between, $align: center);
-    margin-top: auto;
     padding-top: spacing(2);
   }
 }

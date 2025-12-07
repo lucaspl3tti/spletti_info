@@ -1,5 +1,28 @@
 <template>
-  <b-col class="clb-grid-column">
+  <b-col
+    class="clb-grid-column"
+    :align-self="alignSelf"
+    :col="col"
+    :cols="cols"
+    :offset="offset"
+    :order="order"
+    :tag="tag"
+    :lg="lg"
+    :md="md"
+    :sm="sm"
+    :xl="xl"
+    :xxl="xxl"
+    :offset-lg="offsetLg"
+    :offset-md="offsetMd"
+    :offset-sm="offsetSm"
+    :offset-xl="offsetXl"
+    :offset-xxl="offsetXxl"
+    :order-lg="orderLg"
+    :order-md="orderMd"
+    :order-sm="orderSm"
+    :order-xl="orderXl"
+    :order-xxl="orderXxl"
+  >
     <slot></slot>
   </b-col>
 </template>

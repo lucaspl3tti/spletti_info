@@ -1,10 +1,10 @@
 import type {
-  ButtonBorderStyles,
+  ClbButtonBorderStyles,
   ButtonType,
-  ButtonVariantsWithText,
-  ColorVariantsExtended,
+  ClbButtonVariantsWithText,
+  ClbColorVariantsExtended,
   LinkTargets,
-  Sizes,
+  ClbSizes,
 } from '@/types/misc.types';
 
 import type { ClbIconProperties } from './icon.interface';
@@ -12,17 +12,17 @@ import type { ClbIconProperties } from './icon.interface';
 // button component
 export interface ClbButtonProperties {
   block?: boolean
-  borderStyle?: ButtonBorderStyles
+  borderStyle?: ClbButtonBorderStyles
   styleClasses?: string
   href?: string
   icon?: ClbIconProperties
   isIconBtn?: boolean
-  size?: Sizes,
+  size?: ClbSizes,
   tag?: keyof HTMLElementTagNameMap
   target?: LinkTargets
   text?: string
-  theme?: ColorVariantsExtended
+  theme?: ClbColorVariantsExtended
   to?: string
   type?: ButtonType
-  variant?: ButtonVariantsWithText
+  variant?: ClbButtonVariantsWithText
 }

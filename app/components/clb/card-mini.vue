@@ -48,7 +48,8 @@ checkComponentPropertyValidity(properties.theme, 'theme', 'card-mini', true, col
   &__image {
     @include size(70% !important);
 
-    .nuxt-icon {
+    .nuxt-icon,
+    .nuxt-icon span {
       @include size(100% !important);
     }
   }

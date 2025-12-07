@@ -1,11 +1,11 @@
 import type {
-  ButtonVariants,
-  ColorThemes,
-  Sizes,
+  ClbButtonVariants,
+  ClbColorThemes,
+  ClbSizes,
 } from '@/types/misc.types';
 
 export interface ClbBadgeProperties {
-  theme?: ColorThemes
-  size?: Sizes
-  variant?: ButtonVariants
+  theme?: ClbColorThemes
+  size?: ClbSizes
+  variant?: ClbButtonVariants
 }

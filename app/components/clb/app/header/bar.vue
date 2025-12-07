@@ -6,7 +6,7 @@
     ]"
     :container="true"
   >
-    <clb-app-header-brand :text="brandText" is-handwriting-font />
+    <clb-app-header-brand :text="logoText" is-handwriting-font />
 
     <div class="clb-app-header-bar__actions">
       <clb-theme-switch
@@ -44,15 +44,9 @@ const colorMode = computed(() => colorModeDefault.value === 'auto'
   : colorModeDefault.value,
 );
 const runtimeConfig = useRuntimeConfig();
-const { languageSwitchEnabled, logoText, logoTextMobile } = runtimeConfig.public;
-const breakpoints = useBreakpoints();
-const activeBreakpoint = breakpoints.active();
+const { languageSwitchEnabled, logoText } = runtimeConfig.public;
 
 const isOpenSidebar = ref(false);
-const isMobile = computed(() => {
-  return activeBreakpoint.value === 'xs' || activeBreakpoint.value === 'sm';
-});
-const brandText = computed(() => (isMobile.value ? logoTextMobile : logoText));
 
 function onToggledSidebar(toggled: boolean): void {
   isOpenSidebar.value = toggled;

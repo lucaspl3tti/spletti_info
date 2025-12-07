@@ -1,5 +1,5 @@
 import type {
-  ColorThemes,
+  ClbColorThemes,
   HeadingSub,
   Heading,
   TextPositions,
@@ -9,7 +9,7 @@ export interface ClbHeadingProperties {
   headingType: Heading
   text?: string
   position?: TextPositions
-  theme?: ColorThemes
+  theme?: ClbColorThemes
   hideDot?: boolean
   isHandwritingFont?: boolean
 }

@@ -35,7 +35,6 @@ export interface ClbAppNavProperties {
 export interface ClbNavItem {
   name: string
   link: string
-  text: string
   icon: string
 }
 

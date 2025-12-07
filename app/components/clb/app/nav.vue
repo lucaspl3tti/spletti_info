@@ -26,9 +26,9 @@
           class="clb-app-nav-link__link"
           :to="localePath(item.link).toString()"
           theme="light"
-          :title="item.text"
+          :title="$trans(`general.navigation.${item.name}`)"
         >
-          {{ item.text }}
+          {{ $trans(`general.navigation.${item.name}`) }}
         </clb-link>
       </div>
     </div>

@@ -7,6 +7,12 @@ body {
   font-size: map.get($font-sizes, 'default', 'xs');
 }
 
+.hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
 .hover-underline,
 .underline {
   position: relative;
@@ -38,9 +44,13 @@ body {
 
 .page-content {
   min-height: calc(100dvh - $app-header-height - 350px);
-  margin-top: $app-header-height;
+  margin-top: $margin-page-top;
   padding-top: $margin-page-top;
   padding-bottom: $margin-page-bottom;
+}
+
+.clb-footer {
+  padding-bottom: $app-header-height + 50px !important;
 }
 
 // ul {
@@ -70,6 +80,15 @@ img {
 @include tablet-up {
   body {
     font-size: map.get($font-sizes, 'default', 'md');
+  }
+
+  .page-content {
+    margin-top: $app-header-height;
+    margin-bottom: 0;
+  }
+
+  .clb-footer {
+    padding-bottom: 50px !important;
   }
 }
 

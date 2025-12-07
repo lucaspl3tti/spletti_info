@@ -10,3 +10,8 @@ $link-color: $color-secondary;
 $link-hover-color: color.adjust($color-secondary, $lightness: -10%);
 $link-light-color: $color-white;
 $link-light-hover-color: color.adjust($color-white, $lightness: -10%);
+
+// Loader
+$app-loader-color: $color-white;
+$app-loader-background-color: $color-primary;
+$loader-dots-border-radius: 50%;

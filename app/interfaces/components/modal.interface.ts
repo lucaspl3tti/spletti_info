@@ -1,16 +1,16 @@
 import type {
-  ButtonVariantsWithText,
-  ColorVariants,
-  ColorVariantsExtended,
-  Sizes,
+  ClbButtonVariantsWithText,
+  ClbColorVariants,
+  ClbColorVariantsExtended,
+  ClbSizes,
 } from '@/types/misc.types';
 
 export interface ClbModalProperties {
-  actionSize?: Sizes
+  actionSize?: ClbSizes
   cancelClass?: string|string[]
-  cancelTheme?: ColorVariantsExtended
+  cancelTheme?: ClbColorVariantsExtended
   cancelTitle?: string
-  cancelVariant?: ButtonVariantsWithText
+  cancelVariant?: ClbButtonVariantsWithText
   disableCancel?: boolean
   disableOk?: boolean
   fullscreen?: boolean
@@ -19,9 +19,9 @@ export interface ClbModalProperties {
   noFooter?: boolean
   okClass?: string|string[]
   okOnly?: boolean
-  okTheme?: ColorVariantsExtended
+  okTheme?: ClbColorVariantsExtended
   okTitle?: string
-  okVariant?: ButtonVariantsWithText
-  theme?: ColorVariants
+  okVariant?: ClbButtonVariantsWithText
+  theme?: ClbColorVariants
   title?: string
 }

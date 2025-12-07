@@ -1,6 +1,6 @@
-import type { ColorModes } from '@/types/misc.types';
+import type { ClbColorModes } from '@/types/misc.types';
 
 export interface ClbThemeSwitchProperties {
-  colorMode: ColorModes
+  colorMode: ClbColorModes
   id: string
 }

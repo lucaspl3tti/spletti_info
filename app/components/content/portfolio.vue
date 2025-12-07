@@ -2,8 +2,8 @@
   <clb-section
     id="portfolio"
     name="portfolio"
-    :title="headingText"
-    :subheading="subheadingText"
+    :title="$trans('portfolio.heading')"
+    :subheading="$trans('portfolio.subheading')"
     subheading-appearance="h4"
     subheading-is-handwriting-font
   >
@@ -25,9 +25,9 @@
           :to="localePath('/projects').toString()"
           theme="secondary"
           border-style="asymmetrical"
-          :title="seeMoreText"
+          :title="$trans('general.wordings.more')"
         >
-          {{ seeMoreText }}
+          {{ $trans('general.wordings.more') }}
           <template #append>
             <clb-icon
               pack="bi"
@@ -52,9 +52,6 @@ const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const projects: Ref<PimcoreProject[]> = ref([]);
-const headingText = await $trans(apiUrl, 'portfolio.heading', locale.value);
-const subheadingText = await $trans(apiUrl, 'portfolio.subheading', locale.value);
-const seeMoreText = await $trans(apiUrl, 'general.wordings.more', locale.value);
 
 const projectsData: PimcoreApiResponse = await $fetch(`${apiUrl}/projects?lang=${locale.value}`);
 handleProjectsData(projectsData);

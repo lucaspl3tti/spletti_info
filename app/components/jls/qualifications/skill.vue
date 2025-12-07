@@ -6,13 +6,13 @@
         :pack="icon.pack"
         :name="icon.name"
         size="93"
-        class="jls-card-mini__image"
+        class="clb-card-mini__image"
       />
 
       <img
         v-else-if="skill && !Utilities.isEmpty(skill.image)"
         :src="skill.image ? getAssetFullPath(skill.image) : undefined"
-        class="jls-card-mini__image"
+        class="clb-card-mini__image"
         :alt="`Icon of ${skill.name}`"
       />
     </template>

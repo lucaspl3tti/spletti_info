@@ -90,7 +90,7 @@ async function getSocialList(url: string): Promise<void> {
     $position: fixed,
     $top: auto,
     $bottom: 120px,
-    $zIndex: $z-fixed,
+    $zIndex: $z-fixed - 10,
   );
   display: none;
   flex-flow: column;

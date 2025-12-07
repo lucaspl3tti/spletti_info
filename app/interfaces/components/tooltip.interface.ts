@@ -1,12 +1,12 @@
 import type {
-  ColorModes,
-  TooltipPlacements,
+  ClbColorModes,
+  ClbTooltipPlacements,
 } from '@/types/misc.types';
 
 export interface ClbTooltipProperties {
   target: string
   text?: string
-  theme?: ColorModes
-  placement?: TooltipPlacements
+  theme?: ClbColorModes
+  placement?: ClbTooltipPlacements
   teleportDisabled?: boolean
 }

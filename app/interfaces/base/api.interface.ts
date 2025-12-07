@@ -1,3 +1,5 @@
+import type { LinkTargets } from '@/types/misc.types';
+
 // general api interfaces
 export interface PimcoreApiResponse {
   success: boolean
@@ -6,7 +8,16 @@ export interface PimcoreApiResponse {
   }
 }
 
-export interface PimcoreTranslationResponse {
+export type PimcoreTranslationsBatch = {
+  [key: string]: string
+}
+
+export interface PimcoreTranslationsBatchResponse {
+  success: boolean
+  data: PimcoreTranslationsBatch
+}
+
+export interface PimcoreTranslationsSingleResponse {
   success: boolean
   data: string
 }
@@ -134,7 +145,7 @@ export interface PimcoreLinktree extends PimcoreApiResponseDataBase {
 export interface PimcoreLinktreeLink {
   href: string
   label: string
-  target: string
+  target: LinkTargets
 }
 
 export interface PimcoreLinktreeButton extends PimcoreLinktreeLink {

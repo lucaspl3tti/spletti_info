@@ -1,23 +1,23 @@
 import type {
-  ButtonBorderStyles,
-  ButtonVariants,
-  ButtonVariantsWithText,
-  ColorModes,
-  ColorThemes,
-  ColorFuntionals,
-  ColorVariants,
-  ColorVariantsExtended,
-  FormAlertState,
+  ClbButtonBorderStyles,
+  ClbButtonVariants,
+  ClbButtonVariantsWithText,
+  ClbColorModes,
+  ClbColorThemes,
+  ClbColorFuntionals,
+  ClbColorVariants,
+  ClbColorVariantsExtended,
+  ClbFormAlertState,
   HeadingSite,
   HeadingSub,
   Heading,
   InputType,
   LinkTargets,
-  LoaderDotsVariants,
-  Sizes,
-  SizesExtra,
+  ClbLoaderDotsVariants,
+  ClbSizes,
+  ClbSizesExtra,
   TextPositions,
-  TooltipPlacements,
+  ClbTooltipPlacements,
 } from '../types/misc.types';
 
 // type consts
@@ -27,17 +27,17 @@ export const buttonTypes: string[] = [
   'reset',
 ];
 
-export const buttonVariants: ButtonVariants[] = [
+export const buttonVariants: ClbButtonVariants[] = [
   'default',
   'ghost',
 ];
 
-export const buttonVariantsWithText: ButtonVariantsWithText[] = [
+export const buttonVariantsWithText: ClbButtonVariantsWithText[] = [
   ...buttonVariants,
   'text',
 ];
 
-export const buttonBorderStyles: ButtonBorderStyles[] = [
+export const buttonBorderStyles: ClbButtonBorderStyles[] = [
   'default',
   'rounded',
   'pill',
@@ -45,34 +45,34 @@ export const buttonBorderStyles: ButtonBorderStyles[] = [
   'asymmetrical-mirrored',
 ];
 
-export const colorModes: ColorModes[] = [
+export const colorModes: ClbColorModes[] = [
   'light',
   'dark',
 ];
 
-export const colorThemes: ColorThemes[] = [
+export const colorThemes: ClbColorThemes[] = [
   'primary',
   'secondary',
 ];
 
-export const colorFunctionals: ColorFuntionals[] = [
+export const colorFunctionals: ClbColorFuntionals[] = [
   'danger',
   'success',
   'warning',
   'info',
 ];
 
-export const colorVariants: ColorVariants[] = [
+export const colorVariants: ClbColorVariants[] = [
   ...colorModes,
   ...colorThemes,
 ];
 
-export const colorVariantsExtended: ColorVariantsExtended[] = [
+export const colorVariantsExtended: ClbColorVariantsExtended[] = [
   ...colorVariants,
   ...colorFunctionals,
 ];
 
-export const formAlertStates: FormAlertState[] = [
+export const formAlertStates: ClbFormAlertState[] = [
   'success',
   'error',
 ];
@@ -117,7 +117,7 @@ export const linkTarget: LinkTargets[] = [
   '_top',
 ];
 
-export const loaderDotsVariants: LoaderDotsVariants[] = [
+export const loaderDotsVariants: ClbLoaderDotsVariants[] = [
   'flashing',
   'elastic',
   'collision',
@@ -127,13 +127,13 @@ export const loaderDotsVariants: LoaderDotsVariants[] = [
   'jumping',
 ];
 
-export const sizes: Sizes[] = [
+export const sizes: ClbSizes[] = [
   'sm',
   'md',
   'lg',
 ];
 
-export const sizesExtra: SizesExtra[] = [
+export const sizesExtra: ClbSizesExtra[] = [
   ...sizes,
   'xs',
   'xl',
@@ -147,7 +147,7 @@ export const sizesExtra: SizesExtra[] = [
   }
 
   return 0;
-}) as SizesExtra[];
+}) as ClbSizesExtra[];
 
 export const textPositions: TextPositions[] = [
   'start',
@@ -155,7 +155,7 @@ export const textPositions: TextPositions[] = [
   'end',
 ];
 
-export const tooltipPlacements: TooltipPlacements[] = [
+export const tooltipPlacements: ClbTooltipPlacements[] = [
   'top',
   'top-start',
   'top-end',

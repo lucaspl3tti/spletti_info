@@ -1,11 +1,11 @@
 import type {
-  ColorVariants,
+  ClbColorVariants,
   LinkTargets,
 } from '@/types/misc.types';
 
 export interface ClbLinkProperties {
   to: string
-  theme?: ColorVariants
+  theme?: ClbColorVariants
   target?: LinkTargets
   isExternal?: boolean
   noUnderline?: boolean

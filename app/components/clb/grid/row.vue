@@ -1,5 +1,20 @@
 <template>
-  <b-row class="clb-grid-row">
+  <b-row
+    class="clb-grid-row"
+    :tag="tag"
+    :gutter-x="gutterX"
+    :gutter-y="gutterY"
+    :no-gutters="noGutters"
+    :align-v="alignV"
+    :align-h="alignH"
+    :align-content="alignContent"
+    :cols="cols"
+    :cols-lg="colsLg"
+    :cols-md="colsMd"
+    :cols-sm="colsSm"
+    :cols-xl="colsXl"
+    :cols-xxl="colsXxl"
+  >
     <slot></slot>
   </b-row>
 </template>

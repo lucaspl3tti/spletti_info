@@ -41,6 +41,7 @@ const homePath = computed((): string => localePath('/').toString());
   border-radius: 25px;
   padding: spacing(1) spacing(5);
   padding-left: 0;
+  white-space: unset;
 
   .nav-logo {
     color: $color-white;

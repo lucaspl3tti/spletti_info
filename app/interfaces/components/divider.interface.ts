@@ -1,9 +1,9 @@
 import type {
-  ColorVariants,
-  Sizes,
+  ClbColorVariants,
+  ClbSizes,
 } from '@/types/misc.types';
 
 export interface ClbDividerProperties {
-  theme?: ColorVariants,
-  size?: Sizes
+  theme?: ClbColorVariants,
+  size?: ClbSizes
 }

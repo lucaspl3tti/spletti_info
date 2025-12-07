@@ -1,45 +1,51 @@
 import type {
-  ColorVariants,
-  FormAlertState,
+  ClbColorVariants,
+  ClbFormAlertState,
+  Numberish,
   InputType,
-  // InputVariant,
 } from '@/types/misc.types';
 
-export interface FormProperties {
+export interface ClbFormProperties {
   id: string
   action?: string
-  method?: 'post' | 'put' | 'patch'
+  method?: 'GET' | 'POST' | 'PUT' | 'PATCH'
   novalidate?: boolean
 }
 
-export interface FormAlertProperties {
-  state: FormAlertState
+export interface ClbFormAlertProperties {
+  state: ClbFormAlertState
 }
 
-export interface FormCheckboxProperties {
+export interface ClbFormComponentBase {
   id: string
+  name: string,
+  isInvalid?: boolean
+  label?: string
+  required?: boolean
+  rounded?: boolean
+  theme?: ClbColorVariants
+  validationMessage?: string
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface ClbFormCheckboxProperties extends ClbFormComponentBase {}
+
+export interface ClbFormInputProperties extends ClbFormComponentBase {
+  hint?: string
+  isNotFloating?: boolean
+  placeholder?: string
+  type?: InputType
+}
+
+export interface ClbFormTextareaProperties extends ClbFormInputProperties {
+  rows?: Numberish
+}
+
+export interface ClbFormCaptchaProperties {
+  id: string
+  name: string
   label?: string
   rounded?: boolean
-  theme?: ColorVariants
-}
-
-export type FormTextareaModel = string | number
-export type FormTextfieldModel = string | number
-
-export interface FormInputProperties {
-  label?: string | undefined
-  theme?: ColorVariants
-  // variant?: InputVariant
-  type?: InputType
-  placeholder?: string | undefined
-  hint?: string | undefined
-  persistentHint?: boolean
-  clearable?: boolean
-  iconPack?: string
-  prependIcon?: string | undefined
-  prependInnerIcon?: string | undefined
-  appendIcon?: string | undefined
-  appendInnerIcon?: string | undefined
-  suffix?: string | undefined
-  autoGrow?: boolean
+  theme?: ClbColorVariants
+  validationMessage?: string
 }

@@ -6,23 +6,23 @@ import type {
 
 import type { ClbImage } from '@/interfaces/components/image.interface';
 
-export interface ProjectItemProperties {
+export interface JlsProjectItemProperties {
   project: PimcoreProject | null
 }
 
-export interface ProjectImageProperties {
+export interface JlsProjectImageProperties {
   thumbnail: PimcoreProjectImage | null
   images: PimcoreProjectImage[] | null
 }
 
-export interface ProjectLinkProperties {
+export interface JlsProjectLinkProperties {
   link: PimcoreProjectLink
 }
 
-export interface ProjectImage extends ClbImage {
+export interface JlsProjectImage extends ClbImage {
   ratio?: string
 }
 
-export interface ProjectZoomModalItem {
-  image: ProjectImage
+export interface JlsProjectZoomModalItem {
+  image: JlsProjectImage
 }

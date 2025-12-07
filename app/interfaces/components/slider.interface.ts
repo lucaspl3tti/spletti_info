@@ -1,6 +1,6 @@
 import type { ClbImage } from './image.interface';
 import type { SplideOptions } from './splide.interface';
-import type { ButtonVariantsWithText, ColorVariants, Numberish } from '@/types/misc.types';
+import type { ClbButtonVariantsWithText, ClbColorVariants, Numberish } from '@/types/misc.types';
 
 export interface ClbSliderProperties {
   items: ClbSliderItem[]
@@ -11,7 +11,7 @@ export interface ClbSliderProperties {
   perPageTabletPortrait?: Numberish
   autoplay?: boolean
   controlsAlwaysVisible?: boolean
-  controlsTheme?: ColorVariants
+  controlsTheme?: ClbColorVariants
   draggable?: boolean
   gap?: Numberish
   hasTransparentControls?: boolean
@@ -29,6 +29,6 @@ export interface ClbSliderItem {
 export interface ClbSliderControlProperties {
   type: 'prev' | 'next'
   disabled?: boolean
-  theme?: ColorVariants
-  variant?: ButtonVariantsWithText
+  theme?: ClbColorVariants
+  variant?: ClbButtonVariantsWithText
 }

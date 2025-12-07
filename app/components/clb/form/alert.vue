@@ -1,13 +1,14 @@
 <template>
-  <div class="contact-form__alert">
-    <div :class="`alert__${state}`">
+  <div class="clb-form-alert">
+    <div :class="`clb-form-alert__text clb-form-alert__text--${state}`">
+      <clb-icon
+        pack="bi"
+        :name="alertIcon"
+        size="28"
+        color="currentColor"
+      />
+
       <p>
-        <jls-icon
-          pack="bi"
-          :name="alertIcon"
-          size="24"
-          color="currentColor"
-        />
         {{ alertText }}
       </p>
     </div>
@@ -15,25 +16,19 @@
 </template>
 
 <script setup lang="ts">
-import type { FormAlertProperties } from '@/interfaces/components/form.interface';
+import type { ClbFormAlertProperties } from '@/interfaces/components/form.interface';
 import { formAlertStates } from '@/consts/misc.consts';
 
-const properties = withDefaults(defineProps<FormAlertProperties>(), {
+const properties = withDefaults(defineProps<ClbFormAlertProperties>(), {
   state: 'success',
 });
 
 checkComponentPropertyValidity(properties.state, 'state', 'form-alert', true, formAlertStates);
 
-const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public;
-const { locale } = useI18n();
-
-const successText = await $trans(apiUrl, 'contact.success', locale.value);
-const errorText = await $trans(apiUrl, 'contact.error', locale.value);
 const alertText = computed(() => {
   return properties.state === 'success'
-    ? successText
-    : errorText;
+    ? $trans('contact.success')
+    : $trans('contact.error');
 });
 
 const alertIcon = computed(() => {
@@ -42,30 +37,29 @@ const alertIcon = computed(() => {
 </script>
 
 <style lang="scss">
-.contact-form {
-  &__alert {
-    .icon {
-      margin-right: spacing(2);
-    }
+.clb-form-alert {
+  &__text {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: spacing(2);
 
     p {
       margin: 0;
     }
 
-    .alert {
-      &__success {
-        color: $color-success;
-      }
+    &--success {
+      color: $color-success;
+    }
 
-      &__error {
-        color: $color-error;
-      }
+    &--error {
+      color: $color-error;
     }
   }
 }
 
 @include tablet-up {
-  .contact-form__alert {
+  .clb-form-alert {
     flex: 0 0 100%;
     max-width: 100%;
   }

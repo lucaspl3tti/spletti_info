@@ -6,7 +6,7 @@
     <clb-container class="skills-qualifications-container">
       <clb-heading
         heading-type="h2"
-        :text="headingText"
+        :text="$trans('qualifications.heading')"
         position="center"
         class="heading--skills"
       />
@@ -18,7 +18,7 @@
           @change="onChangeContent"
         />
 
-        <!-- <jls-qualifications-resume /> -->
+        <jls-qualifications-resume />
       </div>
 
       <div
@@ -75,8 +75,6 @@ const { locale } = useI18n();
 const breakpoints = useBreakpoints();
 const activeBreakpoint = breakpoints.active();
 
-const headingText = await $trans(apiUrl, 'qualifications.heading', locale.value);
-
 const viewport: Ref<MediaQueryList|null> = ref(null);
 const isViewportXl = ref(false);
 const skillsToggled = ref(true);
@@ -84,20 +82,12 @@ const jobsToggled = ref(false);
 const skills: Ref<PimcoreSkill[]> = ref([]);
 const careers: JlsContentCareers = reactive({
   professional: {
-    heading: await $trans(
-      apiUrl,
-      'qualifications.careers.professional.heading',
-      locale.value,
-    ),
+    heading: $trans('qualifications.careers.professional.heading'),
     jobs: null,
   },
 
   school: {
-    heading: await $trans(
-      apiUrl,
-      'qualifications.careers.school.heading',
-      locale.value,
-    ),
+    heading: $trans('qualifications.careers.school.heading'),
     jobs: null,
   },
 });

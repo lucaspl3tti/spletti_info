@@ -1,6 +1,6 @@
 import type {
-  ColorModes,
-  ColorVariants,
+  ClbColorModes,
+  ClbColorVariants,
   Numberish,
   PositionValueVertical,
 } from '@/types/misc.types';
@@ -13,7 +13,7 @@ export interface ClbBentoCardProperties {
 
 // card mini component
 export interface ClbCardMiniComponents {
-  theme?: ColorModes
+  theme?: ClbColorModes
   title?: string
   imageSrc?: string
   imageAlt?: string
@@ -22,7 +22,7 @@ export interface ClbCardMiniComponents {
 // card component
 export interface ClbCardProperties {
   title?: string
-  theme?: ColorVariants
+  theme?: ClbColorVariants
   hideActions?: boolean
   imgAlt?: ClbCardImageProperties['alt']
   imgSrc?: ClbCardImageProperties['src']

@@ -1,7 +1,7 @@
 <template>
   <div class="nuxt-layout nuxt-layout--default">
     <nuxt-loading-indicator />
-    <!-- <jls-app-loader v-if="useAppLoader" /> -->
+    <clb-app-loader v-if="useAppLoader" />
 
     <client-only>
       <clb-app-particles
@@ -42,14 +42,16 @@
 // import aosInit from '@/mixins/aos';
 import type { ClbNavItem } from '@/interfaces/base/app.interface';
 import { useColorMode } from '@vueuse/core';
+import { useTranslationsStore } from '@/stores/translations.store';
 import { useNavItemsStore } from '@/stores/nav-items.store';
 
 const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public; // useAppLoader
+const { apiUrl, useAppLoader } = runtimeConfig.public;
 const { locale } = useI18n();
+const translationsStore = useTranslationsStore();
 const navItemsStore = useNavItemsStore();
 const navItems = ref<ClbNavItem[]>([]);
-await navItemsStore.loadTranslations(apiUrl, locale.value);
+await translationsStore.loadTranslations(apiUrl, locale.value);
 navItems.value = navItemsStore.getItems();
 
 const colorModeStore = useColorMode().store;

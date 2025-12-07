@@ -22,8 +22,6 @@
 import type { ClbDropdownItem } from '@/interfaces/components/dropdown.interface';
 import { useRouterStore } from '@/stores/router.store';
 
-const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public;
 const { availableLocales, defaultLocale, locale, setLocale } = useI18n();
 const routerStore = useRouterStore();
 const localeTranslations: Record<string, string> = {};
@@ -33,13 +31,7 @@ const activeLanguageItem = computed<ClbDropdownItem|undefined>(() => {
 });
 
 for (const localeCode of availableLocales) {
-  const localeTranslation = await $trans(
-    apiUrl,
-    `general.languages.${localeCode}`,
-    locale.value,
-  );
-
-  localeTranslations[localeCode] = localeTranslation;
+  localeTranslations[localeCode] = $trans(`general.languages.${localeCode}`);
   languageItems.push({
     key: localeCode,
     value: localeTranslations[localeCode],

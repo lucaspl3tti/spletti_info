@@ -4,8 +4,8 @@
       <clb-section
         id="projects"
         class="projects"
-        :title="headingText"
-        :subheading="subheadingText"
+        :title="$trans('portfolio.heading')"
+        :subheading="$trans('portfolio.subheading')"
         subheading-appearance="h4"
         subheading-is-handwriting-font
       >
@@ -20,7 +20,7 @@
           >
             <template #button-text>
               <span>
-                <span>{{ filterLabelText }}</span>
+                <span>{{ $trans('general.filtering.label') }}</span>
                 <span v-if="activeFilter">: {{ activeFilter.value }}</span>
               </span>
             </template>
@@ -61,15 +61,10 @@ const langClass = ref(`spletti-${locale.value}`);
 const projects: Ref<PimcoreProject[]> = ref([]);
 const allProjects: Ref<PimcoreProject[]> = ref([]);
 
-const headingText = await $trans(apiUrl, 'portfolio.heading', locale.value);
-const subheadingText = await $trans(apiUrl, 'portfolio.subheading', locale.value);
-const filterLabelText = await $trans(apiUrl, 'general.filtering.label', locale.value);
-const filterAllLabel = await $trans(apiUrl, 'general.wordings.all', locale.value);
-
 const tagsStore = reactive<ClbDropdownItem[]>([
   {
     key: 'all',
-    value: filterAllLabel,
+    value: $trans('general.wordings.all'),
   },
 ]);
 const defaultActiveFilter: Ref<ClbDropdownItem|undefined> = ref(

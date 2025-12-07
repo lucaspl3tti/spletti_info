@@ -1,18 +1,18 @@
 import type {
-  ButtonBorderStyles,
-  ButtonVariantsWithText,
-  ColorVariants,
-  Sizes,
+  ClbButtonBorderStyles,
+  ClbButtonVariantsWithText,
+  ClbColorVariants,
+  ClbSizes,
 } from '@/types/misc.types';
 
 import type { ClbIcon } from '@/interfaces/components/icon.interface';
 
 export interface ClbDropdownProperties {
   id: string
-  theme?: ColorVariants
-  variant?: ButtonVariantsWithText
-  size?: Sizes
-  borderStyle?: ButtonBorderStyles
+  theme?: ClbColorVariants
+  variant?: ClbButtonVariantsWithText
+  size?: ClbSizes
+  borderStyle?: ClbButtonBorderStyles
   buttonClasses?: string[]
   buttonText?: string
   buttonIcon?: ClbIcon
@@ -24,7 +24,7 @@ export interface ClbDropdownProperties {
   dropdownItems?: ClbDropdownItem[]
   dropdownActiveItem?: ClbDropdownItem
   dropdownHideActiveItem?: boolean
-  dropdownActiveItemTheme?: ColorVariants
+  dropdownActiveItemTheme?: ClbColorVariants
   dropdownItemIconSize?: string|number
   dropdownItemIconPosition?: 'left'|'right'
 }

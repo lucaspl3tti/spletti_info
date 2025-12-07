@@ -9,7 +9,7 @@
       @click="onClickNavItem"
     >
       <a class="hover-underline subheading">
-        {{ skillsLabel }}
+        {{ $trans('qualifications.changeContent.skills') }}
       </a>
     </li>
     <li
@@ -21,7 +21,7 @@
       @click="onClickNavItem"
     >
       <a class="hover-underline subheading">
-        {{ jobsLabel }}
+        {{ $trans('qualifications.changeContent.jobs') }}
       </a>
     </li>
   </ul>
@@ -37,13 +37,6 @@ const properties = withDefaults(defineProps<JlsQualificationNavProperties>(), {
 });
 
 const emit = defineEmits(['change']);
-
-const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public;
-const { locale } = useI18n();
-
-const skillsLabel = await $trans(apiUrl, 'qualifications.changeContent.skills', locale.value);
-const jobsLabel = await $trans(apiUrl, 'qualifications.changeContent.jobs', locale.value);
 
 function onClickNavItem(): void {
   emit('change');

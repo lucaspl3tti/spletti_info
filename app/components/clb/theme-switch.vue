@@ -20,7 +20,7 @@
       placement="bottom"
       :theme="colorMode"
     >
-      {{ tooltipText }}
+      {{ $trans('general.toggleTheme.label') }}
     </clb-tooltip>
   </div>
 </template>
@@ -28,12 +28,9 @@
 <script setup lang="ts">
 import { NativeEventEmitter } from '@helper/event-emitter.helper';
 import type { ClbThemeSwitchProperties } from '@/interfaces/components/theme-switch.interface';
-import type { ThemeIcon } from '@/types/misc.types';
+import type { ClbThemeIcon } from '@/types/misc.types';
 import { useColorMode } from '@vueuse/core';
 
-const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public;
-const { locale } = useI18n();
 const colorModeStore = useColorMode().store;
 
 const properties = withDefaults(defineProps<ClbThemeSwitchProperties>(), {
@@ -45,20 +42,13 @@ checkComponentPropertyValidity(properties.colorMode, 'color-mode', 'theme-switch
 checkComponentPropertyValidity(properties.id, 'id', 'theme-switch', true);
 
 const tooltipIsOpen = ref(false);
-const tooltipText = ref('');
-const themeIcon = computed<ThemeIcon>((): ThemeIcon => {
+const themeIcon = computed<ClbThemeIcon>(() => {
   return properties.colorMode === 'dark' ? 'moon-fill' : 'sun-fill';
 });
 const colorMode = computed(() => colorModeStore.value === 'auto' ? 'dark' : colorModeStore.value);
 
 let emitter: InstanceType<typeof NativeEventEmitter>;
 const emit = defineEmits(['theme-changed']);
-
-tooltipText.value = await $trans(
-  apiUrl,
-  'general.toggleTheme.label',
-  locale.value,
-);
 
 onMounted(() => {
   emitter = new NativeEventEmitter();

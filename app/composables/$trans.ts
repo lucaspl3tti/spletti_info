@@ -1,16 +1,17 @@
-import type { PimcoreTranslationResponse } from '@/interfaces/base/api.interface';
-import type { AppTranslationReplaceObject } from '@/interfaces/base/translation.interface';
+// import type { PimcoreTranslationsBatch } from '@/interfaces/base/api.interface';
+import type { JlsAppTranslationReplaceObject } from '@/interfaces/base/translation.interface';
+import { useTranslationsStore } from '@/stores/translations.store';
 
-export default async function (
-  apiUrl: string,
+export default function (
   key: string,
-  locale: string = 'en',
-  replaceTexts?: AppTranslationReplaceObject,
-): Promise<string> {
-  const route = `${apiUrl}/translations/${locale}/${key}`;
+  replaceTexts?: JlsAppTranslationReplaceObject,
+): string {
+  const translationsStore = useTranslationsStore();
+  let translation = translationsStore.getTranslation(key);
 
-  const response: PimcoreTranslationResponse = await $fetch(route);
-  let translation = response.data;
+  if (!translation) {
+    return key;
+  }
 
   if (replaceTexts) {
     for (const [placeholder, value] of Object.entries(replaceTexts)) {

@@ -10,18 +10,18 @@
     target="_blank"
     rel="noopener noreferrer"
     :title="link.type === 'repo'
-      ? projectGithubLinkText
+      ? $trans('portfolio.projectGithubLinkText')
       : link.type === 'live'
-        ? link.text || projectLiveLinkText
+        ? link.text || $trans('portfolio.projectLiveLinkText')
         : ''
     "
   >
     <span v-if="link.type === 'repo'" class="hover-underline">
-      {{ projectGithubLinkText }}
+      {{ $trans('portfolio.projectGithubLinkText') }}
     </span>
 
     <span v-else-if="link.type === 'live'" class="hover-underline">
-      {{ link.text || projectLiveLinkText }}
+      {{ link.text || $trans('portfolio.projectLiveLinkText') }}
     </span>
 
     <clb-icon
@@ -34,26 +34,12 @@
 </template>
 
 <script setup lang="ts">
-import type { ProjectLinkProperties } from '@/interfaces/content/projects.interface';
+import type { JlsProjectLinkProperties } from '@/interfaces/content/projects.interface';
 
-const runtimeConfig = useRuntimeConfig();
-const { apiUrl } = runtimeConfig.public;
-const { locale } = useI18n();
-
-const properties = withDefaults(defineProps<ProjectLinkProperties>(), {
+const properties = withDefaults(defineProps<JlsProjectLinkProperties>(), {
   link: undefined,
 });
 
-const projectGithubLinkText = await $trans(
-  apiUrl,
-  'portfolio.projectGithubLinkText',
-  locale.value,
-);
-const projectLiveLinkText = await $trans(
-  apiUrl,
-  'portfolio.projectLiveLinkText',
-  locale.value,
-);
 const linkTarget = computed(() => {
   if (properties.link.type !== 'live') {
     return properties.link.href;

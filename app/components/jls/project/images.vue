@@ -45,7 +45,7 @@
         rewind
       >
         <template
-          #slider-item-content="{ item }: { item: ProjectZoomModalItem }"
+          #slider-item-content="{ item }: { item: JlsProjectZoomModalItem }"
         >
           <div class="clb-slider__item__img-wrapper">
             <clb-image
@@ -64,11 +64,11 @@
 
 <script setup lang="ts">
 import type {
-  ProjectImageProperties,
-  ProjectZoomModalItem,
+  JlsProjectImageProperties,
+  JlsProjectZoomModalItem,
 } from '@/interfaces/content/projects.interface';
 
-const properties = withDefaults(defineProps<ProjectImageProperties>(), {
+const properties = withDefaults(defineProps<JlsProjectImageProperties>(), {
   thumbnail: null,
   images: null,
 });
@@ -78,7 +78,7 @@ const hasPaddingBottom = computed(() => {
   return properties.thumbnail?.has_padding_bottom;
 });
 
-const zoomModalItems = computed<ProjectZoomModalItem[]>(() => {
+const zoomModalItems = computed<JlsProjectZoomModalItem[]>(() => {
   if (!properties.images) {
     return [];
   }

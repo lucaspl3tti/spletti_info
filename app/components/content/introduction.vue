@@ -54,16 +54,6 @@ const { apiUrl } = runtimeConfig.public;
 
 const texts: Ref<PimcoreProfileBasics|null> = ref(null);
 const profilePicture: Ref<PimcoreProfilePicture|null> = ref(null);
-const contactText = await $trans(
-  apiUrl,
-  'introduction.buttons.contact.text',
-  locale.value,
-);
-const portfolioText = await $trans(
-  apiUrl,
-  'introduction.buttons.portfolio.text',
-  locale.value,
-);
 
 const introduction: JlsContentIntroduction = reactive({
   buttons: [
@@ -71,13 +61,13 @@ const introduction: JlsContentIntroduction = reactive({
       name: 'portfolio',
       link: '#portfolio',
       isMirrored: false,
-      text: portfolioText,
+      text: $trans('introduction.buttons.portfolio.text'),
     },
     {
       name: 'contact',
       link: '#contact',
       isMirrored: true,
-      text: contactText,
+      text: $trans('introduction.buttons.contact.text'),
     },
   ],
 });
