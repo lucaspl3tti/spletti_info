@@ -39,10 +39,12 @@ for (const localeCode of availableLocales) {
   });
 }
 
-function changeLanguage(languageCode: 'en'|'de') {
+async function changeLanguage(languageCode: 'en'|'de') {
   setLocale(languageCode);
   localStorage.setItem('language', languageCode);
   routerStore.setHardReload(true);
+
+  await delay(100);
 
   let languageRoute = `/${languageCode}`;
 
