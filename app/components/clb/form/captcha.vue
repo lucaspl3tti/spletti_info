@@ -50,9 +50,9 @@
 <script setup lang="ts">
 import type { ClbFormCaptchaProperties } from '@/interfaces/components/form.interface';
 import { colorVariants } from '@/consts/misc.consts';
-import { Color } from '@helper/color.helper';
-import { Dom } from '@helper/dom.helper';
-import { Utilities } from '@helper/utilities.helper';
+import Color from '@helper/color.helper';
+import Dom from '@helper/dom.helper';
+import Utilities from '@helper/utilities.helper';
 
 const properties = withDefaults(defineProps<ClbFormCaptchaProperties>(), {
   id: undefined,
@@ -79,7 +79,11 @@ watch(() => properties.theme, () => {
 });
 
 function generateCaptcha() {
-  captchaText.value  = Utilities.generateRandomText(6);
+  captchaText.value = Utilities.generateRandomText(8, {
+    minNumbers: 2,
+    minUppercase: 2,
+    minLowercase: 2,
+  });
   captchaImage.value = createCaptchaImage(captchaText.value);
 }
 
@@ -205,10 +209,6 @@ defineExpose({
   position: relative;
   z-index: 1;
   margin-bottom: spacing(4);
-
-  // &__box {
-  //   margin-top: spacing(4);
-  // }
 
   &__image {
     margin-bottom: spacing(2);

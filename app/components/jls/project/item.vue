@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import type { JlsProjectItemProperties } from '@/interfaces/content/projects.interface';
-import { ObjectAccess } from '@helper/object-access.helper';
+import ObjectAccess from '@helper/object-access.helper';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<JlsProjectItemProperties>(), {

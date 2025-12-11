@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { NativeEventEmitter } from '@helper/event-emitter.helper';
+import NativeEventEmitter from '@helper/event-emitter.helper';
 import type { ClbThemeSwitchProperties } from '@/interfaces/components/theme-switch.interface';
 import type { ClbThemeIcon } from '@/types/misc.types';
 import { useColorMode } from '@vueuse/core';

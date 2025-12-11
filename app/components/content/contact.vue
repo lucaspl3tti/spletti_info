@@ -165,7 +165,7 @@ import type {
   PimcoreContactFormRequestData,
 } from '@/interfaces/base/api.interface';
 import { useColorMode } from '@vueuse/core';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 const { store } = useColorMode();
 const colorMode = computed(() => store.value === 'auto' ? 'dark' : store.value);

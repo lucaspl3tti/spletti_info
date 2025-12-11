@@ -51,7 +51,7 @@
               :key="jobKey"
               :job="job"
               class="jobs-list__job"
-              :is-double-sided="activeBreakpoint === 'xl'"
+              :is-double-sided="isViewportXl"
             />
           </clb-timeline>
         </div>
@@ -67,15 +67,13 @@ import type {
   PimcoreSkill,
 } from '@/interfaces/base/api.interface';
 import type { JlsContentCareers } from '@/interfaces/base/contents.interface';
-import { Utilities } from '@helper/utilities.helper';
+import ViewportAccess from '@helper/viewport-access.helper';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 const { locale } = useI18n();
-const breakpoints = useBreakpoints();
-const activeBreakpoint = breakpoints.active();
 
-const viewport: Ref<MediaQueryList|null> = ref(null);
+const mediaQuery: Ref<MediaQueryList|null> = ref(null);
 const isViewportXl = ref(false);
 const skillsToggled = ref(true);
 const jobsToggled = ref(false);
@@ -99,17 +97,17 @@ handleSkillsData(skillsData);
 handleJobData(jobsData);
 
 onMounted(() => {
-  viewport.value = Utilities.getViewport('xl');
-  isViewportXl.value = Utilities.matchesViewport(viewport.value);
+  mediaQuery.value = ViewportAccess.getMediaQuery('xl');
+  isViewportXl.value = ViewportAccess.matchesMediaQuery(mediaQuery.value);
 
-  Utilities.watchViewport(
-    viewport.value,
+  ViewportAccess.watchMediaQuery(
+    mediaQuery.value,
     () => checkViewport(),
   );
 });
 
 function checkViewport(): void {
-  isViewportXl.value = Utilities.matchesViewport(viewport.value!);
+  isViewportXl.value = ViewportAccess.matchesMediaQuery(mediaQuery.value!);
 }
 
 function onChangeContent(): void {

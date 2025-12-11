@@ -26,8 +26,8 @@ import type {
   JlsSkillProperties,
   JlsSkillIcon,
 } from '@/interfaces/content/qualifications.interface';
-
-import { Utilities } from '@helper/utilities.helper';
+import { useColorMode } from '@vueuse/core';
+import Utilities from '@helper/utilities.helper';
 
 const properties = withDefaults(defineProps<JlsSkillProperties>(), {
   skill: null,

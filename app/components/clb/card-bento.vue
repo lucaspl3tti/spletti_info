@@ -16,7 +16,7 @@
 
 <script setup lang=ts>
 import type { ClbBentoCardProperties } from '@/interfaces/components/card.interface';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<ClbBentoCardProperties>(), {

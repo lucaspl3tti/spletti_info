@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import type { ClbAppParticlesProperties } from '@/interfaces/base/app.interface';
 import { loadStarsPreset } from 'tsparticles-preset-stars';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 const runtimeConfig = useRuntimeConfig();
 const { isDev } = runtimeConfig.public;

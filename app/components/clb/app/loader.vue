@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { NativeEventEmitter } from '@helper/event-emitter.helper';
+import NativeEventEmitter from '@helper/event-emitter.helper';
 import { useRouterStore } from '@/stores/router.store';
 
 const route = useRoute();

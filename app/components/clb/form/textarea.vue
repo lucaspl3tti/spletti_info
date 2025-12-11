@@ -18,7 +18,7 @@
         class="form-control clb-form-textarea__input"
         :placeholder="label"
         :required="required"
-        :style="{ height: inputHeight }"
+        :style="`height: ${inputHeight};`"
         @input="onInput"
       />
       <label :for="id" class="clb-form-textarea__label">
@@ -44,7 +44,7 @@
 import type { ClbFormTextareaProperties } from '@/interfaces/components/form.interface';
 import { useFocus } from '@vueuse/core';
 import { colorVariants } from '@/consts/misc.consts';
-import { Formatting } from '@helper/formatting.helper';
+import Formatting from '@helper/formatting.helper';
 
 const model = defineModel<string>({
   default: '',

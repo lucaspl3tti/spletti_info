@@ -6,7 +6,7 @@
       'clb-subheading',
       `text-${position}`,
       {
-        [headingAppearance]: !Utilities.isEmpty(headingAppearance),
+        [headingAppearance!]: !Utilities.isEmpty(headingAppearance),
         'handwriting-font': isHandwritingFont,
         'fw-medium': isHandwritingFont,
       },
@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import type { ClbSubheadingProperties } from '@/interfaces/components/heading.interface';
 import { textPositions } from '@/consts/misc.consts';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 import { renderToString } from 'vue/server-renderer';
 
 const slots = useSlots();

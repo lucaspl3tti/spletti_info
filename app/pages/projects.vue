@@ -50,9 +50,9 @@ import type { PimcoreApiResponse, PimcoreProject } from '@/interfaces/base/api.i
 import type { ClbDropdownItem } from '../interfaces/components/dropdown.interface';
 import type { Numberish } from '@/types/misc.types';
 
-import { ArrayAccess } from '@helper/array-access.helper';
-import { Formatting } from '@helper/formatting.helper';
-import { Utilities } from '@helper/utilities.helper';
+import ArrayAccess from '@helper/array-access.helper';
+import Formatting from '@helper/formatting.helper';
+import Utilities from '@helper/utilities.helper';
 
 const runtimeConfig = useRuntimeConfig();
 const { apiUrl, siteTitle } = runtimeConfig.public;

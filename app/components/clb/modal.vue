@@ -1,6 +1,7 @@
 <template>
   <b-modal
     :id="id"
+    ref="modalElement"
     v-model="model"
     :class="[
       'clb-modal',
@@ -97,6 +98,7 @@ checkComponentPropertyValidity(properties.theme, 'theme', 'modal', true, colorVa
 //   console.log('show modal?', newValue);
 // });
 
+const modalElement = useTemplateRef('modalElement');
 const headerCloseClass = computed<string>(() => {
   const closeClasses = ['d-flex', 'p-0'];
 
@@ -109,6 +111,23 @@ const headerCloseClass = computed<string>(() => {
   return closeClasses.join(' ');
 });
 
+defineExpose({
+  hide(): void {
+    modalElement.value?.hide();
+  },
+  show(): void {
+    modalElement.value?.show();
+  },
+  toggle(): void {
+    modalElement.value?.toggle();
+  },
+  visible(): boolean | undefined {
+    return modalElement.value?.visible;
+  },
+  elementId(): string | undefined {
+    return modalElement.value?.id;
+  },
+});
 </script>
 
 <style lang="scss">

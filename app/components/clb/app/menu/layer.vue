@@ -25,8 +25,8 @@
 
 <script setup lang="ts">
 import type { ClbAppMenuLayerProperties } from '@/interfaces/base/app.interface';
-import { Dom } from '@helper/dom.helper';
-import { Formatting } from '@helper/formatting.helper';
+import Dom from '@helper/dom.helper';
+import Formatting from '@helper/formatting.helper';
 
 const model = defineModel<boolean>({
   default: false,

@@ -12,7 +12,11 @@ export interface JlsProjectItemProperties {
 
 export interface JlsProjectImageProperties {
   thumbnail: PimcoreProjectImage | null
-  images: PimcoreProjectImage[] | null
+  images?: PimcoreProjectImage[]
+}
+
+export interface JlsProjectZoomModalProperties {
+  images?: PimcoreProjectImage[]
 }
 
 export interface JlsProjectLinkProperties {

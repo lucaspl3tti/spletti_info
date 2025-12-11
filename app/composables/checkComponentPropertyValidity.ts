@@ -1,4 +1,4 @@
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 export default function (
   property: unknown,

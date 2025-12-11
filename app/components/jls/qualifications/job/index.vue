@@ -48,8 +48,8 @@
 
 <script setup lang="ts">
 import type { JlsJobProperties } from '@/interfaces/content/qualifications.interface';
-import { ArrayAccess } from '@helper/array-access.helper';
-import { Utilities } from '@helper/utilities.helper';
+import ArrayAccess from '@helper/array-access.helper';
+import Utilities from '@helper/utilities.helper';
 
 const properties = withDefaults(defineProps<JlsJobProperties>(), {
   job: null,

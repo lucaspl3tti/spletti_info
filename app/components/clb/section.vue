@@ -41,8 +41,8 @@
 <script setup lang="ts">
 import type { ClbSectionProperties } from '@/interfaces/components/section.interface';
 import type { HeadingSub } from '@/types/misc.types';
-import { ArrayAccess } from '@helper/array-access.helper';
-import { Utilities } from '@helper/utilities.helper';
+import ArrayAccess from '@helper/array-access.helper';
+import Utilities from '@helper/utilities.helper';
 import { headingTypes, textPositions } from '@/consts/misc.consts';
 
 const properties = withDefaults(defineProps<ClbSectionProperties>(), {

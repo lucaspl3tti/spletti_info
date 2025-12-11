@@ -43,7 +43,7 @@ import type {
   ClbSocialListItem,
   ClbSocialListProperties,
 } from '@/interfaces/components/social-list.interface';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 const properties = withDefaults(defineProps<ClbSocialListProperties>(), {
   iconSize: '24',
@@ -65,7 +65,6 @@ const socialIconBaseId = computed(() => {
   return properties.isNav ? 'socialShareIconNav' : 'socialShareIcon';
 });
 
-// // get html for page from api
 await getSocialList(`${apiUrl}/social-links`);
 
 async function getSocialList(url: string): Promise<void> {
@@ -97,10 +96,10 @@ async function getSocialList(url: string): Promise<void> {
   justify-content: flex-start;
   align-items: center;
   gap: spacing(5);
-  width: 122px;
+  width: 70px;
 
   &__dash {
-    @include size(70px, 3px);
+    @include size(20px, 3px);
     background-color: $color-secondary-var;
   }
 
@@ -169,6 +168,16 @@ async function getSocialList(url: string): Promise<void> {
   .clb-social-list--nav {
     .clb-social-list {
       display: none;
+    }
+  }
+}
+
+@include desktop-up {
+  .clb-social-list {
+    width: 105px;
+
+    &__dash {
+      width: 55px;
     }
   }
 }

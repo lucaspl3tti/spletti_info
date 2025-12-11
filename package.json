@@ -45,6 +45,7 @@
     "@vueuse/nuxt": "^14.0.0",
     "bootstrap": "^5.3.8",
     "bootstrap-vue-next": "^0.40.8",
+    "deepmerge": "^4.3.1",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "nuxt-icons": "^4.0.0",

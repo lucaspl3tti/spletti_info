@@ -1,0 +1,21 @@
+/* Fix für Firefox Floating Labels in Bootstrap 5.3.x */
+.form-floating {
+  & > .form-control {
+    // stylelint-disable-next-line selector-no-vendor-prefix
+    &:-moz-placeholder-shown {
+      & ~ label {
+        opacity: 1;
+        transform: scale(1) translateY(0) translateX(0);
+      }
+    }
+
+    // stylelint-disable-next-line selector-no-vendor-prefix
+    &:not(:-moz-placeholder-shown),
+    &:focus {
+      & ~ label {
+        opacity: 0.65;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+      }
+    }
+  }
+}

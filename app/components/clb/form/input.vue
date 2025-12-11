@@ -17,7 +17,7 @@
         :name="name"
         :type="type"
         class="form-control clb-form-input__input"
-        :placeholder="label"
+        :placeholder="isNotFloating ? label : ' '"
         :required="required"
         @input="onInput"
       >
@@ -129,6 +129,14 @@ function onInput(event: InputEvent): void {
     z-index: -1;
     translate: 0 -100%;
     opacity: 0;
+  }
+
+  &.clb-form-input--not-floating {
+    .clb-form-input__input {
+      @include placeholder {
+        color: $color-gray-500 !important;
+      }
+    }
   }
 
   &.clb-form-input--rounded {

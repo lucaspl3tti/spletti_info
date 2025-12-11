@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import type { JlsJobSkillsProperties } from '@/interfaces/content/qualifications.interface';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const properties = withDefaults(defineProps<JlsJobSkillsProperties>(), {

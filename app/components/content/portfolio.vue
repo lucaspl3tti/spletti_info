@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import type { PimcoreApiResponse, PimcoreProject } from '@/interfaces/base/api.interface';
-import { Utilities } from '@helper/utilities.helper';
+import Utilities from '@helper/utilities.helper';
 
 const { locale } = useI18n();
 const localePath = useLocalePath();

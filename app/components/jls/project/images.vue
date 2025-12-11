@@ -26,72 +26,24 @@
       />
     </div>
 
-    <clb-modal
+    <jls-project-zoom-modal
       v-model="zoomModalOpen"
-      class="zoom-modal"
-      theme="primary"
-      size="lg"
-      no-footer
-    >
-      <!-- eslint-disable vue/attribute-hyphenation -->
-      <clb-slider
-        class="zoom-modal__slider"
-        :items="zoomModalItems"
-        per-page="1"
-        ariaLabelSlider="Test"
-        controls-theme="secondary"
-        controls-always-visible
-        hide-pagination
-        rewind
-      >
-        <template
-          #slider-item-content="{ item }: { item: JlsProjectZoomModalItem }"
-        >
-          <div class="clb-slider__item__img-wrapper">
-            <clb-image
-              class="clb-slider__item__image w-100"
-              :src="item.image.src"
-              :alt="item.image.alt"
-              :style="{ 'aspect-ratio': item.image?.ratio }"
-            />
-          </div>
-        </template>
-      </clb-slider>
-      <!-- eslint-enable vue/attribute-hyphenation -->
-    </clb-modal>
+      :images="images"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import type {
-  JlsProjectImageProperties,
-  JlsProjectZoomModalItem,
-} from '@/interfaces/content/projects.interface';
+import type { JlsProjectImageProperties } from '@/interfaces/content/projects.interface';
 
 const properties = withDefaults(defineProps<JlsProjectImageProperties>(), {
   thumbnail: null,
-  images: null,
+  images: undefined,
 });
 
 const zoomModalOpen = ref(false);
 const hasPaddingBottom = computed(() => {
   return properties.thumbnail?.has_padding_bottom;
-});
-
-const zoomModalItems = computed<JlsProjectZoomModalItem[]>(() => {
-  if (!properties.images) {
-    return [];
-  }
-
-  return properties.images.map((image) => {
-    return {
-      image: {
-        src: getAssetFullPath(image.path),
-        alt: image.metadata?.alt,
-        ratio: image.ratio,
-      },
-    };
-  });
 });
 
 function onClickImage(): void {
@@ -117,26 +69,6 @@ function onClickImage(): void {
   &__zoom {
     &:hover {
       cursor: zoom-in;
-    }
-  }
-}
-
-.zoom-modal {
-  .modal-dialog {
-    @include size(100%);
-    max-width: calc(100% - 48px);
-    max-height: 100%;
-  }
-
-  .modal-body {
-    padding-bottom: 30px !important;
-    overflow-y: hidden;
-  }
-
-  &__slider {
-    .clb-slider__item__img-wrapper {
-      @include flex(row nowrap, center, center);
-      @include size(100%);
     }
   }
 }

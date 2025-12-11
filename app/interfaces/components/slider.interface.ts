@@ -19,7 +19,8 @@ export interface ClbSliderProperties {
   hidePagination?: boolean
   interval?: Numberish
   rewind?: boolean
-  type?: SplideOptions['type']
+  type?: SplideOptions['type'],
+  splideOptions?: SplideOptions
 }
 
 export interface ClbSliderItem {

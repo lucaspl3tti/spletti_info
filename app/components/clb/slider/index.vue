@@ -54,6 +54,7 @@ import type { ClbSliderProperties } from '@/interfaces/components/slider.interfa
 import type { SplideInstance, SplideOptions } from '@/interfaces/components/splide.interface';
 import { Splide } from '@splidejs/vue-splide';
 import { breakpointsBootstrapV5 as breakpointValues, useResizeObserver } from '@vueuse/core';
+import deepmerge from 'deepmerge';
 
 const properties = withDefaults(defineProps<ClbSliderProperties>(), {
   items: undefined,
@@ -73,6 +74,7 @@ const properties = withDefaults(defineProps<ClbSliderProperties>(), {
   interval: 5000,
   rewind: false,
   type: 'slide',
+  splideOptions: undefined,
 });
 
 checkComponentPropertyValidity(properties.items, 'items', 'slider', true);
@@ -104,7 +106,7 @@ const activeSlideIndex = ref(0);
 
 // Define slider configuration
 const options = computed<SplideOptions>(() => {
-  return {
+  const configuration = {
     arrows: false,
     autoplay: false,
     breakpoints: {
@@ -128,6 +130,10 @@ const options = computed<SplideOptions>(() => {
     start: 0,
     type: properties.type,
   };
+
+  return properties.splideOptions
+    ? deepmerge(configuration, properties.splideOptions)
+    : configuration;
 });
 
 const controlBtnVariant = computed(() => {
