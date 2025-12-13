@@ -56,11 +56,9 @@ const runtimeConfig = useRuntimeConfig();
 const { apiUrl } = runtimeConfig.public;
 
 const socials: Ref<ClbSocialListItem[]|null> = ref(null);
-
 const tooltipLocation = computed(() => {
   return properties.isNav ? 'bottom' : 'right';
 });
-
 const socialIconBaseId = computed(() => {
   return properties.isNav ? 'socialShareIconNav' : 'socialShareIcon';
 });
@@ -83,7 +81,7 @@ async function getSocialList(url: string): Promise<void> {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-social-list {
   @include position(
     $position: fixed,
@@ -121,12 +119,12 @@ async function getSocialList(url: string): Promise<void> {
       color: $color-white;
       animation: pulse 1s;
 
-      .nuxt-icon {
+      :deep(.nuxt-icon) {
         transform: scale(1.1);
       }
     }
 
-    .nuxt-icon {
+    :deep(.nuxt-icon) {
       position: relative;
       z-index: 20;
       margin: auto;
@@ -142,7 +140,7 @@ async function getSocialList(url: string): Promise<void> {
   position: relative;
   bottom: 0;
   @include flex($justify: center);
-  width: 100%;
+  width: 100% !important;
 
   .clb-social-list__dash {
     display: none;
@@ -153,8 +151,7 @@ async function getSocialList(url: string): Promise<void> {
       display: block;
     }
 
-    .nuxt-icon {
-      @include size(auto);
+    :deep(.nuxt-icon) {
       transition: transform 0.33s;
     }
   }
