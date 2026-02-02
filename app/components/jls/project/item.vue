@@ -2,7 +2,8 @@
   <div class="jls-project-item">
     <clb-card-bento class="project-card">
       <jls-project-images
-        :thumbnail="project!.thumbnail"
+        v-if="project.thumbnail"
+        :thumbnail="project.thumbnail"
         :images="project!.gallery"
       />
 
