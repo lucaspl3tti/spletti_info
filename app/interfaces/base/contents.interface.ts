@@ -20,5 +20,5 @@ export interface JlsContentCareers {
 
 export interface JlsContentCareer {
   heading: string
-  jobs: PimcoreJob[] | null
+  items: PimcoreJob[] | null
 }

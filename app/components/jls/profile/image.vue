@@ -73,6 +73,7 @@ const hasSocialLinkLabel = computed(() => socialLinkLabel.value && socialLinkLab
     width: 85%;
     margin-left: 15%;
     aspect-ratio: 1/1;
+    object-fit: cover;
   }
 }
 

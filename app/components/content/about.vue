@@ -123,6 +123,7 @@ function handleAboutData(response: PimcoreApiResponse): void {
 
       .image__me {
         width: 100%;
+        border-radius: 16px;
       }
     }
 
@@ -177,6 +178,10 @@ function handleAboutData(response: PimcoreApiResponse): void {
         float: left;
         max-width: 40%;
         margin: 0 spacing(6) spacing(6) 0;
+
+        .image__me {
+          max-height: 380px;
+        }
       }
 
       &--beginning {

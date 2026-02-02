@@ -36,18 +36,14 @@
         id="jobsContainer"
         :class="['jobs', jobsToggled ? 'show' : 'hidden']"
       >
-        <div
-          v-for="(career, careerKey) in careers"
-          :key="careerKey"
-          :class="`experience experience--${careerKey}`"
-        >
+        <div class="`experience experience--professional">
           <h3 class="experience__heading">
-            {{ career.heading }}
+            {{ jobs.heading }}
           </h3>
 
           <clb-timeline class="jobs-list">
             <jls-qualifications-job
-              v-for="(job, jobKey) in career.jobs"
+              v-for="(job, jobKey) in jobs.items"
               :key="jobKey"
               :job="job"
               class="jobs-list__job"
@@ -66,7 +62,7 @@ import type {
   PimcoreJobsResponse,
   PimcoreSkill,
 } from '@/interfaces/base/api.interface';
-import type { JlsContentCareers } from '@/interfaces/base/contents.interface';
+import type { JlsContentCareer } from '@/interfaces/base/contents.interface';
 import ViewportAccess from '@helper/viewport-access.helper';
 
 const runtimeConfig = useRuntimeConfig();
@@ -78,16 +74,9 @@ const isViewportXl = ref(false);
 const skillsToggled = ref(true);
 const jobsToggled = ref(false);
 const skills: Ref<PimcoreSkill[]> = ref([]);
-const careers: JlsContentCareers = reactive({
-  professional: {
-    heading: $trans('qualifications.careers.professional.heading'),
-    jobs: null,
-  },
-
-  school: {
-    heading: $trans('qualifications.careers.school.heading'),
-    jobs: null,
-  },
+const jobs: JlsContentCareer = reactive({
+  heading: $trans('qualifications.careers.professional.heading'),
+  items: null,
 });
 
 const skillsData: PimcoreApiResponse = await $fetch(`${apiUrl}/skills?lang=${locale.value}`);
@@ -122,8 +111,7 @@ function handleSkillsData(response: PimcoreApiResponse): void {
 function handleJobData(response: PimcoreJobsResponse): void {
   const { data } = response;
 
-  careers.professional.jobs = data.professional;
-  careers.school.jobs = data.school;
+  jobs.items = data.professional;
 }
 </script>
 
