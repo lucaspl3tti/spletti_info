@@ -52,7 +52,7 @@ function onClickAppBarToggle() {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-app-header-hamburger {
   @include flex($justify: center, $align: center);
   @include size(55px);

@@ -127,6 +127,8 @@ function onZoomModalHide(): void {
     @include size(100%);
     max-width: calc(100% - 48px);
     max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .modal-content {

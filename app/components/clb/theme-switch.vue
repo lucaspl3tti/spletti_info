@@ -1,7 +1,6 @@
 <template>
-  <div class="clb-theme-switch">
+  <div :id="id" class="clb-theme-switch">
     <clb-button
-      :id="id"
       theme="light"
       variant="text"
       :icon="{
@@ -31,21 +30,19 @@ import type { ClbThemeSwitchProperties } from '@/interfaces/components/theme-swi
 import type { ClbThemeIcon } from '@/types/misc.types';
 import { useColorMode } from '@vueuse/core';
 
-const colorModeStore = useColorMode().store;
-
 const properties = withDefaults(defineProps<ClbThemeSwitchProperties>(), {
-  colorMode: 'dark',
   id: undefined,
 });
 
-checkComponentPropertyValidity(properties.colorMode, 'color-mode', 'theme-switch', true, ['dark', 'light']);  // eslint-disable-line max-len
 checkComponentPropertyValidity(properties.id, 'id', 'theme-switch', true);
+
+const { store: colorModeStore } = useColorMode();
+const colorMode = computed(() => colorModeStore.value === 'auto' ? 'dark' : colorModeStore.value);
 
 const tooltipIsOpen = ref(false);
 const themeIcon = computed<ClbThemeIcon>(() => {
-  return properties.colorMode === 'dark' ? 'moon-fill' : 'sun-fill';
+  return colorMode.value === 'dark' ? 'moon-fill' : 'sun-fill';
 });
-const colorMode = computed(() => colorModeStore.value === 'auto' ? 'dark' : colorModeStore.value);
 
 let emitter: InstanceType<typeof NativeEventEmitter>;
 const emit = defineEmits(['theme-changed']);
@@ -55,6 +52,8 @@ onMounted(() => {
 });
 
 function toggleTheme(): void {
+  colorModeStore.value = colorMode.value === 'dark' ? 'light' : 'dark';
+
   emit('theme-changed');
   emitter.publish('theme-changed');
 }

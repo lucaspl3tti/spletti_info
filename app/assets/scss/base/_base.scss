@@ -63,7 +63,7 @@ a {
   transition: color $animation-speed;
 
   &:hover {
-    color: $color-orange-500;
+    color: $color-secondary-500;
     text-decoration: none;
   }
 
@@ -112,7 +112,7 @@ img {
 }
 
 @include light-mode {
-  --color-primary: #{$color-purple-550} !important;
+  --color-primary: #{$color-primary-400} !important;
   --color-background: #{$color-white} !important;
   --color-text: #{$color-black} !important;
 }

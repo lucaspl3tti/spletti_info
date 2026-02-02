@@ -107,7 +107,7 @@ async function getSocialList(url: string): Promise<void> {
 
   .social-icon {
     position: relative;
-    @include size(52px);
+    @include size(50px);
     padding: spacing(4);
     overflow: hidden;
     color: $color-white;
@@ -115,7 +115,7 @@ async function getSocialList(url: string): Promise<void> {
 
     &:hover {
       box-shadow: 0 0 0 24px transparent;
-      background-color: $color-orange-500;
+      background-color: $color-secondary-500;
       color: $color-white;
       animation: pulse 1s;
 
@@ -181,7 +181,7 @@ async function getSocialList(url: string): Promise<void> {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 $color-orange-500;
+    box-shadow: 0 0 0 0 $color-secondary-500;
   }
 }
 </style>

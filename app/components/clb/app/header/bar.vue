@@ -1,32 +1,30 @@
 <template>
-  <b-navbar
+  <header
     :class="[
+      'navbar',
+      'navbar-expand',
       'clb-app-header-bar',
       { 'is-open': isOpenSidebar },
     ]"
-    :container="true"
   >
-    <clb-app-header-brand :text="logoText" is-handwriting-font />
+    <clb-container>
+      <clb-app-header-brand :text="logoText" is-handwriting-font />
 
-    <div class="clb-app-header-bar__actions">
-      <clb-theme-switch
-        id="theme-switch-header-bar"
-        :color-mode="colorMode"
-        @theme-changed="toggleTheme"
-      />
+      <div class="clb-app-header-bar__actions">
+        <clb-theme-switch id="theme-switch-header-bar" />
 
-      <clb-app-header-language-switch v-if="languageSwitchEnabled" />
+        <clb-app-header-language-switch v-if="languageSwitchEnabled" />
 
-      <clb-app-header-hamburger
-        :active="isOpenSidebar"
-        @toggled="onToggledSidebar"
-      />
-    </div>
-  </b-navbar>
+        <clb-app-header-hamburger
+          :active="isOpenSidebar"
+          @toggled="onToggledSidebar"
+        />
+      </div>
+    </clb-container>
+  </header>
 </template>
 
 <script lang="ts" setup>
-import { useColorMode } from '@vueuse/core';
 import type { ClbAppBarProperties } from '@/interfaces/base/app.interface';
 
 const properties = withDefaults(defineProps<ClbAppBarProperties>(), {
@@ -38,11 +36,6 @@ const emit = defineEmits(['toggle-sidebar']);
 
 checkComponentPropertyValidity(properties.navItems, 'nav-items', 'app-bar');
 
-const colorModeDefault = useColorMode();
-const colorMode = computed(() => colorModeDefault.value === 'auto'
-  ? 'dark'
-  : colorModeDefault.value,
-);
 const runtimeConfig = useRuntimeConfig();
 const { languageSwitchEnabled, logoText } = runtimeConfig.public;
 
@@ -52,13 +45,9 @@ function onToggledSidebar(toggled: boolean): void {
   isOpenSidebar.value = toggled;
   emit('toggle-sidebar', isOpenSidebar.value);
 }
-
-function toggleTheme(): void {
-  colorModeDefault.value = colorMode.value === 'dark' ? 'light' : 'dark';
-}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-app-header-bar {
   @include position(fixed, $top: auto, $bottom: 0, $left: 0, $zIndex: $z-sticky + 10 !important);
   @include size(100dvw !important, $app-header-height);

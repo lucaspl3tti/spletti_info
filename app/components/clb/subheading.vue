@@ -17,9 +17,6 @@
     </div>
 
     <span v-if="isHtml" v-html="renderedText" />
-    <!-- <span v-if="!isHtml">
-    </span> -->
-
   </component>
 </template>
 

@@ -71,7 +71,7 @@ function onClickNavItem(): void {
     }
 
     .hover-underline {
-      background-image: linear-gradient($color-orange-400, $color-orange-400);
+      background-image: linear-gradient($color-secondary-400, $color-secondary-400);
     }
   }
 

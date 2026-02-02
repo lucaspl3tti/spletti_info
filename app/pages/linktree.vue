@@ -56,7 +56,7 @@ function handleLinktreeData(response: PimcoreApiResponse): void {
 
 <style lang="scss">
 .linktree {
-  background: $color-purple-900;
+  background: $color-primary-800;
   color: $color-white;
   font-family: Sora, sans-serif;
   font-size: map.get($clb-font-sizes, 'default', 'xs');

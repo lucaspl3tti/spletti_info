@@ -16,6 +16,7 @@
       :required="required"
       @change="onChange"
     >
+
     <label
       class="form-check-label clb-form-checkbox__label"
       :for="id"

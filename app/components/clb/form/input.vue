@@ -21,6 +21,7 @@
         :required="required"
         @input="onInput"
       >
+
       <label v-if="!isNotFloating" :for="id" class="clb-form-input__label">
         {{ label }}
       </label>

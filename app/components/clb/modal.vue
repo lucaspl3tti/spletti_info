@@ -1,71 +1,106 @@
 <template>
-  <b-modal
-    :id="id"
-    ref="modalElement"
-    v-model="model"
-    :class="[
-      'clb-modal',
-      `clb-modal--${theme}`,
-    ]"
-    :fullscreen="fullscreen"
-    header-close-variant="link"
-    :header-close-class="headerCloseClass"
-    :no-header="noHeader"
-    :no-footer="noFooter"
-    :title="title"
-  >
-    <template #title>
-      <slot name="title"></slot>
-    </template>
-
-    <template #header-close>
-      <slot name="header-close">
-        <clb-icon
-          name="x-lg"
-          pack="bi"
-          size="24"
-        />
-      </slot>
-    </template>
-
-    <slot />
-
-    <template #cancel="{ hide }">
-      <slot name="cancel">
-        <clb-button
-          v-if="!okOnly"
-          ref="_cancelButton"
-          :class="cancelClass"
-          :theme="cancelTheme"
-          :variant="cancelVariant"
-          :size="actionSize"
-          :disabled="disableCancel"
-          @click="hide('cancel')"
+  <teleport :to="teleportTo" :disabled="teleportDisabled">
+    <transition :appear="model">
+      <div
+        v-if="isVisible"
+        :id="computedId"
+        ref="modalElement"
+        :class="[
+          'modal',
+          'fade',
+          'clb-modal',
+          `clb-modal--${theme}`,
+        ]"
+        tabindex="-1"
+        :aria-hidden="!model"
+        :aria-labeldby="title ? `${computedId}-label` : undefined"
+        role="dialog"
+        v-bind="$attrs"
+      >
+        <div
+          :class="[
+            'modal-dialog',
+            {
+              [`modal-${size}`]: !fullscreen && size !== 'md',
+              'modal-fullscreen': fullscreen,
+            },
+          ]"
         >
-          {{ cancelTitle }}
-        </clb-button>
-      </slot>
-    </template>
+          <div class="modal-content">
+            <div v-if="!noHeader" :id="`${computedId}-label`" class="modal-header">
+              <slot name="header">
+                <component :is="titleTag" class="modal-title">
+                  <slot name="title">
+                    {{ title }}
+                  </slot>
+                </component>
 
-    <template #ok="{ hide }">
-      <slot name="ok">
-        <clb-button
-          ref="_okButton"
-          :class="okClass"
-          :theme="okTheme"
-          :variant="okVariant"
-          :size="actionSize"
-          :disabled="disableOk"
-          @click="hide('ok')"
-        >
-          {{ okTitle }}
-        </clb-button>
-      </slot>
-    </template>
-  </b-modal>
+                <!-- @TODO: add translation -->
+                <clb-button
+                  v-if="!noHeaderClose"
+                  ref="closeButton"
+                  class="modal-close"
+                  :theme="closeButtonTheme"
+                  variant="text"
+                  aria-label="Close"
+                  @click="hide"
+                >
+                  <slot name="header-close">
+                    <clb-icon
+                      name="x-lg"
+                      pack="bi"
+                      size="24"
+                    />
+                  </slot>
+                </clb-button>
+              </slot>
+            </div>
+
+            <div class="modal-body">
+              <slot></slot>
+            </div>
+
+            <div v-if="!noFooter" class="modal-footer">
+              <slot name="footer">
+                <slot name="cancel">
+                  <clb-button
+                    v-if="!okOnly"
+                    ref="_cancelButton"
+                    :class="cancelClass"
+                    :theme="cancelTheme"
+                    :variant="cancelVariant"
+                    :size="actionSize"
+                    :disabled="disableCancel"
+                    @click="hide"
+                  >
+                    {{ cancelTitle }}
+                  </clb-button>
+                </slot>
+
+                <slot name="ok">
+                  <clb-button
+                    ref="_okButton"
+                    :class="okClass"
+                    :theme="okTheme"
+                    :variant="okVariant"
+                    :size="actionSize"
+                    :disabled="disableOk"
+                    @click="confirm"
+                  >
+                    {{ okTitle }}
+                  </clb-button>
+                </slot>
+              </slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </teleport>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
+import type { ClbColorVariants } from '@/types/misc.types';
 import type { ClbModalProperties } from '@/interfaces/components/modal.interface';
 import { colorVariants } from '@/consts/misc.consts';
 
@@ -81,51 +116,128 @@ const properties = withDefaults(defineProps<ClbModalProperties>(), {
   disableOk: false,
   fullscreen: false,
   id: undefined,
-  noHeader: false,
+  noBackdrop: false,
   noFooter: false,
+  noHeader: false,
+  noHeaderClose: false,
+  noKeyboard: false,
   okClass: undefined,
   okOnly: false,
   okTheme: 'primary',
   okTitle: 'OK',
   okVariant: 'default',
+  teleportDisabled: false,
+  teleportTo: 'body',
   theme: 'dark',
   title: undefined,
+  titleTag: 'h5',
 });
 
 checkComponentPropertyValidity(properties.theme, 'theme', 'modal', true, colorVariants);
 
-// watch(() => model.value, (newValue) => {
-//   console.log('show modal?', newValue);
-// });
+const emit = defineEmits(['hide', 'hidden', 'show', 'shown', 'confirm']);
 
+const computedId = useBvnId(() => properties.id, 'modal');
 const modalElement = useTemplateRef('modalElement');
-const headerCloseClass = computed<string>(() => {
-  const closeClasses = ['d-flex', 'p-0'];
+const modalInstance = ref<any>(null);
+const isVisible = ref(false);
 
+const closeButtonTheme = computed<ClbColorVariants>(() => {
   if (properties.theme === 'light') {
-    closeClasses.push('text-dark');
-  } else {
-    closeClasses.push('text-light');
+    return 'dark';
   }
 
-  return closeClasses.join(' ');
+  return 'light';
 });
 
+onMounted(async () => {
+  if (model.value) {
+    isVisible.value = true;
+
+    await nextTick();
+    await initializeBootstrapModal();
+
+    modalInstance.value?.show();
+  }
+});
+
+onUnmounted(() => {
+  if (modalInstance.value) {
+    modalInstance.value.dispose();
+  }
+});
+
+watch(
+  () => model.value,
+  async (shouldShow) => {
+    if (shouldShow) {
+      isVisible.value = true;
+
+      await nextTick();
+      await initializeBootstrapModal();
+
+      modalInstance.value?.show();
+    } else {
+      modalInstance.value?.hide();
+    }
+  },
+);
+
+async function initializeBootstrapModal() {
+  if (!modalElement.value || modalInstance.value) {
+    return;
+  }
+
+  const { Modal } = await import('bootstrap');
+
+  modalInstance.value = Modal.getOrCreateInstance(modalElement.value, {
+    backdrop: !properties.noBackdrop,
+    keyboard: !properties.noKeyboard,
+  });
+
+  modalElement.value.addEventListener('hidden.bs.modal', () => {
+    hide();
+    emit('hidden');
+
+    setTimeout(() => {
+      if (!model.value) {
+        isVisible.value = false;
+        modalInstance.value?.dispose();
+        modalInstance.value = null;
+      }
+    }, 300);
+  });
+
+  modalElement.value.addEventListener('shown.bs.modal', () => {
+    emit('shown');
+  });
+}
+
+function hide() {
+  model.value = false;
+  emit('hide');
+}
+
+function show() {
+  model.value = false;
+  emit('show');
+}
+
+function confirm() {
+  emit('confirm');
+}
+
 defineExpose({
-  hide(): void {
-    modalElement.value?.hide();
-  },
-  show(): void {
-    modalElement.value?.show();
-  },
+  hide,
+  show,
   toggle(): void {
-    modalElement.value?.toggle();
+    modalInstance.value?.toggle();
   },
   visible(): boolean | undefined {
-    return modalElement.value?.visible;
+    return modalInstance.value?.visible;
   },
-  elementId(): string | undefined {
-    return modalElement.value?.id;
+  elementId(): string {
+    return computedId.value;
   },
 });
 </script>
@@ -144,6 +256,11 @@ defineExpose({
       &:hover {
         --bs-text-opacity: 0.75;
       }
+    }
+
+    .modal-close {
+      min-width: 0 !important;
+      padding: 0 !important;
     }
   }
 

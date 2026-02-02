@@ -46,10 +46,6 @@ import {
   sizes,
 } from '@/consts/misc.consts';
 
-// default variable definitions
-const router = useRouter();
-
-// component properties
 const properties = withDefaults(defineProps<ClbButtonProperties>(), {
   borderStyle: 'default',
   size: 'md',
@@ -75,19 +71,16 @@ checkComponentPropertyValidity(properties.theme, 'theme', 'button', true, colorV
 checkComponentPropertyValidity(properties.variant, 'variant', 'button', true, buttonVariantsWithText);
 /* eslint-enable max-len */
 
-// component emits
 const emit = defineEmits(['click']);
 
-// computed values
+const router = useRouter();
 const buttonTag = computed<string>(() => {
   return properties.href || properties.to ? 'a' : properties.tag;
 });
-
 const buttonType = computed<string|undefined>(() => {
   return buttonTag.value === 'button' ? properties.type : undefined;
 });
 
-// component methods
 function onClick(event: MouseEvent) {
   event.preventDefault();
 

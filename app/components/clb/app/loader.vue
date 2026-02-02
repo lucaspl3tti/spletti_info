@@ -9,7 +9,7 @@
     ]"
   >
     <!-- <clb-loader-dots variant="jumping" size="md" /> -->
-     <!-- <clb-loader-text text="Loading" /> -->
+    <!-- <clb-loader-text text="Loading" /> -->
 
      <clb-loader-shapes />
   </div>

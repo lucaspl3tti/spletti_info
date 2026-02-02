@@ -3,6 +3,7 @@ import type {
   ClbColorVariants,
   ClbColorVariantsExtended,
   ClbSizes,
+  Heading,
 } from '@/types/misc.types';
 
 export interface ClbModalProperties {
@@ -15,13 +16,20 @@ export interface ClbModalProperties {
   disableOk?: boolean
   fullscreen?: boolean
   id?: string
-  noHeader?: boolean
+  noBackdrop?: boolean
   noFooter?: boolean
+  noHeader?: boolean
+  noHeaderClose?: boolean
+  noKeyboard?: boolean
   okClass?: string|string[]
   okOnly?: boolean
   okTheme?: ClbColorVariantsExtended
   okTitle?: string
   okVariant?: ClbButtonVariantsWithText
+  size?: ClbSizes
+  teleportDisabled?: boolean
+  teleportTo?: string
   theme?: ClbColorVariants
   title?: string
+  titleTag?: Heading
 }

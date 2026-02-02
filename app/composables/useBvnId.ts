@@ -1,10 +1,5 @@
 import { useId as vueUseId } from 'vue';
-
-const genericBvnPrefix = 'BootstrapVueNext__';
-const withBvnPrefix = (value: string, suffix: string = '') => {
-  const suffixWithTrail = `${suffix}___`;
-  return `${genericBvnPrefix}ID__${value}__${suffix ? suffixWithTrail : ''}`;
-};
+import { withBvnPrefix } from '@/utilities/vendor/bootstrap-vue-next/keys.utilities';
 
 export default function (
   id?: MaybeRefOrGetter<string | undefined>,

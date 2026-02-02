@@ -67,7 +67,7 @@ const linkTarget = computed(() => {
   }
 
   &:hover {
-    color: $color-orange-100;
+    color: $color-secondary-200;
 
     .nuxt-icon {
       transform: translateX(8px);

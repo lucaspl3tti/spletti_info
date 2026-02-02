@@ -337,7 +337,7 @@ function resetForm(): void {
 
       &:hover {
         &::after {
-          background: $color-orange-400;
+          background: $color-secondary-400;
         }
       }
     }

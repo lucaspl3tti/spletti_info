@@ -2,6 +2,7 @@
   <div :class="['clb-card-mini', `clb-card-mini--${theme}`]">
     <slot name="image">
       <img
+        v-if="imageSrc"
         :src="imageSrc"
         class="clb-card-mini__image"
         :alt="imageAlt"

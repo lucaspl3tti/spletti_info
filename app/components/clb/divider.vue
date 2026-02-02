@@ -22,7 +22,7 @@ checkComponentPropertyValidity(properties.theme, 'theme', 'divider', true);
 checkComponentPropertyValidity(properties.size, 'size', 'divider', true);
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-divider {
   opacity: 1;
 

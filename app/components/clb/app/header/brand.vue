@@ -1,7 +1,7 @@
 <template>
-  <b-navbar-brand class="clb-app-header-brand">
+  <div class="navbar-brand clb-app-header-brand">
     <clb-link
-      :to="homePath"
+      :to="localePath('/').toString()"
       theme="light"
       :class="[
         'nav-logo',
@@ -13,13 +13,11 @@
     >
       {{ text }}<span v-if="!hideDot" class="heading-dot">.</span>
     </clb-link>
-  </b-navbar-brand>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { ClbAppBarBrandProperties } from '@/interfaces/base/app.interface';
-
-const localePath = useLocalePath();
 
 const properties = withDefaults(defineProps<ClbAppBarBrandProperties>(), {
   text: '',
@@ -27,12 +25,12 @@ const properties = withDefaults(defineProps<ClbAppBarBrandProperties>(), {
   hideDot: false,
 });
 
-checkComponentPropertyValidity(properties.text, 'text', 'app-bar-logo', true);
+checkComponentPropertyValidity(properties.text, 'text', 'app-bar-brand', true);
 
-const homePath = computed((): string => localePath('/').toString());
+const localePath = useLocalePath();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-app-header-brand {
   @include flex(row nowrap);
   place-items: center;
@@ -44,17 +42,8 @@ const homePath = computed((): string => localePath('/').toString());
   white-space: unset;
 
   .nav-logo {
-    color: $color-white;
     font-size: map.get($clb-font-sizes, 'h4', 'md');
   }
-
-  &:hover {
-    color: color.adjust($color-white, $lightness: -10%);
-  }
-}
-
-.nav-logo {
-  color: inherit !important;
 }
 
 @include tablet-portrait-up {

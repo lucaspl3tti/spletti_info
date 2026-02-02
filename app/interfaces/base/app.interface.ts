@@ -32,6 +32,15 @@ export interface ClbAppNavProperties {
   isHandwritingFont?: boolean
 }
 
+export interface ClbAppNavItemProperties {
+  item: ClbNavItem
+  isSidebar?: boolean
+  showIcon?: boolean
+  iconPack?: string
+  iconSize?: string
+  isHandwritingFont?: boolean
+}
+
 export interface ClbNavItem {
   name: string
   link: string

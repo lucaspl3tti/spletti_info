@@ -1,10 +1,10 @@
 <template>
-  <b-container class="clb-container">
+  <div class="container clb-container">
     <slot />
-  </b-container>
+  </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @include tablet-portrait-up {
   .clb-container {
     padding: spacing(4) spacing(17.5) !important;

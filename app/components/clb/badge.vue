@@ -8,7 +8,6 @@
       `clb-badge--${variant}`,
       `clb-badge--${size}`,
     ]"
-    pill
   >
     <div class="clb-badge__underlay" />
     <slot />
@@ -77,7 +76,7 @@ checkComponentPropertyValidity(properties.size, 'size', 'badge', true, sizes);
   }
 
   &.clb-badge--secondary {
-    --clb-badge-bg-color: #{$color-orange-300};
+    --clb-badge-bg-color: #{$color-secondary-300};
   }
 
   &.clb-badge--sm {

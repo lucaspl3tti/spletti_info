@@ -65,7 +65,7 @@ function checkButtonVisibility(): void {
     &.show {
       &:hover {
         box-shadow: 0 0 0 24px transparent;
-        background-color: $color-orange-500;
+        background-color: $color-secondary-500;
         transform: scale(1.3) translateY(0);
         animation: pulse 1s;
       }
@@ -75,7 +75,7 @@ function checkButtonVisibility(): void {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 $color-orange-500;
+    box-shadow: 0 0 0 0 $color-secondary-500;
   }
 }
 </style>

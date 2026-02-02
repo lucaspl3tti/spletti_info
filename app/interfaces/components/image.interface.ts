@@ -1,5 +1,4 @@
-import type { RadiusElement } from 'bootstrap-vue-next';
-import type { TextPositions } from '@/types/misc.types';
+import type { Numberish, TextPositions } from '@/types/misc.types';
 
 export interface ClbImage {
   src: string
@@ -10,9 +9,11 @@ export interface ClbImage {
 
 export interface ClbImageProperties extends ClbImage {
   fluidGrow?: boolean
+  height?: Numberish
   isNotFluid?: boolean
   lazy?: boolean
   placement?: TextPositions
-  rounded?: RadiusElement | boolean
+  rounded?: 'circle' | boolean
   thumbnail?: boolean
+  width?: Numberish
 }

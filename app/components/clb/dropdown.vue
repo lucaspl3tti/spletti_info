@@ -67,42 +67,52 @@
         :style="floatingStyles"
       >
         <slot name="dropdown-menu">
-          <b-dropdown-item
+          <li
             v-for="(item, index) in dropdownItems"
             :key="index"
             :class="[
               'clb-dropdown__item',
               `clb-dropdown__item--theme-${activeDropdownItemTheme}`,
             ]"
-            :active="
-              dropdownHideActiveItem &&
-              isActiveItem &&
-              isActiveItem.key === item.key
-            "
+            role="presentation"
             @click="onClickDropdownItem(index, item.key)"
           >
-            <slot :name="`dropdown-menu-item-${item.key}`">
-              <slot :name="item.key">
-                <clb-icon
-                  v-if="item.icon && dropdownItemIconPosition === 'left'"
-                  :name="item.icon.name"
-                  :pack="item.icon.pack"
-                  :size="dropdownItemIconSize"
-                  has-no-margin
-                />
+            <button
+              type="button"
+              :class=" [
+                'dropdown-item',
+                { active: dropdownHideActiveItem && isActiveItem && isActiveItem.key === item.key },
+              ]"
+              role="menuitem"
+              :aria-current="
+                dropdownHideActiveItem &&
+                isActiveItem &&
+                isActiveItem.key === item.key ? 'true' : undefined
+              "
+            >
+              <slot :name="`dropdown-menu-item-${item.key}`">
+                <slot :name="item.key">
+                  <clb-icon
+                    v-if="item.icon && dropdownItemIconPosition === 'left'"
+                    :name="item.icon.name"
+                    :pack="item.icon.pack"
+                    :size="dropdownItemIconSize"
+                    has-no-margin
+                  />
 
-                {{ item?.value }}
+                  {{ item?.value }}
 
-                <clb-icon
-                  v-if="item.icon && dropdownItemIconPosition === 'right'"
-                  :name="item.icon.name"
-                  :pack="item.icon.pack"
-                  :size="dropdownItemIconSize"
-                  has-no-margin
-                />
+                  <clb-icon
+                    v-if="item.icon && dropdownItemIconPosition === 'right'"
+                    :name="item.icon.name"
+                    :pack="item.icon.pack"
+                    :size="dropdownItemIconSize"
+                    has-no-margin
+                  />
+                </slot>
               </slot>
-            </slot>
-          </b-dropdown-item>
+            </button>
+          </li>
         </slot>
       </ul>
     </transition>
@@ -220,20 +230,20 @@ function onClickDropdownItem(index: number, key: string): void {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clb-dropdown {
   position: relative;
   display: inline-block;
 
-  .nuxt-icon svg,
-  .nuxt-icon span {
+  :deep(.nuxt-icon) svg,
+  :deep(.nuxt-icon) span {
     transition: transform $animation-speed ease;
   }
 
   .clb-dropdown__toggle {
     &:hover {
-      .nuxt-icon svg,
-      .nuxt-icon span {
+      :deep(.nuxt-icon) svg,
+      :deep(.nuxt-icon) span {
         transform: translateX(0);
       }
     }
@@ -243,8 +253,8 @@ function onClickDropdownItem(index: number, key: string): void {
       background-color: var(--clb-btn-active-bg-color);
       color: var(--clb-btn-active-text-color);
 
-      .nuxt-icon svg,
-      .nuxt-icon span {
+      :deep(.nuxt-icon) svg,
+      :deep(.nuxt-icon) span {
         transform: rotate(180deg);
       }
     }
@@ -304,7 +314,7 @@ function onClickDropdownItem(index: number, key: string): void {
       color: var(--clb-dropdown-item-text-color);
       transition: background-color $animation-speed-fast ease, color $animation-speed-fast ease;
 
-      .nuxt-icon {
+      :deep(.nuxt-icon) {
         margin-right: spacing(1) !important;
       }
 
@@ -370,8 +380,8 @@ function onClickDropdownItem(index: number, key: string): void {
   &.clb-dropdown--toggle-icon-not-rotate {
     .clb-dropdown__toggle {
       &.show {
-        .nuxt-icon svg,
-        .nuxt-icon span {
+        :deep(.nuxt-icon) svg,
+        :deep(.nuxt-icon) span {
           transform: rotate(0deg);
         }
       }
@@ -385,7 +395,7 @@ function onClickDropdownItem(index: number, key: string): void {
       --clb-dropdown-item-bg-color: #{$color-dark};
       --clb-dropdown-item-text-color: #{$color-white};
       --clb-dropdown-item-hover-bg-color: #{color.adjust($color-dark, $lightness: 5%)};
-    --clb-dropdown-item-hover-text-color: #{$color-white};
+      --clb-dropdown-item-hover-text-color: #{$color-white};
     }
   }
 }

@@ -12,11 +12,11 @@
 
       <clb-divider v-if="showSocialList" />
 
-      <clb-app-nav
+      <clb-app-navigation
         :items="items"
+        :is-handwriting-font="isHandwritingFont"
         is-sidebar
         show-icon
-        :is-handwriting-font="isHandwritingFont"
         @open-link="onClickCloseSidebar"
       />
     </div>
@@ -140,7 +140,7 @@ html.clb-app-menu-layer--scroll-blocked {
 
   &__socials,
   .clb-divider-wrapper,
-  .clb-app-nav__item {
+  .clb-app-navigation-item {
     opacity: 0;
     transform: translateX(-#{spacing(4)});
     transition:
@@ -171,7 +171,7 @@ html.clb-app-menu-layer--scroll-blocked {
 
     .clb-app-menu-layer__socials,
     .clb-divider-wrapper,
-    .clb-app-nav__item {
+    .clb-app-navigation-item {
       opacity: 1;
       transform: translateX(0);
       transition: opacity 250ms, transform 250ms;
@@ -186,22 +186,22 @@ html.clb-app-menu-layer--scroll-blocked {
     }
 
     @for $index from 1 through 5 {
-      .clb-app-nav__item:nth-child(#{$index}) {
+      .clb-app-navigation-item:nth-child(#{$index}) {
         transition-delay: 300ms + (($index + 1) * 50ms);
       }
     }
   }
 
-  .clb-app-nav {
+  .clb-app-navigation {
     padding-top: spacing(2);
   }
 
-  .clb-app-nav-link {
+  .clb-app-navigation-link {
     padding: spacing(2) spacing(3);
     color: $color-white;
 
     .hover-underline {
-      background-image: linear-gradient($color-purple-300, $color-purple-300);
+      background-image: linear-gradient($color-primary-010, $color-primary-010);
     }
 
     &:first-of-type {
@@ -229,10 +229,12 @@ html.clb-app-menu-layer--scroll-blocked {
     &--portfolio,
     &--about {
       &:hover {
-        color: $color-secondary-400 !important;
-
-        .clb-app-nav-link__dash {
+        .clb-app-navigation-link__dash {
           background-color: $color-secondary-400;
+        }
+
+        .clb-link {
+          color: $color-secondary-400 !important;
         }
 
         .nuxt-icon {
@@ -260,14 +262,16 @@ html.clb-app-menu-layer--scroll-blocked {
     &--skills,
     &--contact {
       &:hover {
-        color: color.adjust($color-orange-010, $lightness: -5%) !important;
+        .clb-app-navigation-link__dash {
+          background-color: color.adjust($color-secondary-100, $lightness: -5%);
+        }
 
-        .clb-app-nav-link__dash {
-          background-color: color.adjust($color-orange-010, $lightness: -5%);
+        .clb-link {
+          color: color.adjust($color-secondary-100, $lightness: -5%) !important;
         }
 
         .nuxt-icon {
-          color: color.adjust($color-orange-010, $lightness: -5%) !important;
+          color: color.adjust($color-secondary-100, $lightness: -5%) !important;
         }
 
         .hover-underline {
@@ -276,13 +280,13 @@ html.clb-app-menu-layer--scroll-blocked {
       }
 
       .nuxt-icon {
-        color: $color-orange-010 !important;
+        color: $color-secondary-100 !important;
       }
 
       .hover-underline {
         background-image: linear-gradient(
-          color.adjust($color-orange-010, $lightness: -5%),
-          color.adjust($color-orange-010, $lightness: -5%)
+          color.adjust($color-secondary-100, $lightness: -5%),
+          color.adjust($color-secondary-100, $lightness: -5%)
         );
       }
     }
@@ -296,7 +300,7 @@ html.clb-app-menu-layer--scroll-blocked {
       &-house,
       &-boxes,
       &-chat-dots {
-        color: $color-orange-010 !important;
+        color: $color-secondary-100 !important;
       }
     }
   }
@@ -304,7 +308,7 @@ html.clb-app-menu-layer--scroll-blocked {
 
 @include light-mode {
   .clb-app-menu-layer {
-    background-color: rgba($color: $color-purple-550, $alpha: 0.95);
+    background-color: rgba($color: $color-primary-400, $alpha: 0.95);
   }
 }
 

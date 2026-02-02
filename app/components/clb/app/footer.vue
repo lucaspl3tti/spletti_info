@@ -1,36 +1,27 @@
 <template>
   <footer class="clb-footer">
-    <clb-container class="container--footer">
-      <div class="clb-footer__copyright">
-        <p>
-          © Jan-Luca Splettstößer 2021 - {{ currentYear }}. All Rights reserved.
-        </p>
+    <clb-container>
+      <div class="clb-footer__content">
+        <div class="clb-footer__copyright">
+          <p>
+            © Jan-Luca Splettstößer 2021 - {{ currentYear }}. All Rights reserved.
+          </p>
 
-        <p v-if="showVersion" class="clb-footer__version">
-          {{ siteTitle }} v{{ appVersion }}
-        </p>
-      </div>
-      <div class="clb-footer__links">
-        <p>
+          <p v-if="showVersion" class="clb-footer__version">
+            {{ siteTitle }} v{{ appVersion }}
+          </p>
+        </div>
+        <div class="clb-footer__links">
           <clb-link
-            :to="localePath('legal').toString()"
+            v-for="(link, index) in links"
+            :key="index"
+            :to="localePath(link.route).toString()"
             theme="light"
             class="clb-footer__link-item"
-            title="Impressum - Legal Disclosure"
           >
-            Impressum - Legal Disclosure
+            {{ link.title }}
           </clb-link>
-        </p>
-        <p>
-          <clb-link
-            :to="localePath('privacy').toString()"
-            theme="light"
-            class="clb-footer__link-item"
-            title="Datenschutzerklärung – Privacy Policy"
-          >
-            Datenschutzerklärung – Privacy Policy
-          </clb-link>
-        </p>
+        </div>
       </div>
     </clb-container>
   </footer>
@@ -43,6 +34,16 @@ const { showVersionInFooter, appVersion, siteTitle } = runtimeConfig.public;
 
 const showVersion = ref(showVersionInFooter);
 const currentYear: Ref<number|null> = ref(null);
+const links = [
+  {
+    route: '/legal',
+    title: 'Impressum - Legal Disclosure',
+  },
+  {
+    route: '/privacy',
+    title: 'Datenschutzerklärung – Privacy Policy',
+  },
+];
 
 onMounted(() => {
   currentYear.value = new Date().getFullYear();
@@ -59,37 +60,29 @@ onMounted(() => {
   color: $color-white;
   font-size: map.get($clb-font-sizes, 'default', 'md');
 
+  &__content {
+    @include flex(column, $justify: center);
+  }
+
+  &__copyright {
+    p {
+      margin-bottom: spacing(6);
+      text-align: center;
+    }
+  }
+
   &__version {
     font-size: map.get($clb-font-sizes, 'small', 'xs');
   }
-}
 
-.container--footer {
-  @include flex(column, $justify: center);
-}
-
-.clb-footer__copyright {
-  p {
-    margin-bottom: spacing(6);
-    text-align: center;
-  }
-}
-
-.clb-footer__links {
-  p {
+  &__link-item {
     margin-bottom: spacing(4);
-    text-align: center;
-  }
-
-  .clb-footer__link-item {
-    color: $color-white;
-    font-size: inherit;
   }
 }
 
 @include tablet-up {
   .clb-footer {
-    font-size: map.get($clb-font-sizes, 'default', 'xl');
+    font-size: map.get($clb-font-sizes, 'default', 'md');
   }
 }
 
@@ -98,7 +91,7 @@ onMounted(() => {
     min-height: 350px;
     @include paddingY(100px);
 
-    .clb-footer__copyright {
+    &__copyright {
       margin-bottom: spacing(8);
 
       p {
@@ -106,12 +99,12 @@ onMounted(() => {
       }
     }
 
-    .clb-footer__links {
+    &__links {
       @include flex(row nowrap, $justify: center, $gap: spacing(10));
+    }
 
-      p {
-        margin-bottom: 0;
-      }
+    &__link-item {
+      margin-bottom: 0;
     }
 
     .nav-active {

@@ -41,6 +41,7 @@
     "@nuxtjs/stylelint-module": "^5.2.1",
     "@pinia/nuxt": "^0.11.3",
     "@types/aos": "^3.0.7",
+    "@types/bootstrap": "^5.2.10",
     "@vueuse/core": "^14.0.0",
     "@vueuse/nuxt": "^14.0.0",
     "bootstrap": "^5.3.8",
